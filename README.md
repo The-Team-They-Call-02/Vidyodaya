@@ -27,20 +27,20 @@ Below you can see our database table layout for the backend.
 ![Database Tables](/database_tables.PNG)
 
 ## Tools & Software
-:hammer: HTML
-:hammer: CSS
-:hammer: JavaScript
-:hammer: React
-:hammer: Styled Components
-:hammer: Java
-:hammer: Spring
-:hammer: Auth0
-:hammer: PayPal 
-:hammer: Cloudinary
+* :hammer: HTML
+* :hammer: CSS
+* :hammer: JavaScript
+* :hammer: React
+* :hammer: Styled Components
+* :hammer: Java
+* :hammer: Spring
+* :hammer: Auth0
+* :hammer: PayPal 
+* :hammer: Cloudinary
 
 ## Team Members
-:loudspeaker: Christian Bautista
-:loudspeaker: Marlon Del Rosario
-:loudspeaker: Emily Gauthier
-:loudspeaker: Julliann Dulay
-:loudspeaker: Emily Adams
+* :loudspeaker: Christian Bautista
+* :loudspeaker: Marlon Del Rosario
+* :loudspeaker: Emily Gauthier
+* :loudspeaker: Julliann Dulay
+* :loudspeaker: Emily Adams
