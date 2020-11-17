@@ -8,10 +8,10 @@
         <version>2.2.9.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.zuris.circle</groupId>
-    <artifactId>zuriscircle</artifactId>
+    <groupId>com.lambdaschool</groupId>
+    <artifactId>oktafoundation</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>zuriscircle</name>
+    <name>oktafoundation</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
