@@ -44,3 +44,7 @@ Below you can see our database table layout for the backend.
 * :loudspeaker: Emily Gauthier
 * :loudspeaker: Julliann Dulay
 * :loudspeaker: Emily Adams
+
+## Want to see our process?
+
+Check out our [Trello board](https://trello.com/b/gmLvkA6h/ohack-2020-zuri)!
