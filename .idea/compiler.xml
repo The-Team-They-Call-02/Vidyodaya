@@ -6,16 +6,16 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="oktafoundation" />
+        <module name="opportunityhack" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="oktafoundation" target="14" />
+      <module name="opportunityhack" target="14" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="oktafoundation" options="-parameters" />
+      <module name="opportunityhack" options="-parameters" />
     </option>
   </component>
 </project>
