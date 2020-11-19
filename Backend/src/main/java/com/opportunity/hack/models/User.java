@@ -33,7 +33,6 @@ public class User
     @Column(unique = true)
     private String username;
 
-
     /**
      * Part of the join relationship between user and role
      * connects users to the user role combination
