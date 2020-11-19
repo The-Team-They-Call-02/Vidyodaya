@@ -47,11 +47,11 @@ public class Swagger2Config
     {
         return new ApiInfoBuilder().title("Java Spring BE Foundation")
             .description("Java Spring Backend Foundation and Scaffolding")
-            .contact(new Contact("John Mitchell",
-                "http://www.lambdaschool.com",
-                "john@lambdaschool.com"))
+            .contact(new Contact("ohack",
+                "https://github.com/2020-opportunity-hack/Team-02",
+                "null"))
             .license("MIT")
-            .licenseUrl("https://github.com/LambdaSchool/java-springfoundation/blob/master/LICENSE")
+            .licenseUrl("https://github.com/2020-opportunity-hack/Team-02")
             .version("1.0.0")
             .build();
     }

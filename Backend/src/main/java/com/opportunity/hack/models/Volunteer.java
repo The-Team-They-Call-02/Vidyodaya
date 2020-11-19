@@ -19,13 +19,31 @@ public class Volunteer extends Auditable{
     @Column(nullable = false)
     private String email;
 
+    @Column(nullable = false)
+    private String phone;
+
+    @Column(nullable = false)
+    private String location;
+
+    @Column(nullable = false)
+    private String message;
+
+    @Column(nullable = false)
+    private String position;
+
+
+
     public Volunteer() {
     }
 
-    public Volunteer(String fname, String lname, String email) {
+    public Volunteer(String fname, String lname, String email, String phone, String location, String message, String position) {
         this.fname = fname;
         this.lname = lname;
         this.email = email;
+        this.phone = phone;
+        this.location = location;
+        this.message = message;
+        this.position = position;
     }
 
     public long getVolunteerid() {
@@ -58,5 +76,37 @@ public class Volunteer extends Auditable{
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public String getPosition() {
+        return position;
+    }
+
+    public void setPosition(String position) {
+        this.position = position;
     }
 }
