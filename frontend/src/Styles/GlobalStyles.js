@@ -26,8 +26,20 @@ body {
   font-family: 'Montserrat', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
- background-color: #FFFFFF;
+ background-color: ${colorObj.light};
+ font-color: ${colorObj.dark};
 
-}`
+}
 
+
+${'' /* These P tag settings are from Figma. May need adjusting */}
+p { 
+height: 2440px;
+width: 1406px;
+left: 251px;
+top: 457px;
+border-radius: nullpx;
+}
+
+`
 export default GlobalStyle;

@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import { colorObj } from './GlobalStyle';
+import { colorObj } from './GlobalStyles.js';
 
-export const header = styled.h1`
+export const Header = styled.h1`
 font-family: Arizonia;
 font-size: 72px;
 font-style: normal;
@@ -10,3 +10,4 @@ line-height: 90px;
 letter-spacing: 0em;
 text-align: center;
 `;
+
