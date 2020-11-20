@@ -4,6 +4,9 @@ import { colorObj } from "../../Styles/GlobalStyles";
 const BodyContainer = styled.div`
   min-height: 80%;
   padding: 50px 0;
+  background: #fff;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  border-radius: 20px;
 `;
 
 const Content = styled.div`
@@ -26,7 +29,7 @@ const Answer = styled.p`
 `;
 
 const CtaContainer = styled.div`
-  height: 200px;
+  height: 180px;
   display: flex;
   justify-content: center;
   align-items: center;

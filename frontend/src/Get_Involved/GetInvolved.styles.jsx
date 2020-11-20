@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 export const MainContainer = styled.div`
   background: #f8f7f7;
@@ -42,7 +42,7 @@ export const ViewDashboard = styled.button`
 
 export const BackBtn = styled.div`
   position: absolute;
-  bottom: 0;
+  bottom: 10px;
   left: 10px;
   font-weight: 900;
   font-size: 1.5rem;

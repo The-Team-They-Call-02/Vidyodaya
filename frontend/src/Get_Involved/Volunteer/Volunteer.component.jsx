@@ -103,12 +103,12 @@ const Volunteer = () => {
             Broadband Internet and phone connections are easily accessible.
           </Answer>
         </Content>
-      </BodyContainer>
 
-      <CtaContainer>
-        <Question>Interested?</Question>
-        <CtaBtn>Register</CtaBtn>
-      </CtaContainer>
+        <CtaContainer>
+          <Question>Interested?</Question>
+          <CtaBtn>Register</CtaBtn>
+        </CtaContainer>
+      </BodyContainer>
     </Container>
   );
 };
