@@ -40,7 +40,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: ${colorObj.light};
-  font-color: ${colorObj.dark};
+  color: ${colorObj.dark};
   font-size: 1.2rem;
 }
 
@@ -57,8 +57,11 @@ button {
 
 h1 {
 font-weight: 700;
-font-size: 40px;
+font-size: 4rem;
 }
 
+h2 {
+  font-size: 4rem;
+}
 `
 export default GlobalStyle;
