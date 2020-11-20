@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { colorObj } from "../Styles/GlobalStyles";
 
 export const MainContainer = styled.div`
   background: #f8f7f7;
@@ -8,6 +9,7 @@ export const MainContainer = styled.div`
 export const Heading = styled.h2`
   font-size: 6.4rem;
   font-family: "Roboto", sans-serif;
+  color: ${colorObj.dark};
 `;
 
 export const Container = styled.div`
@@ -43,6 +45,7 @@ export const ViewDashboard = styled.button`
 export const BackBtn = styled.div`
   position: absolute;
   bottom: 10px;
+  color: ${colorObj.dark};
   left: 10px;
   font-weight: 900;
   font-size: 1.5rem;

@@ -15,6 +15,7 @@ const Content = styled.div`
   display: flex;
   flex-direction: column;
   margin-bottom: 30px;
+  color: ${colorObj.dark};
 `;
 
 const Question = styled.h3`
@@ -45,6 +46,12 @@ const CtaBtn = styled.button`
   width: 150px;
   border: none;
   border-radius: 10px;
+  cursor: pointer;
+
+  &:focus {
+    outline: none;
+    filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.25));
+  }
 `;
 
 export { BodyContainer, Content, Question, Answer, CtaContainer, CtaBtn };

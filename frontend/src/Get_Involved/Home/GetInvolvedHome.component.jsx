@@ -22,7 +22,6 @@ const GetInvolvedHome = () => {
     <Container>
       <HeadingContainer>
         <Heading>Get Involved</Heading>
-        <ViewDashboard> View Dashboard </ViewDashboard>
       </HeadingContainer>
       <LinksContainer>
         <Links to="/get-involved/volunteers">

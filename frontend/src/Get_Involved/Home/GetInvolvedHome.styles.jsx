@@ -23,7 +23,7 @@ export const Links = styled(Link)`
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #000;
+  color: ${colorObj.dark};
 `;
 
 export const InfoContainer = styled.div`
