@@ -1,10 +1,17 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
-import Programs from './Programs/Programs';
-import About from './Components/About';
-import Blog from './Components/Blog';
-import Home from "./Components/Home";
+import {
+  AdoptClassroom,
+  HipHop,
+  Mentorship,
+  Programs,
+  PublicSpeaking,
+  YouthLeader,
+} from './Components/pages/Programs';
+import About from './Components/pages/About';
+import Blog from './Components/pages/Blog';
+import Home from "./Components/pages/Home";
 import GlobalStyles from "./Styles/GlobalStyles";
 
 
