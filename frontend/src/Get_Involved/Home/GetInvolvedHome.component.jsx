@@ -3,7 +3,14 @@ import { Link } from "react-router-dom";
 
 // styled-components
 import { Heading } from "../GetInvolved.styles";
-import { HomeContainer, LinksContainer, Links } from "./GetInvolvedHome.styles";
+import {
+  HomeContainer,
+  LinksContainer,
+  Links,
+  PageHeader,
+  InfoContainer,
+  Info,
+} from "./GetInvolvedHome.styles";
 
 const GetInvolvedHome = () => {
   return (
@@ -11,19 +18,19 @@ const GetInvolvedHome = () => {
       <Heading>Get Involved</Heading>
 
       <LinksContainer>
-        <Links to="/volunteers" className="card-container">
-          <div className="info-container">
-            <h3>Volunteer</h3>
-            <p>internship</p>
-            <p>research</p>
-            <p>volunteering</p>
-          </div>
+        <Links to="/volunteers">
+          <InfoContainer>
+            <PageHeader>Volunteer</PageHeader>
+            <Info>internship</Info>
+            <Info>research</Info>
+            <Info>volunteering</Info>
+          </InfoContainer>
         </Links>
 
-        <Links to="/donations" className="card-container">
-          <div className="info-container">
-            <h3>Donate</h3>
-          </div>
+        <Links to="/donations">
+          <InfoContainer>
+            <PageHeader>Donate</PageHeader>
+          </InfoContainer>
         </Links>
       </LinksContainer>
     </HomeContainer>
