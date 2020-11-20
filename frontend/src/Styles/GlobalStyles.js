@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
 
 ////////////////////////////
 //     PRIMARY COLORS    //
@@ -8,9 +8,16 @@ const colorObj = {
   yellow: "#FFB800",
   lightblue: "#08BDBD",
   orange: "#FF5714",
-  light: "#E5E5E5",
+  light: "#FFFFFF",
   dark: "#27313D",
 };
+
+const CenteredDiv = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+`;
 
 const GlobalStyle = createGlobalStyle`
 
@@ -31,14 +38,29 @@ body {
   padding: 0;
   min-height: 100vh;
   width: 100%;
-  font-family: 'Montserrat', sans-serif; 
+  font-family: 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
- background-color: ${colorObj.light};
- font-color: ${colorObj.dark};
-
+  background-color: ${colorObj.light};
+  font-color: ${colorObj.dark};
+  font-size: 1.2rem;
 }
 
+button {
+  background-color: ${colorObj.green};
+  border-radius: 10px;
+  border: none;
+  width: 10rem;
+  height: 3rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+h1 {
+font-weight: 700;
+font-size: 40px;
+}
 
 `;
-export { GlobalStyle as default, colorObj };
+export { GlobalStyle as default, CenteredDiv, colorObj };

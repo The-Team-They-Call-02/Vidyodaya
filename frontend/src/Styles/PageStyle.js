@@ -1,5 +1,5 @@
 import styled from "styled-components";
-// import { colorObj } from './GlobalStyle';
+import { colorObj } from './GlobalStyles';
 
 export const PageBody = styled.div`
 ${'' /* position: absolute; */}
@@ -17,6 +17,6 @@ margin: 0 20%;
 padding: 10%;
 border-radius: 20px;
 ${'' /* position: absolute; */}
-box-shadow: 0px 4px 20px 0px #27313D;
+box-shadow: 0px 4px 20px 0px ${colorObj.dark};
 `;
 

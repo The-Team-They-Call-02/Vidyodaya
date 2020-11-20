@@ -1,22 +1,28 @@
 import React from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
-import Programs from "./Programs/Programs";
-import About from "./Components/About";
-import Blog from "./Components/Blog";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-import GlobalStyle from "./Styles/GlobalStyles";
-
-// TEST
-import GetInvolved from "./Get_Involved/GetInvolved.component";
+import {
+  AdoptClassroom,
+  HipHop,
+  Mentorship,
+  Programs,
+  PublicSpeaking,
+  YouthLeader,
+} from "./Components/pages/Programs";
+import About from "./Components/pages/About";
+import Blog from "./Components/pages/Blog";
+import Home from "./Components/pages/Home";
+import GetInvolved from "./Components/pages/Get_Involved/GetInvolved.component";
+import GlobalStyles from "./Styles/GlobalStyles";
 
 function App() {
   return (
     <Router>
-      <GlobalStyle />
-      <h1>test</h1>
-      {/* <Route exact path="/">
-      <Main />
-    </Route> */}
+      <GlobalStyles />
+
+      <Route exact path="/">
+        <Home />
+      </Route>
       <Route path="/about">
         <About />
       </Route>
@@ -26,7 +32,10 @@ function App() {
       <Route path="/blog">
         <Blog />
       </Route>
-      <Route path="/get-involved" component={GetInvolved} />
+
+      <Route path="/get-involved">
+        <GetInvolved />
+      </Route>
     </Router>
   );
 }
