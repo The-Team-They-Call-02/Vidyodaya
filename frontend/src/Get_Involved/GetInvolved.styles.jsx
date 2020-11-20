@@ -10,5 +10,4 @@ export const MainContainer = styled.div`
 export const Heading = styled.h2`
   font-size: 6.4rem;
   font-family: "Roboto", sans-serif;
-  margin: 20px 0;
 `;

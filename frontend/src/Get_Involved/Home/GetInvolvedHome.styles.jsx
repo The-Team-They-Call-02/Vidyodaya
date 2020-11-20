@@ -9,6 +9,29 @@ export const HomeContainer = styled.div`
   height: 100%;
 `;
 
+export const HeadingContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 20%;
+`;
+
+export const ViewDashboard = styled.button`
+  display: ${(props) => (props.isAdmin ? "inline" : "none")};
+  border: 2px solid #00703a;
+  background: #e5e5e5;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  padding: 10px;
+  border-radius: 10px;
+  text-transform: uppercase;
+  font-weight: 900;
+  color: #00703a;
+`;
+
 export const LinksContainer = styled.div`
   height: 80%;
   width: 75%;

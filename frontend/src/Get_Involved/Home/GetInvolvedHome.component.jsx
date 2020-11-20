@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 // styled-components
 import { Heading } from "../GetInvolved.styles";
@@ -10,15 +9,21 @@ import {
   PageHeader,
   InfoContainer,
   Info,
+  HeadingContainer,
+  ViewDashboard,
 } from "./GetInvolvedHome.styles";
+
+// view dashboard will need a prop isAdmin which will probably come from the backend API call
 
 const GetInvolvedHome = () => {
   return (
     <HomeContainer>
-      <Heading>Get Involved</Heading>
-
+      <HeadingContainer>
+        <Heading>Get Involved</Heading>
+        <ViewDashboard> View Dashboard </ViewDashboard>
+      </HeadingContainer>
       <LinksContainer>
-        <Links to="/volunteers">
+        <Links to="/get-involved/volunteers">
           <InfoContainer>
             <PageHeader>Volunteer</PageHeader>
             <Info>internship</Info>
@@ -27,7 +32,7 @@ const GetInvolvedHome = () => {
           </InfoContainer>
         </Links>
 
-        <Links to="/donations">
+        <Links to="/get-involved/donations">
           <InfoContainer>
             <PageHeader>Donate</PageHeader>
           </InfoContainer>

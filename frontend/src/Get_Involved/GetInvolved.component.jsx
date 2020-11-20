@@ -13,9 +13,9 @@ const GetInvolved = () => {
   return (
     <MainContainer>
       <Switch>
-        <Route path="/volunteer" component={Volunteer} />
-        <Route path="/donations" component={Donations} />
-        <Route path="/" component={GetInvolvedHome} />
+        <Route path="/get-involved/volunteers" component={Volunteer} />
+        <Route path="/get-involved/donations" component={Donations} />
+        <Route path="/get-involved/" component={GetInvolvedHome} />
       </Switch>
     </MainContainer>
   );
