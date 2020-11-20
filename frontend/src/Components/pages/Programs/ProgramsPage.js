@@ -7,19 +7,49 @@ import Footer from '../../common/Footer';
 
 //STYLING
 import styled from 'styled-components';
+import { colorObj } from '../../../Styles/GlobalStyles';
 
 
 const ProgramsPageContainer = styled.div`
+display: flex;
+flex-direction: column;
     height: 100%;
-    background-color: #F8F7F7;
     .programs-page-inner-div {
-        margin-top: 150px;
+        background-color: #F8F7F7;
         display: flex;
-        .card {
-            width: 714px;
-            height: 545px;
-            border-radius: 20px;
-            border: 5px solid #77CC6D;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 150px;
+        .programs-page-h1 {
+            margin: 50px auto;
+        }
+        .programs-page-cards-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            width: 1533px;
+            .card {
+                background-color: #ffffff;
+                box-shadow: 0px 1px 10px 0px ${colorObj.dark};
+                display: flex;
+                flex-direction: column;
+                flex-wrap: wrap;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                width: 714px;
+                height: 545px;
+                border-radius: 20px;
+                border: 5px solid #77CC6D;
+                margin-bottom: 100px;
+                &:last-child {
+                    width: 1533px;
+                }
+            }
+            .programs-page-frisbee {
+
+            }
         }
     }
 
@@ -33,11 +63,14 @@ const ProgramsPage = () => {
         <ProgramsPageContainer>
             <Navbar />
             <div className="programs-page-inner-div">
-                <div className="programs-page-frisbee card"> Ultimate Frisbee Program </div>
-                <div className="programs-page-children-camps card"> Children Camps </div>
-                <div className="programs-page-education card"> Education Programs </div>
-                <div className="programs-page-balwadis card"> Balwadis <span> (Integrated Child Development Services Centres) </span></div>
-                <div className="programs-page-Culture card"> Culture </div>
+                <h1 className="programs-page-h1"> OUR PROGRAMS </h1>
+                <div className="programs-page-cards-container">
+                    <div className="programs-page-frisbee card"> <h2>Ultimate Frisbee Program</h2> </div>
+                    <div className="programs-page-children-camps card"> <h2>Children Camps</h2> </div>
+                    <div className="programs-page-education card"> <h2>Education Programs</h2> </div>
+                    <div className="programs-page-balwadis card"> <h2>Balwadis</h2> <span> (Integrated Child Development Services Centres) </span></div>
+                    <div className="programs-page-Culture card"> <h2>Culture</h2> </div>
+                </div>
             </div>
             <Footer />
         </ProgramsPageContainer>
