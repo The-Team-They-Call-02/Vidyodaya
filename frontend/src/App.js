@@ -13,10 +13,10 @@ function App() {
   return (
     <>
       <GlobalStyle />
-      <Link to="/get-involved" style={{ fontSize: "4rem" }}>
+      {/* <Link to="/get-involved" style={{ fontSize: "4rem" }}>
         GET INVOLVED
       </Link>
-      <h1>test</h1>
+      <h1>test</h1> */}
       {/* <Route exact path="/">
       <Main />
     </Route> */}

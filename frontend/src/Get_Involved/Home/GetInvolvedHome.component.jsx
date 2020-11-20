@@ -1,23 +1,25 @@
 import React from "react";
 
 // styled-components
-import { Heading } from "../GetInvolved.styles";
 import {
-  HomeContainer,
+  Heading,
+  HeadingContainer,
+  Container,
+  ViewDashboard,
+} from "../GetInvolved.styles";
+import {
   LinksContainer,
   Links,
   PageHeader,
   InfoContainer,
   Info,
-  HeadingContainer,
-  ViewDashboard,
 } from "./GetInvolvedHome.styles";
 
 // view dashboard will need a prop isAdmin which will probably come from the backend API call
 
 const GetInvolvedHome = () => {
   return (
-    <HomeContainer>
+    <Container>
       <HeadingContainer>
         <Heading>Get Involved</Heading>
         <ViewDashboard> View Dashboard </ViewDashboard>
@@ -38,7 +40,7 @@ const GetInvolvedHome = () => {
           </InfoContainer>
         </Links>
       </LinksContainer>
-    </HomeContainer>
+    </Container>
   );
 };
 
