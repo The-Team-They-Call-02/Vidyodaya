@@ -2,12 +2,13 @@ import React from 'react';
 import { BannerGray, BannerGreen, BannerImg, HeroText, GreenHeader, Spacer, GreenBkg, WhiteBkg, VerticalLine } from "../Styles/HomeStyle";
 import { TempNav, CenteredDiv } from "../Styles/GlobalStyles";
 import arrow from "../Assets/Home/arrow.png";
+import Navbar from "./Navbar";
 
 const Home = () => {
 
     return(
         <div className="home-page">
-            <TempNav>Temp Nav Bar</TempNav>
+            <Navbar />
             <BannerGray>
             <p>MISSING CHILD!!</p>
             <img src={arrow} alt="" style={{width: "400px"}}/>
