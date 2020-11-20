@@ -1,6 +1,6 @@
 import React from 'react';
-import { FooterStyle, H2Styled, PStyled, Links, Social } from "../Styles/FooterStyle";
-import logo from "../Assets/Home/logo.png";
+import { FooterStyle, H2Styled, PStyled, Links, Social } from "../../Styles/FooterStyle";
+import logo from "../../Assets/Home/logo.png";
 
 const Footer = () => {
 

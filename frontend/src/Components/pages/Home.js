@@ -1,9 +1,9 @@
 import React from 'react';
-import { BannerGray, BannerGreen, BannerImg, HeroText, GreenHeader, Spacer, GreenBkg, WhiteBkg, VerticalLine } from "../Styles/HomeStyle";
-import { CenteredDiv } from "../Styles/GlobalStyles";
-import arrow from "../Assets/Home/arrow.png";
-import Navbar from "./Navbar";
-import Footer from "./Footer";
+import { BannerGray, BannerGreen, BannerImg, HeroText, GreenHeader, Spacer, GreenBkg, WhiteBkg, VerticalLine } from "../../Styles/HomeStyle";
+import { CenteredDiv } from "../../Styles/GlobalStyles";
+import arrow from "../../Assets/Home/arrow.png";
+import Navbar from "../common/Navbar";
+import Footer from "../common/Footer";
 
 const Home = () => {
 

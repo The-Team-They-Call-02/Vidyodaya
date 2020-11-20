@@ -1,5 +1,5 @@
 import React from 'react';
-import { PageBody, Card } from '../Styles/PageStyle';
+import { PageBody, Card } from '../../Styles/PageStyle';
 
 const Blog = () => {
 

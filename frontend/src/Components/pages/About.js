@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
-import { Header } from "../Styles/AboutStyle";
-import img1 from "../Assets/About/vidyodaya1.jpg";
-import img2 from "../Assets/About/VBVT-Charities-Aid-Foundation.jpg";
-import img3 from "../Assets/About/ashoka-changemaker-logo.png";
+import { Header } from "../../Styles/AboutStyle";
+import img1 from "../../Assets/About/vidyodaya1.jpg";
+import img2 from "../../Assets/About/VBVT-Charities-Aid-Foundation.jpg";
+import img3 from "../../Assets/About/ashoka-changemaker-logo.png";
 const About = () => {
 
     return(
