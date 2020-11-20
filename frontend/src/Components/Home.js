@@ -1,13 +1,15 @@
 import React from 'react';
 import { BannerGray, BannerGreen, BannerImg, HeroText, GreenHeader, Spacer, GreenBkg, WhiteBkg, VerticalLine } from "../Styles/HomeStyle";
-import { TempNav, CenteredDiv } from "../Styles/GlobalStyles";
+import { CenteredDiv } from "../Styles/GlobalStyles";
 import arrow from "../Assets/Home/arrow.png";
+import Navbar from "./Navbar";
+import Footer from "./Footer";
 
 const Home = () => {
 
     return(
         <div className="home-page">
-            <TempNav>Temp Nav Bar</TempNav>
+            <Navbar />
             <BannerGray>
             <p>MISSING CHILD!!</p>
             <img src={arrow} alt="" style={{width: "400px"}}/>
@@ -77,7 +79,7 @@ const Home = () => {
                 </GreenBkg>
                 <p style={{backgroundColor: "gray", height: "500px", width: "100%"}}>Map new posts here</p>
             </CenteredDiv>
-            <div style={{height: "300px", border: "solid black"}}>Footer placeholder</div>
+            <Footer />
         </div>
 
     )
