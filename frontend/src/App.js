@@ -2,12 +2,13 @@ import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Programs from './Programs/Programs';
 import About from './Components/About';
+import Blog from './Components/Blog';
 
 
 function App() {
   return (
     <Router>
-    test
+    <h1>test</h1>
     {/* <Route exact path="/">
       <Main />
     </Route> */}
@@ -15,7 +16,10 @@ function App() {
       <About/>
     </Route>
     <Route path="/programs">
-    <Programs/>
+      <Programs/>
+    </Route>
+    <Route path="/blog">
+      <Blog />
     </Route>
     </Router>
   );
