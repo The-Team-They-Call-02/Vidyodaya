@@ -2,15 +2,15 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import {
-  AdoptClassroom,
-  HipHop,
-  Mentorship,
-  Programs,
-  PublicSpeaking,
-  YouthLeader,
-} from "./Components/pages/Programs";
-import About from "./Components/pages/About";
-import Blog from "./Components/pages/Blog";
+  FrisbeeProgram,
+  ChildrenCamps,
+  EducationProgram,
+  ProgramsPage,
+  Balwadis,
+  Culture,
+} from './Components/pages/Programs';
+import About from './Components/pages/About';
+import Blog from './Components/pages/Blog';
 import Home from "./Components/pages/Home";
 import GetInvolved from "./Components/pages/Get_Involved/GetInvolved.component";
 import GlobalStyles from "./Styles/GlobalStyles";
@@ -27,7 +27,7 @@ function App() {
         <About />
       </Route>
       <Route path="/programs">
-        <Programs />
+        <ProgramsPage />
       </Route>
       <Route path="/blog">
         <Blog />

@@ -1,16 +1,16 @@
-import AdoptClassroom from './AdoptClassroom';
-import HipHop from './HipHop';
-import Mentorship from './Mentoship';
-import Programs from './Programs';
-import PublicSpeaking from './PublicSpeaking';
-import YouthLeader from './YouthLeader';
+import FrisbeeProgram from './Frisbee';
+import ChildrenCamps from './ChildrenCamps';
+import EducationProgram from './EducationProgram';
+import ProgramsPage from './ProgramsPage';
+import Balwadis from './Balwadis';
+import Culture from './Culture';
 
 export {
-    AdoptClassroom,
-    HipHop,
-    Mentorship,
-    Programs,
-    PublicSpeaking,
-    YouthLeader,
+    FrisbeeProgram,
+    ChildrenCamps,
+    EducationProgram,
+    ProgramsPage,
+    Balwadis,
+    Culture,
 }
 
