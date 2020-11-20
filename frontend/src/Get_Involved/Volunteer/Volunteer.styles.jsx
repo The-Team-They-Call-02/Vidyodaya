@@ -48,6 +48,7 @@ const CtaBtn = styled(Link)`
   border: none;
   border-radius: 10px;
   cursor: pointer;
+  text-decoration: none;
 
   &:focus {
     outline: none;

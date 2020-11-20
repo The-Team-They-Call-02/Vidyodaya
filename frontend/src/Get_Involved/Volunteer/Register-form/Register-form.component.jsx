@@ -1,6 +1,7 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
+
 // styled-components
 import {
   Container,
@@ -26,6 +27,10 @@ import {
   RadioChoices,
   RadioLabel,
   NameLabel,
+  SubmitBtn,
+  ErrorContainer,
+  Select,
+  Option,
 } from "./Register-form.styles";
 
 const RegisterForm = () => {
@@ -65,7 +70,7 @@ const RegisterForm = () => {
     <Container>
       <HeadingContainer>
         <Heading>Register to Volunteer</Heading>
-        <ViewDashboard isAdmin>View Dashboard</ViewDashboard>
+        <ViewDashboard>View Dashboard</ViewDashboard>
         <BackBtn onClick={goBack}>Back</BackBtn>
       </HeadingContainer>
       <FormContainer>
@@ -108,10 +113,11 @@ const RegisterForm = () => {
                 />
                 <NameLabel>Last</NameLabel>
               </div>
-
-              {/* {errors.firstName && <p style={{ fontSize: "5rem" }}>Test</p>}
-            {errors.lastName && <p style={{ fontSize: "5rem" }}>Test</p>} */}
             </InputContainer>
+
+            {(errors.firstName || errors.lastName) && (
+              <ErrorContainer>Please enter your name</ErrorContainer>
+            )}
           </InputWrapper>
 
           {/* married */}
@@ -140,9 +146,10 @@ const RegisterForm = () => {
                 />
                 <RadioLabel>No</RadioLabel>
               </RadioChoices>
-
-              {/* {errors.married && <p style={{ fontSize: "2rem" }}>Test</p>} */}
             </RadioContainer>
+            {errors.married && (
+              <ErrorContainer>Please select one of the options</ErrorContainer>
+            )}
           </InputWrapper>
 
           {/* children */}
@@ -172,9 +179,10 @@ const RegisterForm = () => {
                 />
                 <RadioLabel>No</RadioLabel>
               </RadioChoices>
-
-              {/* {errors.children && <p style={{ fontSize: "2rem" }}>Test</p>} */}
             </RadioContainer>
+            {errors.children && (
+              <ErrorContainer>Please select one of the options</ErrorContainer>
+            )}
           </InputWrapper>
 
           {/* volunteering as */}
@@ -182,17 +190,20 @@ const RegisterForm = () => {
             <Label htmlFor="volunteeringAs">
               Volunteering As <Star>*</Star>
             </Label>
-
             <InputContainer>
-              <InputField
-                id="volunteeringAs"
-                type="text"
-                name="volunteeringAs"
-                ref={register({ required: true })}
-              />
+              <Select name="volunteeringAs" ref={register({ required: true })}>
+                <Option value="web designer">Web Designer</Option>
+                <Option value="graphic designer">Graphic Designer</Option>
+                <Option value="tech trainer">Tech Trainer</Option>
+                <Option value="games enthusiast">Games Enthusiast</Option>
+                <Option value="finance managers">Finance Managers</Option>
+                <Option value="fund raising">Fund Raising</Option>
+              </Select>
             </InputContainer>
 
-            {/* {errors.volunteeringAs && <p style={{ fontSize: "2rem" }}>Test</p>} */}
+            {errors.volunteeringAs && (
+              <ErrorContainer>Please select one of the options</ErrorContainer>
+            )}
           </InputWrapper>
 
           {/* have you volunteered before */}
@@ -251,8 +262,10 @@ const RegisterForm = () => {
                 />
                 <RadioLabel>Phone</RadioLabel>
               </RadioChoices>
-              {/* {errors.contact && <p style={{ fontSize: "2rem" }}>Test</p>} */}
             </RadioContainer>
+            {errors.contact && (
+              <ErrorContainer>Please select one of the options</ErrorContainer>
+            )}
           </InputWrapper>
 
           {/* Email */}
@@ -270,7 +283,9 @@ const RegisterForm = () => {
               />
             </InputContainer>
 
-            {/* {errors.email && <p style={{ fontSize: "2rem" }}>Test</p>} */}
+            {errors.email && (
+              <ErrorContainer>Please enter your email</ErrorContainer>
+            )}
           </InputWrapper>
 
           {/* Phone */}
@@ -288,7 +303,9 @@ const RegisterForm = () => {
               />
             </InputContainer>
 
-            {/* {errors.phone && <p style={{ fontSize: "2rem" }}>Test</p>} */}
+            {errors.phone && (
+              <ErrorContainer>Please enter your email</ErrorContainer>
+            )}
           </InputWrapper>
 
           {/* how did you hear about us */}
@@ -306,10 +323,12 @@ const RegisterForm = () => {
               ></Textarea>
             </InputContainer>
 
-            {errors.textArea && <p style={{ fontSize: "2rem" }}>Test</p>}
+            {errors.textArea && (
+              <ErrorContainer>Please fill out this field</ErrorContainer>
+            )}
           </InputWrapper>
 
-          <button type="submit">Submit</button>
+          <SubmitBtn type="submit">Submit</SubmitBtn>
         </Form>
       </FormContainer>
     </Container>
@@ -317,3 +336,14 @@ const RegisterForm = () => {
 };
 
 export default RegisterForm;
+
+{
+  /* <InputContainer>
+              <InputField
+                id="volunteeringAs"
+                type="text"
+                name="volunteeringAs"
+                ref={register({ required: true })}
+              />
+            </InputContainer> */
+}

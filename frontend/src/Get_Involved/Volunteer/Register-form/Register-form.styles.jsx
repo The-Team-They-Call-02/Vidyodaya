@@ -10,7 +10,7 @@ const FormContainer = styled.div`
 `;
 
 const Form = styled.form`
-  padding: 20px 0;
+  padding: 50px 0 20px 0;
 `;
 
 const Title = styled.h3`
@@ -34,6 +34,7 @@ const InputWrapper = styled.div`
   justify-content: flex-start;
   align-items: flex-start;
   margin-bottom: 50px;
+  position: relative;
 `;
 
 const NameLabel = styled.p`
@@ -70,9 +71,24 @@ const InputField = styled.input`
   }
 `;
 
+const Select = styled.select`
+  width: 50%;
+  padding: 5px 10px;
+
+  &:focus {
+    outline-color: ${colorObj.green};
+  }
+`;
+const Option = styled.option`
+  font-size: 1.3rem;
+`;
 const Textarea = styled.textarea`
   width: 50%;
   padding: 5px 10px;
+
+  &:focus {
+    outline-color: ${colorObj.green};
+  }
 `;
 
 const RadioContainer = styled.div`
@@ -96,6 +112,34 @@ const RadioLabel = styled.p`
   font-size: 1.5rem;
   margin-left: 10px;
 `;
+
+const SubmitBtn = styled.button`
+  font-size: 2rem;
+  color: white;
+  font-weight: 900;
+  background: ${colorObj.green};
+  padding: 10px;
+  width: 150px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+
+  &:focus {
+    outline: none;
+    filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.25));
+  }
+`;
+
+const ErrorContainer = styled.div`
+  width: 22%;
+  text-align: left;
+  font-size: 1.5rem;
+  color: red;
+  position: absolute;
+  top: 0;
+  right: 0;
+`;
+
 export {
   FormContainer,
   Form,
@@ -112,4 +156,8 @@ export {
   RadioContainer,
   RadioChoices,
   RadioLabel,
+  SubmitBtn,
+  ErrorContainer,
+  Select,
+  Option,
 };
