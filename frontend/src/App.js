@@ -3,15 +3,17 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Programs from './Programs/Programs';
 import About from './Components/About';
 import Blog from './Components/Blog';
+import Home from "./Components/Home";
+import GlobalStyles from "./Styles/GlobalStyles";
 
 
 function App() {
   return (
     <Router>
-    <h1>test</h1>
-    {/* <Route exact path="/">
-      <Main />
-    </Route> */}
+    <GlobalStyles/>
+    <Route exact path="/">
+      <Home/>
+    </Route>
     <Route path="/about">
       <About/>
     </Route>
