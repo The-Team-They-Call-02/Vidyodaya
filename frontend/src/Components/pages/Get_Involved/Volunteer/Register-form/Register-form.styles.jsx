@@ -7,7 +7,6 @@ const FormContainer = styled.div`
   border-radius: 20px;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
   padding: 150px 70px 100px 70px;
-  border: 2px solid black;
 `;
 
 const Form = styled.form`
