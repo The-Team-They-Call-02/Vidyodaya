@@ -1,11 +1,14 @@
 import React, {useState} from 'react';
 import { Header } from "../Styles/AboutStyle";
 import img1 from "../Assets/About/vidyodaya1.jpg";
+import img2 from "../Assets/About/VBVT-Charities-Aid-Foundation.jpg";
+import img3 from "../Assets/About/ashoka-changemaker-logo.png";
 const About = () => {
 
     return(
         <div>
         <p>Insert Nav bar here</p>
+        <section className="history">
             <Header>History</Header>
             <p>
             The Viswa Bharati Vidyodaya Trust is a charitable body registered (No. 41 of 1993) under the Indian Trusts Act. Its registered office is 12/669B, Thottamoola, Gudalur – 643 212, The Nilgiris, Tamilnadu. It has nine members on the board of Trustees, which includes the Managing Trustee. Six of the Trustees are from the adivasi community.
@@ -38,6 +41,37 @@ const About = () => {
             <p>
             In the year 2000, VBVT decided that the adivasi community, having seen their children’s progress in Vidyodaya school, was now ready for an educational intervention and so launched a major programme covering 138 of the 303 adivasi villages of the two taluks of Gudalur Block. By 2015 it had covered all the villages. 
             </p>
+        </section>
+
+        <section classname="charities-aid-foundation">
+            <Header>Charities Aid Foundation India</Header>
+            <h1>About Charities Aid Foundation, India:</h1>
+            <p>
+            CAF India is a registered charitable trust set up in 1998 to provide strategic and management support to corporates, individuals and NGOs with an aim to ensure greater impact of their philanthropic and CSR investments.</p>
+            <p>
+            Charities Aid Foundation is a leading international not-for-profit organisation, which works to make giving more effective and charities more successful. CAF India is part of an international network with offices in nine countries, including Australia, Brazil, Canada, India, Russia, South Africa and the United States of America and distributes funds to over 90 countries around the world.
+            </p>
+            <img src={img2} alt="" style={{width: "800px"}}/>
+            <p>Click here to download the certificate</p>
+        </section>
+        <section classname="changemaker-school">
+        <Header>Changemaker School</Header>
+        <img src={img3} alt="" />
+            <p>
+            Vidyodaya is now an “ASHOKA CHANGEMAKER SCHOOL”!! With your constant support we are here – recognized as a Changemaker school in India by ASHOKA. Every child, teacher and member of the team in Vidyodaya is proud about this recognition.
+            </p>
+            <p>
+            ASHOKA has so far identified around 100 schools across 25 countries in the world (including 7 in India) as Changemaker schools. These schools emphasize empathy, teamwork, leadership and creativity, and encourage their students to become agents of change.
+            </p>
+            <p>
+            A video by ASHOKA foundation about our school. It talks about why we needed a school, how unique is our school in retaining tribal culture & values and our teachers & ex-students talking about their experiences of the school.
+            </p>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/o3umVefG5Hs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/ih96-EZrgUQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <p>
+            As an ASHOKA Changemaker school, Vidyodaya will collaborate with Ashoka and other Changemaker schools in the network to extend ideas and influence, share insights and practices, to build upon what we have achieved so far.
+            </p>
+        </section>
         </div>
     )
 }
