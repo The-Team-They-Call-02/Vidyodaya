@@ -62,8 +62,14 @@ font-weight: 700;
 font-size: 4rem;
 }
 
+a{
+  text-decoration: none;
+  color: inherit;
+}
+
 h2 {
   font-size: 4rem;
 }
-`
+
+`;
 export { GlobalStyle as default, CenteredDiv, colorObj };
