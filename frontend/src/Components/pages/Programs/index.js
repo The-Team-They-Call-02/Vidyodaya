@@ -1,7 +1,7 @@
 import FrisbeeProgram from './Frisbee';
 import ChildrenCamps from './ChildrenCamps';
 import EducationProgram from './EducationProgram';
-import Programs from './Programs';
+import ProgramsPage from './ProgramsPage';
 import Balwadis from './Balwadis';
 import Culture from './Culture';
 
@@ -9,7 +9,7 @@ export {
     FrisbeeProgram,
     ChildrenCamps,
     EducationProgram,
-    Programs,
+    ProgramsPage,
     Balwadis,
     Culture,
 }

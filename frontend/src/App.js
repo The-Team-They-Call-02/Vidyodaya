@@ -5,7 +5,7 @@ import {
   FrisbeeProgram,
   ChildrenCamps,
   EducationProgram,
-  Programs,
+  ProgramsPage,
   Balwadis,
   Culture,
 } from './Components/pages/Programs';
@@ -26,7 +26,7 @@ function App() {
       <About/>
     </Route>
     <Route path="/programs">
-      <Programs/>
+      <ProgramsPage/>
     </Route>
     <Route path="/blog">
       <Blog />
