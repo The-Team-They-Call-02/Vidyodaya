@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 import { colorObj } from "../../Styles/GlobalStyles";
 
 const BodyContainer = styled.div`
@@ -37,7 +38,7 @@ const CtaContainer = styled.div`
   flex-direction: column;
 `;
 
-const CtaBtn = styled.button`
+const CtaBtn = styled(Link)`
   font-size: 2rem;
   color: white;
   font-weight: 900;

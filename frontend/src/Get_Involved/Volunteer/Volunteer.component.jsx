@@ -24,7 +24,6 @@ const Volunteer = () => {
 
   const goBack = () => {
     history.push("/get-involved");
-    console.log("test push");
   };
 
   return (
@@ -106,7 +105,7 @@ const Volunteer = () => {
 
         <CtaContainer>
           <Question>Interested?</Question>
-          <CtaBtn>Register</CtaBtn>
+          <CtaBtn to="/get-involved/volunteers/register">Register</CtaBtn>
         </CtaContainer>
       </BodyContainer>
     </Container>
