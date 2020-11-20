@@ -1,12 +1,14 @@
-import React from 'react';
-import Programs from './Programs/Programs';
+import React from "react";
+import Programs from "./Programs/Programs";
 
+// TEST
+import GetInvolved from "./Get_Involved/GetInvolved.component";
 
 function App() {
   return (
-    <div >
-    test
-    <Programs/>
+    <div>
+      <GetInvolved />
+      {/* <Programs /> */}
     </div>
   );
 }
