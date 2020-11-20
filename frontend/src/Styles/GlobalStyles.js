@@ -1,35 +1,37 @@
-import { createGlobalStyle } from "styled-components";
-import styled from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
 
 ////////////////////////////
 //     PRIMARY COLORS    //
 ////////////////////////////
-export const colorObj = {
+const colorObj = {
   green: "#77CC6D",
-  yellow: '#FFB800',  
-  lightblue: '#08BDBD',
-  orange: '#FF5714',
-  light: '#FFFFFF',
-  dark: '#27313D'
-}
+  yellow: "#FFB800",
+  lightblue: "#08BDBD",
+  orange: "#FF5714",
+  light: "#FFFFFF",
+  dark: "#27313D",
+};
 
-export const CenteredDiv = styled.div`
-display: flex;
-justify-content: center;
-align-items: center;
-flex-direction: column;
+const CenteredDiv = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 `;
 
 const GlobalStyle = createGlobalStyle`
+
+
+html, body, #root, #app{
+  height: 100%;
+  font-size: 62.5%;
+  } 
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
-html, body, #root, #app{
-  height: 100%;
-  } 
 
 body {
   margin: 0;
@@ -65,5 +67,5 @@ a{
   color: inherit;
 }
 
-`
-export default GlobalStyle;
+`;
+export { GlobalStyle as default, CenteredDiv, colorObj };
