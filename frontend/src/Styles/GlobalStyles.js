@@ -60,5 +60,10 @@ font-weight: 700;
 font-size: 40px;
 }
 
+a{
+  text-decoration: none;
+  color: inherit;
+}
+
 `
 export default GlobalStyle;
