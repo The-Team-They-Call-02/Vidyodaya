@@ -1,12 +1,7 @@
 import React from "react";
 
 // styled-components
-import {
-  Heading,
-  HeadingContainer,
-  Container,
-  ViewDashboard,
-} from "../GetInvolved.styles";
+import { Heading, HeadingContainer, Container } from "../GetInvolved.styles";
 import {
   LinksContainer,
   Links,

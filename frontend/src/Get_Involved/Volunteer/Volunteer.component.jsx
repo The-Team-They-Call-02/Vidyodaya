@@ -5,7 +5,6 @@ import { useHistory } from "react-router-dom";
 import {
   Container,
   HeadingContainer,
-  ViewDashboard,
   Heading,
   BackBtn,
 } from "../GetInvolved.styles";
@@ -30,7 +29,6 @@ const Volunteer = () => {
     <Container>
       <HeadingContainer>
         <Heading>Volunteer</Heading>
-        <ViewDashboard>View Dashboard</ViewDashboard>
         <BackBtn onClick={goBack}>Back</BackBtn>
       </HeadingContainer>
 

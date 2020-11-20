@@ -36,10 +36,8 @@ import {
 const RegisterForm = () => {
   const { handleSubmit, register, errors, reset } = useForm({
     defaultValues: {
-      username: {
-        first: "",
-        last: "",
-      },
+      firstName: "",
+      lastName: "",
       volunteeringAs: "",
       email: "",
       phone: "",
@@ -55,13 +53,6 @@ const RegisterForm = () => {
   const submit = (values, e) => {
     e.preventDefault();
 
-    // const parsedValues = {
-    //   ...values,
-    //   married: values.married === "true" ? true : false,
-    //   children: values.children === "true" ? true : false,
-    //   experience: values.experience === "true" ? true : false,
-    // };
-    // console.log(errors.username.message);
     console.log(values);
     reset();
   };
@@ -196,7 +187,7 @@ const RegisterForm = () => {
                 <Option value="graphic designer">Graphic Designer</Option>
                 <Option value="tech trainer">Tech Trainer</Option>
                 <Option value="games enthusiast">Games Enthusiast</Option>
-                <Option value="finance managers">Finance Managers</Option>
+                <Option value="finance manager">Finance Manager</Option>
                 <Option value="fund raising">Fund Raising</Option>
               </Select>
             </InputContainer>
@@ -336,14 +327,3 @@ const RegisterForm = () => {
 };
 
 export default RegisterForm;
-
-{
-  /* <InputContainer>
-              <InputField
-                id="volunteeringAs"
-                type="text"
-                name="volunteeringAs"
-                ref={register({ required: true })}
-              />
-            </InputContainer> */
-}
