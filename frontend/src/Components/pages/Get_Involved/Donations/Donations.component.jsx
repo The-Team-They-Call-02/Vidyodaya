@@ -18,7 +18,6 @@ import {
   CTABtn,
   Description,
   BankDetails,
-  Field,
   BankInformation,
 } from "./Donations.styles";
 
