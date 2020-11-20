@@ -24,6 +24,7 @@ const Volunteer = () => {
 
   const goBack = () => {
     history.push("/get-involved");
+    console.log("test push");
   };
 
   return (
