@@ -16,14 +16,14 @@ const Footer = () => {
         <FooterStyle>
         <Links>
             <div style={{padding: "2%"}}>
-            <NavLink to="/about"><H2Styled>About Us</H2Styled></NavLink>
+            <HashLink smooth to="/about#history" scroll={el => scrollWithOffset(el)}><H2Styled>About Us</H2Styled></HashLink>
             <HashLink smooth to="/about#history" scroll={el => scrollWithOffset(el)}><PStyled>History</PStyled></HashLink>
             <HashLink smooth to="/about#founder-trustees" scroll={el => scrollWithOffset(el)}><PStyled>Founder Trustees</PStyled></HashLink>
             <HashLink smooth to="/about#managing-committees" scroll={el => scrollWithOffset(el)}><PStyled>Managing Committees</PStyled></HashLink>
             <HashLink smooth to="/about#charities-aid-foundation" scroll={el => scrollWithOffset(el)}><PStyled>Charities Aid Foundation</PStyled></HashLink>
             <HashLink smooth to="/about#changemaker-school" scroll={el => scrollWithOffset(el)}><PStyled>Changemaker School</PStyled></HashLink>
             <br/>
-            <NavLink to="/reports"><H2Styled>Reports</H2Styled></NavLink>
+            <HashLink smooth to="/reports" scroll={el => scrollWithOffset(el)}><H2Styled>Reports</H2Styled></HashLink>
             <HashLink smooth to="/reports#annual-reports" scroll={el => scrollWithOffset(el)}><PStyled>Annual Reports</PStyled></HashLink>
             <HashLink smooth to="/reports#financial-reports" scroll={el => scrollWithOffset(el)}><PStyled>Financial Reports</PStyled></HashLink>
             <HashLink smooth to="/reports#other-reports" scroll={el => scrollWithOffset(el)}><PStyled>Other Reports</PStyled></HashLink>
