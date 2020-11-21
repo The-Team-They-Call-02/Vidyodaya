@@ -27,7 +27,7 @@ const Home = () => {
                 <img src={arrow} alt="" style={{width: "400px"}}/>
                 <CenteredDiv>
                     <HeroText>Bring <br/>a <br/>change!</HeroText>
-                    <a href="https://www.payumoney.com/paybypayumoney/#/9F4C7B2FCB7AA9833CAD8D3FDEC46DD7" target="_blank">
+                    <a href="https://www.payumoney.com/paybypayumoney/#/9F4C7B2FCB7AA9833CAD8D3FDEC46DD7" target="_blank" rel="noreferrer">
                         <button style={{color: "#FFFFFF"}} >Donate</button>
                     </a>
                 </CenteredDiv>
