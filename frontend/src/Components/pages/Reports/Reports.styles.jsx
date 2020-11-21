@@ -3,14 +3,14 @@ import { colorObj } from "../../../Styles/GlobalStyles";
 
 const MainContainer = styled.div`
   background: #f8f7f7;
-  padding: 150px 0 100px 0;
+  padding: 150px 0 0 0;
   position: relative;
 `;
 
 const SocialIconsContainer = styled.div`
   width: 50px;
   text-align: center;
-  position: absolute;
+  position: fixed;
   top: 250px;
   right: 20px;
 `;
@@ -26,6 +26,7 @@ const Container = styled.div`
   margin: 0 auto;
   text-align: center;
   height: 100%;
+  min-height: calc(100vh - (40vh + 150px));
 `;
 
 const HeadingContainer = styled.div`

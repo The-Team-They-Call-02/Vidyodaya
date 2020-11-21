@@ -6,12 +6,22 @@ const year = css`
   color: ${colorObj.dark};
   font-weight: 700;
   margin-bottom: 30px;
+  cursor: default;
+
+  &:hover {
+    text-decoration: none;
+  }
 `;
 
 const name = css`
   color: ${colorObj.green};
   font-weight: 500;
   margin-bottom: 10px;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
 `;
 
 const checkYear = (props) => {
@@ -21,10 +31,6 @@ const checkYear = (props) => {
     return name;
   }
 };
-
-const ReportsContainer = styled.div`
-  min-height: 65vh;
-`;
 
 const YearsContainer = styled.div`
   border: 5px solid ${colorObj.green};
@@ -43,10 +49,6 @@ const YearsContainer = styled.div`
 
 const Text = styled(Link)`
   ${checkYear}
-
-  &:hover {
-    text-decoration: underline;
-  }
 `;
 
-export { ReportsContainer, YearsContainer, Text };
+export { YearsContainer, Text };

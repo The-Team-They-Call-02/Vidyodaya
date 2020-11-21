@@ -2,12 +2,6 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { colorObj } from "../../../../Styles/GlobalStyles";
 
-const DocumentsContainer = styled.div`
-  min-height: 65vh;
-  max-height: 65vh;
-  overflow-y: scroll;
-`;
-
 const Document = styled.div`
   width: 80%;
   border: 5px solid ${colorObj.green};
@@ -28,4 +22,4 @@ const Name = styled(Link)`
   }
 `;
 
-export { DocumentsContainer, Document, Name };
+export { Document, Name };

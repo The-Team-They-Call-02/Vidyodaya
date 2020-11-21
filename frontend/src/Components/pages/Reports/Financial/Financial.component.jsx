@@ -9,7 +9,7 @@ import {
   BackBtn,
 } from "../Reports.styles";
 
-import { ReportsContainer, YearsContainer, Text } from "./Financial.styles";
+import { YearsContainer, Text } from "./Financial.styles";
 
 const dummy2020 = [
   {
@@ -74,6 +74,8 @@ const Financial = () => {
     history.push("/reports");
   };
 
+  // remember to change to="" later to proper path
+
   return (
     <Container>
       <HeadingContainer>
@@ -81,26 +83,26 @@ const Financial = () => {
         <BackBtn onClick={goBack}>Back</BackBtn>
       </HeadingContainer>
 
-      <ReportsContainer>
+      <div>
         {Object.keys(years)
-          .map((year) => {
+          .map((year, i) => {
             return (
-              <>
-                <YearsContainer>
-                  <Text year>Reports {year}</Text>
-                  {years[year].map((data) => {
-                    return (
-                      <>
-                        <Text>{data.name}</Text>
-                      </>
-                    );
-                  })}
-                </YearsContainer>
-              </>
+              <YearsContainer key={i * Math.random() * i * Math.random()}>
+                <Text year="true" disabled>
+                  Reports {year}
+                </Text>
+                {years[year].map((data, j) => {
+                  return (
+                    <Text to="/reports/" key={`${j}${data.year}${i}`}>
+                      {data.name}
+                    </Text>
+                  );
+                })}
+              </YearsContainer>
             );
           })
           .reverse()}
-      </ReportsContainer>
+      </div>
     </Container>
   );
 };
