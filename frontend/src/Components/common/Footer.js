@@ -6,38 +6,44 @@ import logo from "../../Assets/Home/logo.png";
 
 const Footer = () => {
 
+    const scrollWithOffset = (el) => {
+        const yCoordinate = el.getBoundingClientRect().top + window.pageYOffset;
+        const yOffset = -300; 
+        window.scrollTo({ top: yCoordinate + yOffset, behavior: 'smooth' }); 
+    }
+
     return(
         <FooterStyle>
         <Links>
             <div style={{padding: "2%"}}>
             <NavLink to="/about"><H2Styled>About Us</H2Styled></NavLink>
-            <HashLink to="/about#history"><PStyled>History</PStyled></HashLink>
-            <HashLink to="/about#founder-trustees"><PStyled>Founder Trustees</PStyled></HashLink>
-            <HashLink to="/about#managing-committees"><PStyled>Managing Committees</PStyled></HashLink>
-            <HashLink to="/about#charities-aid-foundation"><PStyled>Charities Aid Foundation</PStyled></HashLink>
-            <HashLink to="/about#changemaker-school"><PStyled>Changemaker School</PStyled></HashLink>
+            <HashLink smooth to="/about#history" scroll={el => scrollWithOffset(el)}><PStyled>History</PStyled></HashLink>
+            <HashLink smooth to="/about#founder-trustees" scroll={el => scrollWithOffset(el)}><PStyled>Founder Trustees</PStyled></HashLink>
+            <HashLink smooth to="/about#managing-committees" scroll={el => scrollWithOffset(el)}><PStyled>Managing Committees</PStyled></HashLink>
+            <HashLink smooth to="/about#charities-aid-foundation" scroll={el => scrollWithOffset(el)}><PStyled>Charities Aid Foundation</PStyled></HashLink>
+            <HashLink smooth to="/about#changemaker-school" scroll={el => scrollWithOffset(el)}><PStyled>Changemaker School</PStyled></HashLink>
             <br/>
             <NavLink to="/reports"><H2Styled>Reports</H2Styled></NavLink>
-            <HashLink to="/reports#annual-reports"><PStyled>Annual Reports</PStyled></HashLink>
-            <HashLink to="/reports#financial-reports"><PStyled>Financial Reports</PStyled></HashLink>
-            <HashLink to="/reports#other-reports"><PStyled>Other Reports</PStyled></HashLink>
+            <HashLink smooth to="/reports#annual-reports" scroll={el => scrollWithOffset(el)}><PStyled>Annual Reports</PStyled></HashLink>
+            <HashLink smooth to="/reports#financial-reports" scroll={el => scrollWithOffset(el)}><PStyled>Financial Reports</PStyled></HashLink>
+            <HashLink smooth to="/reports#other-reports" scroll={el => scrollWithOffset(el)}><PStyled>Other Reports</PStyled></HashLink>
             </div>
             <div style={{padding: "2%"}}>
             <NavLink to="/programs"><H2Styled>Programs</H2Styled></NavLink>
             <NavLink to="/programs/frisbee"><PStyled>Ultimate Frisbee Program</PStyled></NavLink>
             <NavLink to="/programs/childrenCamps"><PStyled>Children Camps</PStyled></NavLink>
             <NavLink to="/programs/educationPrograms"><PStyled>Education Programs</PStyled></NavLink>
-            <HashLink to="/programs/educationPrograms#higher-education"><PStyled>Higher Education</PStyled></HashLink>
-            <HashLink to="/programs/educationPrograms#quality-education"><PStyled>Quality Education</PStyled></HashLink>
-            <HashLink to="/programs#study-centres"><PStyled>Study Centres</PStyled></HashLink>
-            <HashLink to="/programs#model-school"><PStyled>Model School</PStyled></HashLink>
-            <HashLink to="/programs#niosc"><PStyled>National Institute of Open Schooling Centre</PStyled></HashLink>
-            <HashLink to="/programs#sarva-shiksa-abhiyan"><PStyled>Sarva Shiksha Abhiyan</PStyled></HashLink>
-            <HashLink to="/programs#adivasi-foundation-course"><PStyled>Adivasi Foundation Course</PStyled></HashLink>
+            <HashLink smooth to="/programs/educationPrograms#higher-education" scroll={el => scrollWithOffset(el)}><PStyled>Higher Education</PStyled></HashLink>
+            <HashLink smooth to="/programs/educationPrograms#quality-education" scroll={el => scrollWithOffset(el)}><PStyled>Quality Education</PStyled></HashLink>
+            <HashLink smooth to="/programs#study-centres" scroll={el => scrollWithOffset(el)}><PStyled>Study Centres</PStyled></HashLink>
+            <HashLink smooth to="/programs#model-school" scroll={el => scrollWithOffset(el)}><PStyled>Model School</PStyled></HashLink>
+            <HashLink smooth to="/programs#niosc" scroll={el => scrollWithOffset(el)}><PStyled>National Institute of Open Schooling Centre</PStyled></HashLink>
+            <HashLink smooth to="/programs#sarva-shiksa-abhiyan" scroll={el => scrollWithOffset(el)}><PStyled>Sarva Shiksha Abhiyan</PStyled></HashLink>
+            <HashLink smooth to="/programs#adivasi-foundation-course" scroll={el => scrollWithOffset(el)}><PStyled>Adivasi Foundation Course</PStyled></HashLink>
             <NavLink to="/programs/balwadis"><PStyled>Balwadis (ICDS Centres)</PStyled></NavLink>
             <NavLink to="/programs/culture"><PStyled>Culture</PStyled></NavLink>
-            <HashLink to="/programs#cultural-curriculum"><PStyled>Cultural Curriculum</PStyled></HashLink>
-            <HashLink to="/programs#culture-centre"><PStyled>Culture Centre</PStyled></HashLink>
+            <HashLink smooth to="/programs#cultural-curriculum" scroll={el => scrollWithOffset(el)}><PStyled>Cultural Curriculum</PStyled></HashLink>
+            <HashLink smooth to="/programs#culture-centre" scroll={el => scrollWithOffset(el)}><PStyled>Culture Centre</PStyled></HashLink>
             </div>
             <div style={{padding: "2%"}}>
             <NavLink to="/get-involved/"><H2Styled>Get Involved</H2Styled></NavLink>
