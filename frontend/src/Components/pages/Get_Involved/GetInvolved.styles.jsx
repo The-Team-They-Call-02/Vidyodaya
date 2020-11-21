@@ -10,6 +10,7 @@ export const Heading = styled.h2`
   font-size: 6.4rem;
   font-family: "Roboto", sans-serif;
   color: ${colorObj.dark};
+  font-weight: 700;
 `;
 
 export const Container = styled.div`
