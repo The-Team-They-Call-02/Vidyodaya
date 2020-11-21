@@ -13,12 +13,12 @@ align-items: center;
 export const H2Styled = styled.h2`
 text-transform: uppercase;
 color: ${colorObj.light};
-font-size: 1rem;
+font-size: 2rem;
 `;
 
 export const PStyled = styled.p`
 color: ${colorObj.light};
-font-size: 0.9rem;
+font-size: 1.2rem;
 `;
 
 export const Links = styled.div`
