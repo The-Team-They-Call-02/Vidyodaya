@@ -1,15 +1,32 @@
 import React, {useState} from 'react';
-import { Header } from "../../Styles/AboutStyle";
+
+import { Header, HistorySection } from "../../Styles/AboutStyle";
+import { Card } from "../../Styles/PageStyle";
 import img1 from "../../Assets/About/vidyodaya1.jpg";
 import img2 from "../../Assets/About/VBVT-Charities-Aid-Foundation.jpg";
 import img3 from "../../Assets/About/ashoka-changemaker-logo.png";
+
+import Navbar from "../common/Navbar";
+import Footer from "../common/Footer";
+
+
+// ADD THESE LINKS
+// /about#history
+// /about#founder-trustees
+// /about#managing-committees
+// /about#charities-aid-foundation
+// /about#changemaker-school
+
 const About = () => {
 
     return(
         <div>
-        <p>Insert Nav bar here</p>
-        <section className="history">
+        <Navbar/>
+        <Card style={{boxShadow: "none", padding: "0"}}>
+        
+        <HistorySection id="history">
             <Header>History</Header>
+            <h2>Founded in 1993</h2>
             <p>
             The Viswa Bharati Vidyodaya Trust is a charitable body registered (No. 41 of 1993) under the Indian Trusts Act. Its registered office is 12/669B, Thottamoola, Gudalur – 643 212, The Nilgiris, Tamilnadu. It has nine members on the board of Trustees, which includes the Managing Trustee. Six of the Trustees are from the adivasi community.
             </p>
@@ -41,7 +58,7 @@ const About = () => {
             <p>
             In the year 2000, VBVT decided that the adivasi community, having seen their children’s progress in Vidyodaya school, was now ready for an educational intervention and so launched a major programme covering 138 of the 303 adivasi villages of the two taluks of Gudalur Block. By 2015 it had covered all the villages. 
             </p>
-        </section>
+        </HistorySection>
 
         <section classname="charities-aid-foundation">
             <Header>Charities Aid Foundation India</Header>
@@ -71,7 +88,10 @@ const About = () => {
             <p>
             As an ASHOKA Changemaker school, Vidyodaya will collaborate with Ashoka and other Changemaker schools in the network to extend ideas and influence, share insights and practices, to build upon what we have achieved so far.
             </p>
+            
         </section>
+        </Card>
+        <Footer/>
         </div>
     )
 }

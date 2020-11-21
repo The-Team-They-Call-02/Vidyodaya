@@ -10,7 +10,7 @@ const Footer = () => {
         <Links>
             <div style={{padding: "2%"}}>
             <NavLink to="/about"><H2Styled>About Us</H2Styled></NavLink>
-            <NavLink to="/about#history"><PStyled>History</PStyled></NavLink>
+            <NavLink to="/about/history"><PStyled>History</PStyled></NavLink>
             <NavLink to="/about#founder-trustees"><PStyled>Founder Trustees</PStyled></NavLink>
             <NavLink to="/about#managing-committees"><PStyled>Managing Committees</PStyled></NavLink>
             <NavLink to="/about#charities-aid-foundation"><PStyled>Charities Aid Foundation</PStyled></NavLink>
