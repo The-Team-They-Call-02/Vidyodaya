@@ -10,28 +10,11 @@ import Dashboard from "./Dashboard/Dashboard.component";
 import AddReport from "./AddReport/AddReport.component";
 
 // styled-components
-import {
-  MainContainer,
-  SocialIconsContainer,
-  SocialIcons,
-} from "./Reports.styles";
-
-// react-icons
-import { FaTwitterSquare } from "react-icons/fa";
-import { FaFacebookSquare } from "react-icons/fa";
+import { MainContainer } from "./Reports.styles";
 
 const Reports = () => {
   return (
     <MainContainer>
-      <SocialIconsContainer>
-        <SocialIcons color="#6CADDE">
-          <FaTwitterSquare />
-        </SocialIcons>
-        <SocialIcons>
-          <FaFacebookSquare color="#3B5998" />
-        </SocialIcons>
-      </SocialIconsContainer>
-
       <Switch>
         <Route path="/reports/annual" component={Annual} />
         <Route path="/reports/financial" component={Financial} />
