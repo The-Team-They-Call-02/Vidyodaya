@@ -4,6 +4,8 @@ import { colorObj } from "../../../../Styles/GlobalStyles";
 
 const DocumentsContainer = styled.div`
   min-height: 65vh;
+  max-height: 65vh;
+  overflow-y: scroll;
 `;
 
 const Document = styled.div`
@@ -19,8 +21,11 @@ const Name = styled(Link)`
   font-size: 3rem;
   font-weight: 600;
   text-align: center;
-
   color: ${colorObj.dark};
+
+  &:hover {
+    text-decoration: underline;
+  }
 `;
 
 export { DocumentsContainer, Document, Name };
