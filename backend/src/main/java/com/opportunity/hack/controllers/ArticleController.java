@@ -67,9 +67,9 @@ public class ArticleController {
             @RequestBody
                     Article updateArticle,
             @PathVariable
-                    long postid)
+                    long articleid)
     {
-        updateArticle.setArticleid(postid);
+        updateArticle.setArticleid(articleid);
         articleService.save(updateArticle);
 
         return new ResponseEntity<>(HttpStatus.OK);
@@ -88,7 +88,7 @@ public class ArticleController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @DeleteMapping(value = "/post/{id}")
+    @DeleteMapping(value = "/article/{id}")
     public ResponseEntity<?> deleteUserById(
             @PathVariable
                     long id)

@@ -124,7 +124,7 @@ public class RolesController
     }
 
     /**
-     * The process allows you to update a role name only!
+     * The process allows you to update a role name only
      * <br>Example: <a href="http://localhost:2019/roles/role/3">http://localhost:2019/roles/role/3</a>
      *
      * @param roleid  The primary key (long) of the role you wish to update
