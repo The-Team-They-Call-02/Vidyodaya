@@ -43,6 +43,24 @@ const Heading = styled.h2`
   color: ${colorObj.dark};
 `;
 
+const BackBtn = styled.div`
+  position: absolute;
+  bottom: 10px;
+  color: ${colorObj.dark};
+  left: 10px;
+  font-weight: 900;
+  font-size: 1.5rem;
+  cursor: pointer;
+
+  &:before {
+    content: "\u00AB";
+    font-size: 2rem;
+    color: black;
+    font-weight: 900;
+    margin-right: 3px;
+  }
+`;
+
 export {
   MainContainer,
   Container,
@@ -50,4 +68,5 @@ export {
   SocialIcons,
   HeadingContainer,
   Heading,
+  BackBtn,
 };
