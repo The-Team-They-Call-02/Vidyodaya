@@ -1,6 +1,5 @@
 package com.opportunity.hack.controllers;
 
-import com.opportunity.hack.models.Article;
 import com.opportunity.hack.models.Volunteer;
 import com.opportunity.hack.services.VolunteerService;
 import org.springframework.beans.factory.annotation.Autowired;

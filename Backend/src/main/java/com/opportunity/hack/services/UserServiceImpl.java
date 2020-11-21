@@ -45,7 +45,6 @@ public class UserServiceImpl
     @Override
     public List<User> findByNameContaining(String username)
     {
-
         return userrepos.findByUsernameContainingIgnoreCase(username.toLowerCase());
     }
 
@@ -87,7 +86,6 @@ public class UserServiceImpl
     @Override
     public User save(User user)
     {
-
         User newUser = new User();
 
         if (user.getUserid() != 0)
@@ -98,6 +96,9 @@ public class UserServiceImpl
         }
 
         newUser.setUsername(user.getUsername()
+            .toLowerCase());
+        newUser.setPasswordNoEncrypt(user.getPassword());
+        newUser.setPrimaryemail(user.getPrimaryemail()
             .toLowerCase());
 
         newUser.getRoles()
@@ -111,6 +112,7 @@ public class UserServiceImpl
                     addRole));
         }
 
+
         return userrepos.save(newUser);
     }
 
@@ -122,13 +124,22 @@ public class UserServiceImpl
     {
         User currentUser = findUserById(id);
 
-        // update own thing
-        // admin update
         if (helperFunctions.isAuthorizedToMakeChange(currentUser.getUsername()))
         {
             if (user.getUsername() != null)
             {
                 currentUser.setUsername(user.getUsername()
+                    .toLowerCase());
+            }
+
+            if (user.getPassword() != null)
+            {
+                currentUser.setPasswordNoEncrypt(user.getPassword());
+            }
+
+            if (user.getPrimaryemail() != null)
+            {
+                currentUser.setPrimaryemail(user.getPrimaryemail()
                     .toLowerCase());
             }
 

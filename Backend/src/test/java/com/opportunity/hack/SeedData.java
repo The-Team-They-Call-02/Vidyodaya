@@ -24,7 +24,7 @@ import java.util.Locale;
 @Transactional
 @Component
 public class SeedData
-    implements CommandLineRunner
+        implements CommandLineRunner
 {
     /**
      * Connects the Role Service to this process
@@ -50,7 +50,7 @@ public class SeedData
     @Transactional
     @Override
     public void run(String[] args) throws
-                                   Exception
+            Exception
     {
         userService.deleteAll();
         roleService.deleteAll();
@@ -63,45 +63,50 @@ public class SeedData
         r3 = roleService.save(r3);
 
         // admin, data, user
-        User u1 = new User("admin");
+        User u1 = new User("admin",
+                           "password",
+                           "admin@lambdaschool.local");
         u1.getRoles()
-            .add(new UserRoles(u1,
-                r1));
+                .add(new UserRoles(u1, r1));
         u1.getRoles()
-            .add(new UserRoles(u1,
-                r2));
+                .add(new UserRoles(u1, r2));
         u1.getRoles()
-            .add(new UserRoles(u1,
-                r3));
+                .add(new UserRoles(u1, r3));
 
         userService.save(u1);
 
         // data, user
-        User u2 = new User("cinnamon");
+        User u2 = new User("cinnamon",
+                           "1234567",
+                           "cinnamon@lambdaschool.local");
         u2.getRoles()
-            .add(new UserRoles(u2,
-                r2));
+                .add(new UserRoles(u2, r2));
         u2.getRoles()
-            .add(new UserRoles(u2,
-                r3));
+                .add(new UserRoles(u2, r3));
+
         userService.save(u2);
 
         // user
-        User u3 = new User("barnbarn");
+        User u3 = new User("barnbarn",
+                           "ILuvM4th!",
+                           "barnbarn@lambdaschool.local");
         u3.getRoles()
-            .add(new UserRoles(u3,
-                r2));
+                .add(new UserRoles(u3, r2));
 
-        User u4 = new User("puttat");
+        userService.save(u3);
+
+        User u4 = new User("puttat",
+                           "password",
+                           "puttat@school.lambda");
         u4.getRoles()
-            .add(new UserRoles(u4,
-                r2));
+                .add(new UserRoles(u4, r2));
         userService.save(u4);
 
-        User u5 = new User("misskitty");
+        User u5 = new User("misskitty",
+                           "password",
+                           "misskitty@school.lambda");
         u5.getRoles()
-            .add(new UserRoles(u5,
-                r2));
+                .add(new UserRoles(u5, r2));
         userService.save(u5);
 
         if (false)
@@ -111,7 +116,7 @@ public class SeedData
             // https://www.baeldung.com/regular-expressions-java
 
             FakeValuesService fakeValuesService = new FakeValuesService(new Locale("en-US"),
-                new RandomService());
+                                                                        new RandomService());
             Faker nameFaker = new Faker(new Locale("en-US"));
 
             for (int i = 0; i < 25; i++)
@@ -120,10 +125,12 @@ public class SeedData
                 User fakeUser;
 
                 fakeUser = new User(nameFaker.name()
-                    .username());
+                                            .username(),
+                                    "password",
+                                    nameFaker.internet()
+                                            .emailAddress());
                 fakeUser.getRoles()
-                    .add(new UserRoles(fakeUser,
-                        r2));
+                        .add(new UserRoles(fakeUser, r2));
                 userService.save(fakeUser);
             }
         }

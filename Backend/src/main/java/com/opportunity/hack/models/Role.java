@@ -2,8 +2,14 @@ package com.opportunity.hack.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-import javax.persistence.*;
-import javax.validation.constraints.NotNull;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -13,7 +19,7 @@ import java.util.Set;
 @Entity
 @Table(name = "roles")
 public class Role
-    extends Auditable
+        extends Auditable
 {
     /**
      * The primary key (long) of the roles table.
@@ -25,8 +31,8 @@ public class Role
     /**
      * The name (String) of the role. Cannot be null and must be unique.
      */
-    @NotNull
-    @Column(unique = true)
+    @Column(nullable = false,
+            unique = true)
     private String name;
 
 
@@ -35,10 +41,9 @@ public class Role
      * connects roles to the user role combination
      */
     @OneToMany(mappedBy = "role",
-        cascade = CascadeType.ALL,
-        orphanRemoval = true)
-    @JsonIgnoreProperties(value = "role",
-        allowSetters = true)
+            cascade = CascadeType.ALL,
+            orphanRemoval = true)
+    @JsonIgnoreProperties(value = "role", allowSetters = true)
     private Set<UserRoles> users = new HashSet<>();
 
     /**

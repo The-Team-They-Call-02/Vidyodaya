@@ -5,13 +5,13 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.2.9.RELEASE</version>
+        <version>2.2.8.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.opportunity.hack</groupId>
-    <artifactId>opportunityhack</artifactId>
+    <groupId>com.lambdaschool</groupId>
+    <artifactId>usermodel</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>oktafoundation</name>
+    <name>usermodel</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
@@ -40,11 +40,6 @@
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
             <!--            <scope>runtime</scope>-->
-        </dependency>
-
-        <dependency>
-            <groupId>org.postgresql</groupId>
-            <artifactId>postgresql</artifactId>
         </dependency>
 
         <dependency>
@@ -99,12 +94,6 @@
             <artifactId>spring-security-oauth2</artifactId>
             <version>2.3.6.RELEASE</version>
         </dependency>
-
-        <dependency>
-            <groupId>com.okta.spring</groupId>
-            <artifactId>okta-spring-boot-starter</artifactId>
-            <version>1.4.0</version>
-        </dependency>
         <!-- Security Dependencies End -->
 
         <!-- https://mvnrepository.com/artifact/io.rest-assured/spring-mock-mvc -->
@@ -114,17 +103,20 @@
             <version>3.3.0</version>
             <scope>test</scope>
         </dependency>
+
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
-        <finalName>jrmmba-oktafoundation</finalName>
-
+        <finalName>opportunity-hack-vidyodaya</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
-
             <plugin>
                 <groupId>com.heroku.sdk</groupId>
                 <artifactId>heroku-maven-plugin</artifactId>
@@ -141,7 +133,6 @@
                     </processTypes>
                 </configuration>
             </plugin>
-
         </plugins>
     </build>
 

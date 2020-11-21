@@ -1,6 +1,8 @@
 package com.opportunity.hack;
 
 import com.opportunity.hack.models.Role;
+import com.opportunity.hack.models.User;
+import com.opportunity.hack.models.UserRoles;
 import com.opportunity.hack.services.RoleService;
 import com.opportunity.hack.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,7 +57,7 @@ public class SeedData
         r3 = roleService.save(r3);
 
         // The following is an example user!
-        /*
+
         // admin, data, user
         User u1 = new User("admin",
             "password",
@@ -69,14 +71,8 @@ public class SeedData
         u1.getRoles()
             .add(new UserRoles(u1,
                 r3));
-        u1.getUseremails()
-            .add(new Useremail(u1,
-                "admin@email.local"));
-        u1.getUseremails()
-            .add(new Useremail(u1,
-                "admin@mymail.local"));
 
         userService.save(u1);
-        */
+
     }
 }

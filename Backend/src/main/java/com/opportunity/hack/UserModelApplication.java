@@ -11,7 +11,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
  */
 @EnableJpaAuditing
 @SpringBootApplication
-public class OktaFoundationApplication
+public class UserModelApplication
 {
     /**
      * Connect to the system environment where environment variables live.
@@ -45,7 +45,14 @@ public class OktaFoundationApplication
      */
     public static void main(String[] args)
     {
-        SpringApplication.run(OktaFoundationApplication.class,
-            args);
+        // Check to see if the environment variables exists. If they do not, stop execution of application.
+        checkEnvironmentVariable("OAUTHCLIENTID");
+        checkEnvironmentVariable("OAUTHCLIENTSECRET");
+
+        if (!stop)
+        {
+            SpringApplication.run(UserModelApplication.class,
+                args);
+        }
     }
 }

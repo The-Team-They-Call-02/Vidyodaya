@@ -2,8 +2,12 @@ package com.opportunity.hack.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-import javax.persistence.*;
-import javax.validation.constraints.NotNull;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.IdClass;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import java.io.Serializable;
 
 /**
@@ -20,8 +24,8 @@ import java.io.Serializable;
 @Table(name = "userroles")
 @IdClass(UserRolesId.class)
 public class UserRoles
-    extends Auditable
-    implements Serializable
+        extends Auditable
+        implements Serializable
 {
     /**
      * 1/2 of the primary key (long) for userroles.
@@ -29,10 +33,8 @@ public class UserRoles
      */
     @Id
     @ManyToOne
-    @NotNull
     @JoinColumn(name = "userid")
-    @JsonIgnoreProperties(value = "roles",
-        allowSetters = true)
+    @JsonIgnoreProperties(value = "roles", allowSetters = true)
     private User user;
 
     /**
@@ -41,10 +43,8 @@ public class UserRoles
      */
     @Id
     @ManyToOne
-    @NotNull
     @JoinColumn(name = "roleid")
-    @JsonIgnoreProperties(value = "users",
-        allowSetters = true)
+    @JsonIgnoreProperties(value = "users", allowSetters = true)
     private Role role;
 
     /**
@@ -61,8 +61,8 @@ public class UserRoles
      * @param role The role object of this relationship
      */
     public UserRoles(
-        User user,
-        Role role)
+            User user,
+            Role role)
     {
         this.user = user;
         this.role = role;
@@ -121,7 +121,7 @@ public class UserRoles
         }
         UserRoles that = (UserRoles) o;
         return ((user == null) ? 0 : user.getUserid()) == ((that.user == null) ? 0 : that.user.getUserid()) &&
-            ((role == null) ? 0 : role.getRoleid()) == ((that.role == null) ? 0 : that.role.getRoleid());
+                ((role == null) ? 0 : role.getRoleid()) == ((that.role == null) ? 0 : that.role.getRoleid());
     }
 
     @Override
