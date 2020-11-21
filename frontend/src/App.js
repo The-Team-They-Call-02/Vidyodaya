@@ -14,7 +14,7 @@ import Blog from "./Components/pages/Blog";
 import Home from "./Components/pages/Home";
 import GetInvolved from "./Components/pages/Get_Involved/GetInvolved.component";
 import GlobalStyles from "./Styles/GlobalStyles";
-import Reports from "./Components/pages/Reports/Reports";
+import Reports from "./Components/pages/Reports/Reports.component";
 import Navbar from "./Components/common/Navbar";
 import Footer from "./Components/common/Footer";
 
