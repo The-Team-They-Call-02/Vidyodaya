@@ -71,5 +71,10 @@ h2 {
   font-size: 4rem;
 }
 
+
+
+
+
+
 `;
 export { GlobalStyle as default, CenteredDiv, colorObj };
