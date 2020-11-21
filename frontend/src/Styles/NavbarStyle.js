@@ -15,4 +15,5 @@ align-items: center;
 
 export const NavText = styled.p`
 color: ${colorObj.green};
+font-size: 1.5rem;
 `;
