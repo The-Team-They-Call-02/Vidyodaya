@@ -1,13 +1,13 @@
 import React, {useState} from 'react';
-
+import { Link } from "react-router-dom";
 
 //COMPONENTS
-import Navbar from '../../common/Navbar';
-import Footer from '../../common/Footer';
+import Navbar from '../../../common/Navbar';
+import Footer from '../../../common/Footer';
 
 //STYLING
 import styled from 'styled-components';
-import { colorObj } from '../../../Styles/GlobalStyles';
+import { colorObj } from '../../../../Styles/GlobalStyles';
 
 
 const ProgramsPageContainer = styled.div`
@@ -57,24 +57,22 @@ flex-direction: column;
 
 
 
-const ProgramsPage = () => {
+const ProgramsHome = () => {
 
     return(
         <ProgramsPageContainer>
-            <Navbar />
             <div className="programs-page-inner-div">
                 <h1 className="programs-page-h1"> OUR PROGRAMS </h1>
                 <div className="programs-page-cards-container">
-                    <div className="programs-page-frisbee card"> <h2>Ultimate Frisbee Program</h2> </div>
-                    <div className="programs-page-children-camps card"> <h2>Children Camps</h2> </div>
-                    <div className="programs-page-education card"> <h2>Education Programs</h2> </div>
-                    <div className="programs-page-balwadis card"> <h2>Balwadis</h2> <span> (Integrated Child Development Services Centres) </span></div>
-                    <div className="programs-page-Culture card"> <h2>Culture</h2> </div>
+                    <Link to="./programs/ultimate-frisbee" className="programs-page-frisbee card"> <h2>Ultimate Frisbee Program</h2> </Link>
+                    <Link className="programs-page-children-camps card"> <h2> Children Camps </h2> </Link>
+                    <Link className="programs-page-education card"> <h2> Education Programs </h2> </Link>
+                    <Link className="programs-page-balwadis card"> <h2> Balwadis </h2> <span> (Integrated Child Development Services Centres) </span></Link>
+                    <Link className="programs-page-Culture card"> <h2> Culture </h2> </Link>
                 </div>
             </div>
-            <Footer />
         </ProgramsPageContainer>
     )
 }
 
-export default ProgramsPage;
+export default ProgramsHome;
