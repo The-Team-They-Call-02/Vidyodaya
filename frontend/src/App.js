@@ -8,23 +8,21 @@ import {
   ProgramsPage,
   Balwadis,
   Culture,
-} from './Components/pages/Programs';
-import About from './Components/pages/About';
-import Blog from './Components/pages/Blog';
+} from "./Components/pages/Programs";
+import About from "./Components/pages/About";
+import Blog from "./Components/pages/Blog";
 import Home from "./Components/pages/Home";
 import GetInvolved from "./Components/pages/Get_Involved/GetInvolved.component";
 import GlobalStyles from "./Styles/GlobalStyles";
-import Reports from "./Components/pages/Reports/Reports";
+import Reports from "./Components/pages/Reports/Reports.component";
 import Navbar from "./Components/common/Navbar";
 import Footer from "./Components/common/Footer";
-
-
 
 function App() {
   return (
     <Router>
-    <Navbar/>
       <GlobalStyles />
+      <Navbar />
 
       <Route exact path="/">
         <Home />
@@ -44,7 +42,8 @@ function App() {
       <Route path="/get-involved">
         <GetInvolved />
       </Route>
-      <Footer/>
+
+      <Footer />
     </Router>
   );
 }
