@@ -18,3 +18,17 @@ export const NavText = styled.p`
   color: ${colorObj.green};
   font-size: 2rem;
 `;
+
+export const SocialIconsContainer = styled.div`
+  width: 50px;
+  text-align: center;
+  position: fixed;
+  top: 250px;
+  right: 20px;
+`;
+
+export const SocialIcons = styled.a`
+  text-decoration: none;
+  font-size: 4rem;
+  color: ${(props) => (props.color ? props.color : "")};
+`;
