@@ -1,7 +1,6 @@
 package com.opportunity.hack.services;
 
 import com.opportunity.hack.models.Article;
-import com.opportunity.hack.models.Post;
 import com.opportunity.hack.repository.ArticleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -37,7 +36,7 @@ public class ArticleServiceImpl implements ArticleService{
 
         if (article.getArticleid() != 0) {
             articlerepos.findById(article.getArticleid()).orElseThrow(() -> new EntityNotFoundException("Post id invalid"));
-            newArticle.setPostid(article.getArticleid());
+            newArticle.setArticleid(article.getArticleid());
         }
 
         newArticle.setDescription(article.getDescription());

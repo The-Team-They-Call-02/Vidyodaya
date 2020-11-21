@@ -1,6 +1,5 @@
 package com.opportunity.hack.services;
 
-import com.opportunity.hack.models.Post;
 import com.opportunity.hack.models.Volunteer;
 
 import java.util.List;
