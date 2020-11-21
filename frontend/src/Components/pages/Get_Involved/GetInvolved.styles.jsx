@@ -3,13 +3,14 @@ import { colorObj } from "../../../Styles/GlobalStyles";
 
 export const MainContainer = styled.div`
   background: #f8f7f7;
-  min-height: 100%;
+  padding: 150px 0 100px 0;
 `;
 
 export const Heading = styled.h2`
   font-size: 6.4rem;
   font-family: "Roboto", sans-serif;
   color: ${colorObj.dark};
+  font-weight: 700;
 `;
 
 export const Container = styled.div`

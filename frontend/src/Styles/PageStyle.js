@@ -12,7 +12,6 @@ justify-content: center;
 `;
 
 export const Card = styled.div`
-
 margin: 0 20%;
 padding: 10%;
 border-radius: 20px;
