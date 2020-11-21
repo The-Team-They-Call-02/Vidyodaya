@@ -66,9 +66,9 @@ public class VolunteerController {
             @RequestBody
                     Volunteer updateVolunteer,
             @PathVariable
-                    long postid)
+                    long volunteerid)
     {
-        updateVolunteer.setVolunteerid(postid);
+        updateVolunteer.setVolunteerid(volunteerid);
         volunteerService.save(updateVolunteer);
 
         return new ResponseEntity<>(HttpStatus.OK);
