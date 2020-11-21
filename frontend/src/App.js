@@ -14,10 +14,16 @@ import Blog from './Components/pages/Blog';
 import Home from "./Components/pages/Home";
 import GetInvolved from "./Components/pages/Get_Involved/GetInvolved.component";
 import GlobalStyles from "./Styles/GlobalStyles";
+import Reports from "./Components/pages/Reports/Reports";
+import Navbar from "./Components/common/Navbar";
+import Footer from "./Components/common/Footer";
+
+
 
 function App() {
   return (
     <Router>
+    <Navbar/>
       <GlobalStyles />
 
       <Route exact path="/">
@@ -32,10 +38,13 @@ function App() {
       <Route path="/blog">
         <Blog />
       </Route>
-
+      <Route path="/reports">
+        <Reports />
+      </Route>
       <Route path="/get-involved">
         <GetInvolved />
       </Route>
+      <Footer/>
     </Router>
   );
 }
