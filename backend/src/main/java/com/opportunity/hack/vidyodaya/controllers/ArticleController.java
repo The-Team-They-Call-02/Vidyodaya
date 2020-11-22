@@ -27,13 +27,13 @@ public class ArticleController {
     return new ResponseEntity<>(articles, HttpStatus.OK);
   }
 
-  @GetMapping(value = "/article/{articleid}", produces = "application/json")
-  public ResponseEntity<?> getArticleById(@PathVariable long articleid) {
-    Article article = articleService.findArticleById(articleid);
+  @GetMapping(value = "/article/{id}", produces = "application/json")
+  public ResponseEntity<?> getArticleById(@PathVariable long id) {
+    Article article = articleService.findArticleById(id);
     return new ResponseEntity<>(article, HttpStatus.OK);
   }
 
-  @PostMapping(value = "/post", consumes = "application/json")
+  @PostMapping(value = "/article", consumes = "application/json")
   public ResponseEntity<?> addNewPost(@Valid @RequestBody Article newArticle) {
     newArticle.setArticleId(0);
     newArticle = articleService.save(newArticle);
@@ -42,7 +42,7 @@ public class ArticleController {
     HttpHeaders responseHeaders = new HttpHeaders();
     URI newUserURI = ServletUriComponentsBuilder
       .fromCurrentRequest()
-      .path("/{articleid}")
+      .path("/{id}")
       .buildAndExpand(newArticle.getArticleId())
       .toUri();
     responseHeaders.setLocation(newUserURI);
@@ -50,19 +50,19 @@ public class ArticleController {
     return new ResponseEntity<>(null, responseHeaders, HttpStatus.CREATED);
   }
 
-  @PutMapping(value = "/article/{articleid}", consumes = "application/json")
-  public ResponseEntity<?> updateFullPost(
+  @PutMapping(value = "/article/{id}", consumes = "application/json")
+  public ResponseEntity<?> updateFullArticle(
     @Valid @RequestBody Article updateArticle,
-    @PathVariable long articleid
+    @PathVariable long id
   ) {
-    updateArticle.setArticleId(articleid);
+    updateArticle.setArticleId(id);
     articleService.save(updateArticle);
 
     return new ResponseEntity<>(HttpStatus.OK);
   }
 
   @PatchMapping(value = "/article/{id}", consumes = "application/json")
-  public ResponseEntity<?> updatePost(
+  public ResponseEntity<?> updateArticle(
     @RequestBody Article updateArticle,
     @PathVariable long id
   ) {
