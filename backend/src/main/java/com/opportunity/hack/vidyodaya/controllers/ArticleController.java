@@ -73,6 +73,6 @@ public class ArticleController {
   @DeleteMapping(value = "/article/{id}")
   public ResponseEntity<?> deleteUserById(@PathVariable long id) {
     articleService.delete(id);
-    return new ResponseEntity<>(HttpStatus.OK);
+    return new ResponseEntity<>(HttpStatus.NO_CONTENT);
   }
 }
