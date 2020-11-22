@@ -27,6 +27,7 @@ const Container = styled.div`
   text-align: center;
   height: 100%;
   min-height: calc(100vh - (40vh + 150px));
+  padding-bottom: 50px;
 `;
 
 const HeadingContainer = styled.div`

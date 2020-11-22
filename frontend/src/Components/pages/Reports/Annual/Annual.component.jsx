@@ -9,7 +9,7 @@ import {
   BackBtn,
 } from "../Reports.styles";
 
-import { Document, Name } from "./Annual.styles";
+import { ReportsContainer, Document, Name } from "./Annual.styles";
 
 const dummy = [
   {
@@ -69,7 +69,7 @@ const Annual = () => {
         <BackBtn onClick={goBack}>Back</BackBtn>
       </HeadingContainer>
 
-      <div>
+      <ReportsContainer>
         {dummy.map((doc, i) => {
           return (
             <Document key={i}>
@@ -77,7 +77,7 @@ const Annual = () => {
             </Document>
           );
         })}
-      </div>
+      </ReportsContainer>
     </Container>
   );
 };
