@@ -17,7 +17,7 @@ public interface CampService {
    * @return The Camp instance with the corresponding database id
    * @throws EntityNotFoundException
    */
-  public Camp findCampById(long id) throws EntityNotFoundException;
+  Camp findCampById(long id) throws EntityNotFoundException;
 
   /**
    * Save the provided camp
@@ -25,4 +25,12 @@ public interface CampService {
    * @return The finalized saved camp
    */
   Camp save(Camp camp);
+
+  /**
+   * Update the camp with the specified id using the partial Camp instance
+   * provided
+   * @param updateCamp A Partial Camp instance with new data
+   * @param id The database id of the Camp instance to be updated
+   */
+  Camp update(Camp updateCamp, long id);
 }

@@ -34,12 +34,12 @@ public class CampController {
 
   /**
    * Retrieve a camp with a specific database id
-   * @param campId The id of the camp to retrieve
+   * @param id The id of the camp to retrieve
    * @return HttpStatus.OK
    */
-  @GetMapping(value = "/camp/{articleid}", produces = "application/json")
-  public ResponseEntity<?> getCampById(@PathVariable long campId) {
-    Camp camp = campService.findCampById(campId);
+  @GetMapping(value = "/camp/{id}", produces = "application/json")
+  public ResponseEntity<?> getCampById(@PathVariable long id) {
+    Camp camp = campService.findCampById(id);
 
     return new ResponseEntity<>(camp, HttpStatus.OK);
   }
@@ -58,11 +58,27 @@ public class CampController {
     HttpHeaders responseHeaders = new HttpHeaders();
     URI newUserURI = ServletUriComponentsBuilder
       .fromCurrentRequest()
-      .path("/{articleid}")
+      .path("/{id}")
       .buildAndExpand(newCamp.getCampId())
       .toUri();
     responseHeaders.setLocation(newUserURI);
 
     return new ResponseEntity<>(null, responseHeaders, HttpStatus.CREATED);
+  }
+
+  /**
+   * Update the Camp instance with the specified id using a partial Camp
+   * instance provided.
+   * @param updateCamp The partial Camp instance with the new data
+   * @param id The database id of the Camp instance to be updated
+   * @return HttpStatus.NO_CONTENT
+   */
+  @PatchMapping(value = "/comp/{id}", consumes = "application/json")
+  public ResponseEntity<?> updateCamp(
+    @RequestBody Camp updateCamp,
+    @PathVariable long id
+  ) {
+    campService.update(updateCamp, id);
+    return new ResponseEntity<>(HttpStatus.NO_CONTENT);
   }
 }

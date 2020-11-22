@@ -65,4 +65,20 @@ public class CampServiceImplementation implements CampService {
 
     return campRepository.save(newCamp);
   }
+
+  /**
+   * Update the camp with the specified id using the partial Camp instance
+   * provided
+   *
+   * @param updateCamp A Partial Camp instance with new data
+   * @param id         The database id of the Camp instance to be updated
+   */
+  @Override
+  public Camp update(Camp updateCamp, long id) {
+    Camp currentCamp = findCampById(id);
+
+    currentCamp.update(currentCamp);
+
+    return campRepository.save(currentCamp);
+  }
 }
