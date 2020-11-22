@@ -15,7 +15,7 @@ public interface CampService {
    * Return the camp with the specified database id
    * @param id The database id requested
    * @return The Camp instance with the corresponding database id
-   * @throws EntityNotFoundException
+   * @throws EntityNotFoundException Thrown when no camp with that id exists
    */
   Camp findCampById(long id) throws EntityNotFoundException;
 

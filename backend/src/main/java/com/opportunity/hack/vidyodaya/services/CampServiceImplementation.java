@@ -45,7 +45,7 @@ public class CampServiceImplementation implements CampService {
    *
    * @param id The database id requested
    * @return The Camp instance with the corresponding database id
-   * @throws EntityNotFoundException
+   * @throws EntityNotFoundException Thrown when no camp with that id exists
    */
   @Override
   public Camp findCampById(long id) throws EntityNotFoundException {
