@@ -34,4 +34,20 @@ public class HighlightServiceImplementation implements HighlightService {
           new EntityNotFoundException("\"Highlight id \" + id + \" Not Found!")
       );
   }
+
+  /**
+   * Update the highlight with the specified id using the partial Camp instance
+   * provided
+   * @param updateHighlight A Partial Camp instance with new data
+   * @param id The database id of the Camp instance to be updated
+   * @return  the updated Highlight instance
+   */
+  @Override
+  public Highlight update(Highlight updateHighlight, long id) {
+    Highlight currentHighlight = findHighlightById(id);
+
+    currentHighlight.update(currentHighlight);
+
+    return highlightRepository.save(currentHighlight);
+  }
 }

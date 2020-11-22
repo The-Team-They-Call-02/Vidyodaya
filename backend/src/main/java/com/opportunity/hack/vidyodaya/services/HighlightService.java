@@ -11,4 +11,13 @@ public interface HighlightService {
    * @throws EntityNotFoundException Thrown when no camp with that id exists
    */
   Highlight findHighlightById(long id) throws EntityNotFoundException;
+
+  /**
+   * Update the highlight with the specified id using the partial Camp instance
+   * provided
+   * @param updateHighlight A Partial Camp instance with new data
+   * @param id The database id of the Camp instance to be updated
+   * @return The updated Highlight instance
+   */
+  Highlight update(Highlight updateHighlight, long id);
 }
