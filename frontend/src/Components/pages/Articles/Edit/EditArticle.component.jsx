@@ -20,6 +20,7 @@ import {
   Rows,
   InputWrapper,
   InputField,
+  TextareaField,
   Select,
   Label,
   ErrorMsg,
@@ -109,6 +110,17 @@ const EditArticle = () => {
             </FileBtn>
           </div>
           <TwoRows>
+            {/* title  */}
+            <InputWrapper full>
+              <Label htmlFor="title">Enter Title</Label>
+              <InputField
+                type="text"
+                id="title"
+                name="title"
+                ref={register({ required: true })}
+              />
+              {errors.title && <ErrorMsg>Please enter a title</ErrorMsg>}
+            </InputWrapper>
             {/* category */}
             <InputWrapper category>
               <Label htmlFor="category">Category</Label>
@@ -127,34 +139,23 @@ const EditArticle = () => {
 
               {errors.category && <ErrorMsg>Please select one</ErrorMsg>}
             </InputWrapper>
-
-            {/*year*/}
-            <InputWrapper>
-              <Label htmlFor="year">Year</Label>
-              <Select name="year" id="year" ref={register({ required: true })}>
-                <option value="" disabled selected>
-                  -select-{" "}
-                </option>
-                {years.map((year, i) => {
-                  return <option key={`${i}${year}${i * year}`}>{year}</option>;
-                })}
-              </Select>
-
-              {errors.year && <ErrorMsg>Please select one</ErrorMsg>}
-            </InputWrapper>
           </TwoRows>
           </AlignImage>
-          {/* title  */}
+          
+ 
+          {/* description */}
           <Rows>
             <InputWrapper full>
-              <Label htmlFor="title">Enter Title</Label>
-              <InputField
-                type="text"
-                id="title"
-                name="title"
+              <Label htmlFor="description">Enter Description</Label>
+              <TextareaField
+                type="textarea"
+                id="description"
+                name="description"
+                rows="4"
+                cols="4"
                 ref={register({ required: true })}
-              />
-              {errors.title && <ErrorMsg>Please enter a title</ErrorMsg>}
+              ></TextareaField>
+              {errors.title && <ErrorMsg>Please enter a description</ErrorMsg>}
             </InputWrapper>
           </Rows>
 
