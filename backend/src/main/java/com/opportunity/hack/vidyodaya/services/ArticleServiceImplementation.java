@@ -49,7 +49,7 @@ public class ArticleServiceImplementation implements ArticleService {
    */
   @Override
   public Article save(Article article) {
-    Article newArticle = new Article();
+    Article newArticle = new Article(article);
 
     if (article.getArticleId() != 0) {
       articleRepository
@@ -57,10 +57,6 @@ public class ArticleServiceImplementation implements ArticleService {
         .orElseThrow(() -> new EntityNotFoundException("Post id invalid"));
       newArticle.setArticleId(article.getArticleId());
     }
-
-    newArticle.setDescription(article.getDescription());
-    newArticle.setImageUrl(article.getImageUrl());
-    newArticle.setTitle(article.getTitle());
 
     return articleRepository.save(newArticle);
   }
