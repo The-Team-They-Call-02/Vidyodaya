@@ -19,6 +19,7 @@ public class Feedback {
   /**
    * The testimonial text of the feedback item
    */
+  @Lob
   private String testimonial;
 
   /**
