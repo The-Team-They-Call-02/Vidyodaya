@@ -19,40 +19,44 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @Configuration
 @EnableSwagger2
 @Import(BeanValidatorPluginsConfiguration.class)
-public class Swagger2Config
-{
-    /**
-     * Configures what to document using Swagger
-     *
-     * @return A Docket which is the primary interface for Swagger configuration
-     */
-    @Bean
-    public Docket api()
-    {
-        return new Docket(DocumentationType.SWAGGER_2)
-                .select()
-                .apis(RequestHandlerSelectors
-                              .basePackage("com.lambdaschool.usermodel"))
-                .paths(PathSelectors.regex("/.*"))
-                .build()
-                .apiInfo(apiEndPointsInfo());
-    }
+public class Swagger2Config {
 
-    /**
-     * Configures some information related to the Application for Swagger
-     *
-     * @return ApiInfo a Swagger object containing identification information for this application
-     */
-    private ApiInfo apiEndPointsInfo()
-    {
-        return new ApiInfoBuilder().title("User Model Example")
-                .description("User Model Example")
-                .contact(new Contact("John Mitchell",
-                                     "http://www.lambdaschool.com",
-                                     "john@lambdaschool.com"))
-                .license("MIT")
-                .licenseUrl("https://github.com/LambdaSchool/java-usermodel/blob/master/LICENSE")
-                .version("1.0.0")
-                .build();
-    }
+  /**
+   * Configures what to document using Swagger
+   *
+   * @return A Docket which is the primary interface for Swagger configuration
+   */
+  @Bean
+  public Docket api() {
+    return new Docket(DocumentationType.SWAGGER_2)
+      .select()
+      .apis(RequestHandlerSelectors.basePackage("com.lambdaschool.usermodel"))
+      .paths(PathSelectors.regex("/.*"))
+      .build()
+      .apiInfo(apiEndPointsInfo());
+  }
+
+  /**
+   * Configures some information related to the Application for Swagger
+   *
+   * @return ApiInfo a Swagger object containing identification information for this application
+   */
+  private ApiInfo apiEndPointsInfo() {
+    return new ApiInfoBuilder()
+      .title("User Model Example")
+      .description("User Model Example")
+      .contact(
+        new Contact(
+          "John Mitchell",
+          "http://www.lambdaschool.com",
+          "john@lambdaschool.com"
+        )
+      )
+      .license("MIT")
+      .licenseUrl(
+        "https://github.com/LambdaSchool/java-usermodel/blob/master/LICENSE"
+      )
+      .version("1.0.0")
+      .build();
+  }
 }

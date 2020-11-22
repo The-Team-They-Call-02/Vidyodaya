@@ -1,11 +1,18 @@
 package com.opportunity.hack.controllers;
 
+import static org.junit.Assert.assertEquals;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyString;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.opportunity.hack.models.Role;
 import com.opportunity.hack.models.User;
 import com.opportunity.hack.models.UserRoles;
 import com.opportunity.hack.services.UserService;
 import io.restassured.module.mockmvc.RestAssuredMockMvc;
+import java.util.ArrayList;
+import java.util.List;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -27,324 +34,290 @@ import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import static org.junit.Assert.assertEquals;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.anyString;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-
 // mocking service to test controller
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @AutoConfigureMockMvc
-@WithMockUser(username = "admin", roles = {"USER", "ADMIN"})
-public class UserControllerUnitTest
-{
-    @Autowired
-    private WebApplicationContext webApplicationContext;
+@WithMockUser(username = "admin", roles = { "USER", "ADMIN" })
+public class UserControllerUnitTest {
 
-    private MockMvc mockMvc;
+  @Autowired
+  private WebApplicationContext webApplicationContext;
 
-    @MockBean
-    private UserService userService;
+  private MockMvc mockMvc;
 
-    private List<User> userList;
+  @MockBean
+  private UserService userService;
 
-    @Before
-    public void setUp() throws
-            Exception
-    {
-        userList = new ArrayList<>();
+  private List<User> userList;
 
-        Role r1 = new Role("admin");
-        r1.setRoleid(1);
-        Role r2 = new Role("user");
-        r2.setRoleid(2);
-        Role r3 = new Role("data");
-        r3.setRoleid(3);
+  @Before
+  public void setUp() throws Exception {
+    userList = new ArrayList<>();
 
-        // admin, data, user
-        User u1 = new User("admin", "ILuvM4th!", "admin@lambdaschool.local");
-        u1.getRoles().add(new UserRoles(u1, r1));
-        u1.getRoles().add(new UserRoles(u1, r2));
-        u1.getRoles().add(new UserRoles(u1, r3));
+    Role r1 = new Role("admin");
+    r1.setRoleid(1);
+    Role r2 = new Role("user");
+    r2.setRoleid(2);
+    Role r3 = new Role("data");
+    r3.setRoleid(3);
 
-        u1.setUserid(101);
-        userList.add(u1);
+    // admin, data, user
+    User u1 = new User("admin", "ILuvM4th!", "admin@lambdaschool.local");
+    u1.getRoles().add(new UserRoles(u1, r1));
+    u1.getRoles().add(new UserRoles(u1, r2));
+    u1.getRoles().add(new UserRoles(u1, r3));
 
-        // data, user
-        ArrayList<UserRoles> datas = new ArrayList<>();
-        User u2 = new User("cinnamon", "1234567", "cinnamon@lambdaschool.local");
-        u1.getRoles().add(new UserRoles(u2, r2));
-        u1.getRoles().add(new UserRoles(u2, r3));
+    u1.setUserid(101);
+    userList.add(u1);
 
-        u2.setUserid(102);
-        userList.add(u2);
+    // data, user
+    ArrayList<UserRoles> datas = new ArrayList<>();
+    User u2 = new User("cinnamon", "1234567", "cinnamon@lambdaschool.local");
+    u1.getRoles().add(new UserRoles(u2, r2));
+    u1.getRoles().add(new UserRoles(u2, r3));
 
-        // user
-        User u3 = new User("testingbarn", "ILuvM4th!", "testingbarn@school.lambda");
-        u3.getRoles().add(new UserRoles(u3, r1));
+    u2.setUserid(102);
+    userList.add(u2);
 
-        u3.setUserid(103);
-        userList.add(u3);
+    // user
+    User u3 = new User("testingbarn", "ILuvM4th!", "testingbarn@school.lambda");
+    u3.getRoles().add(new UserRoles(u3, r1));
 
-        User u4 = new User("testingcat", "password", "testingcat@school.lambda");
-        u4.getRoles().add(new UserRoles(u4, r2));
+    u3.setUserid(103);
+    userList.add(u3);
 
-        u4.setUserid(104);
-        userList.add(u4);
+    User u4 = new User("testingcat", "password", "testingcat@school.lambda");
+    u4.getRoles().add(new UserRoles(u4, r2));
 
-        User u5 = new User("testingdog", "password", "testingdog@school.lambda");
-        u4.getRoles().add(new UserRoles(u5, r2));
+    u4.setUserid(104);
+    userList.add(u4);
 
-        u5.setUserid(105);
-        userList.add(u5);
+    User u5 = new User("testingdog", "password", "testingdog@school.lambda");
+    u4.getRoles().add(new UserRoles(u5, r2));
 
-        System.out.println("\n*** Seed Data ***");
-        for (User u : userList)
-        {
-            System.out.println(u);
-        }
-        System.out.println("*** Seed Data ***\n");
+    u5.setUserid(105);
+    userList.add(u5);
 
-        RestAssuredMockMvc.webAppContextSetup(webApplicationContext);
-
-        mockMvc = MockMvcBuilders.webAppContextSetup(webApplicationContext)
-                .apply(SecurityMockMvcConfigurers.springSecurity())
-                .build();
+    System.out.println("\n*** Seed Data ***");
+    for (User u : userList) {
+      System.out.println(u);
     }
+    System.out.println("*** Seed Data ***\n");
 
-    @After
-    public void tearDown() throws
-            Exception
-    {
-    }
+    RestAssuredMockMvc.webAppContextSetup(webApplicationContext);
 
-    @Test
-    public void listAllUsers() throws
-            Exception
-    {
-        String apiUrl = "/users/users";
+    mockMvc =
+      MockMvcBuilders
+        .webAppContextSetup(webApplicationContext)
+        .apply(SecurityMockMvcConfigurers.springSecurity())
+        .build();
+  }
 
-        Mockito.when(userService.findAll())
-                .thenReturn(userList);
+  @After
+  public void tearDown() throws Exception {}
 
-        RequestBuilder rb = MockMvcRequestBuilders.get(apiUrl)
-                .accept(MediaType.APPLICATION_JSON);
+  @Test
+  public void listAllUsers() throws Exception {
+    String apiUrl = "/users/users";
 
-        // the following actually performs a real controller call
-        MvcResult r = mockMvc.perform(rb)
-                .andReturn(); // this could throw an exception
-        String tr = r.getResponse()
-                .getContentAsString();
+    Mockito.when(userService.findAll()).thenReturn(userList);
 
-        ObjectMapper mapper = new ObjectMapper();
-        String er = mapper.writeValueAsString(userList);
+    RequestBuilder rb = MockMvcRequestBuilders
+      .get(apiUrl)
+      .accept(MediaType.APPLICATION_JSON);
 
-        System.out.println("Expect: " + er);
-        System.out.println("Actual: " + tr);
+    // the following actually performs a real controller call
+    MvcResult r = mockMvc.perform(rb).andReturn(); // this could throw an exception
+    String tr = r.getResponse().getContentAsString();
 
-        assertEquals("Rest API Returns List", er, tr);
-    }
+    ObjectMapper mapper = new ObjectMapper();
+    String er = mapper.writeValueAsString(userList);
 
-    @Test
-    public void listUsersNameContaining() throws
-            Exception
-    {
-        String apiUrl = "/users/user/name/like/cin";
+    System.out.println("Expect: " + er);
+    System.out.println("Actual: " + tr);
 
-        Mockito.when(userService.findByNameContaining(any(String.class)))
-                .thenReturn(userList);
+    assertEquals("Rest API Returns List", er, tr);
+  }
 
-        RequestBuilder rb = MockMvcRequestBuilders.get(apiUrl)
-                .accept(MediaType.APPLICATION_JSON);
+  @Test
+  public void listUsersNameContaining() throws Exception {
+    String apiUrl = "/users/user/name/like/cin";
 
-        // the following actually performs a real controller call
-        MvcResult r = mockMvc.perform(rb)
-                .andReturn(); // this could throw an exception
-        String tr = r.getResponse()
-                .getContentAsString();
+    Mockito
+      .when(userService.findByNameContaining(any(String.class)))
+      .thenReturn(userList);
 
-        ObjectMapper mapper = new ObjectMapper();
-        String er = mapper.writeValueAsString(userList);
+    RequestBuilder rb = MockMvcRequestBuilders
+      .get(apiUrl)
+      .accept(MediaType.APPLICATION_JSON);
 
-        System.out.println("Expect: " + er);
-        System.out.println("Actual: " + tr);
+    // the following actually performs a real controller call
+    MvcResult r = mockMvc.perform(rb).andReturn(); // this could throw an exception
+    String tr = r.getResponse().getContentAsString();
 
-        assertEquals("Rest API Returns List", er, tr);
-    }
+    ObjectMapper mapper = new ObjectMapper();
+    String er = mapper.writeValueAsString(userList);
 
-    @Test
-    public void getUserById() throws
-            Exception
-    {
-        String apiUrl = "/users/user/12";
+    System.out.println("Expect: " + er);
+    System.out.println("Actual: " + tr);
 
-        Mockito.when(userService.findUserById(12))
-                .thenReturn(userList.get(1));
+    assertEquals("Rest API Returns List", er, tr);
+  }
 
-        RequestBuilder rb = MockMvcRequestBuilders.get(apiUrl)
-                .accept(MediaType.APPLICATION_JSON);
-        MvcResult r = mockMvc.perform(rb)
-                .andReturn(); // this could throw an exception
-        String tr = r.getResponse()
-                .getContentAsString();
+  @Test
+  public void getUserById() throws Exception {
+    String apiUrl = "/users/user/12";
 
-        ObjectMapper mapper = new ObjectMapper();
-        String er = mapper.writeValueAsString(userList.get(1));
+    Mockito.when(userService.findUserById(12)).thenReturn(userList.get(1));
 
-        System.out.println("Expect: " + er);
-        System.out.println("Actual: " + tr);
+    RequestBuilder rb = MockMvcRequestBuilders
+      .get(apiUrl)
+      .accept(MediaType.APPLICATION_JSON);
+    MvcResult r = mockMvc.perform(rb).andReturn(); // this could throw an exception
+    String tr = r.getResponse().getContentAsString();
 
-        assertEquals("Rest API Returns List", er, tr);
-    }
+    ObjectMapper mapper = new ObjectMapper();
+    String er = mapper.writeValueAsString(userList.get(1));
 
-    @Test
-    public void getUserByIdNotFound() throws
-            Exception
-    {
-        String apiUrl = "/users/user/77";
+    System.out.println("Expect: " + er);
+    System.out.println("Actual: " + tr);
 
-        Mockito.when(userService.findUserById(77))
-                .thenReturn(null);
+    assertEquals("Rest API Returns List", er, tr);
+  }
 
-        RequestBuilder rb = MockMvcRequestBuilders.get(apiUrl)
-                .accept(MediaType.APPLICATION_JSON);
-        MvcResult r = mockMvc.perform(rb)
-                .andReturn(); // this could throw an exception
-        String tr = r.getResponse()
-                .getContentAsString();
+  @Test
+  public void getUserByIdNotFound() throws Exception {
+    String apiUrl = "/users/user/77";
 
-        String er = "";
+    Mockito.when(userService.findUserById(77)).thenReturn(null);
 
-        System.out.println("Expect: " + er);
-        System.out.println("Actual: " + tr);
+    RequestBuilder rb = MockMvcRequestBuilders
+      .get(apiUrl)
+      .accept(MediaType.APPLICATION_JSON);
+    MvcResult r = mockMvc.perform(rb).andReturn(); // this could throw an exception
+    String tr = r.getResponse().getContentAsString();
 
-        assertEquals("Rest API Returns List", er, tr);
-    }
+    String er = "";
 
-    @Test
-    public void getUserByName() throws
-            Exception
-    {
-        String apiUrl = "/users/user/name/testing";
+    System.out.println("Expect: " + er);
+    System.out.println("Actual: " + tr);
 
-        Mockito.when(userService.findByName("testing"))
-                .thenReturn(userList.get(0));
+    assertEquals("Rest API Returns List", er, tr);
+  }
 
-        RequestBuilder rb = MockMvcRequestBuilders.get(apiUrl)
-                .accept(MediaType.APPLICATION_JSON);
-        MvcResult r = mockMvc.perform(rb)
-                .andReturn(); // this could throw an exception
-        String tr = r.getResponse()
-                .getContentAsString();
+  @Test
+  public void getUserByName() throws Exception {
+    String apiUrl = "/users/user/name/testing";
 
-        ObjectMapper mapper = new ObjectMapper();
-        String er = mapper.writeValueAsString(userList.get(0));
+    Mockito.when(userService.findByName("testing")).thenReturn(userList.get(0));
 
-        System.out.println("Expect: " + er);
-        System.out.println("Actual: " + tr);
+    RequestBuilder rb = MockMvcRequestBuilders
+      .get(apiUrl)
+      .accept(MediaType.APPLICATION_JSON);
+    MvcResult r = mockMvc.perform(rb).andReturn(); // this could throw an exception
+    String tr = r.getResponse().getContentAsString();
 
-        assertEquals("Rest API Returns List", er, tr);
-    }
+    ObjectMapper mapper = new ObjectMapper();
+    String er = mapper.writeValueAsString(userList.get(0));
 
-    @Test
-    public void getUserInfo() throws
-            Exception
-    {
-        String apiUrl = "/users/getuserinfo";
+    System.out.println("Expect: " + er);
+    System.out.println("Actual: " + tr);
 
-        Mockito.when(userService.findByName(anyString()))
-                .thenReturn(userList.get(0));
+    assertEquals("Rest API Returns List", er, tr);
+  }
 
-        RequestBuilder rb = MockMvcRequestBuilders.get(apiUrl)
-                .accept(MediaType.APPLICATION_JSON);
-        MvcResult r = mockMvc.perform(rb)
-                .andReturn(); // this could throw an exception
-        String tr = r.getResponse()
-                .getContentAsString();
+  @Test
+  public void getUserInfo() throws Exception {
+    String apiUrl = "/users/getuserinfo";
 
-        ObjectMapper mapper = new ObjectMapper();
-        String er = mapper.writeValueAsString(userList.get(0));
+    Mockito
+      .when(userService.findByName(anyString()))
+      .thenReturn(userList.get(0));
 
-        System.out.println("Expect: " + er);
-        System.out.println("Actual: " + tr);
+    RequestBuilder rb = MockMvcRequestBuilders
+      .get(apiUrl)
+      .accept(MediaType.APPLICATION_JSON);
+    MvcResult r = mockMvc.perform(rb).andReturn(); // this could throw an exception
+    String tr = r.getResponse().getContentAsString();
 
-        assertEquals("Rest API Returns List", er, tr);
-    }
+    ObjectMapper mapper = new ObjectMapper();
+    String er = mapper.writeValueAsString(userList.get(0));
 
-    @Test
-    public void addNewUser() throws
-            Exception
-    {
-        String apiUrl = "/users/user";
+    System.out.println("Expect: " + er);
+    System.out.println("Actual: " + tr);
 
-        // build a user
-        User u1 = new User();
-        u1.setUserid(100);
-        u1.setUsername("tiger");
-        u1.setPassword("ILuvM4th!");
-        u1.setPrimaryemail("tiger@home.local");
+    assertEquals("Rest API Returns List", er, tr);
+  }
 
-        ObjectMapper mapper = new ObjectMapper();
-        String userString = mapper.writeValueAsString(u1);
+  @Test
+  public void addNewUser() throws Exception {
+    String apiUrl = "/users/user";
 
-        Mockito.when(userService.save(any(User.class)))
-                .thenReturn(u1);
+    // build a user
+    User u1 = new User();
+    u1.setUserid(100);
+    u1.setUsername("tiger");
+    u1.setPassword("ILuvM4th!");
+    u1.setPrimaryemail("tiger@home.local");
 
-        RequestBuilder rb = MockMvcRequestBuilders.post(apiUrl)
-                .contentType(MediaType.APPLICATION_JSON)
-                .accept(MediaType.APPLICATION_JSON)
-                .content(userString);
+    ObjectMapper mapper = new ObjectMapper();
+    String userString = mapper.writeValueAsString(u1);
 
-        mockMvc.perform(rb)
-                .andExpect(status().isCreated())
-                .andDo(MockMvcResultHandlers.print());
-    }
+    Mockito.when(userService.save(any(User.class))).thenReturn(u1);
 
-    @Test
-    public void updateUser() throws
-            Exception
-    {
-        String apiUrl = "/users/user/{userid}";
+    RequestBuilder rb = MockMvcRequestBuilders
+      .post(apiUrl)
+      .contentType(MediaType.APPLICATION_JSON)
+      .accept(MediaType.APPLICATION_JSON)
+      .content(userString);
 
-        // build a user
-        User u1 = new User();
-        u1.setUserid(100);
-        u1.setUsername("tigerUpdated");
-        u1.setPrimaryemail("home@local.home");
-        u1.setPassword("ILuvM4th!");
+    mockMvc
+      .perform(rb)
+      .andExpect(status().isCreated())
+      .andDo(MockMvcResultHandlers.print());
+  }
 
-        Mockito.when(userService.update(u1, 100))
-                .thenReturn(userList.get(0));
+  @Test
+  public void updateUser() throws Exception {
+    String apiUrl = "/users/user/{userid}";
 
-        ObjectMapper mapper = new ObjectMapper();
-        String userString = mapper.writeValueAsString(u1);
+    // build a user
+    User u1 = new User();
+    u1.setUserid(100);
+    u1.setUsername("tigerUpdated");
+    u1.setPrimaryemail("home@local.home");
+    u1.setPassword("ILuvM4th!");
 
-        RequestBuilder rb = MockMvcRequestBuilders.put(apiUrl, 100L)
-                .contentType(MediaType.APPLICATION_JSON)
-                .accept(MediaType.APPLICATION_JSON)
-                .content(userString);
+    Mockito.when(userService.update(u1, 100)).thenReturn(userList.get(0));
 
-        mockMvc.perform(rb)
-                .andExpect(status().is2xxSuccessful())
-                .andDo(MockMvcResultHandlers.print());
-    }
+    ObjectMapper mapper = new ObjectMapper();
+    String userString = mapper.writeValueAsString(u1);
 
-    @Test
-    public void deleteUserById() throws
-            Exception
-    {
-        String apiUrl = "/users/user/{userid}";
+    RequestBuilder rb = MockMvcRequestBuilders
+      .put(apiUrl, 100L)
+      .contentType(MediaType.APPLICATION_JSON)
+      .accept(MediaType.APPLICATION_JSON)
+      .content(userString);
 
-        RequestBuilder rb = MockMvcRequestBuilders.delete(apiUrl, "3")
-                .contentType(MediaType.APPLICATION_JSON)
-                .accept(MediaType.APPLICATION_JSON);
-        mockMvc.perform(rb)
-                .andExpect(status().is2xxSuccessful())
-                .andDo(MockMvcResultHandlers.print());
-    }
+    mockMvc
+      .perform(rb)
+      .andExpect(status().is2xxSuccessful())
+      .andDo(MockMvcResultHandlers.print());
+  }
+
+  @Test
+  public void deleteUserById() throws Exception {
+    String apiUrl = "/users/user/{userid}";
+
+    RequestBuilder rb = MockMvcRequestBuilders
+      .delete(apiUrl, "3")
+      .contentType(MediaType.APPLICATION_JSON)
+      .accept(MediaType.APPLICATION_JSON);
+    mockMvc
+      .perform(rb)
+      .andExpect(status().is2xxSuccessful())
+      .andDo(MockMvcResultHandlers.print());
+  }
 }

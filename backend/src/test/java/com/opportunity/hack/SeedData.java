@@ -8,12 +8,11 @@ import com.opportunity.hack.models.User;
 import com.opportunity.hack.models.UserRoles;
 import com.opportunity.hack.services.RoleService;
 import com.opportunity.hack.services.UserService;
+import java.util.Locale;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.util.Locale;
 
 /**
  * SeedData puts both known and random data into the database. It implements CommandLineRunner.
@@ -23,116 +22,95 @@ import java.util.Locale;
  */
 @Transactional
 @Component
-public class SeedData
-        implements CommandLineRunner
-{
-    /**
-     * Connects the Role Service to this process
-     */
-    @Autowired
-    RoleService roleService;
+public class SeedData implements CommandLineRunner {
 
-    /**
-     * Connects the user service to this process
-     */
-    @Autowired
-    UserService userService;
+  /**
+   * Connects the Role Service to this process
+   */
+  @Autowired
+  RoleService roleService;
 
-    /**
-     * Generates test, seed data for our application
-     * First a set of known data is seeded into our database.
-     * Second a random set of data using Java Faker is seeded into our database.
-     * Note this process does not remove data from the database. So if data exists in the database
-     * prior to running this process, that data remains in the database.
-     *
-     * @param args The parameter is required by the parent interface but is not used in this process.
-     */
-    @Transactional
-    @Override
-    public void run(String[] args) throws
-            Exception
-    {
-        userService.deleteAll();
-        roleService.deleteAll();
-        Role r1 = new Role("admin");
-        Role r2 = new Role("user");
-        Role r3 = new Role("data");
+  /**
+   * Connects the user service to this process
+   */
+  @Autowired
+  UserService userService;
 
-        r1 = roleService.save(r1);
-        r2 = roleService.save(r2);
-        r3 = roleService.save(r3);
+  /**
+   * Generates test, seed data for our application
+   * First a set of known data is seeded into our database.
+   * Second a random set of data using Java Faker is seeded into our database.
+   * Note this process does not remove data from the database. So if data exists in the database
+   * prior to running this process, that data remains in the database.
+   *
+   * @param args The parameter is required by the parent interface but is not used in this process.
+   */
+  @Transactional
+  @Override
+  public void run(String[] args) throws Exception {
+    userService.deleteAll();
+    roleService.deleteAll();
+    Role r1 = new Role("admin");
+    Role r2 = new Role("user");
+    Role r3 = new Role("data");
 
-        // admin, data, user
-        User u1 = new User("admin",
-                           "password",
-                           "admin@lambdaschool.local");
-        u1.getRoles()
-                .add(new UserRoles(u1, r1));
-        u1.getRoles()
-                .add(new UserRoles(u1, r2));
-        u1.getRoles()
-                .add(new UserRoles(u1, r3));
+    r1 = roleService.save(r1);
+    r2 = roleService.save(r2);
+    r3 = roleService.save(r3);
 
-        userService.save(u1);
+    // admin, data, user
+    User u1 = new User("admin", "password", "admin@lambdaschool.local");
+    u1.getRoles().add(new UserRoles(u1, r1));
+    u1.getRoles().add(new UserRoles(u1, r2));
+    u1.getRoles().add(new UserRoles(u1, r3));
 
-        // data, user
-        User u2 = new User("cinnamon",
-                           "1234567",
-                           "cinnamon@lambdaschool.local");
-        u2.getRoles()
-                .add(new UserRoles(u2, r2));
-        u2.getRoles()
-                .add(new UserRoles(u2, r3));
+    userService.save(u1);
 
-        userService.save(u2);
+    // data, user
+    User u2 = new User("cinnamon", "1234567", "cinnamon@lambdaschool.local");
+    u2.getRoles().add(new UserRoles(u2, r2));
+    u2.getRoles().add(new UserRoles(u2, r3));
 
-        // user
-        User u3 = new User("barnbarn",
-                           "ILuvM4th!",
-                           "barnbarn@lambdaschool.local");
-        u3.getRoles()
-                .add(new UserRoles(u3, r2));
+    userService.save(u2);
 
-        userService.save(u3);
+    // user
+    User u3 = new User("barnbarn", "ILuvM4th!", "barnbarn@lambdaschool.local");
+    u3.getRoles().add(new UserRoles(u3, r2));
 
-        User u4 = new User("puttat",
-                           "password",
-                           "puttat@school.lambda");
-        u4.getRoles()
-                .add(new UserRoles(u4, r2));
-        userService.save(u4);
+    userService.save(u3);
 
-        User u5 = new User("misskitty",
-                           "password",
-                           "misskitty@school.lambda");
-        u5.getRoles()
-                .add(new UserRoles(u5, r2));
-        userService.save(u5);
+    User u4 = new User("puttat", "password", "puttat@school.lambda");
+    u4.getRoles().add(new UserRoles(u4, r2));
+    userService.save(u4);
 
-        if (false)
-        {
-            // using JavaFaker create a bunch of regular users
-            // https://www.baeldung.com/java-faker
-            // https://www.baeldung.com/regular-expressions-java
+    User u5 = new User("misskitty", "password", "misskitty@school.lambda");
+    u5.getRoles().add(new UserRoles(u5, r2));
+    userService.save(u5);
 
-            FakeValuesService fakeValuesService = new FakeValuesService(new Locale("en-US"),
-                                                                        new RandomService());
-            Faker nameFaker = new Faker(new Locale("en-US"));
+    if (false) {
+      // using JavaFaker create a bunch of regular users
+      // https://www.baeldung.com/java-faker
+      // https://www.baeldung.com/regular-expressions-java
 
-            for (int i = 0; i < 25; i++)
-            {
-                new User();
-                User fakeUser;
+      FakeValuesService fakeValuesService = new FakeValuesService(
+        new Locale("en-US"),
+        new RandomService()
+      );
+      Faker nameFaker = new Faker(new Locale("en-US"));
 
-                fakeUser = new User(nameFaker.name()
-                                            .username(),
-                                    "password",
-                                    nameFaker.internet()
-                                            .emailAddress());
-                fakeUser.getRoles()
-                        .add(new UserRoles(fakeUser, r2));
-                userService.save(fakeUser);
-            }
-        }
+      for (int i = 0; i < 25; i++) {
+        new User();
+        User fakeUser;
+
+        fakeUser =
+          new User(
+            nameFaker.name().username(),
+            "password",
+            nameFaker.internet().emailAddress()
+          );
+        fakeUser.getRoles().add(new UserRoles(fakeUser, r2));
+        userService.save(fakeUser);
+      }
     }
+  }
 }

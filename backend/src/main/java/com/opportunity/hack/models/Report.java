@@ -1,88 +1,70 @@
 package com.opportunity.hack.models;
 
-
 import javax.persistence.*;
 
 @Entity
-@Table(name= "reports")
-public class Report extends Auditable
-{
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long reportid;
+@Table(name = "reports")
+public class Report extends Auditable {
 
-    @Column(nullable = false,unique = true)
-    private String title;
+  @Id
+  @GeneratedValue(strategy = GenerationType.AUTO)
+  private long reportid;
 
-    private String year;
-    private String category;
+  @Column(nullable = false, unique = true)
+  private String title;
 
-    @Column(nullable = false,unique = true)
-    private String document;
+  private String year;
+  private String category;
 
-    public Report()
-    {
-    }
+  @Column(nullable = false, unique = true)
+  private String document;
 
-    public Report(
-        String title,
-        String year,
-        String category,
-        String document)
-    {
-        this.title = title;
-        this.year = year;
-        this.category = category;
-        this.document = document;
-    }
+  public Report() {}
 
-    public long getReportid()
-    {
-        return reportid;
-    }
+  public Report(String title, String year, String category, String document) {
+    this.title = title;
+    this.year = year;
+    this.category = category;
+    this.document = document;
+  }
 
-    public void setReportid(long reportid)
-    {
-        this.reportid = reportid;
-    }
+  public long getReportid() {
+    return reportid;
+  }
 
-    public String getTitle()
-    {
-        return title;
-    }
+  public void setReportid(long reportid) {
+    this.reportid = reportid;
+  }
 
-    public void setTitle(String title)
-    {
-        this.title = title;
-    }
+  public String getTitle() {
+    return title;
+  }
 
-    public String getYear()
-    {
-        return year;
-    }
+  public void setTitle(String title) {
+    this.title = title;
+  }
 
-    public void setYear(String year)
-    {
-        this.year = year;
-    }
+  public String getYear() {
+    return year;
+  }
 
-    public String getCategory()
-    {
-        return category;
-    }
+  public void setYear(String year) {
+    this.year = year;
+  }
 
-    public void setCategory(String category)
-    {
-        this.category = category;
-    }
+  public String getCategory() {
+    return category;
+  }
 
-    public String getDocument()
-    {
-        return document;
-    }
+  public void setCategory(String category) {
+    this.category = category;
+  }
 
-    public void setDocument(String document)
-    {
-        this.document = document;
-    }
+  public String getDocument() {
+    return document;
+  }
+
+  public void setDocument(String document) {
+    this.document = document;
+  }
 }

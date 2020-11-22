@@ -2,83 +2,91 @@ package com.opportunity.hack.services;
 
 import com.opportunity.hack.models.Report;
 import com.opportunity.hack.repository.ReportRepository;
+import java.util.ArrayList;
+import java.util.List;
+import javax.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.persistence.EntityNotFoundException;
-import java.util.ArrayList;
-import java.util.List;
-
 @Transactional
 @Service(value = "reportService")
-public class ReportServiceImpl implements ReportService
-{
-    @Autowired
-    private ReportRepository reportrepos;
+public class ReportServiceImpl implements ReportService {
 
-    @Override
-    public List<Report> findAll(){
-        List<Report> list = new ArrayList<>();
+  @Autowired
+  private ReportRepository reportrepos;
 
-        reportrepos.findAll().iterator().forEachRemaining(list::add);
-        return list;
-    }
-    @Override
-    public Report findReportById(long id) throws EntityNotFoundException {
-        return reportrepos.findById(id).orElseThrow(() -> new EntityNotFoundException("Report id not found"));
-    }
+  @Override
+  public List<Report> findAll() {
+    List<Report> list = new ArrayList<>();
 
-    @Override
-    public Report save(Report report) {
-        Report newReport = new Report();
+    reportrepos.findAll().iterator().forEachRemaining(list::add);
+    return list;
+  }
 
-        if (report.getReportid() !=0){
-            reportrepos.findById(report.getReportid()).orElseThrow(() -> new EntityNotFoundException("Report id invalid"));
-            newReport.setReportid(report.getReportid());
-        }
+  @Override
+  public Report findReportById(long id) throws EntityNotFoundException {
+    return reportrepos
+      .findById(id)
+      .orElseThrow(() -> new EntityNotFoundException("Report id not found"));
+  }
 
-        newReport.setTitle(report.getTitle());
-        newReport.setYear(report.getYear());
-        newReport.setCategory(report.getCategory());
-        newReport.setDocument(report.getDocument());
+  @Override
+  public Report save(Report report) {
+    Report newReport = new Report();
 
-        return reportrepos.save(newReport);
+    if (report.getReportid() != 0) {
+      reportrepos
+        .findById(report.getReportid())
+        .orElseThrow(() -> new EntityNotFoundException("Report id invalid"));
+      newReport.setReportid(report.getReportid());
     }
 
-    @Override
-    public Report update(Report report, long id){
-        Report currentReport = new Report();
+    newReport.setTitle(report.getTitle());
+    newReport.setYear(report.getYear());
+    newReport.setCategory(report.getCategory());
+    newReport.setDocument(report.getDocument());
 
-        if(report.getReportid() != 0){
-            reportrepos.findById(report.getReportid()).orElseThrow(() -> new EntityNotFoundException("Report id invalid"));
-            currentReport.setReportid(report.getReportid());
-        }
+    return reportrepos.save(newReport);
+  }
 
-        if(report.getTitle() != null){
-            currentReport.setTitle(report.getTitle());
-        }
+  @Override
+  public Report update(Report report, long id) {
+    Report currentReport = new Report();
 
-        if(report.getYear() != null){
-            currentReport.setYear(report.getYear());
-        }
-
-        if(report.getCategory() != null){
-            currentReport.setCategory(report.getCategory());
-        }
-
-        if(report.getDocument() != null){
-            currentReport.setDocument(report.getDocument());
-        }
-
-        return reportrepos.save(currentReport);
-
+    if (report.getReportid() != 0) {
+      reportrepos
+        .findById(report.getReportid())
+        .orElseThrow(() -> new EntityNotFoundException("Report id invalid"));
+      currentReport.setReportid(report.getReportid());
     }
 
-    @Override
-    public void delete(long id){
-        reportrepos.findById(id).orElseThrow(() -> new EntityNotFoundException("Report id " + id + " not found!"));
-        reportrepos.deleteById(id);
+    if (report.getTitle() != null) {
+      currentReport.setTitle(report.getTitle());
     }
+
+    if (report.getYear() != null) {
+      currentReport.setYear(report.getYear());
+    }
+
+    if (report.getCategory() != null) {
+      currentReport.setCategory(report.getCategory());
+    }
+
+    if (report.getDocument() != null) {
+      currentReport.setDocument(report.getDocument());
+    }
+
+    return reportrepos.save(currentReport);
+  }
+
+  @Override
+  public void delete(long id) {
+    reportrepos
+      .findById(id)
+      .orElseThrow(
+        () -> new EntityNotFoundException("Report id " + id + " not found!")
+      );
+    reportrepos.deleteById(id);
+  }
 }
-

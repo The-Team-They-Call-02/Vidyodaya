@@ -8,16 +8,14 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  */
 // @EnableJpaAuditing
 @SpringBootApplication
-public class UserModelApplication
-{
-    /**
-     * Main method to start the application.
-     *
-     * @param args Not used in this application.
-     */
-    public static void main(String[] args)
-    {
-        SpringApplication.run(UserModelApplication.class,
-                              args);
-    }
+public class UserModelApplication {
+
+  /**
+   * Main method to start the application.
+   *
+   * @param args Not used in this application.
+   */
+  public static void main(String[] args) {
+    SpringApplication.run(UserModelApplication.class, args);
+  }
 }
