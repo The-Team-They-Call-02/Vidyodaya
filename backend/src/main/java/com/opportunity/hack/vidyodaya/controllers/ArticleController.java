@@ -3,10 +3,8 @@ package com.opportunity.hack.vidyodaya.controllers;
 import com.opportunity.hack.vidyodaya.models.Article;
 import com.opportunity.hack.vidyodaya.services.ArticleService;
 import java.net.URI;
-import java.net.URISyntaxException;
 import java.util.List;
 import javax.validation.Valid;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -30,23 +28,22 @@ public class ArticleController {
   }
 
   @GetMapping(value = "/article/{articleid}", produces = "application/json")
-  public ResponseEntity<?> getArticleById(@PathVariable Long articleid) {
+  public ResponseEntity<?> getArticleById(@PathVariable long articleid) {
     Article a = articleService.findArticleById(articleid);
     return new ResponseEntity<>(a, HttpStatus.OK);
   }
 
   @PostMapping(value = "/post", consumes = "application/json")
-  public ResponseEntity<?> addNewPost(@Valid @RequestBody Article newarticle)
-    throws URISyntaxException {
-    newarticle.setArticleId(0);
-    newarticle = articleService.save(newarticle);
+  public ResponseEntity<?> addNewPost(@Valid @RequestBody Article newArticle) {
+    newArticle.setArticleId(0);
+    newArticle = articleService.save(newArticle);
 
     // set the location header for the newly created resource
     HttpHeaders responseHeaders = new HttpHeaders();
     URI newUserURI = ServletUriComponentsBuilder
       .fromCurrentRequest()
       .path("/{articleid}")
-      .buildAndExpand(newarticle.getArticleId())
+      .buildAndExpand(newArticle.getArticleId())
       .toUri();
     responseHeaders.setLocation(newUserURI);
 
