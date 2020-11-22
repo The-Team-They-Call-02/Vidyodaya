@@ -5,7 +5,6 @@ import com.opportunity.hack.vidyodaya.repository.ArticleRepository;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityNotFoundException;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -13,8 +12,11 @@ import org.springframework.transaction.annotation.Transactional;
 @Service(value = "articleService")
 public class ArticleServiceImplementation implements ArticleService {
 
-  @Autowired
-  private ArticleRepository articleRepository;
+  private final ArticleRepository articleRepository;
+
+  public ArticleServiceImplementation(ArticleRepository articleRepository) {
+    this.articleRepository = articleRepository;
+  }
 
   /**
    * Return list of all articles
