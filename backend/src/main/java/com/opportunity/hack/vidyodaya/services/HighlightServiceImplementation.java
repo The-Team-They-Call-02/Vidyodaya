@@ -50,4 +50,19 @@ public class HighlightServiceImplementation implements HighlightService {
 
     return highlightRepository.save(currentHighlight);
   }
+
+  /**
+   * Delete the Highlight instance with the specified database id
+   *
+   * @param id The database id of the Highlight instance to be deleted
+   */
+  @Override
+  public void delete(long id) {
+    highlightRepository
+      .findById(id)
+      .orElseThrow(
+        () -> new EntityNotFoundException("Highlight id " + id + " Not Found!")
+      );
+    highlightRepository.deleteById(id);
+  }
 }

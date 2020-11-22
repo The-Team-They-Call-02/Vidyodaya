@@ -20,4 +20,10 @@ public interface HighlightService {
    * @return The updated Highlight instance
    */
   Highlight update(Highlight updateHighlight, long id);
+
+  /**
+   * Delete the Highlight instance with the specified database id
+   * @param id The database id of the Highlight instance to be deleted
+   */
+  void delete(long id);
 }

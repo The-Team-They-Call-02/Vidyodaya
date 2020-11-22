@@ -43,4 +43,15 @@ public class HighlightController {
     highlightService.update(updateHighlight, id);
     return new ResponseEntity<>(HttpStatus.NO_CONTENT);
   }
+
+  /**
+   * Delete the Highlight instance with the specified database id
+   * @param id The database id of the Highlight instance to be deleted
+   * @return HttpStatus.NO_CONTENT
+   */
+  @DeleteMapping(value = "/highlight/{id}")
+  public ResponseEntity<?> deleteUserById(@PathVariable long id) {
+    highlightService.delete(id);
+    return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+  }
 }
