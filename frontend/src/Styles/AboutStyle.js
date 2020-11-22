@@ -1,5 +1,10 @@
 import styled from "styled-components";
-import { colorObj } from './GlobalStyles.js';
+// import { colorObj } from '../Styles/GlobalStyles';
+
+export const MainContainer = styled.div`
+  background: #f8f7f7;
+  padding: 150px 0 0 0;
+`;
 
 export const Header = styled.h1`
 font-family: Arizonia, cursive;
@@ -9,16 +14,22 @@ font-weight: 400;
 line-height: 90px;
 letter-spacing: 0em;
 text-align: center;
-
 `;
 
-export const StyledSection = styled.div`
-width: 100%;
-height: 100vh;
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-padding-top: 40%;
-padding-bottom: 60%;
+export const Container = styled.div`
+  width: 60%;
+  margin: 0 auto;
+  text-align: center;
+  padding-bottom: 50px;
+  min-height: calc(100vh - (40vh + 150px));
+`;
+
+export const TextContainer = styled.div`
+text-align: left;
+`;
+
+export const Image = styled.img`
+border-radius: 10px;
+width: 500px;
+margin: 2%;
 `;

@@ -71,7 +71,9 @@ h2 {
   font-size: 4rem;
 }
 
-
+ul {
+  list-style-type: circle;
+}
 
 
 
