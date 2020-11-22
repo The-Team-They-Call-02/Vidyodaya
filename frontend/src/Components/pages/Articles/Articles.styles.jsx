@@ -39,6 +39,15 @@ const BodyContainer = styled.div`
 
 const ContentContainer = styled.div`
   margin-bottom: ${(props) => (props.questions ? "100px" : "0")};
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0 5%;
+`;
+
+const TextContainer = styled.div`
+  width: 100%;
+  padding-left: 5%;
 `;
 
 const Content = styled.div`
@@ -68,13 +77,49 @@ const BackBtn = styled.div`
   }
 `;
 
+const EditBtn = styled.img`
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  width: 8%;
+`;
+
+const DeleteBtn = styled.img`
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  cursor: pointer;
+  width: 10%;
+`;
+
+const CreateBtn = styled.img`
+  position: fixed;
+  bottom: 5%;
+  right: 2%;
+  cursor: pointer;
+  width: 60px;
+`;
+
+const Info = styled.p`
+  font-size: 2rem;
+  text-align: ${(props) => (props.internships ? "center" : "left")};
+  font-weight: ${(props) => (props.internships ? "700" : "500")};
+  margin-bottom: ${(props) => (props.policy ? "20px" : "0")};
+`;
+
 export {
   BackBtn,
+  CreateBtn,
+  EditBtn,
+  DeleteBtn,
   MainContainer,
   Container,
   HeadingContainer,
   Heading,
   BodyContainer,
   ContentContainer,
-  Content
+  Content,
+  TextContainer,
+  Info
 };

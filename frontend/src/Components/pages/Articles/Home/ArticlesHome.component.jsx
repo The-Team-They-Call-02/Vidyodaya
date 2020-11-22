@@ -1,14 +1,23 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
+
+import EditButton from "../../../../Assets/Articles/EditButton.svg";
+import DeleteButton from "../../../../Assets/Articles/DeleteButton.svg";
+import CreateButton from "../../../../Assets/Articles/CreateButton.svg";
 
 // styled-components
 import {
-    BackBtn,
+    EditBtn,
+    CreateBtn,
+    DeleteBtn,
     Container,
     HeadingContainer,
     Heading,
     BodyContainer,
     ContentContainer,
-    Content
+    Content,
+    TextContainer,
+    Info
   } from "../Articles.styles";
 
 // Endpoint for GET request to fetch articles 
@@ -18,7 +27,7 @@ const fakeData =
 [
     {
         "title": "test title",
-        "description": "test description",
+        "description": "test descriptiontest descriptiontest descriptiontest descriptiontest descriptiontest descriptiontest descriptiontest descriptiontest descriptiontest descriptiontest descriptiontest descriptiontest descriptiontest descriptiontest descriptiontest descriptiontest descriptiontest descriptiontest descriptiontest descriptiontest descriptiontest descriptiontest descriptiontest descriptiontest descriptiontest descriptiontest descriptiontest description",
         "imgurl": "https://tythedogguy.com/wp-content/uploads/2015/02/Nova-Scotia-Duck-Tolling-Retriever.jpg"
     },
     {
@@ -30,6 +39,9 @@ const fakeData =
 
 
 const ArticlesHome = () => {
+
+
+
     return (
         <Container>
         <HeadingContainer>
@@ -40,13 +52,27 @@ const ArticlesHome = () => {
           return (
             <BodyContainer key={article.articleid}>
             <ContentContainer articles>
-                <img src={article.imgurl} style={{width: "80%", height: "300px", borderRadius: "20px"}} alt=""/>
-                <Content>{article.title}</Content>
-                <Content>{article.description}</Content>
+                {localStorage.getItem('status') !=null &&
+                    <div>
+                        <a href="/articles/edit-article">
+                        <EditBtn src={EditButton}/>
+                        </a>
+                        {/* Still need to hook up the delete button */}
+                        <DeleteBtn src={DeleteButton} />
+                    </div>}
+                <img src={article.imgurl} style={{width: "30%", height: "300px", borderRadius: "20px"}} alt=""/>
+                <TextContainer>
+                <Heading>{article.title}</Heading>
+                <Info>{article.description}</Info>
+                </TextContainer>
             </ContentContainer>
             </BodyContainer>
           );
         })}
+        {localStorage.getItem('status') !=null &&
+            <a href="/articles/create-article">
+                <CreateBtn src={CreateButton} />
+            </a>}
     </Container>
 
     );
