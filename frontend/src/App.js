@@ -18,6 +18,7 @@ import GlobalStyles from "./Styles/GlobalStyles";
 import Reports from "./Components/pages/Reports/Reports.component";
 import Navbar from "./Components/common/Navbar";
 import Footer from "./Components/common/Footer";
+import Login from "./Components/pages/Login";
 
 function App() {
   return (
@@ -27,6 +28,9 @@ function App() {
 
       <Route exact path="/">
         <Home />
+      </Route>
+      <Route path="/login">
+        <Login />
       </Route>
       <Route path="/about">
         <About />
