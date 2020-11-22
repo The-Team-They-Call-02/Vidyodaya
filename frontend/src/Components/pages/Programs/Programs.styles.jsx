@@ -45,3 +45,18 @@ export const BackBtn = styled.div`
 		margin-right: 3px;
 	}
 `;
+
+export const ProgramDonateContainer = styled.div`
+	padding: 5.6rem 0 0 0;
+	h5.program-donations-text {
+		font-size: 3.6rem;
+	}
+	button.program-donations-btn {
+		font-size: 4.8rem;
+		color: #fff;
+		width: 32.9rem;
+		height: 8.3rem;
+		border-radius: 20px;
+		margin: 3rem 0 0 0;
+	}
+`;
