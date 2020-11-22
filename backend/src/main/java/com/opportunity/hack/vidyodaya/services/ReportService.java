@@ -1,7 +1,6 @@
 package com.opportunity.hack.vidyodaya.services;
 
 import com.opportunity.hack.vidyodaya.models.Report;
-
 import java.util.List;
 
 public interface ReportService {

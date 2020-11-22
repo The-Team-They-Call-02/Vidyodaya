@@ -2,7 +2,6 @@ package com.opportunity.hack.vidyodaya.repository;
 
 import com.opportunity.hack.vidyodaya.models.User;
 import java.util.List;
-
 import org.springframework.data.repository.CrudRepository;
 
 /**
