@@ -35,15 +35,15 @@ public class ArticleServiceImpl implements ArticleService {
   public Article save(Article article) {
     Article newArticle = new Article();
 
-    if (article.getArticleid() != 0) {
+    if (article.getArticleId() != 0) {
       articlerepos
-        .findById(article.getArticleid())
+        .findById(article.getArticleId())
         .orElseThrow(() -> new EntityNotFoundException("Post id invalid"));
-      newArticle.setArticleid(article.getArticleid());
+      newArticle.setArticleId(article.getArticleId());
     }
 
     newArticle.setDescription(article.getDescription());
-    newArticle.setImgurl(article.getImgurl());
+    newArticle.setImageUrl(article.getImageUrl());
     newArticle.setTitle(article.getTitle());
 
     return articlerepos.save(newArticle);
@@ -53,17 +53,17 @@ public class ArticleServiceImpl implements ArticleService {
   public Article update(Article article, long id) {
     Article currentArticle = new Article();
 
-    if (article.getArticleid() != 0) {
+    if (article.getArticleId() != 0) {
       articlerepos
-        .findById(article.getArticleid())
+        .findById(article.getArticleId())
         .orElseThrow(() -> new EntityNotFoundException("Post id invalid"));
-      currentArticle.setArticleid(article.getArticleid());
+      currentArticle.setArticleId(article.getArticleId());
     }
     if (article.getDescription() != null) {
       currentArticle.setDescription(article.getDescription());
     }
-    if (article.getImgurl() != null) {
-      currentArticle.setImgurl(article.getImgurl());
+    if (article.getImageUrl() != null) {
+      currentArticle.setImageUrl(article.getImageUrl());
     }
     if (article.getTitle() != null) {
       currentArticle.setTitle(article.getTitle());

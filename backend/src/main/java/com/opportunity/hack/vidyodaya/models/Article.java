@@ -8,28 +8,27 @@ public class Article extends Auditable {
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
-  private long articleid;
+  private long articleId;
 
   @Column(nullable = false, unique = true)
   private String title;
 
   private String description;
-  private String imgurl;
 
   public Article() {}
 
-  public Article(String title, String description, String imgurl) {
     this.title = title;
     this.description = description;
-    this.imgurl = imgurl;
+    this.imageUrl = imageUrl;
+    this.article = article;
   }
 
-  public long getArticleid() {
-    return articleid;
+  public long getArticleId() {
+    return articleId;
   }
 
-  public void setArticleid(long articleid) {
-    this.articleid = articleid;
+  public void setArticleId(long articleId) {
+    this.articleId = articleId;
   }
 
   public String getTitle() {
@@ -48,11 +47,19 @@ public class Article extends Auditable {
     this.description = description;
   }
 
-  public String getImgurl() {
-    return imgurl;
+  public String getImageUrl() {
+    return imageUrl;
   }
 
-  public void setImgurl(String imgurl) {
-    this.imgurl = imgurl;
+  public void setImageUrl(String imgurl) {
+    this.imageUrl = imgurl;
+  }
+
+  public byte[] getArticle() {
+    return article;
+  }
+
+  public void setArticle(final byte[] article) {
+    this.article = article;
   }
 }
