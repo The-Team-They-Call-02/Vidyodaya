@@ -24,10 +24,10 @@ public class ArticleServiceImplementation implements ArticleService {
    */
   @Override
   public List<Article> findAll() {
-    List<Article> list = new ArrayList<>();
+    List<Article> articles = new ArrayList<>();
 
-    articleRepository.findAll().iterator().forEachRemaining(list::add);
-    return list;
+    articleRepository.findAll().iterator().forEachRemaining(articles::add);
+    return articles;
   }
 
   /**
@@ -39,7 +39,9 @@ public class ArticleServiceImplementation implements ArticleService {
   public Article findArticleById(long id) throws EntityNotFoundException {
     return articleRepository
       .findById(id)
-      .orElseThrow(() -> new EntityNotFoundException("Article id not found"));
+      .orElseThrow(
+        () -> new EntityNotFoundException("Article id \" + id + \" Not Found!")
+      );
   }
 
   /**
@@ -54,7 +56,10 @@ public class ArticleServiceImplementation implements ArticleService {
     if (article.getArticleId() != 0) {
       articleRepository
         .findById(article.getArticleId())
-        .orElseThrow(() -> new EntityNotFoundException("Post id invalid"));
+        .orElseThrow(
+          () ->
+            new EntityNotFoundException("Article id \" + id + \" Not Found!")
+        );
       newArticle.setArticleId(article.getArticleId());
     }
 
