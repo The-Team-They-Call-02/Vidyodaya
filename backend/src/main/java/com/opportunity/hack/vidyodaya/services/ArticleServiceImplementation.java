@@ -24,10 +24,10 @@ public class ArticleServiceImplementation implements ArticleService {
    */
   @Override
   public List<Article> findAll() {
-    List<Article> list = new ArrayList<>();
+    List<Article> articles = new ArrayList<>();
 
-    articleRepository.findAll().iterator().forEachRemaining(list::add);
-    return list;
+    articleRepository.findAll().iterator().forEachRemaining(articles::add);
+    return articles;
   }
 
   /**
