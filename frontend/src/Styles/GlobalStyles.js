@@ -43,7 +43,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: ${colorObj.light};
   color: ${colorObj.dark};
-  font-size: 1.2rem;
+  font-size: 2.4rem;
 }
 
 button {
