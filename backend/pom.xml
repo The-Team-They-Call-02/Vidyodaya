@@ -12,7 +12,7 @@
     <artifactId>hack</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>Vidyodaya</name>
-    <description></description>
+    <description>Vidyodaya website</description>
 
     <properties>
         <java.version>8</java.version>
