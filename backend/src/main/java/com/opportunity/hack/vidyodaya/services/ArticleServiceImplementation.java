@@ -11,22 +11,22 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Transactional
 @Service(value = "articleService")
-public class ArticleServiceImpl implements ArticleService {
+public class ArticleServiceImplementation implements ArticleService {
 
   @Autowired
-  private ArticleRepository articlerepos;
+  private ArticleRepository articleRepository;
 
   @Override
   public List<Article> findAll() {
     List<Article> list = new ArrayList<>();
 
-    articlerepos.findAll().iterator().forEachRemaining(list::add);
+    articleRepository.findAll().iterator().forEachRemaining(list::add);
     return list;
   }
 
   @Override
   public Article findArticleById(long id) throws EntityNotFoundException {
-    return articlerepos
+    return articleRepository
       .findById(id)
       .orElseThrow(() -> new EntityNotFoundException("Article id not found"));
   }
@@ -36,7 +36,7 @@ public class ArticleServiceImpl implements ArticleService {
     Article newArticle = new Article();
 
     if (article.getArticleId() != 0) {
-      articlerepos
+      articleRepository
         .findById(article.getArticleId())
         .orElseThrow(() -> new EntityNotFoundException("Post id invalid"));
       newArticle.setArticleId(article.getArticleId());
@@ -46,7 +46,7 @@ public class ArticleServiceImpl implements ArticleService {
     newArticle.setImageUrl(article.getImageUrl());
     newArticle.setTitle(article.getTitle());
 
-    return articlerepos.save(newArticle);
+    return articleRepository.save(newArticle);
   }
 
   @Override
@@ -54,7 +54,7 @@ public class ArticleServiceImpl implements ArticleService {
     Article currentArticle = new Article();
 
     if (article.getArticleId() != 0) {
-      articlerepos
+      articleRepository
         .findById(article.getArticleId())
         .orElseThrow(() -> new EntityNotFoundException("Post id invalid"));
       currentArticle.setArticleId(article.getArticleId());
@@ -69,16 +69,16 @@ public class ArticleServiceImpl implements ArticleService {
       currentArticle.setTitle(article.getTitle());
     }
 
-    return articlerepos.save(currentArticle);
+    return articleRepository.save(currentArticle);
   }
 
   @Override
   public void delete(long id) {
-    articlerepos
+    articleRepository
       .findById(id)
       .orElseThrow(
         () -> new EntityNotFoundException("Article id " + id + " Not Found!")
       );
-    articlerepos.deleteById(id);
+    articleRepository.deleteById(id);
   }
 }
