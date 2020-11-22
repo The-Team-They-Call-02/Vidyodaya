@@ -66,4 +66,76 @@ public class Camp {
   @OneToMany(mappedBy = "camp", cascade = CascadeType.ALL, orphanRemoval = true)
   @JsonIgnoreProperties(value = "camp", allowSetters = true)
   private Set<Feedback> feedback = new HashSet<>();
+
+  public long getCampId() {
+    return campId;
+  }
+
+  public void setCampId(long campId) {
+    this.campId = campId;
+  }
+
+  public String getTitle() {
+    return title;
+  }
+
+  public void setTitle(String title) {
+    this.title = title;
+  }
+
+  public String getSubtitle() {
+    return subtitle;
+  }
+
+  public void setSubtitle(String subtitle) {
+    this.subtitle = subtitle;
+  }
+
+  public String getDescription() {
+    return description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+  public long getParticipants() {
+    return participants;
+  }
+
+  public void setParticipants(long participants) {
+    this.participants = participants;
+  }
+
+  public long getFacilitators() {
+    return facilitators;
+  }
+
+  public void setFacilitators(long facilitators) {
+    this.facilitators = facilitators;
+  }
+
+  public long getVillagesCovered() {
+    return villagesCovered;
+  }
+
+  public void setVillagesCovered(long villagesCovered) {
+    this.villagesCovered = villagesCovered;
+  }
+
+  public Set<Highlight> getHighlights() {
+    return highlights;
+  }
+
+  public void setHighlights(Set<Highlight> highlights) {
+    this.highlights = highlights;
+  }
+
+  public Set<Feedback> getFeedback() {
+    return feedback;
+  }
+
+  public void setFeedback(Set<Feedback> feedback) {
+    this.feedback = feedback;
+  }
 }
