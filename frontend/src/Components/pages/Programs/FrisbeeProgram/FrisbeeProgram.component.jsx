@@ -20,7 +20,7 @@ const FrisbeeProgram = () => {
 	return (
 		<Container>
 			<HeadingContainer>
-				<Heading>Volunteer</Heading>
+				<Heading>Ultimate Frisbee Program</Heading>
 				<BackBtn onClick={goBack}>Back</BackBtn>
 			</HeadingContainer>
 
