@@ -82,6 +82,7 @@ const InputWrapper = styled.div`
   align-items: flex-start;
   width: 100%;
   margin-bottom: 20px;
+  position: relative;
 `;
 
 const Label = styled.label`
@@ -127,6 +128,13 @@ const SubmitBtn = styled.button`
   font-size: 2rem;
 `;
 
+const ErrorMsg = styled.p`
+  position: absolute;
+  bottom: -25px;
+  left: calc(30% + 50px);
+  color: red;
+`;
+
 export {
   MainContainer,
   Heading,
@@ -142,4 +150,5 @@ export {
   InputField,
   TextArea,
   SubmitBtn,
+  ErrorMsg,
 };

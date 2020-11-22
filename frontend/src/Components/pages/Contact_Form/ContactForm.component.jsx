@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
-import { useHistory } from "react-router-dom";
+import axios from "axios";
+import Pageclip from "pageclip";
 
 // styled-components
 import {
@@ -18,20 +19,39 @@ import {
   InputField,
   TextArea,
   SubmitBtn,
+  ErrorMsg,
 } from "./ContactForm.styles";
 
 const ContactForm = () => {
-  const history = useHistory();
   const { handleSubmit, errors, register, reset } = useForm();
 
-  const goBack = () => {
-    history.push("/");
-  };
+  //   test once deployed
+  //   let pageclip = new Pageclip(process.env.REACT_APP_PAGECLIP_API);
 
   const onSubmit = (values, e) => {
     e.preventDefault();
 
     console.log(values);
+
+    // test once deployed. currently having cors issues
+    // pageclip.send(data).then((res) => {
+    //   console.log(res.data);
+    // });
+
+    // successfully send an email but it gives error messages in my console
+    axios
+      .post(
+        `https://send.pageclip.co/${process.env.REACT_APP_PAGECLIP}`,
+        values
+      )
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+
+    //   send to backend
     reset();
   };
 
@@ -57,7 +77,7 @@ const ContactForm = () => {
               <p>INDIA, 643 212</p>
             </Address>
           </InfoContainer>
-          <Form onSubmit={handleSubmit(onSubmit)}>
+          <Form onSubmit={handleSubmit(onSubmit)} id="pageclip-form">
             <Heading form-heading>Send us a message</Heading>
 
             <InputWrapper>
@@ -70,7 +90,7 @@ const ContactForm = () => {
                 name="name"
                 ref={register({ required: true })}
               />
-              {errors.name && <p>Please enter your name</p>}
+              {errors.name && <ErrorMsg>Please enter your name</ErrorMsg>}
             </InputWrapper>
 
             <InputWrapper>
@@ -83,7 +103,7 @@ const ContactForm = () => {
                 name="email"
                 ref={register({ required: true })}
               />
-              {errors.email && <p>Please enter your email</p>}
+              {errors.email && <ErrorMsg>Please enter your email</ErrorMsg>}
             </InputWrapper>
 
             <InputWrapper>
@@ -96,7 +116,9 @@ const ContactForm = () => {
                 rows="10"
                 ref={register({ required: true })}
               ></TextArea>
-              {errors.comments && <p>Please fill out this field</p>}
+              {errors.comments && (
+                <ErrorMsg>Please fill out this field</ErrorMsg>
+              )}
             </InputWrapper>
 
             <SubmitBtn type="submit">Submit</SubmitBtn>
