@@ -48,7 +48,13 @@ public class Article extends Auditable {
    * @param imageUrl The url of the article's thumbnail image
    * @param article The contents of the article as a stored pdf file
    */
-  public Article(long articleId, String title, String description, String imageUrl, byte[] article) {
+  public Article(
+    long articleId,
+    String title,
+    String description,
+    String imageUrl,
+    byte[] article
+  ) {
     this.articleId = articleId;
     this.title = title;
     this.description = description;
