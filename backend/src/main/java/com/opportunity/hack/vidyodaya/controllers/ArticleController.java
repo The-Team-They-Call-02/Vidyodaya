@@ -36,7 +36,7 @@ public class ArticleController {
   @PostMapping(value = "/post", consumes = "application/json")
   public ResponseEntity<?> addNewPost(@Valid @RequestBody Article newarticle)
     throws URISyntaxException {
-    newarticle.setArticleid(0);
+    newarticle.setArticleId(0);
     newarticle = articleService.save(newarticle);
 
     // set the location header for the newly created resource
@@ -44,7 +44,7 @@ public class ArticleController {
     URI newUserURI = ServletUriComponentsBuilder
       .fromCurrentRequest()
       .path("/{articleid}")
-      .buildAndExpand(newarticle.getArticleid())
+      .buildAndExpand(newarticle.getArticleId())
       .toUri();
     responseHeaders.setLocation(newUserURI);
 
@@ -56,7 +56,7 @@ public class ArticleController {
     @Valid @RequestBody Article updateArticle,
     @PathVariable long articleid
   ) {
-    updateArticle.setArticleid(articleid);
+    updateArticle.setArticleId(articleid);
     articleService.save(updateArticle);
 
     return new ResponseEntity<>(HttpStatus.OK);
