@@ -34,16 +34,7 @@ import {
 } from "./Register-form.styles";
 
 const RegisterForm = () => {
-  const { handleSubmit, register, errors, reset } = useForm({
-    defaultValues: {
-      firstName: "",
-      lastName: "",
-      volunteeringAs: "",
-      email: "",
-      phone: "",
-      textField: "",
-    },
-  });
+  const { handleSubmit, register, errors, reset } = useForm();
   const history = useHistory();
 
   const goBack = () => {
@@ -183,6 +174,9 @@ const RegisterForm = () => {
             </Label>
             <InputContainer>
               <Select name="volunteeringAs" ref={register({ required: true })}>
+                <option value="" disabled selected>
+                  -Select-
+                </option>
                 <Option value="web designer">Web Designer</Option>
                 <Option value="graphic designer">Graphic Designer</Option>
                 <Option value="tech trainer">Tech Trainer</Option>
