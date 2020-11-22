@@ -60,6 +60,18 @@ public class Article extends Auditable {
     this.article = article;
   }
 
+  /**
+   * Construct a new article based on another article
+   * @param base the Article instance being copied
+   */
+  public Article(Article base) {
+    articleId = base.articleId;
+    title = base.title;
+    description = base.description;
+    imageUrl = base.imageUrl;
+    article = base.article;
+  }
+
   public long getArticleId() {
     return articleId;
   }
