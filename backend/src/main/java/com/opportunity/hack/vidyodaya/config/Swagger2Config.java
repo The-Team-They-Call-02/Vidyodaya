@@ -30,7 +30,9 @@ public class Swagger2Config {
   public Docket api() {
     return new Docket(DocumentationType.SWAGGER_2)
       .select()
-      .apis(RequestHandlerSelectors.basePackage("com.opportunity.hack.vidyodaya"))
+      .apis(
+        RequestHandlerSelectors.basePackage("com.opportunity.hack.vidyodaya")
+      )
       .paths(PathSelectors.regex("/.*"))
       .build()
       .apiInfo(apiEndPointsInfo());
@@ -43,8 +45,8 @@ public class Swagger2Config {
    */
   private ApiInfo apiEndPointsInfo() {
     return new ApiInfoBuilder()
-      .title("Java Spring BE Foundation")
-      .description("Java Spring Backend Foundation and Scaffolding")
+      .title("Vidyodaya")
+      .description("Vidyodaya API")
       .contact(
         new Contact(
           "Harry Gebel",
