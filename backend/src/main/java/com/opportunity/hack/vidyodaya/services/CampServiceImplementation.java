@@ -112,7 +112,7 @@ public class CampServiceImplementation implements CampService {
    * Add a highlight to a camp
    *
    * @param newHighlight Highlight instance to be added
-   * @param campId           Database id of Camp instance
+   * @param campId Database id of Camp instance
    * @return new Highlight instance added
    */
   @Override
