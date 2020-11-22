@@ -27,6 +27,7 @@ public class Article extends Auditable {
   /**
    * The description of the article
    */
+  @Lob
   private String description;
 
   /**
@@ -37,8 +38,7 @@ public class Article extends Auditable {
   /**
    * The contents of the article as a stored pdf file
    */
-  @Lob
-  private byte[] article;
+  private String articleUrl;
 
   public Article() {}
 
@@ -47,19 +47,19 @@ public class Article extends Auditable {
    * @param title The article title
    * @param description The description of the article
    * @param imageUrl The url of the article's thumbnail image
-   * @param article The contents of the article as a stored pdf file
+   * @param articleUrl The contents of the article as a stored pdf file
    */
   @SuppressWarnings("unused")
   public Article(
     String title,
     String description,
     String imageUrl,
-    byte[] article
+    String articleUrl
   ) {
     this.title = title;
     this.description = description;
     this.imageUrl = imageUrl;
-    this.article = article;
+    this.articleUrl = articleUrl;
   }
 
   /**
@@ -71,7 +71,7 @@ public class Article extends Auditable {
     title = base.title;
     description = base.description;
     imageUrl = base.imageUrl;
-    article = base.article;
+    articleUrl = base.articleUrl;
   }
 
   /**
@@ -83,7 +83,7 @@ public class Article extends Auditable {
     description =
       (String) optionallyReplace(description, newArticle.description);
     imageUrl = (String) optionallyReplace(imageUrl, newArticle.imageUrl);
-    article = (byte[]) optionallyReplace(article, newArticle.article);
+    articleUrl = (String) optionallyReplace(articleUrl, newArticle.articleUrl);
   }
 
   public long getArticleId() {
@@ -123,11 +123,12 @@ public class Article extends Auditable {
   }
 
   @SuppressWarnings("unused")
-  public byte[] getArticle() {
-    return article;
+  public String getArticleUrl() {
+    return articleUrl;
   }
 
-  public void setArticle(final byte[] article) {
-    this.article = article;
+  @SuppressWarnings("unused")
+  public void setArticleUrl(final String article) {
+    this.articleUrl = article;
   }
 }

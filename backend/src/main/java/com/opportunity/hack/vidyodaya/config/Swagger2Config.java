@@ -30,7 +30,9 @@ public class Swagger2Config {
   public Docket api() {
     return new Docket(DocumentationType.SWAGGER_2)
       .select()
-      .apis(RequestHandlerSelectors.basePackage("com.lambdaschool.usermodel"))
+      .apis(
+        RequestHandlerSelectors.basePackage("com.opportunity.hack.vidyodaya")
+      )
       .paths(PathSelectors.regex("/.*"))
       .build()
       .apiInfo(apiEndPointsInfo());
@@ -43,18 +45,18 @@ public class Swagger2Config {
    */
   private ApiInfo apiEndPointsInfo() {
     return new ApiInfoBuilder()
-      .title("User Model Example")
-      .description("User Model Example")
+      .title("Vidyodaya")
+      .description("Vidyodaya API")
       .contact(
         new Contact(
-          "John Mitchell",
-          "http://www.lambdaschool.com",
-          "john@lambdaschool.com"
+          "Harry Gebel",
+          "https://github.com/HarryHenryGebel",
+          "harry@gebel.tech"
         )
       )
       .license("MIT")
       .licenseUrl(
-        "https://github.com/LambdaSchool/java-usermodel/blob/master/LICENSE"
+        "https://github.com/LambdaSchool/java-springfoundation/blob/master/LICENSE"
       )
       .version("1.0.0")
       .build();
