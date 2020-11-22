@@ -21,6 +21,10 @@ public class CampController {
     this.campService = campService;
   }
 
+  /**
+   * Retrieve a list of all camps
+   * @return HttpStatus.OK
+   */
   @GetMapping(value = "", produces = "application/json")
   public ResponseEntity<?> listAllCamps() {
     List<Camp> camps = campService.findAll();
@@ -28,6 +32,11 @@ public class CampController {
     return new ResponseEntity<>(camps, HttpStatus.OK);
   }
 
+  /**
+   * Retrieve a camp with a specific database id
+   * @param campId The id of the camp to retrieve
+   * @return HttpStatus.OK
+   */
   @GetMapping(value = "/camp/{articleid}", produces = "application/json")
   public ResponseEntity<?> getCampById(@PathVariable long campId) {
     Camp camp = campService.findCampById(campId);
@@ -35,6 +44,11 @@ public class CampController {
     return new ResponseEntity<>(camp, HttpStatus.OK);
   }
 
+  /**
+   * Create a new Camp instance
+   * @param newCamp JSON representation of Camp fields
+   * @return HttpStatus.CREATED
+   */
   @PostMapping(value = "/camp", consumes = "application/json")
   public ResponseEntity<?> addNewCamp(@Valid @RequestBody Camp newCamp) {
     newCamp.setCampId(0);
