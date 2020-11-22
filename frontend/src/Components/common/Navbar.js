@@ -14,6 +14,7 @@ import {
 import { FaTwitterSquare } from "react-icons/fa";
 import { FaFacebookSquare } from "react-icons/fa";
 
+// remember to put href="" attr in SocialIcons
 const Navbar = () => {
   return (
     <NavbarStyle>

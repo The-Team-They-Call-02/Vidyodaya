@@ -2,6 +2,10 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { colorObj } from "../../../../Styles/GlobalStyles";
 
+const ReportsContainer = styled.div`
+  padding-bottom: 50px;
+`;
+
 const Document = styled.div`
   width: 80%;
   border: 5px solid ${colorObj.green};
@@ -22,4 +26,4 @@ const Name = styled(Link)`
   }
 `;
 
-export { Document, Name };
+export { ReportsContainer, Document, Name };
