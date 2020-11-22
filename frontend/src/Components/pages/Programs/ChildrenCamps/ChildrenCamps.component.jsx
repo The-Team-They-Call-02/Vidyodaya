@@ -10,6 +10,7 @@ import {
 	HeadingContainer,
 	Heading,
 	BackBtn,
+	ProgramDonateContainer,
 } from "../Programs.styles";
 import { ChildrenCampsContainer } from "./ChildrenCamps.styles";
 
@@ -393,6 +394,12 @@ const ChildrenCamps = (props) => {
 					</div>
 				</div>
 			</ChildrenCampsContainer>
+			<ProgramDonateContainer>
+				<h5 className="program-donations-text">
+					Help us continue this program by donating.
+				</h5>
+				<button className="program-donations-btn">Donate</button>
+			</ProgramDonateContainer>
 		</Container>
 	);
 };
