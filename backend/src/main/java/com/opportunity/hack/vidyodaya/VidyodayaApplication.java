@@ -37,7 +37,8 @@ public class VidyodayaApplication {
    * @param args Not used in this application.
    */
   public static void main(final String[] args) {
-    // Check to see if the environment variables exists. If they do not, stop execution of application.
+    // Check to see if the environment variables exists. If they do not, stop
+    // the execution of the application.
     if (
       confirmEnvironmentVariable("OAUTHCLIENTID") &&
       confirmEnvironmentVariable("OAUTHCLIENTSECRET")
