@@ -30,11 +30,11 @@ const Navbar = () => {
       <NavLink to="/get-involved">
         <NavText>Get Involved</NavText>
       </NavLink>
-      <NavLink to="/blog">
-        <NavText>Blog</NavText>
-      </NavLink>
       <NavLink to="/articles">
         <NavText>Articles</NavText>
+      </NavLink>
+      <NavLink to="/reports">
+        <NavText>Reports</NavText>
       </NavLink>
       <NavLink to="/contact">
         <NavText>Contact</NavText>
