@@ -2,6 +2,8 @@ package com.opportunity.hack.vidyodaya.models;
 
 import javax.persistence.*;
 
+import static com.opportunity.hack.vidyodaya.Utility.optionallyReplace;
+
 /**
  * Model for table Article - holds articles from website
  */
@@ -70,6 +72,18 @@ public class Article extends Auditable {
     description = base.description;
     imageUrl = base.imageUrl;
     article = base.article;
+  }
+
+  /**
+   * Update this Article instance with fields from a partial Article instance
+   * @param newArticle The partial Article instance
+   */
+  public void update(Article newArticle) {
+    title = (String) optionallyReplace(title, newArticle.title);
+    description =
+      (String) optionallyReplace(description, newArticle.description);
+    imageUrl = (String) optionallyReplace(imageUrl, newArticle.imageUrl);
+    article = (byte[]) optionallyReplace(article, newArticle.article);
   }
 
   public long getArticleId() {
