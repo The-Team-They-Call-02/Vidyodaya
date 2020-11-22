@@ -42,7 +42,6 @@ public class Article extends Auditable {
 
   /**
    * Primary constructor
-   * @param articleId The database id of the article
    * @param title The article title
    * @param description The description of the article
    * @param imageUrl The url of the article's thumbnail image
@@ -50,13 +49,11 @@ public class Article extends Auditable {
    */
   @SuppressWarnings("unused")
   public Article(
-    long articleId,
     String title,
     String description,
     String imageUrl,
     byte[] article
   ) {
-    this.articleId = articleId;
     this.title = title;
     this.description = description;
     this.imageUrl = imageUrl;
