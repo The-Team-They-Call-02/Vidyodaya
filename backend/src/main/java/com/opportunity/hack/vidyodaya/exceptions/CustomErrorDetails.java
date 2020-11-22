@@ -3,7 +3,6 @@ package com.opportunity.hack.vidyodaya.exceptions;
 import com.opportunity.hack.vidyodaya.services.HelperFunctions;
 import java.util.LinkedHashMap;
 import java.util.Map;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.servlet.error.DefaultErrorAttributes;
 import org.springframework.stereotype.Component;
