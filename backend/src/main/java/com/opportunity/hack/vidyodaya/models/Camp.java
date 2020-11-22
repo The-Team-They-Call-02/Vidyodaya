@@ -67,6 +67,24 @@ public class Camp {
   @JsonIgnoreProperties(value = "camp", allowSetters = true)
   private Set<Feedback> feedback = new HashSet<>();
 
+  public Camp() {}
+
+  /**
+   * Copy constructor
+   * @param other the Camp instance to be copied
+   */
+  public Camp(Camp other) {
+    this.campId = other.campId;
+    this.title = other.title;
+    this.subtitle = other.subtitle;
+    this.description = other.description;
+    this.participants = other.participants;
+    this.facilitators = other.facilitators;
+    this.villagesCovered = other.villagesCovered;
+    this.highlights = other.highlights;
+    this.feedback = other.feedback;
+  }
+
   public long getCampId() {
     return campId;
   }
