@@ -70,23 +70,9 @@ public class ArticleServiceImplementation implements ArticleService {
    */
   @Override
   public Article update(Article article, long id) {
-    Article currentArticle = new Article();
+    Article currentArticle = findArticleById(id);
 
-    if (article.getArticleId() != 0) {
-      articleRepository
-        .findById(article.getArticleId())
-        .orElseThrow(() -> new EntityNotFoundException("Post id invalid"));
-      currentArticle.setArticleId(article.getArticleId());
-    }
-    if (article.getDescription() != null) {
-      currentArticle.setDescription(article.getDescription());
-    }
-    if (article.getImageUrl() != null) {
-      currentArticle.setImageUrl(article.getImageUrl());
-    }
-    if (article.getTitle() != null) {
-      currentArticle.setTitle(article.getTitle());
-    }
+    currentArticle.update(currentArticle);
 
     return articleRepository.save(currentArticle);
   }
