@@ -32,6 +32,9 @@ public class Highlight {
    */
   private String imageUrl;
 
+  /**
+   * The camp this is a highlight of
+   */
   @ManyToOne
   @JoinColumn(name = "CAMP_ID", nullable = false)
   private Camp camp;
