@@ -17,8 +17,11 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 @RequestMapping("/articles")
 public class ArticleController {
 
-  @Autowired
-  private ArticleService articleService;
+  private final ArticleService articleService;
+
+  public ArticleController(ArticleService articleService) {
+    this.articleService = articleService;
+  }
 
   @GetMapping(value = "/articles", produces = "application/json")
   public ResponseEntity<?> listAllArticles() {
