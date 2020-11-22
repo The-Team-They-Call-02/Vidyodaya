@@ -29,8 +29,8 @@ public class ArticleController {
 
   @GetMapping(value = "/article/{articleid}", produces = "application/json")
   public ResponseEntity<?> getArticleById(@PathVariable long articleid) {
-    Article a = articleService.findArticleById(articleid);
-    return new ResponseEntity<>(a, HttpStatus.OK);
+    Article article = articleService.findArticleById(articleid);
+    return new ResponseEntity<>(article, HttpStatus.OK);
   }
 
   @PostMapping(value = "/post", consumes = "application/json")
