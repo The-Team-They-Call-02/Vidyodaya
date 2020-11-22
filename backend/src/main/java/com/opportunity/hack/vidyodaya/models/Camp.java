@@ -6,6 +6,9 @@ import java.util.Set;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
+/**
+ * Model for camp table
+ */
 @Entity
 @Table(name = "camps")
 public class Camp {

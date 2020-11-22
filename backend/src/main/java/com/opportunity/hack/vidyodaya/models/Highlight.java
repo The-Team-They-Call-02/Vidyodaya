@@ -2,6 +2,9 @@ package com.opportunity.hack.vidyodaya.models;
 
 import javax.persistence.*;
 
+/**
+ * Model for camp highlights table
+ */
 @Entity
 @Table(name = "highlights")
 public class Highlight {
