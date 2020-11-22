@@ -1,7 +1,6 @@
 package com.opportunity.hack.vidyodaya.services;
 
 import com.opportunity.hack.vidyodaya.models.Volunteer;
-
 import java.util.List;
 
 public interface VolunteerService {
