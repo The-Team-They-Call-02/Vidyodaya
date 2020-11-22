@@ -16,6 +16,6 @@ public class UserModelApplication {
    * @param args Not used in this application.
    */
   public static void main(String[] args) {
-    SpringApplication.run(UserModelApplication.class, args);
+    SpringApplication.run(VidyodayaApplication.class, args);
   }
 }

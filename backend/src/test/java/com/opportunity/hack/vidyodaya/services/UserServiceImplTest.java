@@ -2,7 +2,7 @@ package com.opportunity.hack.vidyodaya.services;
 
 import static junit.framework.TestCase.assertEquals;
 
-import com.opportunity.hack.vidyodaya.UserModelApplication;
+import com.opportunity.hack.vidyodaya.VidyodayaApplication;
 import com.opportunity.hack.vidyodaya.exceptions.ResourceNotFoundException;
 import com.opportunity.hack.vidyodaya.models.Role;
 import com.opportunity.hack.vidyodaya.models.User;
@@ -21,7 +21,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = UserModelApplication.class)
+@SpringBootTest(classes = VidyodayaApplication.class)
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class UserServiceImplTest {
 

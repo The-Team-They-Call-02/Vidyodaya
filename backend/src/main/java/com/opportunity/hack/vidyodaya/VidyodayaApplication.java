@@ -11,7 +11,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
  */
 @EnableJpaAuditing
 @SpringBootApplication
-public class UserModelApplication {
+public class VidyodayaApplication {
 
   /**
    * Connect to the system environment where environment variables live.
@@ -47,7 +47,7 @@ public class UserModelApplication {
     checkEnvironmentVariable("OAUTHCLIENTSECRET");
 
     if (!stop) {
-      SpringApplication.run(UserModelApplication.class, args);
+      SpringApplication.run(VidyodayaApplication.class, args);
     }
   }
 }
