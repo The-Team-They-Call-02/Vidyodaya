@@ -2,13 +2,14 @@ package com.opportunity.hack.vidyodaya.controllers;
 
 import com.opportunity.hack.vidyodaya.models.Camp;
 import com.opportunity.hack.vidyodaya.services.CampService;
+import java.net.URI;
 import java.util.List;
+import javax.validation.Valid;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 @RestController
 @RequestMapping("/camps")
@@ -20,17 +21,34 @@ public class CampController {
     this.campService = campService;
   }
 
-  @GetMapping(value = "/", produces = "application/json")
+  @GetMapping(value = "", produces = "application/json")
   public ResponseEntity<?> listAllCamps() {
     List<Camp> camps = campService.findAll();
 
     return new ResponseEntity<>(camps, HttpStatus.OK);
   }
 
-  @GetMapping(value = "/{articleid}", produces = "application/json")
+  @GetMapping(value = "/camp/{articleid}", produces = "application/json")
   public ResponseEntity<?> getCampById(@PathVariable long campId) {
     Camp camp = campService.findCampById(campId);
 
     return new ResponseEntity<>(camp, HttpStatus.OK);
+  }
+
+  @PostMapping(value = "/camp", consumes = "application/json")
+  public ResponseEntity<?> addNewCamp(@Valid @RequestBody Camp newCamp) {
+    newCamp.setCampId(0);
+    newCamp = campService.save(newCamp);
+
+    // set the location header for the newly created resource
+    HttpHeaders responseHeaders = new HttpHeaders();
+    URI newUserURI = ServletUriComponentsBuilder
+      .fromCurrentRequest()
+      .path("/{articleid}")
+      .buildAndExpand(newCamp.getCampId())
+      .toUri();
+    responseHeaders.setLocation(newUserURI);
+
+    return new ResponseEntity<>(null, responseHeaders, HttpStatus.CREATED);
   }
 }

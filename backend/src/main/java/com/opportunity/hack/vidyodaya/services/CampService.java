@@ -1,9 +1,8 @@
 package com.opportunity.hack.vidyodaya.services;
 
 import com.opportunity.hack.vidyodaya.models.Camp;
-
-import javax.persistence.EntityNotFoundException;
 import java.util.List;
+import javax.persistence.EntityNotFoundException;
 
 public interface CampService {
   /**
@@ -19,4 +18,11 @@ public interface CampService {
    * @throws EntityNotFoundException
    */
   public Camp findCampById(long id) throws EntityNotFoundException;
+
+  /**
+   * Save the provided camp
+   * @param camp The camp being saved
+   * @return The finalized saved camp
+   */
+  Camp save(Camp camp);
 }

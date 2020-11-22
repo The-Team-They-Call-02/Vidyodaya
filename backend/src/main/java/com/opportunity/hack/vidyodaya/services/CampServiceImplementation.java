@@ -1,13 +1,13 @@
 package com.opportunity.hack.vidyodaya.services;
 
+import com.opportunity.hack.vidyodaya.models.Article;
 import com.opportunity.hack.vidyodaya.models.Camp;
 import com.opportunity.hack.vidyodaya.repository.CampRepository;
 import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.EntityNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import javax.persistence.EntityNotFoundException;
 
 @Transactional
 @Service(value = "campService")
@@ -42,7 +42,27 @@ public class CampServiceImplementation implements CampService {
   @Override
   public Camp findCampById(long id) throws EntityNotFoundException {
     return campRepository
-            .findById(id)
-            .orElseThrow(() -> new EntityNotFoundException("Article id not found"));
+      .findById(id)
+      .orElseThrow(() -> new EntityNotFoundException("Article id not found"));
+  }
+
+  /**
+   * Save the provided camp
+   *
+   * @param camp The camp being saved
+   * @return The finalized saved camp
+   */
+  @Override
+  public Camp save(Camp camp) {
+    Camp newCamp = new Camp(camp);
+
+    if (camp.getCampId() != 0) {
+      campRepository
+        .findById(camp.getCampId())
+        .orElseThrow(() -> new EntityNotFoundException("Post id invalid"));
+      newCamp.setCampId(camp.getCampId());
+    }
+
+    return campRepository.save(newCamp);
   }
 }
