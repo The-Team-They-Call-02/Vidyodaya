@@ -24,6 +24,7 @@ public class Highlight {
   /**
    * The description of the highlight
    */
+  @Lob
   private String description;
 
   /**

@@ -27,6 +27,7 @@ public class Article extends Auditable {
   /**
    * The description of the article
    */
+  @Lob
   private String description;
 
   /**

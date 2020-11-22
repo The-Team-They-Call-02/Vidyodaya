@@ -33,6 +33,7 @@ public class Camp {
   /**
    * The description of the camp
    */
+  @Lob
   private String description;
 
   /**
