@@ -67,13 +67,13 @@ public class CampController {
   }
 
   /**
-   * Update the Camp instance with the specified id using a partial Camp
-   * instance provided.
+   * Update the Camp instance with the specified database id using a partial
+   * Camp instance provided.
    * @param updateCamp The partial Camp instance with the new data
    * @param id The database id of the Camp instance to be updated
    * @return HttpStatus.NO_CONTENT
    */
-  @PatchMapping(value = "/comp/{id}", consumes = "application/json")
+  @PatchMapping(value = "/camp/{id}", consumes = "application/json")
   public ResponseEntity<?> updateCamp(
     @RequestBody Camp updateCamp,
     @PathVariable long id
