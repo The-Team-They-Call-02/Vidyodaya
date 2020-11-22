@@ -16,6 +16,10 @@ public class ArticleServiceImplementation implements ArticleService {
   @Autowired
   private ArticleRepository articleRepository;
 
+  /**
+   * Return list of all articles
+   * @return List of all Article instances
+   */
   @Override
   public List<Article> findAll() {
     List<Article> list = new ArrayList<>();
@@ -24,6 +28,11 @@ public class ArticleServiceImplementation implements ArticleService {
     return list;
   }
 
+  /**
+   * Return the article with the requested database id
+   * @param id The requested database id
+   * @return The Article instance with the requested database id
+   */
   @Override
   public Article findArticleById(long id) throws EntityNotFoundException {
     return articleRepository
@@ -31,6 +40,11 @@ public class ArticleServiceImplementation implements ArticleService {
       .orElseThrow(() -> new EntityNotFoundException("Article id not found"));
   }
 
+  /**
+   * Save the specified article
+   * @param article The article being saved
+   * @return The finalized saved article
+   */
   @Override
   public Article save(Article article) {
     Article newArticle = new Article();
@@ -49,6 +63,13 @@ public class ArticleServiceImplementation implements ArticleService {
     return articleRepository.save(newArticle);
   }
 
+  /**
+   * Update the article with the specified database id using a partial Article
+   * instance supplied
+   * @param article The partial Article instance supplied
+   * @param id The database id of the article being updated
+   * @return The updated Article instance
+   */
   @Override
   public Article update(Article article, long id) {
     Article currentArticle = new Article();
@@ -72,6 +93,10 @@ public class ArticleServiceImplementation implements ArticleService {
     return articleRepository.save(currentArticle);
   }
 
+  /**
+   * Delete the article with the supplied article id
+   * @param id The supplied article id
+   */
   @Override
   public void delete(long id) {
     articleRepository
