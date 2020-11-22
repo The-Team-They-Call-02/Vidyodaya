@@ -67,7 +67,7 @@ public class ArticleController {
     @PathVariable long id
   ) {
     articleService.update(updateArticle, id);
-    return new ResponseEntity<>(HttpStatus.OK);
+    return new ResponseEntity<>(HttpStatus.NO_CONTENT);
   }
 
   @DeleteMapping(value = "/article/{id}")
