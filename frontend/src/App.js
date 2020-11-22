@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
 // import {
 //   FrisbeeProgram,
@@ -9,24 +9,27 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 //   Balwadis,
 //   Culture,
 // } from "./Components/pages/Programs";
+// components
 import About from "./Components/pages/About/About.component";
 import Articles from "./Components/pages/Articles/Articles.component";
 import Programs from './Components/pages/Programs/Programs.component';
 import Home from "./Components/pages/Home";
 import GetInvolved from "./Components/pages/Get_Involved/GetInvolved.component";
-import GlobalStyles from "./Styles/GlobalStyles";
 import Reports from "./Components/pages/Reports/Reports.component";
+import ContactForm from "./Components/pages/Contact_Form/ContactForm.component";
 import Navbar from "./Components/common/Navbar";
 import Footer from "./Components/common/Footer";
 import FounderTrustees from "./Components/pages/About/Founder_Trustees/FounderTrustees.component";
 import ManagingCommittee from "./Components/pages/About/Managing_Committee/ManagingCommittee.component";
+
+// styled-components
+import GlobalStyles from "./Styles/GlobalStyles";
 
 function App() {
   return (
     <Router>
       <GlobalStyles />
       <Navbar />
-
       <Route exact path="/">
         <Home />
       </Route>
@@ -50,6 +53,9 @@ function App() {
       </Route>
       <Route path="/get-involved">
         <GetInvolved />
+      </Route>
+      <Route path="/contact">
+        <ContactForm />
       </Route>
 
       <Footer />

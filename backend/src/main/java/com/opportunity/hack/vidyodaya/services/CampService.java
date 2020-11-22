@@ -1,6 +1,7 @@
 package com.opportunity.hack.vidyodaya.services;
 
 import com.opportunity.hack.vidyodaya.models.Camp;
+import com.opportunity.hack.vidyodaya.models.Highlight;
 import java.util.List;
 import javax.persistence.EntityNotFoundException;
 
@@ -15,7 +16,7 @@ public interface CampService {
    * Return the camp with the specified database id
    * @param id The database id requested
    * @return The Camp instance with the corresponding database id
-   * @throws EntityNotFoundException
+   * @throws EntityNotFoundException Thrown when no camp with that id exists
    */
   Camp findCampById(long id) throws EntityNotFoundException;
 
@@ -39,4 +40,12 @@ public interface CampService {
    * @param id The database id of the Camp instance to be deleted
    */
   void delete(long id);
+
+  /**
+   * Add a highlight to a camp
+   * @param newHighlight Highlight instance to be added
+   * @param campId Database id of Camp instance
+   * @return new Highlight instance added
+   */
+  Highlight addHighlight(Highlight newHighlight, long campId);
 }

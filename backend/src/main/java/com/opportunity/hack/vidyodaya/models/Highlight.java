@@ -1,5 +1,7 @@
 package com.opportunity.hack.vidyodaya.models;
 
+import static com.opportunity.hack.vidyodaya.Utility.optionallyReplace;
+
 import javax.persistence.*;
 
 /**
@@ -19,7 +21,7 @@ public class Highlight {
   /**
    * The title of the highlight
    */
-  private String highlight;
+  private String title;
 
   /**
    * The description of the highlight
@@ -39,20 +41,32 @@ public class Highlight {
   @JoinColumn(name = "CAMP_ID", nullable = false)
   private Camp camp;
 
-  public long getHighlightId() {
-    return highlightId;
+  /**
+   * Update this Highlight instance with fields from a partial Highlight
+   * instance.
+   * @param newHighlight The partial Camp instance
+   */
+  public void update(Highlight newHighlight) {
+    title = (String) optionallyReplace(title, newHighlight.title);
+    description =
+      (String) optionallyReplace(description, newHighlight.description);
+    imageUrl = (String) optionallyReplace(imageUrl, newHighlight.imageUrl);
   }
 
   public void setHighlightId(long highlightId) {
     this.highlightId = highlightId;
   }
 
-  public String getHighlight() {
-    return highlight;
+  public long getHighlightId() {
+    return highlightId;
   }
 
-  public void setHighlight(String highlight) {
-    this.highlight = highlight;
+  public String getTitle() {
+    return title;
+  }
+
+  public void setTitle(String title) {
+    this.title = title;
   }
 
   public String getDescription() {
