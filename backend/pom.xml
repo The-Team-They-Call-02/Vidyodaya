@@ -5,17 +5,17 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.2.8.RELEASE</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <version>2.2.9.RELEASE</version>
+        <relativePath/>
     </parent>
-    <groupId>com.lambdaschool</groupId>
-    <artifactId>usermodel</artifactId>
+    <groupId>com.opportunity</groupId>
+    <artifactId>hack</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>usermodel</name>
-    <description>Demo project for Spring Boot</description>
+    <name>Vidyodaya</name>
+    <description>Vidyodaya website</description>
 
     <properties>
-        <java.version>14</java.version>
+        <java.version>8</java.version>
     </properties>
 
     <dependencies>

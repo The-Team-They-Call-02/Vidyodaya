@@ -9,7 +9,7 @@ import {
   BackBtn,
 } from "../Reports.styles";
 
-import { YearsContainer, Text } from "./Financial.styles";
+import { ReportsContainer, YearsContainer, Text } from "./Financial.styles";
 
 const dummy2020 = [
   {
@@ -83,7 +83,7 @@ const Financial = () => {
         <BackBtn onClick={goBack}>Back</BackBtn>
       </HeadingContainer>
 
-      <div>
+      <ReportsContainer>
         {Object.keys(years)
           .map((year, i) => {
             return (
@@ -102,7 +102,7 @@ const Financial = () => {
             );
           })
           .reverse()}
-      </div>
+      </ReportsContainer>
     </Container>
   );
 };

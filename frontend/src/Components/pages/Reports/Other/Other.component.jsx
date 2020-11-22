@@ -8,7 +8,7 @@ import {
   BackBtn,
 } from "../Reports.styles";
 
-import { DocumentsContainer, Document, Name } from "./Other.styles";
+import { ReportsContainer, Document, Name } from "./Other.styles";
 
 const dummy = [
   {
@@ -29,7 +29,7 @@ const Other = () => {
         <Heading>Other Reports</Heading>
         <BackBtn onClick={goBack}>Back</BackBtn>
       </HeadingContainer>
-      <div>
+      <ReportsContainer>
         {dummy.map((doc) => {
           return (
             <>
@@ -39,7 +39,7 @@ const Other = () => {
             </>
           );
         })}
-      </div>
+      </ReportsContainer>
     </Container>
   );
 };

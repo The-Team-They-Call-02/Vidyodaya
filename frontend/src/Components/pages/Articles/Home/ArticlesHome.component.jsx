@@ -57,7 +57,7 @@ const ArticlesHome = () => {
                         <a href="/articles/edit-article">
                         <EditBtn src={EditButton}/>
                         </a>
-                        {/* Still need to hook up the delete button */}
+                        {/* Still need to hook up the delete */}
                         <DeleteBtn src={DeleteButton} />
                     </div>}
                 <img src={article.imgurl} style={{width: "30%", height: "300px", borderRadius: "20px"}} alt=""/>

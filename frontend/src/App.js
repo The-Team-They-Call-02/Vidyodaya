@@ -11,6 +11,9 @@ import {
 } from "./Components/pages/Programs";
 import About from "./Components/pages/About";
 import Articles from "./Components/pages/Articles/Articles.component";
+import Programs from './Components/pages/Programs/Programs.component';
+import About from './Components/pages/About';
+import Blog from './Components/pages/Blog';
 import Home from "./Components/pages/Home";
 import GetInvolved from "./Components/pages/Get_Involved/GetInvolved.component";
 import GlobalStyles from "./Styles/GlobalStyles";
@@ -31,7 +34,7 @@ function App() {
         <About />
       </Route>
       <Route path="/programs">
-        <ProgramsPage />
+        <Programs />
       </Route>
       <Route path="/articles">
         <Articles />

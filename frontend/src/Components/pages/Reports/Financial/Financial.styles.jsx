@@ -32,6 +32,10 @@ const checkYear = (props) => {
   }
 };
 
+const ReportsContainer = styled.div`
+  padding-bottom: 50px;
+`;
+
 const YearsContainer = styled.div`
   border: 5px solid ${colorObj.green};
   border-radius: 10px;
@@ -43,7 +47,7 @@ const YearsContainer = styled.div`
   justify-content: flex-start;
   padding: 20px;
   width: 80%;
-  margin: 30px auto;
+  margin: 30px auto 0 auto;
   min-height: 300px;
 `;
 
@@ -51,4 +55,4 @@ const Text = styled(Link)`
   ${checkYear}
 `;
 
-export { YearsContainer, Text };
+export { ReportsContainer, YearsContainer, Text };
