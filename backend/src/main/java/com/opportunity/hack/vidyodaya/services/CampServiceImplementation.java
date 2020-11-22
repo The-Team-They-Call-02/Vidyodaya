@@ -7,6 +7,8 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.persistence.EntityNotFoundException;
+
 @Transactional
 @Service(value = "campService")
 public class CampServiceImplementation implements CampService {
@@ -28,5 +30,19 @@ public class CampServiceImplementation implements CampService {
 
     campRepository.findAll().iterator().forEachRemaining(camps::add);
     return camps;
+  }
+
+  /**
+   * Return the camp with the specified database id
+   *
+   * @param id The database id requested
+   * @return The Camp instance with the corresponding database id
+   * @throws EntityNotFoundException
+   */
+  @Override
+  public Camp findCampById(long id) throws EntityNotFoundException {
+    return campRepository
+            .findById(id)
+            .orElseThrow(() -> new EntityNotFoundException("Article id not found"));
   }
 }
