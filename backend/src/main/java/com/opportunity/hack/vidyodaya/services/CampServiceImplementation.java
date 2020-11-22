@@ -1,7 +1,7 @@
 package com.opportunity.hack.vidyodaya.services;
 
-import com.opportunity.hack.vidyodaya.models.Article;
 import com.opportunity.hack.vidyodaya.models.Camp;
+import com.opportunity.hack.vidyodaya.models.Highlight;
 import com.opportunity.hack.vidyodaya.repository.CampRepository;
 import com.opportunity.hack.vidyodaya.repository.HighlightRepository;
 import java.util.ArrayList;
@@ -16,7 +16,6 @@ public class CampServiceImplementation implements CampService {
 
   private final CampRepository campRepository;
 
-  public CampServiceImplementation(CampRepository campRepository) {
   private final HighlightRepository highlightRepository;
 
   public CampServiceImplementation(
@@ -107,5 +106,22 @@ public class CampServiceImplementation implements CampService {
         () -> new EntityNotFoundException("Camp id " + id + " Not Found!")
       );
     campRepository.deleteById(id);
+  }
+
+  /**
+   * Add a highlight to a camp
+   *
+   * @param newHighlight Highlight instance to be added
+   * @param campId           Database id of Camp instance
+   * @return new Highlight instance added
+   */
+  @Override
+  public Highlight addHighlight(Highlight newHighlight, long campId) {
+    Camp camp = findCampById(campId);
+
+    newHighlight.setCamp(camp);
+    camp.getHighlights().add(newHighlight);
+
+    return newHighlight;
   }
 }
