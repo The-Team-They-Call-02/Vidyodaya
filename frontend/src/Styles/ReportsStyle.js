@@ -5,17 +5,17 @@ export const ReportsPageContainer = styled.div`
 display: flex;
 flex-direction: column;
     height: 100%;
-    .programs-page-inner-div {
+    .reports-inner-div {
         background-color: #F8F7F7;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         margin-top: 150px;
-        .programs-page-h1 {
+        .reports-h1 {
             margin: 50px auto;
         }
-        .programs-page-cards-container {
+        .reports-cards-container {
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
@@ -38,7 +38,7 @@ flex-direction: column;
                     width: 1533px;
                 }
             }
-            .programs-page-frisbee {
+            .reports-annual {
 
             }
         }
