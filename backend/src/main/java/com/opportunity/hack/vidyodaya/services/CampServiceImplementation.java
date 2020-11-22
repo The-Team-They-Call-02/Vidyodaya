@@ -81,4 +81,19 @@ public class CampServiceImplementation implements CampService {
 
     return campRepository.save(currentCamp);
   }
+
+  /**
+   * Delete the Camp instance with the specified database id
+   *
+   * @param id The database id of the Camp instance to be deleted
+   */
+  @Override
+  public void delete(long id) {
+    campRepository
+      .findById(id)
+      .orElseThrow(
+        () -> new EntityNotFoundException("Camp id " + id + " Not Found!")
+      );
+    campRepository.deleteById(id);
+  }
 }

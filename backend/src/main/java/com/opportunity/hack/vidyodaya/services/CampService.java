@@ -33,4 +33,10 @@ public interface CampService {
    * @param id The database id of the Camp instance to be updated
    */
   Camp update(Camp updateCamp, long id);
+
+  /**
+   * Delete the Camp instance with the specified database id
+   * @param id The database id of the Camp instance to be deleted
+   */
+  void delete(long id);
 }

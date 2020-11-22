@@ -81,4 +81,15 @@ public class CampController {
     campService.update(updateCamp, id);
     return new ResponseEntity<>(HttpStatus.NO_CONTENT);
   }
+
+  /**
+   * Delete the Camp instance with the specified database id
+   * @param id The database id of the Camp instance to be deleted
+   * @return HttpStatus.NO_CONTENT
+   */
+  @DeleteMapping(value = "/camp/{id}")
+  public ResponseEntity<?> deleteUserById(@PathVariable long id) {
+    campService.delete(id);
+    return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+  }
 }
