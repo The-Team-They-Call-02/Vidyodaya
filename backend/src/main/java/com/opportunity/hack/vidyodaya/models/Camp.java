@@ -59,4 +59,11 @@ public class Camp {
   @OneToMany(mappedBy = "camp", cascade = CascadeType.ALL, orphanRemoval = true)
   @JsonIgnoreProperties(value = "camp", allowSetters = true)
   private Set<Highlight> highlights = new HashSet<>();
+
+  /**
+   * Feedback given on the camp
+   */
+  @OneToMany(mappedBy = "camp", cascade = CascadeType.ALL, orphanRemoval = true)
+  @JsonIgnoreProperties(value = "camp", allowSetters = true)
+  private Set<Feedback> feedback = new HashSet<>();
 }
