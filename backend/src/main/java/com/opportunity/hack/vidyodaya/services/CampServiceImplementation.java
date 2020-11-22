@@ -43,7 +43,9 @@ public class CampServiceImplementation implements CampService {
   public Camp findCampById(long id) throws EntityNotFoundException {
     return campRepository
       .findById(id)
-      .orElseThrow(() -> new EntityNotFoundException("Article id not found"));
+      .orElseThrow(
+        () -> new EntityNotFoundException("\"Camp id \" + id + \" Not Found!")
+      );
   }
 
   /**
@@ -59,7 +61,9 @@ public class CampServiceImplementation implements CampService {
     if (camp.getCampId() != 0) {
       campRepository
         .findById(camp.getCampId())
-        .orElseThrow(() -> new EntityNotFoundException("Post id invalid"));
+        .orElseThrow(
+          () -> new EntityNotFoundException("\"Camp id \" + id + \" Not Found!")
+        );
       newCamp.setCampId(camp.getCampId());
     }
 
