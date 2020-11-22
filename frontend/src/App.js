@@ -2,9 +2,9 @@ import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 // components
-import Programs from "./Components/pages/Programs/Programs.component";
 import About from "./Components/pages/About";
-import Blog from "./Components/pages/Blog";
+import Articles from "./Components/pages/Articles/Articles.component";
+import Programs from './Components/pages/Programs/Programs.component';
 import Home from "./Components/pages/Home";
 import GetInvolved from "./Components/pages/Get_Involved/GetInvolved.component";
 import Reports from "./Components/pages/Reports/Reports.component";
@@ -30,8 +30,8 @@ function App() {
       <Route path="/programs">
         <Programs />
       </Route>
-      <Route path="/blog">
-        <Blog />
+      <Route path="/articles">
+        <Articles />
       </Route>
       <Route path="/reports">
         <Reports />

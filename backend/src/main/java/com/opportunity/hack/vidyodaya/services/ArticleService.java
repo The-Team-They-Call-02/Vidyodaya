@@ -18,7 +18,7 @@ public interface ArticleService {
   Article findArticleById(long id);
 
   /**
-   * Save the specified article
+   * Save the provided article
    * @param article The article being saved
    * @return The finalized saved article
    */
