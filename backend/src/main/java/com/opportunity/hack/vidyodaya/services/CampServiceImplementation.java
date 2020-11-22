@@ -3,6 +3,7 @@ package com.opportunity.hack.vidyodaya.services;
 import com.opportunity.hack.vidyodaya.models.Camp;
 import com.opportunity.hack.vidyodaya.models.Highlight;
 import com.opportunity.hack.vidyodaya.repository.CampRepository;
+import com.opportunity.hack.vidyodaya.repository.HighlightRepository;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityNotFoundException;
@@ -15,8 +16,14 @@ public class CampServiceImplementation implements CampService {
 
   private final CampRepository campRepository;
 
-  public CampServiceImplementation(CampRepository campRepository) {
+  private final HighlightRepository highlightRepository;
+
+  public CampServiceImplementation(
+    CampRepository campRepository,
+    HighlightRepository highlightRepository
+  ) {
     this.campRepository = campRepository;
+    this.highlightRepository = highlightRepository;
   }
 
   /**
@@ -113,6 +120,7 @@ public class CampServiceImplementation implements CampService {
     Camp camp = findCampById(campId);
 
     newHighlight.setCamp(camp);
+    newHighlight = highlightRepository.save(newHighlight);
     camp.getHighlights().add(newHighlight);
 
     return newHighlight;
