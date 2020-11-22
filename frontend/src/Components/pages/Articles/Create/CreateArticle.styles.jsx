@@ -116,6 +116,7 @@ const AddBtn = styled.button`
 
 const FileBtn = styled.div`
     background-color: ${colorObj.green};
+    color: ${colorObj.light};
     border-radius: 10px;
     border: none;
     width: 12rem;
