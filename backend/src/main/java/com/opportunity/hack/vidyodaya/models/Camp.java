@@ -1,5 +1,7 @@
 package com.opportunity.hack.vidyodaya.models;
 
+import static com.opportunity.hack.vidyodaya.Utility.optionallyReplace;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.HashSet;
 import java.util.Set;
@@ -83,6 +85,21 @@ public class Camp {
     this.villagesCovered = other.villagesCovered;
     this.highlights = other.highlights;
     this.feedback = other.feedback;
+  }
+
+  /**
+   * Update this Camp instance with fields from a partial Camp instance. Does
+   * not update highlights or feedback
+   * @param newCamp The partial Camp instance
+   */
+  public void update(Camp newCamp) {
+    title = (String) optionallyReplace(title, newCamp.title);
+    subtitle = (String) optionallyReplace(subtitle, newCamp.subtitle);
+    description = (String) optionallyReplace(description, newCamp.description);
+    participants = optionallyReplace(participants, newCamp.participants);
+    facilitators = optionallyReplace(facilitators, newCamp.facilitators);
+    villagesCovered =
+      optionallyReplace(villagesCovered, newCamp.villagesCovered);
   }
 
   public long getCampId() {
