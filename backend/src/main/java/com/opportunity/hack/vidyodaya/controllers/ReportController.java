@@ -17,8 +17,11 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 @RequestMapping("/reports")
 public class ReportController {
 
-  @Autowired
-  private ReportService reportService;
+  private final ReportService reportService;
+
+  public ReportController(ReportService reportService) {
+    this.reportService = reportService;
+  }
 
   @GetMapping(value = "/reports", produces = "application/json")
   public ResponseEntity<?> listAllPosts() {
