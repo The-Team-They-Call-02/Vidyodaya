@@ -35,7 +35,7 @@ public class ReportController {
   @PostMapping(value = "/reports", consumes = "application/json")
   public ResponseEntity<?> addNewReport(@Valid @RequestBody Report newreport)
     throws URISyntaxException {
-    newreport.setReportid(0);
+    newreport.setReportId(0);
     newreport = reportService.save(newreport);
 
     // set the location header for the newly created resource
@@ -43,7 +43,7 @@ public class ReportController {
     URI newUserURI = ServletUriComponentsBuilder
       .fromCurrentRequest()
       .path("/{reportid}")
-      .buildAndExpand(newreport.getReportid())
+      .buildAndExpand(newreport.getReportId())
       .toUri();
     responseHeaders.setLocation(newUserURI);
 
@@ -55,7 +55,7 @@ public class ReportController {
     @Valid @RequestBody Report updateReport,
     @PathVariable long reportid
   ) {
-    updateReport.setReportid(reportid);
+    updateReport.setReportId(reportid);
     reportService.save(updateReport);
 
     return new ResponseEntity<>(HttpStatus.OK);

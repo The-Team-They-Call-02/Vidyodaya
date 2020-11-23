@@ -8,32 +8,26 @@ public class Report extends Auditable {
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
-  private long reportid;
+  private long reportId;
 
   @Column(nullable = false, unique = true)
   private String title;
 
   private String year;
+
   private String category;
 
   @Column(nullable = false, unique = true)
-  private String document;
+  private String documentUrl;
 
   public Report() {}
 
-  public Report(String title, String year, String category, String document) {
-    this.title = title;
-    this.year = year;
-    this.category = category;
-    this.document = document;
+  public long getReportId() {
+    return reportId;
   }
 
-  public long getReportid() {
-    return reportid;
-  }
-
-  public void setReportid(long reportid) {
-    this.reportid = reportid;
+  public void setReportId(long reportid) {
+    this.reportId = reportid;
   }
 
   public String getTitle() {
@@ -60,11 +54,11 @@ public class Report extends Auditable {
     this.category = category;
   }
 
-  public String getDocument() {
-    return document;
+  public String getDocumentUrl() {
+    return documentUrl;
   }
 
-  public void setDocument(String document) {
-    this.document = document;
+  public void setDocumentUrl(String document) {
+    this.documentUrl = document;
   }
 }

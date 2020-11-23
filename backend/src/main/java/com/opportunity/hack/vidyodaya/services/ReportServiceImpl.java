@@ -35,17 +35,17 @@ public class ReportServiceImpl implements ReportService {
   public Report save(Report report) {
     Report newReport = new Report();
 
-    if (report.getReportid() != 0) {
+    if (report.getReportId() != 0) {
       reportrepos
-        .findById(report.getReportid())
+        .findById(report.getReportId())
         .orElseThrow(() -> new EntityNotFoundException("Report id invalid"));
-      newReport.setReportid(report.getReportid());
+      newReport.setReportId(report.getReportId());
     }
 
     newReport.setTitle(report.getTitle());
     newReport.setYear(report.getYear());
     newReport.setCategory(report.getCategory());
-    newReport.setDocument(report.getDocument());
+    newReport.setDocumentUrl(report.getDocumentUrl());
 
     return reportrepos.save(newReport);
   }
@@ -54,11 +54,11 @@ public class ReportServiceImpl implements ReportService {
   public Report update(Report report, long id) {
     Report currentReport = new Report();
 
-    if (report.getReportid() != 0) {
+    if (report.getReportId() != 0) {
       reportrepos
-        .findById(report.getReportid())
+        .findById(report.getReportId())
         .orElseThrow(() -> new EntityNotFoundException("Report id invalid"));
-      currentReport.setReportid(report.getReportid());
+      currentReport.setReportId(report.getReportId());
     }
 
     if (report.getTitle() != null) {
@@ -73,8 +73,8 @@ public class ReportServiceImpl implements ReportService {
       currentReport.setCategory(report.getCategory());
     }
 
-    if (report.getDocument() != null) {
-      currentReport.setDocument(report.getDocument());
+    if (report.getDocumentUrl() != null) {
+      currentReport.setDocumentUrl(report.getDocumentUrl());
     }
 
     return reportrepos.save(currentReport);
