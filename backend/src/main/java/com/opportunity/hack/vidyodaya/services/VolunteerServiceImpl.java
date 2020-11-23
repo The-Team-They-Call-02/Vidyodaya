@@ -35,58 +35,22 @@ public class VolunteerServiceImpl implements VolunteerService {
 
   @Override
   public Volunteer save(Volunteer volunteer) {
-    Volunteer newVolunteer = new Volunteer();
+    Volunteer newVolunteer = new Volunteer(volunteer);
 
     if (volunteer.getVolunteerId() != 0) {
-      volunteerrepos
+      volunteerRepository
         .findById(volunteer.getVolunteerId())
         .orElseThrow(() -> new EntityNotFoundException("Id invalid"));
-      newVolunteer.setVolunteerId(volunteer.getVolunteerId());
     }
-
-    newVolunteer.setFirstName(volunteer.getFirstName());
-    newVolunteer.setLastName(volunteer.getLastName());
-    newVolunteer.setEmail(volunteer.getEmail());
-    newVolunteer.setLocation(volunteer.getLocation());
-    newVolunteer.setMessage(volunteer.getMessage());
-    newVolunteer.setPhone(volunteer.getPhone());
-    newVolunteer.setPosition(volunteer.getPosition());
 
     return volunteerRepository.save(newVolunteer);
   }
 
   @Override
-  public Volunteer update(Volunteer volunteer, long id) {
-    Volunteer currentVolunteer = new Volunteer();
+  public Volunteer update(Volunteer updateVolunteer, long id) {
+    Volunteer currentVolunteer = findVolunteerById(id);
 
-    if (volunteer.getVolunteerId() != 0) {
-      volunteerrepos
-        .findById(volunteer.getVolunteerId())
-        .orElseThrow(() -> new EntityNotFoundException("Id invalid"));
-      currentVolunteer.setVolunteerId(volunteer.getVolunteerId());
-    }
-
-    if (volunteer.getFirstName() != null) {
-      currentVolunteer.setFirstName(volunteer.getFirstName());
-    }
-    if (volunteer.getLastName() != null) {
-      currentVolunteer.setLastName(volunteer.getLastName());
-    }
-    if (volunteer.getEmail() != null) {
-      currentVolunteer.setEmail(volunteer.getEmail());
-    }
-    if (volunteer.getLocation() != null) {
-      currentVolunteer.setLocation(volunteer.getLocation());
-    }
-    if (volunteer.getMessage() != null) {
-      currentVolunteer.setMessage(volunteer.getMessage());
-    }
-    if (volunteer.getPhone() != null) {
-      currentVolunteer.setPhone(volunteer.getPhone());
-    }
-    if (volunteer.getPosition() != null) {
-      currentVolunteer.setPosition(volunteer.getPosition());
-    }
+    currentVolunteer.update(updateVolunteer);
 
     return volunteerRepository.save(currentVolunteer);
   }
