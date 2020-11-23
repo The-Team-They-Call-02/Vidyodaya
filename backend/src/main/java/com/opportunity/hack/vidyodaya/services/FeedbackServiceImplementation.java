@@ -1,21 +1,19 @@
 package com.opportunity.hack.vidyodaya.services;
 
-import com.opportunity.hack.vidyodaya.models.Highlight;
-import com.opportunity.hack.vidyodaya.repository.HighlightRepository;
+import com.opportunity.hack.vidyodaya.models.Feedback;
+import com.opportunity.hack.vidyodaya.repository.FeedbackRepository;
 import javax.persistence.EntityNotFoundException;
 import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 @Transactional
-@Service(value = "highlightService")
-public class HighlightServiceImplementation implements HighlightService {
+@Service(value = "feedbackService")
+public class FeedbackServiceImplementation implements FeedbackService {
 
-  private final HighlightRepository highlightRepository;
+  private final FeedbackRepository feedbackRepository;
 
-  public HighlightServiceImplementation(
-    HighlightRepository highlightRepository
-  ) {
-    this.highlightRepository = highlightRepository;
+  public FeedbackServiceImplementation(FeedbackRepository feedbackRepository) {
+    this.feedbackRepository = feedbackRepository;
   }
 
   /**
@@ -26,8 +24,8 @@ public class HighlightServiceImplementation implements HighlightService {
    * @throws EntityNotFoundException Thrown when no camp with that id exists
    */
   @Override
-  public Highlight findHighlightById(long id) throws EntityNotFoundException {
-    return highlightRepository
+  public Feedback findFeedbackById(long id) throws EntityNotFoundException {
+    return feedbackRepository
       .findById(id)
       .orElseThrow(
         () ->
@@ -38,17 +36,17 @@ public class HighlightServiceImplementation implements HighlightService {
   /**
    * Update the highlight with the specified id using the partial Camp instance
    * provided
-   * @param updateHighlight A Partial Camp instance with new data
+   * @param updateFeedback A Partial Camp instance with new data
    * @param id The database id of the Camp instance to be updated
    * @return  the updated Highlight instance
    */
   @Override
-  public Highlight update(Highlight updateHighlight, long id) {
-    Highlight currentHighlight = findHighlightById(id);
+  public Feedback update(Feedback updateFeedback, long id) {
+    Feedback currentFeedback = findFeedbackById(id);
 
-    currentHighlight.update(updateHighlight);
+    currentFeedback.update(updateFeedback);
 
-    return highlightRepository.save(currentHighlight);
+    return feedbackRepository.save(currentFeedback);
   }
 
   /**
@@ -58,11 +56,11 @@ public class HighlightServiceImplementation implements HighlightService {
    */
   @Override
   public void delete(long id) {
-    highlightRepository
+    feedbackRepository
       .findById(id)
       .orElseThrow(
         () -> new EntityNotFoundException("Highlight id " + id + " Not Found!")
       );
-    highlightRepository.deleteById(id);
+    feedbackRepository.deleteById(id);
   }
 }

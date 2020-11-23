@@ -52,11 +52,19 @@ const Navbar = () => {
       </a>
 
       <SocialIconsContainer>
-        <SocialIcons color="#B31217">
-          <FaYoutubeSquare />
-        </SocialIcons>
-        <SocialIcons color="#3B5998">
+        <SocialIcons
+          color="#3B5998"
+          href="https://www.facebook.com/VidyodayaGudalur"
+          target="_blank"
+        >
           <FaFacebookSquare />
+        </SocialIcons>
+        <SocialIcons
+          color="#b31217"
+          href="https://www.youtube.com/user/VidyodayaGudalur"
+          target="_blank"
+        >
+          <FaYoutubeSquare />
         </SocialIcons>
       </SocialIconsContainer>
     </NavbarStyle>

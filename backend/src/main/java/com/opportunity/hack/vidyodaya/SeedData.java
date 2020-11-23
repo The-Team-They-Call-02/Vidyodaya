@@ -46,21 +46,17 @@ public class SeedData implements CommandLineRunner {
   public void run(String[] args) throws Exception {
     roleService.deleteAll();
     Role r1 = new Role("admin");
-    Role r2 = new Role("user");
-    Role r3 = new Role("data");
 
     r1 = roleService.save(r1);
-    r2 = roleService.save(r2);
-    r3 = roleService.save(r3);
 
     // The following is an example user!
 
     // admin, data, user
     User u1 = new User("admin", "password", "admin@lambdaschool.local");
-    u1.getRoles().add(new UserRoles(u1, r1));
-    u1.getRoles().add(new UserRoles(u1, r2));
-    u1.getRoles().add(new UserRoles(u1, r3));
+    u1 = userService.save(u1);
+    UserRoles ur1 = new UserRoles(u1, r1);
+    u1.getRoles().add(ur1);
+    // r1.getUsers().add(u1);
 
-    userService.save(u1);
   }
 }

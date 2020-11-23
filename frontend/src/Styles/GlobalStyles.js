@@ -22,7 +22,7 @@ const CenteredDiv = styled.div`
 const GlobalStyle = createGlobalStyle`
 
 
-html, body, #root, #app{
+html{
   height: 100%;
   font-size: 62.5%;
   } 
