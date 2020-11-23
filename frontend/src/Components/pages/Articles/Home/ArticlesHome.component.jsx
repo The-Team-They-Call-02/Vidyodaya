@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
-import { useHistory } from "react-router-dom";
+import React, { useEffect, useContext } from "react";
+import { Link } from "react-router-dom";
 import AxiosWithAuth from "../../../../Utils/AxiosWithAuth";
+import { AppContext } from "../../../../context/context";
 
 
 import EditButton from "../../../../Assets/Articles/EditButton.svg";
@@ -17,12 +18,10 @@ import {
     Heading,
     BodyContainer,
     ContentContainer,
-    Content,
     TextContainer,
     Info
   } from "../Articles.styles";
 import { BackgroundImageContainer } from "../../../../Styles/GlobalStyles";
-import { AppContext } from "../../../../context/context";
 // Endpoint for GET request to fetch articles 
 // https://opportunity-hack-vidyodaya.herokuapp.com/articles/articles
 
@@ -42,19 +41,30 @@ const fakeData =
 
 
 const ArticlesHome = () => {
- const [articles, addArticles] = useState([]);
-
+const  { articles, addArticles, articleArray, setArticleArray } = useContext(AppContext);
 
 
   const getArticles = () => {
     AxiosWithAuth()
-      .get("articles/articles")
+      .get("/articles/articles")
       .then((res) => {
-        console.log(res.data);
-        // addArticles(res.data);
+        addArticles(res.data);
+        setArticleArray(res.data);
+        console.log("get article", res.data)
       })
       .catch((err) => console.log(err));
   };
+
+  const deleteArticles = (id) => {
+    AxiosWithAuth()
+      .delete(`/articles/article/${id}`)
+      .then((res) => {
+        console.log("delete", res.data)
+        window.location.reload(false)
+      })
+      .catch((err) => console.log(err));
+  };
+
 
   useEffect(() => {
     getArticles();
@@ -63,23 +73,23 @@ const ArticlesHome = () => {
 
     return (
         <Container>
-        <BackgroundImageContainer style={{marginTop: "0", height: "150%"}}>
+        <BackgroundImageContainer style={{marginTop: "0", height: "150%", position: "fixed"}}>
 		</BackgroundImageContainer>
         <HeadingContainer>
             <Heading>Articles</Heading>
         </HeadingContainer>
 
-        {fakeData.map((article) => {
+        {articleArray.map((article) => {
           return (
-            <BodyContainer key={article.articleid}>
+            <BodyContainer key={article.articleId} articleId={article.articleId}>
             <ContentContainer articles>
-                {localStorage.getItem('status') !=null &&
+                {localStorage.getItem('token') !=null &&
                     <div>
-                        <a href="/articles/edit-article">
-                        <EditBtn src={EditButton}/>
-                        </a>
+                        <Link to={`/articles/edit-article/${article.articleId}`}>
+                          <EditBtn src={EditButton} />
+                        </Link>
                         {/* Still need to hook up the delete */}
-                        <DeleteBtn src={DeleteButton} />
+                        <DeleteBtn src={DeleteButton} onClick={() => deleteArticles(article.articleId)}/>
                     </div>}
                 <img src={article.imgurl} style={{width: "30%", height: "300px", borderRadius: "20px"}} alt=""/>
                 <TextContainer>
@@ -90,7 +100,7 @@ const ArticlesHome = () => {
             </BodyContainer>
           );
         })}
-        {localStorage.getItem('status') !=null &&
+        {localStorage.getItem('token') !=null &&
             <a href="/articles/create-article">
                 <CreateBtn src={CreateButton} />
             </a>}
