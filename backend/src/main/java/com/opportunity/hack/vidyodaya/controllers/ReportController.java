@@ -53,17 +53,6 @@ public class ReportController {
     return new ResponseEntity<>(null, responseHeaders, HttpStatus.CREATED);
   }
 
-  @PutMapping(value = "/report/{reportid}", consumes = "application/json")
-  public ResponseEntity<?> updateFullReport(
-    @Valid @RequestBody Report updateReport,
-    @PathVariable long reportid
-  ) {
-    updateReport.setReportId(reportid);
-    reportService.save(updateReport);
-
-    return new ResponseEntity<>(HttpStatus.OK);
-  }
-
   @PatchMapping(value = "/report/{id}", consumes = "application/json")
   public ResponseEntity<?> updateReport(
     @RequestBody Report updateReport,
