@@ -17,28 +17,12 @@ const Programs = () => {
 	return (
 		<MainContainer>
 			<Switch>
-				<Route
-					exact
-					path="/programs/children-camps/:id"
-					component={CampCard}
-				/>
+				<Route exact path="/programs/children-camps/:id" component={CampCard}/>
 				<Route exact path="/programs/culture" component={Culture} />
 				<Route exact path="/programs/balwadis" component={Balwadis} />
-				<Route
-					exact
-					path="/programs/education-program"
-					component={EducationProgram}
-				/>
-				<Route
-					exact
-					path="/programs/children-camps"
-					component={ChildrenCamps}
-				/>
-				<Route
-					exact
-					path="/programs/ultimate-frisbee"
-					component={FrisbeeProgram}
-				/>
+				<Route exact path="/programs/education-program" component={EducationProgram}/>
+				<Route exact path="/programs/children-camps" component={ChildrenCamps} />
+				<Route exact path="/programs/ultimate-frisbee" component={FrisbeeProgram} />
 				<Route exact path="/programs/" component={ProgramsHome} />
 			</Switch>
 		</MainContainer>

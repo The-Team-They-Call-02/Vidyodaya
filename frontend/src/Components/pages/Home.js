@@ -11,15 +11,10 @@ import impact5 from "../../Assets/Home/impact5.svg";
 import impact6 from "../../Assets/Home/impact6.svg";
 import impact7 from "../../Assets/Home/impact7.svg";
 
-
-import Navbar from "../common/Navbar";
-import Footer from "../common/Footer";
-
 const Home = () => {
 
     return(
         <div className="home-page">
-            <Navbar />
             <BannerGray>
                 <div style={{height: "100%", display: "flex", alignItems: "flex-end"}}>
                     <img src={child} alt=""/>
@@ -121,7 +116,6 @@ const Home = () => {
                 </GreenBkg>
                 <p style={{backgroundColor: "gray", height: "500px", width: "100%"}}>Map new posts here</p>
             </CenteredDiv>
-            <Footer />
         </div>
 
     )

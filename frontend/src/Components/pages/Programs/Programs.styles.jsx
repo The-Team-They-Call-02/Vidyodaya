@@ -20,6 +20,17 @@ export const Container = styled.div`
 	height: 100%;
 `;
 
+export const TextContainer = styled.div`
+text-align: left;
+padding: 0 5%;
+`;
+
+export const ButtonContainer = styled.div`
+display: flex;
+justify-content: space-evenly;
+align-items: center;
+`;
+
 export const HeadingContainer = styled.div`
 	display: flex;
 	justify-content: center;
