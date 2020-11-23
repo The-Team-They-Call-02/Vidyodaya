@@ -1,11 +1,10 @@
 import React, {useState} from 'react';
+import { useHistory } from "react-router-dom";
 
-
-
-const Programs = () => {
 
 import Sarva from "../../../../Assets/Programs/Sarva.svg";
 import nioosc from "../../../../Assets/Programs/nioosc.svg";
+
 // styled components
 import {
 	Container,
@@ -14,14 +13,15 @@ import {
 	BackBtn,
 	ProgramDonateContainer,
 	TextContainer,
-	ButtonContainer
+	ButtonContainer,
+	Links
 } from "../Programs.styles";
 import { EducationContainer } from "./EducationProgram.styles";
 
 
+const EducationProgram = () => {
+	const history = useHistory();
 
-
-export default Programs;
 
 	const goBack = () => {
 		history.push("/programs/");
@@ -71,9 +71,15 @@ export default Programs;
 					</TextContainer>
 					<ProgramDonateContainer>
 					<ButtonContainer>
-						<button className="program-donations-btn" style={{width: "40rem", height: "12rem"}}>Children's Bank</button>
-						<button className="program-donations-btn" style={{width: "40rem", height: "12rem"}}>Student Centers</button>
-						<button className="program-donations-btn" style={{width: "40rem", height: "12rem"}}>Scholarships</button>
+						<Links to="/programs/education-program/childrens-bank">
+							Children's Bank
+						</Links>
+						<Links to="/programs/education-program/study-centers">
+							Study Centers
+						</Links>
+						<Links to="/programs/education-program/scholarships">
+							Scholarships
+						</Links>
 					</ButtonContainer>
 					</ProgramDonateContainer>
                     <div style={{border: "2px solid", margin: "4%"}}></div>
@@ -92,9 +98,15 @@ export default Programs;
 				</TextContainer>
 				<ProgramDonateContainer>
 					<ButtonContainer style={{flexDirection: "column"}}>
-						<button className="program-donations-btn" style={{width: "90rem", height: "8rem", fontSize: "3rem"}}>Skills Upgradation Training Jan'15 to Dec'15</button>
-						<button className="program-donations-btn" style={{width: "90rem", height: "8rem", fontSize: "3rem"}}>Teacher Training Program 2014</button>
-						<button className="program-donations-btn" style={{width: "90rem", height: "8rem", fontSize: "3rem"}}>Teacher Training 2012</button>
+						<Links style={{width: "40%", margin: "1%"}} to="/programs/education-program/skills-upgradation">
+						Skills Upgradation Training Jan'15 to Dec'15
+						</Links>
+						<Links style={{width: "40%", margin: "1%"}} to="/programs/education-program/teacher-training-2014">
+						Teacher Training Program 2014
+						</Links>
+						<Links style={{width: "40%", margin: "1%"}} to="/programs/education-program/teacher-training-2012">
+						Teacher Training 2012
+						</Links>
 					</ButtonContainer>
 				</ProgramDonateContainer>
 				<br/>
