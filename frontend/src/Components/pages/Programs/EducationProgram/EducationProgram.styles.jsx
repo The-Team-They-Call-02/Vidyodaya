@@ -7,6 +7,11 @@ export const EducationContainer = styled.div`
 	filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 	border-radius: 20px;
 
+	.NIOOSC-image {
+		width: 90%;
+		height: 770;
+	}
+
 	.children-camps-inner-container {
 		width: 90%;
 		margin: 30px auto;

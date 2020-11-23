@@ -3,14 +3,15 @@ import { colorObj } from './GlobalStyles.js';
 import bkgimg from "../Assets/Home/slide5-2za8tima4ci25wo4wwkpvu.jpg";
 
 export const BannerGray = styled.div`
-width: 100%;
+box-sizing: border-box;
+width: 100vw;
 height: 100vh;
 background-color: #C4C4C4;
 display: flex;
 justify-content: center;
 padding-right: 4%;
 align-items: center;
-font-color: ${colorObj.light};
+color: ${colorObj.light};
 `;
 
 export const BannerGreen = styled.div`
@@ -70,3 +71,5 @@ border: 2px solid ${colorObj.dark};
 height: 200px;
 margin: 0 5%;
 `;
+
+

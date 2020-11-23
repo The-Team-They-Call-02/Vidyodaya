@@ -1,6 +1,6 @@
 import React from 'react';
 import { BannerGray, BannerGreen, BannerImg, HeroText, GreenHeader, Spacer, GreenBkg, WhiteBkg, VerticalLine } from "../../Styles/HomeStyle";
-import { CenteredDiv, BackgroundImageContainer } from "../../Styles/GlobalStyles";
+import { colorObj , CenteredDiv, BackgroundImageContainer } from "../../Styles/GlobalStyles";
 import arrow from "../../Assets/Home/arrow.svg";
 import child from "../../Assets/Home/child.svg";
 import impact1 from "../../Assets/Home/impact1.svg";
@@ -11,19 +11,36 @@ import impact5 from "../../Assets/Home/impact5.svg";
 import impact6 from "../../Assets/Home/impact6.svg";
 import impact7 from "../../Assets/Home/impact7.svg";
 
+import styled from 'styled-components';
+
+const HomePage = styled.div`
+    p.green-highlight-text {
+        background-color: ${colorObj.green};
+    }
+    button.hero-btn-donate {
+        font-size: 4.8rem;
+		color: #fff;
+		width: 32.9rem;
+		height: 8.3rem;
+		border-radius: 20px;
+		margin: 3rem 0 0 0;
+    }
+`;
+
+
 const Home = () => {
 
     return(
-        <div className="home-page">
+        <HomePage>
             <BannerGray>
                 <div style={{height: "100%", display: "flex", alignItems: "flex-end"}}>
-                    <img src={child} alt=""/>
+                    <img src={child} alt="adivasi child"/>
                 </div>
                 <img src={arrow} alt="" style={{width: "400px"}}/>
                 <CenteredDiv>
                     <HeroText>Bring <br/>a <br/>change!</HeroText>
                     <a href="https://www.payumoney.com/paybypayumoney/#/9F4C7B2FCB7AA9833CAD8D3FDEC46DD7" target="_blank" rel="noreferrer">
-                        <button style={{color: "#FFFFFF"}} >Donate</button>
+                        <button style={{color: "#FFFFFF"}} className="hero-btn-donate">Donate</button>
                     </a>
                 </CenteredDiv>
             </BannerGray>
@@ -35,11 +52,11 @@ const Home = () => {
                 <Spacer/>
                 <h2>EDUCATING ADIVASI CHILDREN SINCE 1993</h2>
                 <Spacer/>
-                <GreenBkg>
-                <p>
-                Vidyodaya’s mission is to improve the quality of education received by underprivileged children in adivasi communities and to establish a culturally appropriate learning system with active participation of the community. We want to ensure that
+                <p className="green-highlight-text">
+                Vidyodaya’s mission is to improve the quality of education received by underprivileged children in adivasi
+                 communities and to establish a culturally appropriate learning system with active participation of the community.
+                 <br/>We want to ensure that
                 </p>
-                </GreenBkg>
                 <Spacer/>
                 <p>Every adivasi child completes schooling <br/>
                 Every child gets a good education <br/>
@@ -115,9 +132,9 @@ const Home = () => {
                         <h1>Updates</h1>
                     </a>
                 </GreenBkg>
-                <p style={{backgroundColor: "gray", height: "500px", width: "100%"}}>Map new posts here</p>
+                {/* <p style={{backgroundColor: "gray", height: "500px", width: "100%"}}>Map new posts here</p> */}
             </CenteredDiv>
-        </div>
+        </HomePage>
 
     )
 }
