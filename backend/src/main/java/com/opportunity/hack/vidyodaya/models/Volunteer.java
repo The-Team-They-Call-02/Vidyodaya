@@ -133,18 +133,22 @@ public class Volunteer extends Auditable {
     this.contactMethod = location;
   }
 
+  @SuppressWarnings("unused")
   public String getText() {
     return text;
   }
 
+  @SuppressWarnings("unused")
   public void setText(String message) {
     this.text = message;
   }
 
+  @SuppressWarnings("unused")
   public String getRole() {
     return role;
   }
 
+  @SuppressWarnings("unused")
   public void setRole(String position) {
     this.role = position;
   }
