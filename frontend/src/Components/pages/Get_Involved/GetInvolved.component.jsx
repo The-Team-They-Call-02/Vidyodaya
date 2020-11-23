@@ -6,6 +6,7 @@ import GetInvolvedHome from "./Home/GetInvolvedHome.component";
 import Volunteer from "./Volunteer/Volunteer.component";
 import Donations from "./Donations/Donations.component";
 import RegisterForm from "./Volunteer/Register-form/Register-form.component";
+import VolunteerDashboard from "./Volunteer/VolunteerDashboard/VolunteerDashboard.component";
 
 // styled-components
 import { MainContainer } from "./GetInvolved.styles";
@@ -18,8 +19,12 @@ const GetInvolved = () => {
           path="/get-involved/volunteers/register"
           component={RegisterForm}
         />
-        <Route path="/get-involved/volunteers" component={Volunteer} />
+        <Route
+          path="/get-involved/volunteers/volunteers-dashboard"
+          component={VolunteerDashboard}
+        />
         <Route path="/get-involved/donations" component={Donations} />
+        <Route path="/get-involved/volunteers" component={Volunteer} />
         <Route path="/get-involved/" component={GetInvolvedHome} />
       </Switch>
     </MainContainer>

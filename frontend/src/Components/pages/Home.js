@@ -1,6 +1,6 @@
 import React from 'react';
 import { BannerGray, BannerGreen, BannerImg, HeroText, GreenHeader, Spacer, GreenBkg, WhiteBkg, VerticalLine } from "../../Styles/HomeStyle";
-import { CenteredDiv } from "../../Styles/GlobalStyles";
+import { CenteredDiv, BackgroundImageContainer } from "../../Styles/GlobalStyles";
 import arrow from "../../Assets/Home/arrow.svg";
 import child from "../../Assets/Home/child.svg";
 import impact1 from "../../Assets/Home/impact1.svg";
@@ -27,7 +27,8 @@ const Home = () => {
                     </a>
                 </CenteredDiv>
             </BannerGray>
-
+            <BackgroundImageContainer style={{marginTop: "40%", height: "100%"}}>
+			</BackgroundImageContainer>
             <CenteredDiv style={{padding: "0 25%", textAlign: "center"}}>
                 <Spacer/>
                 <GreenHeader>Viswa Bharati Vidyodaya Trust</GreenHeader>
@@ -47,7 +48,7 @@ const Home = () => {
                 <Spacer/>
             </CenteredDiv>
 
-            <BannerGreen>
+            {/* <BannerGreen>
                 <Spacer/>
                 <WhiteBkg>
                     <a href="" target="_blank" >
@@ -61,7 +62,7 @@ const Home = () => {
                     <button style={{backgroundColor: "#FFFFFF"}}>Sign Up</button>
                 </a>
                 <Spacer/>
-            </BannerGreen>
+            </BannerGreen> */}
 
             <BannerImg>
                 <GreenBkg>

@@ -1,4 +1,6 @@
 import styled, { createGlobalStyle } from "styled-components";
+import image from "../Assets/Tribal-Art/tribalProgramsPage.svg";
+
 
 ////////////////////////////
 //     PRIMARY COLORS    //
@@ -18,6 +20,21 @@ const CenteredDiv = styled.div`
   align-items: center;
   flex-direction: column;
 `;
+
+
+export const BackgroundImageContainer = styled.div`
+	position: absolute;
+	height: 250%;
+	width: 100%;
+	z-index: -1;
+	top: 0;
+	left: 0;
+	background-image: url(${image});	
+	${'' /* background-size: cover	; */}
+	background-repeat: no-repeat;
+  overflow: hidden;
+`;
+
 
 const GlobalStyle = createGlobalStyle`
 
@@ -71,11 +88,16 @@ h2 {
   font-size: 4rem;
 }
 
-ul {
-  list-style-type: circle;
+table, td, th {
+  border: 1px solid black;
 }
 
-
+table {
+  width: 80%;
+  border-collapse: collapse;
+  margin: 2% 0;
+  margin-left: 10%;
+}
 
 
 `;
