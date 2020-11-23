@@ -14,7 +14,9 @@ public class VolunteerServiceImplementation implements VolunteerService {
 
   private final VolunteerRepository volunteerRepository;
 
-  public VolunteerServiceImplementation(VolunteerRepository volunteerRepository) {
+  public VolunteerServiceImplementation(
+    VolunteerRepository volunteerRepository
+  ) {
     this.volunteerRepository = volunteerRepository;
   }
 
