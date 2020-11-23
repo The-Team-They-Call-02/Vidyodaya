@@ -10,11 +10,13 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Transactional
 @Service(value = "volunteerService")
-public class VolunteerServiceImpl implements VolunteerService {
+public class VolunteerServiceImplementation implements VolunteerService {
 
   private final VolunteerRepository volunteerRepository;
 
-  public VolunteerServiceImpl(VolunteerRepository volunteerRepository) {
+  public VolunteerServiceImplementation(
+    VolunteerRepository volunteerRepository
+  ) {
     this.volunteerRepository = volunteerRepository;
   }
 
@@ -29,7 +31,10 @@ public class VolunteerServiceImpl implements VolunteerService {
   public Volunteer findVolunteerById(long id) {
     return volunteerRepository
       .findById(id)
-      .orElseThrow(() -> new EntityNotFoundException("Volunteer Id not Found"));
+      .orElseThrow(
+        () ->
+          new EntityNotFoundException("Volunteer id \" + id + \" not found!")
+      );
   }
 
   @Override
@@ -37,9 +42,13 @@ public class VolunteerServiceImpl implements VolunteerService {
     Volunteer newVolunteer = new Volunteer(volunteer);
 
     if (volunteer.getVolunteerId() != 0) {
+      // if report has an id, make sure it actually exists
       volunteerRepository
         .findById(volunteer.getVolunteerId())
-        .orElseThrow(() -> new EntityNotFoundException("Id invalid"));
+        .orElseThrow(
+          () ->
+            new EntityNotFoundException("Volunteer id \" + id + \" not found!")
+        );
     }
 
     return volunteerRepository.save(newVolunteer);
@@ -59,7 +68,7 @@ public class VolunteerServiceImpl implements VolunteerService {
     volunteerRepository
       .findById(id)
       .orElseThrow(
-        () -> new EntityNotFoundException("Volunteer id " + id + " Not Found!")
+        () -> new EntityNotFoundException("Volunteer id " + id + " not found!")
       );
     volunteerRepository.deleteById(id);
   }
