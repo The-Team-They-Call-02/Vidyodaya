@@ -88,7 +88,7 @@ public class CampServiceImplementation implements CampService {
   public Camp update(Camp updateCamp, long id) {
     Camp currentCamp = findCampById(id);
 
-    currentCamp.update(currentCamp);
+    currentCamp.update(updateCamp);
 
     return campRepository.save(currentCamp);
   }

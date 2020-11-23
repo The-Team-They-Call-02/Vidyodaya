@@ -50,7 +50,7 @@ public class FeedbackController {
    * @return HttpStatus.NO_CONTENT
    */
   @DeleteMapping(value = "/feedback/{id}")
-  public ResponseEntity<?> deleteUserById(@PathVariable long id) {
+  public ResponseEntity<?> deleteFeedbackById(@PathVariable long id) {
     feedbackService.delete(id);
     return new ResponseEntity<>(HttpStatus.NO_CONTENT);
   }

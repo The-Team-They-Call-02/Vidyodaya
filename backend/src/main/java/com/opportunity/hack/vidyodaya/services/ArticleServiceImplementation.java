@@ -77,7 +77,7 @@ public class ArticleServiceImplementation implements ArticleService {
   public Article update(Article article, long id) {
     Article currentArticle = findArticleById(id);
 
-    currentArticle.update(currentArticle);
+    currentArticle.update(article);
 
     return articleRepository.save(currentArticle);
   }

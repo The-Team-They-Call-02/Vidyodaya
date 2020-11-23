@@ -26,44 +26,30 @@ public class VolunteerController {
     return new ResponseEntity<>(volunteers, HttpStatus.OK);
   }
 
-  @GetMapping(
-    value = "/volunteer/{volunteerid}",
-    produces = "application" + "/json"
-  )
-  public ResponseEntity<?> findVolunteerById(@PathVariable Long volunteerid) {
-    Volunteer v = volunteerService.findVolunteerById(volunteerid);
+  @GetMapping(value = "/volunteer/{id}", produces = "application" + "/json")
+  public ResponseEntity<?> findVolunteerById(@PathVariable Long id) {
+    Volunteer v = volunteerService.findVolunteerById(id);
     return new ResponseEntity<>(v, HttpStatus.OK);
   }
 
   @PostMapping(value = "/volunteer", consumes = "application/json")
   public ResponseEntity<?> addNewVolunteer(
-    @Valid @RequestBody Volunteer newvolunteer
+    @Valid @RequestBody Volunteer newVolunteer
   )
     throws URISyntaxException {
-    newvolunteer.setVolunteerid(0);
-    newvolunteer = volunteerService.save(newvolunteer);
+    newVolunteer.setVolunteerId(0);
+    newVolunteer = volunteerService.save(newVolunteer);
 
     // set the location header for the newly created resource
     HttpHeaders responseHeaders = new HttpHeaders();
     URI newUserURI = ServletUriComponentsBuilder
       .fromCurrentRequest()
-      .path("/{volunteerid}")
-      .buildAndExpand(newvolunteer.getVolunteerid())
+      .path("/{id}")
+      .buildAndExpand(newVolunteer.getVolunteerId())
       .toUri();
     responseHeaders.setLocation(newUserURI);
 
     return new ResponseEntity<>(null, responseHeaders, HttpStatus.CREATED);
-  }
-
-  @PutMapping(value = "/volunteer/{volunteerid}", consumes = "application/json")
-  public ResponseEntity<?> updateFullVolunteer(
-    @Valid @RequestBody Volunteer updateVolunteer,
-    @PathVariable long volunteerid
-  ) {
-    updateVolunteer.setVolunteerid(volunteerid);
-    volunteerService.save(updateVolunteer);
-
-    return new ResponseEntity<>(HttpStatus.OK);
   }
 
   @PatchMapping(value = "/volunteer/{id}", consumes = "application/json")
@@ -76,7 +62,7 @@ public class VolunteerController {
   }
 
   @DeleteMapping(value = "/volunteer/{id}")
-  public ResponseEntity<?> deleteVolunteerByid(@PathVariable long id) {
+  public ResponseEntity<?> deleteVolunteerById(@PathVariable long id) {
     volunteerService.delete(id);
     return new ResponseEntity<>(HttpStatus.OK);
   }
