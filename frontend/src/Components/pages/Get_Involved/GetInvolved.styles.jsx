@@ -42,6 +42,8 @@ export const ViewDashboard = styled.button`
   text-transform: uppercase;
   font-weight: 900;
   color: #00703a;
+  height: auto;
+  width: auto;
 `;
 
 export const BackBtn = styled.div`

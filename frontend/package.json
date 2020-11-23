@@ -9,6 +9,7 @@
     "axios": "^0.21.0",
     "pageclip": "^1.0.0",
     "react": "^17.0.1",
+    "react-csv": "^2.0.3",
     "react-dom": "^17.0.1",
     "react-hook-form": "^6.11.3",
     "react-icons": "^3.11.0",

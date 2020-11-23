@@ -1,5 +1,5 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 
 // styled-components
@@ -41,18 +41,27 @@ const RegisterForm = () => {
     history.push("/get-involved/volunteers");
   };
 
+  const viewDashboard = () => {
+    history.push("/get-involved/volunteers/volunteers-dashboard");
+  };
+
   const submit = (values, e) => {
     e.preventDefault();
 
+    // !! Remember to send to backend
     console.log(values);
     reset();
   };
+
+  // !! Remember the isAdmin property in localstorage. Use it to assign ViewDashboard isAdmin value
 
   return (
     <Container>
       <HeadingContainer>
         <Heading>Register to Volunteer</Heading>
-        <ViewDashboard>View Dashboard</ViewDashboard>
+        <ViewDashboard isAdmin={false} onClick={viewDashboard}>
+          View Dashboard
+        </ViewDashboard>
         <BackBtn onClick={goBack}>Back</BackBtn>
       </HeadingContainer>
       <FormContainer>
@@ -114,7 +123,7 @@ const RegisterForm = () => {
                   type="radio"
                   id="married"
                   value="yes"
-                  name="married"
+                  name="isMarried"
                   ref={register({ required: true })}
                 />
                 <RadioLabel>Yes</RadioLabel>
@@ -123,7 +132,7 @@ const RegisterForm = () => {
                 <input
                   type="radio"
                   value="no"
-                  name="married"
+                  name="isMarried"
                   ref={register({ required: true })}
                 />
                 <RadioLabel>No</RadioLabel>
@@ -146,7 +155,7 @@ const RegisterForm = () => {
                   type="radio"
                   id="children"
                   value="yes"
-                  name="children"
+                  name="hasChildren"
                   ref={register({ required: true })}
                 />
                 <RadioLabel>Yes</RadioLabel>
@@ -156,7 +165,7 @@ const RegisterForm = () => {
                 <input
                   type="radio"
                   value="no"
-                  name="children"
+                  name="hasChildren"
                   ref={register({ required: true })}
                 />
                 <RadioLabel>No</RadioLabel>
@@ -173,7 +182,11 @@ const RegisterForm = () => {
               Volunteering As <Star>*</Star>
             </Label>
             <InputContainer>
-              <Select name="volunteeringAs" ref={register({ required: true })}>
+              <Select
+                name="role"
+                id="volunteeringAs"
+                ref={register({ required: true })}
+              >
                 <option value="" disabled selected>
                   -Select-
                 </option>
@@ -201,7 +214,7 @@ const RegisterForm = () => {
                   type="radio"
                   id="experience"
                   value="yes"
-                  name="experience"
+                  name="volunteeredBefore"
                   ref={register}
                 />
                 <RadioLabel>Yes</RadioLabel>
@@ -211,7 +224,7 @@ const RegisterForm = () => {
                 <input
                   type="radio"
                   value="no"
-                  name="experience"
+                  name="volunteeredBefore"
                   ref={register}
                 />
                 <RadioLabel>No</RadioLabel>
@@ -232,7 +245,7 @@ const RegisterForm = () => {
                   type="radio"
                   id="contact"
                   value="email"
-                  name="contact"
+                  name="contactMethod"
                   ref={register({ required: true })}
                 />
                 <RadioLabel>Email</RadioLabel>
@@ -242,7 +255,7 @@ const RegisterForm = () => {
                 <input
                   type="radio"
                   value="phone"
-                  name="contact"
+                  name="contactMethod"
                   ref={register({ required: true })}
                 />
                 <RadioLabel>Phone</RadioLabel>
@@ -301,7 +314,7 @@ const RegisterForm = () => {
 
             <InputContainer>
               <Textarea
-                name="textArea"
+                name="text"
                 id="textField"
                 ref={register({ required: true })}
                 rows="5"
