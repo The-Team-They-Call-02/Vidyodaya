@@ -55,17 +55,6 @@ public class VolunteerController {
     return new ResponseEntity<>(null, responseHeaders, HttpStatus.CREATED);
   }
 
-  @PutMapping(value = "/volunteer/{volunteerid}", consumes = "application/json")
-  public ResponseEntity<?> updateFullVolunteer(
-    @Valid @RequestBody Volunteer updateVolunteer,
-    @PathVariable long volunteerid
-  ) {
-    updateVolunteer.setVolunteerid(volunteerid);
-    volunteerService.save(updateVolunteer);
-
-    return new ResponseEntity<>(HttpStatus.OK);
-  }
-
   @PatchMapping(value = "/volunteer/{id}", consumes = "application/json")
   public ResponseEntity<?> updateVolunteer(
     @RequestBody Volunteer updateVolunteer,

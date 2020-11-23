@@ -34,15 +34,15 @@ public class VolunteerServiceImpl implements VolunteerService {
   public Volunteer save(Volunteer volunteer) {
     Volunteer newVolunteer = new Volunteer();
 
-    if (volunteer.getVolunteerid() != 0) {
+    if (volunteer.getVolunteerId() != 0) {
       volunteerrepos
-        .findById(volunteer.getVolunteerid())
+        .findById(volunteer.getVolunteerId())
         .orElseThrow(() -> new EntityNotFoundException("Id invalid"));
-      newVolunteer.setVolunteerid(volunteer.getVolunteerid());
+      newVolunteer.setVolunteerId(volunteer.getVolunteerId());
     }
 
-    newVolunteer.setFname(volunteer.getFname());
-    newVolunteer.setLname(volunteer.getLname());
+    newVolunteer.setFirstName(volunteer.getFirstName());
+    newVolunteer.setLastName(volunteer.getLastName());
     newVolunteer.setEmail(volunteer.getEmail());
     newVolunteer.setLocation(volunteer.getLocation());
     newVolunteer.setMessage(volunteer.getMessage());
@@ -56,18 +56,18 @@ public class VolunteerServiceImpl implements VolunteerService {
   public Volunteer update(Volunteer volunteer, long id) {
     Volunteer currentVolunteer = new Volunteer();
 
-    if (volunteer.getVolunteerid() != 0) {
+    if (volunteer.getVolunteerId() != 0) {
       volunteerrepos
-        .findById(volunteer.getVolunteerid())
+        .findById(volunteer.getVolunteerId())
         .orElseThrow(() -> new EntityNotFoundException("Id invalid"));
-      currentVolunteer.setVolunteerid(volunteer.getVolunteerid());
+      currentVolunteer.setVolunteerId(volunteer.getVolunteerId());
     }
 
-    if (volunteer.getFname() != null) {
-      currentVolunteer.setFname(volunteer.getFname());
+    if (volunteer.getFirstName() != null) {
+      currentVolunteer.setFirstName(volunteer.getFirstName());
     }
-    if (volunteer.getLname() != null) {
-      currentVolunteer.setLname(volunteer.getLname());
+    if (volunteer.getLastName() != null) {
+      currentVolunteer.setLastName(volunteer.getLastName());
     }
     if (volunteer.getEmail() != null) {
       currentVolunteer.setEmail(volunteer.getEmail());
