@@ -40,16 +40,15 @@ const fakeData =
 
 
 const ArticlesHome = () => {
-const  { articles, addArticles } = useContext(AppContext);
-
+const  { articles, addArticles, articleArray, setArticleArray } = useContext(AppContext);
 
 
   const getArticles = () => {
     AxiosWithAuth()
       .get("/articles/articles")
       .then((res) => {
-        console.log(res.data);
         addArticles(res.data);
+        setArticleArray(res.data);
       })
       .catch((err) => console.log(err));
   };
@@ -67,7 +66,7 @@ const  { articles, addArticles } = useContext(AppContext);
             <Heading>Articles</Heading>
         </HeadingContainer>
 
-        {articles.map((article) => {
+        {articleArray.map((article) => {
           return (
             <BodyContainer key={article.articleid}>
             <ContentContainer articles>

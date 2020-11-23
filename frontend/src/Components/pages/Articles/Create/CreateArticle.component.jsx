@@ -39,14 +39,8 @@ import InsertImage from "../../../../Assets/Articles/InsertImage.svg";
 const CreateArticle = () => {
   const history = useHistory();
   const { handleSubmit, register, errors, reset } = useForm();
-  const  { articles, addArticles } = useContext(AppContext);
-  // const [articles, addArticles] = useState(
-  //   {
-  //     title: "",
-  //     description: "",
-  //     imgUrl: ""
-  //   }
-  // );
+  const  { articles, addArticles, articleArray, setArticleArray } = useContext(AppContext);
+
   console.log(articles);
   const [file, setFile] = useState();
 
@@ -77,7 +71,7 @@ const CreateArticle = () => {
     data.append("folder", "photos"); // folder name
 
     // send to cloudinary
-    // axios
+    // axios()
     //   .post(process.env.REACT_APP_URL, data)
     //   .then((res) => {
     //     // mutate original values
@@ -91,12 +85,12 @@ const CreateArticle = () => {
     //     reset();
     //   });
 
-  console.log("data from create article", articles)
-  AxiosWithAuth
+
+  AxiosWithAuth()
   .post("/articles/article", articles)
   .then((res) => {
     // mutate original values
-    console.log("result", res)
+    console.log("result", articles)
     // const newValues = { ...values, file: res.data.url };
     // console.log("VALUES -> ", newValues);
     // reset();
@@ -110,13 +104,7 @@ const CreateArticle = () => {
 const onChange = (e) => {
   console.log(e.target.value)
   addArticles({ ...articles, [e.target.name]: e.target.value })
-  // addArticles(
-  //   {
-  //     title: articles.title,
-  //     description: e.target.description,
-  //     imgUrl: e.target.imgUrl
-  //   })
-    console.log("this", articles)
+
 }
 
   const handleChange = (e) => {
