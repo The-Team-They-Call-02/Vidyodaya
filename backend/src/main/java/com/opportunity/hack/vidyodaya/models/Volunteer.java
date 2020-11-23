@@ -23,11 +23,17 @@ public class Volunteer extends Auditable {
 
   private String phone;
 
-  private String location;
+  private String contactMethod;
 
-  private String message;
+  private String text;
 
-  private String position;
+  private String role;
+
+  private Boolean isMarried;
+
+  private Boolean haveChildren;
+
+  private Boolean volunteeredBefore;
 
   public Volunteer() {}
 
@@ -41,9 +47,12 @@ public class Volunteer extends Auditable {
     this.lastName = other.lastName;
     this.email = other.email;
     this.phone = other.phone;
-    this.location = other.location;
-    this.message = other.message;
-    this.position = other.position;
+    this.contactMethod = other.contactMethod;
+    this.text = other.text;
+    this.role = other.role;
+    this.isMarried = other.isMarried;
+    this.haveChildren = other.haveChildren;
+    this.volunteeredBefore = other.volunteeredBefore;
   }
 
   /**
@@ -55,9 +64,15 @@ public class Volunteer extends Auditable {
     lastName = (String) optionallyReplace(lastName, source.lastName);
     email = (String) optionallyReplace(email, source.email);
     phone = (String) optionallyReplace(phone, source.phone);
-    location = (String) optionallyReplace(location, source.location);
-    message = (String) optionallyReplace(message, source.message);
-    position = (String) optionallyReplace(position, source.position);
+    contactMethod =
+      (String) optionallyReplace(contactMethod, source.contactMethod);
+    text = (String) optionallyReplace(text, source.text);
+    role = (String) optionallyReplace(role, source.role);
+    isMarried = (Boolean) optionallyReplace(isMarried, source.isMarried);
+    haveChildren =
+      (Boolean) optionallyReplace(haveChildren, source.haveChildren);
+    volunteeredBefore =
+      (Boolean) optionallyReplace(volunteeredBefore, source.volunteeredBefore);
   }
 
   public long getVolunteerId() {
@@ -100,27 +115,51 @@ public class Volunteer extends Auditable {
     this.phone = phone;
   }
 
-  public String getLocation() {
-    return location;
+  public String getContactMethod() {
+    return contactMethod;
   }
 
-  public void setLocation(String location) {
-    this.location = location;
+  public void setContactMethod(String location) {
+    this.contactMethod = location;
   }
 
-  public String getMessage() {
-    return message;
+  public String getText() {
+    return text;
   }
 
-  public void setMessage(String message) {
-    this.message = message;
+  public void setText(String message) {
+    this.text = message;
   }
 
-  public String getPosition() {
-    return position;
+  public String getRole() {
+    return role;
   }
 
-  public void setPosition(String position) {
-    this.position = position;
+  public void setRole(String position) {
+    this.role = position;
+  }
+
+  public Boolean getMarried() {
+    return isMarried;
+  }
+
+  public void setMarried(Boolean married) {
+    isMarried = married;
+  }
+
+  public Boolean getHaveChildren() {
+    return haveChildren;
+  }
+
+  public void setHaveChildren(Boolean haveChildren) {
+    this.haveChildren = haveChildren;
+  }
+
+  public Boolean getVolunteeredBefore() {
+    return volunteeredBefore;
+  }
+
+  public void setVolunteeredBefore(Boolean volunteeredBefore) {
+    this.volunteeredBefore = volunteeredBefore;
   }
 }
