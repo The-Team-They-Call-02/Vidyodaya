@@ -2,6 +2,8 @@ package com.opportunity.hack.vidyodaya.models;
 
 import javax.persistence.*;
 
+import static com.opportunity.hack.vidyodaya.Utility.optionallyReplace;
+
 @Entity
 @Table(name = "volunteers")
 public class Volunteer extends Auditable {
@@ -47,6 +49,19 @@ public class Volunteer extends Auditable {
     this.message = other.message;
     this.position = other.position;
   }
+
+  /**
+   * Update this instance from a partial Volunteer instance
+   * @param source The partial Volunteer instance
+   */
+  public void update(Volunteer source) {
+    firstName = (String) optionallyReplace(firstName, source.firstName);
+    lastName = (String) optionallyReplace(lastName, source.lastName);
+    email = (String) optionallyReplace(email, source.email);
+    phone = (String) optionallyReplace(phone, source.phone);
+    location = (String) optionallyReplace(location, source.location);
+    message = (String) optionallyReplace(message, source.message);
+    position = (String) optionallyReplace(position, source.position);
   }
 
   public long getVolunteerId() {
