@@ -9,12 +9,15 @@ import {
   InfoContainer,
   Info,
 } from "./GetInvolvedHome.styles";
+import { BackgroundImageContainer } from "../../../../Styles/GlobalStyles";
 
 // view dashboard will need a prop isAdmin which will probably come from the backend API call
 
 const GetInvolvedHome = () => {
   return (
     <Container>
+    <BackgroundImageContainer style={{marginTop: "0", height: "100%"}}>
+			</BackgroundImageContainer>
       <HeadingContainer>
         <Heading>Get Involved</Heading>
       </HeadingContainer>

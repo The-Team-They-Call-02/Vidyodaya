@@ -3,10 +3,13 @@ import { Link } from "react-router-dom";
 
 //STYLING
 import { ProgramsPageContainer } from "./ProgramsHome.styles";
+import { BackgroundImageContainer } from "../../../../Styles/GlobalStyles";
 
 const ProgramsHome = () => {
 	return (
 		<ProgramsPageContainer>
+			<BackgroundImageContainer>
+			</BackgroundImageContainer>
 			<div className="programs-page-inner-div">
 				<h1 className="programs-page-h1"> OUR PROGRAMS </h1>
 				<div className="programs-page-cards-container">

@@ -19,7 +19,7 @@ import {
     TextContainer,
     Info
   } from "../Articles.styles";
-
+import { BackgroundImageContainer } from "../../../../Styles/GlobalStyles";
 // Endpoint for GET request to fetch articles 
 // https://opportunity-hack-vidyodaya.herokuapp.com/articles/articles
 
@@ -44,6 +44,8 @@ const ArticlesHome = () => {
 
     return (
         <Container>
+        <BackgroundImageContainer style={{marginTop: "0", height: "300%"}}>
+		</BackgroundImageContainer>
         <HeadingContainer>
             <Heading>Articles</Heading>
         </HeadingContainer>
