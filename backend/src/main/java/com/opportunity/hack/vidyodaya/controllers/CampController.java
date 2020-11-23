@@ -102,7 +102,7 @@ public class CampController {
    * @return new Highlight instance added
    */
   @PostMapping(value = "camp/{id}/highlight", consumes = "application/json")
-  public ResponseEntity<?> addNewCamp(
+  public ResponseEntity<?> addNewHighlight(
     @Valid @RequestBody Highlight newHighlight,
     @PathVariable long id
   ) {
