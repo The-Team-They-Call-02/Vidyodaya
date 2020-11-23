@@ -10,4 +10,5 @@ const AxiosWithAuth = () => {
     baseURL: "https://opportunity-hack-vidyodaya.herokuapp.com",
   });
 };
+
 export default AxiosWithAuth;
