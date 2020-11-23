@@ -12,7 +12,7 @@ const ReportPage = (props) => {
   const { id } = useParams();
   const [file, setFile] = useState({
     category: "",
-    document: "",
+    documentUrl: "",
     reportid: null,
     title: "",
     year: "",
@@ -26,7 +26,7 @@ const ReportPage = (props) => {
   useEffect(() => {
     axios
       .get(
-        `https://opportunity-hack-vidyodaya.herokuapp.com/reports/reports/${id}`
+        `https://opportunity-hack-vidyodaya.herokuapp.com/reports/report/${id}`
       )
       .then((res) => {
         setFile(res.data);
@@ -54,14 +54,14 @@ const ReportPage = (props) => {
     <div className="MainContainer">
       <ReportPageStyles />
 
-      <Link to={file.document} className="download-link">
+      <Link to={file.documentUrl} className="download-link">
         Download Link
       </Link>
 
       <h3 className="title">{file.title}</h3>
 
       <Document
-        file={file.document}
+        file={file.documentUrl}
         onLoadSuccess={dlFile}
         className="DocumentContainer"
       >

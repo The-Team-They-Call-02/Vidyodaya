@@ -53,7 +53,7 @@ const Financial = (props) => {
                 {years[year].map((data, j) => {
                   return (
                     <Text
-                      to={`/reports/${data.title}/${data.reportid}`}
+                      to={`/reports/${data.title}/${data.reportId}`}
                       key={`${j}${data.year}${i}`}
                     >
                       {data.title}
