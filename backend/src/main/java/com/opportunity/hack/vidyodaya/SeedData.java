@@ -49,6 +49,10 @@ public class SeedData implements CommandLineRunner {
   @Transactional
   @Override
   public void run(String[] args) throws Exception {
+    // don't run if we already have data
+    if (roleService.findAll().size() > 0)
+      return;
+
     roleService.deleteAll();
     Role r1 = new Role("admin");
 
