@@ -23,14 +23,19 @@ public class SeedData implements CommandLineRunner {
   /**
    * Connects the Role Service to this process
    */
-  @Autowired
+  final
   RoleService roleService;
 
   /**
    * Connects the user service to this process
    */
-  @Autowired
+  final
   UserService userService;
+
+  public SeedData(RoleService roleService, UserService userService) {
+    this.roleService = roleService;
+    this.userService = userService;
+  }
 
   /**
    * Generates test, seed data for our application
