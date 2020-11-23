@@ -1,4 +1,6 @@
 import React, {useState} from 'react';
+import { useHistory } from "react-router-dom";
+
 
 import Sarva from "../../../../Assets/Programs/Sarva.svg";
 import nioosc from "../../../../Assets/Programs/nioosc.svg";
@@ -18,6 +20,8 @@ import { EducationContainer } from "./EducationProgram.styles";
 
 
 const EducationProgram = () => {
+	const history = useHistory();
+
 
 	const goBack = () => {
 		history.push("/programs/");
