@@ -12,6 +12,9 @@ import CampCard from "./ChildrenCamps/CampCard/CampCard.component";
 import ChildrensBank from "./EducationProgram/Childrens_Bank/ChildrensBank.component";
 import Scholarships from "./EducationProgram/Scholarships/Scholarships.component";
 import StudyCenters from "./EducationProgram/Study_Centers/StudyCenters.component";
+import SkillsUpgradation from "./EducationProgram/Teacher_Training/SkillsUpgradation.component";
+import TeacherTraining2014 from "./EducationProgram/Teacher_Training/TeacherTraining2014.component";
+import TeacherTraining2012 from "./EducationProgram/Teacher_Training/TeacherTraining2012.component";
 
 // styled-components
 import { MainContainer } from "./Programs.styles";
@@ -28,6 +31,9 @@ const Programs = () => {
 				<Route exact path="/programs/education-program/childrens-bank" component={ChildrensBank}/>
 				<Route exact path="/programs/education-program/study-centers" component={StudyCenters}/>
 				<Route exact path="/programs/education-program/scholarships" component={Scholarships}/>
+				<Route exact path="/programs/education-program/skills-upgradation" component={SkillsUpgradation}/>
+				<Route exact path="/programs/education-program/teacher-training-2014" component={TeacherTraining2014}/>
+				<Route exact path="/programs/education-program/teacher-training-2012" component={TeacherTraining2012}/>
 
 				<Route exact path="/programs/children-camps" component={ChildrenCamps} />
 				<Route exact path="/programs/ultimate-frisbee" component={FrisbeeProgram} />

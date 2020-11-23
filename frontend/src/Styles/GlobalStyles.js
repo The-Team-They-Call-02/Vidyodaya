@@ -71,11 +71,16 @@ h2 {
   font-size: 4rem;
 }
 
-ul {
-  list-style-type: circle;
+table, td, th {
+  border: 1px solid black;
 }
 
-
+table {
+  width: 80%;
+  border-collapse: collapse;
+  margin: 2% 0;
+  margin-left: 10%;
+}
 
 
 `;
