@@ -19,6 +19,7 @@ import Reports from "./Components/pages/Reports/Reports.component";
 import ContactForm from "./Components/pages/Contact_Form/ContactForm.component";
 import Navbar from "./Components/common/Navbar";
 import Footer from "./Components/common/Footer";
+import Login from "./Components/pages/Login";
 import FounderTrustees from "./Components/pages/About/Founder_Trustees/FounderTrustees.component";
 import ManagingCommittee from "./Components/pages/About/Managing_Committee/ManagingCommittee.component";
 
@@ -32,6 +33,9 @@ function App() {
       <Navbar />
       <Route exact path="/">
         <Home />
+      </Route>
+      <Route path="/login">
+        <Login />
       </Route>
       <Route exact path="/about">
         <About />
