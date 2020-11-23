@@ -17,6 +17,7 @@ public class DataSourceConfig {
   @Value("${spring.datasource.url:}")
   private String dbURL;
 
+  @SuppressWarnings("SpellCheckingInspection")
   @Bean
   public DataSource dataSource() {
     if (dbValue.equalsIgnoreCase("POSTGRESQL")) {

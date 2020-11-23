@@ -25,6 +25,7 @@ public interface RoleRepository extends CrudRepository<Role, Long> {
    * @param roleid The primary key (long) of the role to change
    * @param name   The new name (String) of the role
    */
+  @SuppressWarnings("SqlResolve")
   @Transactional
   @Modifying
   @Query(

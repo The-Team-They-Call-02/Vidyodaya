@@ -1,5 +1,7 @@
 package com.opportunity.hack.vidyodaya.models;
 
+import static com.opportunity.hack.vidyodaya.Utility.optionallyReplace;
+
 import javax.persistence.*;
 
 @Entity
@@ -8,32 +10,49 @@ public class Report extends Auditable {
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
-  private long reportid;
+  private long reportId;
 
   @Column(nullable = false, unique = true)
   private String title;
 
   private String year;
+
   private String category;
 
   @Column(nullable = false, unique = true)
-  private String document;
+  private String documentUrl;
 
   public Report() {}
 
-  public Report(String title, String year, String category, String document) {
-    this.title = title;
-    this.year = year;
-    this.category = category;
-    this.document = document;
+  /**
+   * Copy constructor
+   * @param source Report being copied
+   */
+  public Report(Report source) {
+    reportId = source.reportId;
+    title = source.title;
+    year = source.year;
+    category = source.category;
+    documentUrl = source.documentUrl;
   }
 
-  public long getReportid() {
-    return reportid;
+  /**
+   * Update this instance with data from a partial Report instance
+   * @param source The partial Report instance
+   */
+  public void update(Report source) {
+    title = (String) optionallyReplace(title, source.title);
+    year = (String) optionallyReplace(year, source.year);
+    category = (String) optionallyReplace(category, source.category);
+    documentUrl = (String) optionallyReplace(documentUrl, source.documentUrl);
   }
 
-  public void setReportid(long reportid) {
-    this.reportid = reportid;
+  public long getReportId() {
+    return reportId;
+  }
+
+  public void setReportId(long reportId) {
+    this.reportId = reportId;
   }
 
   public String getTitle() {
@@ -60,11 +79,11 @@ public class Report extends Auditable {
     this.category = category;
   }
 
-  public String getDocument() {
-    return document;
+  public String getDocumentUrl() {
+    return documentUrl;
   }
 
-  public void setDocument(String document) {
-    this.document = document;
+  public void setDocumentUrl(String document) {
+    this.documentUrl = document;
   }
 }

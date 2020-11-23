@@ -36,6 +36,7 @@ public class H2ServerConfiguration {
    * @return The created TcpServer needed to access H2.
    * @throws SQLException If the server cannot be created.
    */
+  @SuppressWarnings("SpellCheckingInspection")
   @Bean
   @ConditionalOnExpression("${h2.tcp.enabled:true}")
   public Server h2TcpServer() throws SQLException {
@@ -52,6 +53,7 @@ public class H2ServerConfiguration {
    * @return The created web server needed to access H2.
    * @throws SQLException If the server cannot be created.
    */
+  @SuppressWarnings("SpellCheckingInspection")
   @Bean
   @ConditionalOnExpression("${h2.web.enabled:true}")
   public Server h2WebServer() throws SQLException {
