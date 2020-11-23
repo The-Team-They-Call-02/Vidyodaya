@@ -5,9 +5,9 @@ export const ProgramsPageContainer = styled.div`
 	display: flex;
 	flex-direction: column;
 	height: 100%;
+	border: 2px solid red;
 
 	.programs-page-inner-div {
-		background-color: #f8f7f7;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
