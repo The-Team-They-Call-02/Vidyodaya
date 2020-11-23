@@ -31,7 +31,10 @@ public class VolunteerServiceImplementation implements VolunteerService {
   public Volunteer findVolunteerById(long id) {
     return volunteerRepository
       .findById(id)
-      .orElseThrow(() -> new EntityNotFoundException("Volunteer Id not Found"));
+      .orElseThrow(
+        () ->
+          new EntityNotFoundException("Volunteer id \" + id + \" not found!")
+      );
   }
 
   @Override
@@ -41,7 +44,10 @@ public class VolunteerServiceImplementation implements VolunteerService {
     if (volunteer.getVolunteerId() != 0) {
       volunteerRepository
         .findById(volunteer.getVolunteerId())
-        .orElseThrow(() -> new EntityNotFoundException("Id invalid"));
+        .orElseThrow(
+          () ->
+            new EntityNotFoundException("Volunteer id \" + id + \" not found!")
+        );
     }
 
     return volunteerRepository.save(newVolunteer);
@@ -61,7 +67,7 @@ public class VolunteerServiceImplementation implements VolunteerService {
     volunteerRepository
       .findById(id)
       .orElseThrow(
-        () -> new EntityNotFoundException("Volunteer id " + id + " Not Found!")
+        () -> new EntityNotFoundException("Volunteer id " + id + " not found!")
       );
     volunteerRepository.deleteById(id);
   }

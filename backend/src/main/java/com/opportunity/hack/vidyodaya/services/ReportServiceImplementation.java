@@ -30,7 +30,9 @@ public class ReportServiceImplementation implements ReportService {
   public Report findReportById(long id) throws EntityNotFoundException {
     return reportRepository
       .findById(id)
-      .orElseThrow(() -> new EntityNotFoundException("Report id not found"));
+      .orElseThrow(
+        () -> new EntityNotFoundException("Report id " + id + " not found")
+      );
   }
 
   @Override
@@ -40,7 +42,10 @@ public class ReportServiceImplementation implements ReportService {
     if (report.getReportId() != 0) {
       reportRepository
         .findById(report.getReportId())
-        .orElseThrow(() -> new EntityNotFoundException("Report id invalid"));
+        .orElseThrow(
+          () ->
+            new EntityNotFoundException("\"Report id \" + id + \" not found\"")
+        );
       newReport.setReportId(report.getReportId());
     }
 
@@ -59,7 +64,10 @@ public class ReportServiceImplementation implements ReportService {
     if (report.getReportId() != 0) {
       reportRepository
         .findById(report.getReportId())
-        .orElseThrow(() -> new EntityNotFoundException("Report id invalid"));
+        .orElseThrow(
+          () ->
+            new EntityNotFoundException("\"Report id \" + id + \" not found\"")
+        );
       currentReport.setReportId(report.getReportId());
     }
 
