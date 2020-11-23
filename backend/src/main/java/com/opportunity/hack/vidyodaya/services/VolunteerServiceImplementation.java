@@ -10,11 +10,11 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Transactional
 @Service(value = "volunteerService")
-public class VolunteerServiceImpl implements VolunteerService {
+public class VolunteerServiceImplementation implements VolunteerService {
 
   private final VolunteerRepository volunteerRepository;
 
-  public VolunteerServiceImpl(VolunteerRepository volunteerRepository) {
+  public VolunteerServiceImplementation(VolunteerRepository volunteerRepository) {
     this.volunteerRepository = volunteerRepository;
   }
 

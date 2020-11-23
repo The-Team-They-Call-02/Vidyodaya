@@ -11,7 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Transactional
 @Service(value = "reportService")
-public class ReportServiceImpl implements ReportService {
+public class ReportServiceImplementation implements ReportService {
 
   @Autowired
   private ReportRepository reportrepos;
