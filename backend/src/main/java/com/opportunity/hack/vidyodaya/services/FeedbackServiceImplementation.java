@@ -44,7 +44,7 @@ public class FeedbackServiceImplementation implements FeedbackService {
   public Feedback update(Feedback updateFeedback, long id) {
     Feedback currentFeedback = findFeedbackById(id);
 
-    currentFeedback.update(currentFeedback);
+    currentFeedback.update(updateFeedback);
 
     return feedbackRepository.save(currentFeedback);
   }

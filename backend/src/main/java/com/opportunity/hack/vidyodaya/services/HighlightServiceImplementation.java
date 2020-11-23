@@ -46,7 +46,7 @@ public class HighlightServiceImplementation implements HighlightService {
   public Highlight update(Highlight updateHighlight, long id) {
     Highlight currentHighlight = findHighlightById(id);
 
-    currentHighlight.update(currentHighlight);
+    currentHighlight.update(updateHighlight);
 
     return highlightRepository.save(currentHighlight);
   }

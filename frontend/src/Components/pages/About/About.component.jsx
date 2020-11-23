@@ -1,11 +1,12 @@
 import React from 'react';
 
-import { Header, MainContainer, Container, TextContainer, Image } from "../../Styles/AboutStyle";
-import { Card } from "../../Styles/PageStyle";
-import img1 from "../../Assets/About/vidyodaya1.jpg";
-import img2 from "../../Assets/About/VBVT-Charities-Aid-Foundation.jpg";
-import img3 from "../../Assets/About/ashoka-changemaker-logo.png";
-import img4 from "../../Assets/About/ponnanigirls.jpg";
+import { Header, MainContainer, Container, TextContainer, Image } from "./About.styles";
+import { Card } from "../../../Styles/PageStyle";
+
+import img1 from "../../../Assets/About/vidyodaya1.jpg";
+import img2 from "../../../Assets/About/VBVT-Charities-Aid-Foundation.jpg";
+import img3 from "../../../Assets/About/ashoka-changemaker-logo.png";
+import img4 from "../../../Assets/About/ponnanigirls.jpg";
 
 
 const About = () => {
