@@ -28,7 +28,7 @@ We created an initial design in Figma which you can experience by clicking on th
 
 Below you can see our database table layout for the backend.
 
-[![Database Tables](https://challengepost-s3-challengepost.netdna-ssl.com/photos/production/software_photos/001/294/589/datas/gallery.jpg)]
+![Database Tables](backend/DatabaseSchema.png)
 
 ## How We Built It
 The frontend solution for **Vidyodaya** includes:
