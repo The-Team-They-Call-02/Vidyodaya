@@ -8,11 +8,16 @@ import { useHistory, Link } from "react-router-dom";
 import {
 	Container,
 	HeadingContainer,
+	AddBtn,
 	Heading,
 	BackBtn,
+	ViewDashboard,
 	ProgramDonateContainer,
 } from "../Programs.styles";
 import { ChildrenCampsContainer } from "./ChildrenCamps.styles";
+import { FaPlus } from "react-icons/fa";
+
+import CampCard from "./CampCard/CampCard.component";
 
 //DUMMY DATA
 const campsData = [
@@ -339,6 +344,12 @@ const ChildrenCamps = (props) => {
 		<Container>
 			<HeadingContainer>
 				<Heading>Children Camps</Heading>
+				<ViewDashboard>View Dashboard</ViewDashboard>
+				<Link to="/programs/children-camps/create">
+					<AddBtn>
+						<FaPlus />
+					</AddBtn>
+				</Link>
 				<BackBtn onClick={goBack}>Back</BackBtn>
 			</HeadingContainer>
 
