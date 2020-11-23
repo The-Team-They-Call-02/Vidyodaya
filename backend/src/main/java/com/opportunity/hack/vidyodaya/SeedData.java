@@ -23,14 +23,12 @@ public class SeedData implements CommandLineRunner {
   /**
    * Connects the Role Service to this process
    */
-  final
-  RoleService roleService;
+  final RoleService roleService;
 
   /**
    * Connects the user service to this process
    */
-  final
-  UserService userService;
+  final UserService userService;
 
   public SeedData(RoleService roleService, UserService userService) {
     this.roleService = roleService;
@@ -50,8 +48,7 @@ public class SeedData implements CommandLineRunner {
   @Override
   public void run(String[] args) throws Exception {
     // don't run if we already have data
-    if (roleService.findAll().size() > 0)
-      return;
+    if (roleService.findAll().size() > 0) return;
 
     roleService.deleteAll();
     Role r1 = new Role("admin");

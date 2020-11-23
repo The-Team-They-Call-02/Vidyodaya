@@ -2,15 +2,14 @@ package com.opportunity.hack.vidyodaya.controllers;
 
 import com.opportunity.hack.vidyodaya.models.Role;
 import com.opportunity.hack.vidyodaya.services.RoleService;
+import java.net.URI;
+import java.util.List;
+import javax.validation.Valid;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
-
-import javax.validation.Valid;
-import java.net.URI;
-import java.util.List;
 
 /**
  * The entry point for clients to access role data
@@ -27,8 +26,7 @@ public class RolesController {
   /**
    * Using the Role service to process Role data
    */
-  final
-  RoleService roleService;
+  final RoleService roleService;
 
   public RolesController(RoleService roleService) {
     this.roleService = roleService;
