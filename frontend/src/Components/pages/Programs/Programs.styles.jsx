@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
+
 import { colorObj } from "../../../Styles/GlobalStyles";
 
 export const MainContainer = styled.div`
@@ -70,4 +72,18 @@ export const ProgramDonateContainer = styled.div`
 		border-radius: 20px;
 		margin: 3rem 0 0 0;
 	}
+`;
+
+export const Links = styled(Link)`
+  background: #fff;
+  border: 5px solid ${colorObj.green};
+  border-radius: 20px;
+  width: 20%;
+  height: 75px;
+  font-family: "Montserrat", sans-serif;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: ${colorObj.dark};
 `;
