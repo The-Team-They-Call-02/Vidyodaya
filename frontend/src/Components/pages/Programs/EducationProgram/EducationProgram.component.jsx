@@ -1,5 +1,8 @@
-import React from "react";
-import { useHistory, Link } from "react-router-dom";
+import React, {useState} from 'react';
+
+
+
+const Programs = () => {
 
 import Sarva from "../../../../Assets/Programs/Sarva.svg";
 import nioosc from "../../../../Assets/Programs/nioosc.svg";
@@ -16,9 +19,10 @@ import {
 } from "../Programs.styles";
 import { EducationContainer } from "./EducationProgram.styles";
 
-const EducationProgram = (props) => {
-	// const { campsData } = props;
-	const history = useHistory();
+
+
+
+export default Programs;
 
 	const goBack = () => {
 		history.push("/programs/");
@@ -174,3 +178,4 @@ const EducationProgram = (props) => {
 };
 
 export default EducationProgram;
+
