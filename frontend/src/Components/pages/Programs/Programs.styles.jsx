@@ -1,9 +1,11 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { colorObj } from "../../../Styles/GlobalStyles";
+import tribalImage from "../../../Assets/Programs/tribalProgramsPage.svg";
 
 export const MainContainer = styled.div`
 	padding: 150px 0 100px 0;
+	background-image: url(${tribalImage});
 `;
 
 
@@ -38,6 +40,39 @@ export const HeadingContainer = styled.div`
 	align-items: center;
 	position: relative;
 	height: 150px;
+`;
+
+export const AddBtn = styled.div`
+	position: fixed;
+	right: 40px;
+	bottom: 40px;
+	display: ${localStorage.getItem("token") ? "flex" : "none"};
+	justify-content: center;
+	align-items: center;
+	background-color: ${colorObj.green};
+	color: #fff;
+	font-size: 4.3rem;
+	width: 6.9rem;
+	height: 6.9rem;
+	border-radius: 2rem;
+	z-index: 100;
+`;
+
+export const ViewDashboard = styled.button`
+	display: ${localStorage.getItem("token") ? "inline" : "none"};
+	border: 2px solid #00703a;
+	background: rgba(255, 255, 255, 0.1);
+	position: absolute;
+	top: 50%;
+	right: 0;
+	transform: translateY(-50%);
+	padding: 10px;
+	border-radius: 10px;
+	text-transform: uppercase;
+	font-weight: 900;
+	color: #00703a;
+	width: 20rem;
+	height: 5rem;
 `;
 
 export const BackBtn = styled.div`
