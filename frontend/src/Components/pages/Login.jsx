@@ -1,7 +1,8 @@
-import React from "react";
-import { Link } from "react-router-dom";
-
+import React, { useState } from "react";
+import { useHistory, Link } from "react-router-dom";
+import { useForm } from "react-hook-form";
 import logo from "../../Assets/Home/logo.png";
+import axios from "axios";
 
 import styled from "styled-components";
 import { FaTimes } from "react-icons/fa";
@@ -75,8 +76,50 @@ const LoginContainer = styled.div`
 	}
 `;
 
-const Login = (props) => {
-	const onSubmit = (e) => {};
+const Login = () => {
+	const { register, errors } = useForm();
+	const [credentials, setCredentials] = useState({
+		username: "",
+		password: "",
+	});
+	const { push } = useHistory();
+
+	const onSubmit = (e) => {
+		e.preventDefault();
+		console.log("onSubmit");
+		axios
+			.post(
+				"https://opportunity-hack-vidyodaya.herokuapp.com/login",
+				`grant_type=password&username=${credentials.username}&password=${credentials.password}`,
+				{
+					headers: {
+						// btoa is converting our client id/client secret into base64
+						Authorization: `Basic ${btoa(
+							"emilya-client:emilya-secret",
+						)}`,
+						"Content-Type": "application/x-www-form-urlencoded",
+					},
+				},
+			)
+			.then((res) => {
+				console.log(res.data);
+				localStorage.setItem("token", res.data.access_token);
+				push("/");
+			})
+			.catch((error) => {
+				// console.log("Error:", error.response.data);
+				alert(
+					`Oops.. Looks like there was an error. ${error.response.data.message}`,
+				);
+			});
+	};
+
+	const handleChange = (e) =>
+		setCredentials({
+			...credentials,
+			[e.target.name]: e.target.value,
+		});
+
 	return (
 		<LoginContainer>
 			<div className="login-outter-div">
@@ -92,13 +135,28 @@ const Login = (props) => {
 							type="text"
 							name="username"
 							className="username"
+							ref={register({ required: true })}
+							onChange={handleChange}
 						/>
 
+						{errors.username && <p> Username required </p>}
+
 						<label htmlFor="password"> Password </label>
-						<input type="password" name="password" />
+						<input
+							type="password"
+							name="password"
+							ref={register({ required: true })}
+							onChange={handleChange}
+						/>
+
+						{errors.password && <p> Password required </p>}
 
 						<span>
-							<input type="checkbox" name="remember" />
+							<input
+								type="checkbox"
+								name="remember"
+								ref={register}
+							/>
 							<label htmlFor="remember"> Remember me</label>
 						</span>
 
