@@ -83,42 +83,52 @@ public class Volunteer extends Auditable {
     this.volunteerId = volunteerId;
   }
 
+  @SuppressWarnings("unused")
   public String getFirstName() {
     return firstName;
   }
 
+  @SuppressWarnings("unused")
   public void setFirstName(String firstName) {
     this.firstName = firstName;
   }
 
+  @SuppressWarnings("unused")
   public String getLastName() {
     return lastName;
   }
 
+  @SuppressWarnings("unused")
   public void setLastName(String lastName) {
     this.lastName = lastName;
   }
 
+  @SuppressWarnings("unused")
   public String getEmail() {
     return email;
   }
 
+  @SuppressWarnings("unused")
   public void setEmail(String email) {
     this.email = email;
   }
 
+  @SuppressWarnings("unused")
   public String getPhone() {
     return phone;
   }
 
+  @SuppressWarnings("unused")
   public void setPhone(String phone) {
     this.phone = phone;
   }
 
+  @SuppressWarnings("unused")
   public String getContactMethod() {
     return contactMethod;
   }
 
+  @SuppressWarnings("unused")
   public void setContactMethod(String location) {
     this.contactMethod = location;
   }
@@ -139,26 +149,32 @@ public class Volunteer extends Auditable {
     this.role = position;
   }
 
+  @SuppressWarnings("unused")
   public Boolean getMarried() {
     return isMarried;
   }
 
+  @SuppressWarnings("unused")
   public void setMarried(Boolean married) {
     isMarried = married;
   }
 
+  @SuppressWarnings("unused")
   public Boolean getHaveChildren() {
     return haveChildren;
   }
 
+  @SuppressWarnings("unused")
   public void setHaveChildren(Boolean haveChildren) {
     this.haveChildren = haveChildren;
   }
 
+  @SuppressWarnings("unused")
   public Boolean getVolunteeredBefore() {
     return volunteeredBefore;
   }
 
+  @SuppressWarnings("unused")
   public void setVolunteeredBefore(Boolean volunteeredBefore) {
     this.volunteeredBefore = volunteeredBefore;
   }
