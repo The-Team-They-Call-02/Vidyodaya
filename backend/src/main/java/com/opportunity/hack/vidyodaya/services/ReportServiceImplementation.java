@@ -14,19 +14,19 @@ import org.springframework.transaction.annotation.Transactional;
 public class ReportServiceImplementation implements ReportService {
 
   @Autowired
-  private ReportRepository reportrepos;
+  private ReportRepository reportRepository;
 
   @Override
   public List<Report> findAll() {
     List<Report> list = new ArrayList<>();
 
-    reportrepos.findAll().iterator().forEachRemaining(list::add);
+    reportRepository.findAll().iterator().forEachRemaining(list::add);
     return list;
   }
 
   @Override
   public Report findReportById(long id) throws EntityNotFoundException {
-    return reportrepos
+    return reportRepository
       .findById(id)
       .orElseThrow(() -> new EntityNotFoundException("Report id not found"));
   }
@@ -36,7 +36,7 @@ public class ReportServiceImplementation implements ReportService {
     Report newReport = new Report();
 
     if (report.getReportId() != 0) {
-      reportrepos
+      reportRepository
         .findById(report.getReportId())
         .orElseThrow(() -> new EntityNotFoundException("Report id invalid"));
       newReport.setReportId(report.getReportId());
@@ -47,7 +47,7 @@ public class ReportServiceImplementation implements ReportService {
     newReport.setCategory(report.getCategory());
     newReport.setDocumentUrl(report.getDocumentUrl());
 
-    return reportrepos.save(newReport);
+    return reportRepository.save(newReport);
   }
 
   @Override
@@ -55,7 +55,7 @@ public class ReportServiceImplementation implements ReportService {
     Report currentReport = new Report();
 
     if (report.getReportId() != 0) {
-      reportrepos
+      reportRepository
         .findById(report.getReportId())
         .orElseThrow(() -> new EntityNotFoundException("Report id invalid"));
       currentReport.setReportId(report.getReportId());
@@ -77,16 +77,16 @@ public class ReportServiceImplementation implements ReportService {
       currentReport.setDocumentUrl(report.getDocumentUrl());
     }
 
-    return reportrepos.save(currentReport);
+    return reportRepository.save(currentReport);
   }
 
   @Override
   public void delete(long id) {
-    reportrepos
+    reportRepository
       .findById(id)
       .orElseThrow(
         () -> new EntityNotFoundException("Report id " + id + " not found!")
       );
-    reportrepos.deleteById(id);
+    reportRepository.deleteById(id);
   }
 }
