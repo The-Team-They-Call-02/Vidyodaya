@@ -51,8 +51,8 @@ public class Report extends Auditable {
     return reportId;
   }
 
-  public void setReportId(long reportid) {
-    this.reportId = reportid;
+  public void setReportId(long reportId) {
+    this.reportId = reportId;
   }
 
   public String getTitle() {
