@@ -1,7 +1,9 @@
 package com.opportunity.hack.vidyodaya.models;
 
 import static com.opportunity.hack.vidyodaya.Utility.optionallyReplace;
+import static javax.persistence.TemporalType.TIMESTAMP;
 
+import java.util.Date;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
@@ -35,6 +37,9 @@ public class Volunteer extends Auditable {
 
   private Boolean volunteeredBefore;
 
+  @Temporal(TIMESTAMP)
+  protected Date timestamp;
+
   public Volunteer() {}
 
   /**
@@ -53,6 +58,7 @@ public class Volunteer extends Auditable {
     this.isMarried = other.isMarried;
     this.haveChildren = other.haveChildren;
     this.volunteeredBefore = other.volunteeredBefore;
+    this.timestamp = other.timestamp;
   }
 
   /**
@@ -73,6 +79,7 @@ public class Volunteer extends Auditable {
       (Boolean) optionallyReplace(haveChildren, source.haveChildren);
     volunteeredBefore =
       (Boolean) optionallyReplace(volunteeredBefore, source.volunteeredBefore);
+    timestamp = (Date) optionallyReplace(timestamp, source.timestamp);
   }
 
   public long getVolunteerId() {
