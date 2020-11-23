@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { CSVLink } from "react-csv";
+import { useHistory } from "react-router-dom";
 import axios from "axios";
 
 // styled-components
@@ -19,80 +20,58 @@ import {
   LinkContainer,
 } from "./VolunteerDashboard.styles";
 
-const dummy = [
-  {
-    timestamp: "2020-20-11",
-    firstName: "John",
-    lastName: "Doe",
-    isMarried: "No",
-    haveChildren: "No",
-    role: "Web Designer",
-    volunteeredBefore: "Yes",
-    contactMethod: "phone",
-    email: "test@email.com",
-    phone: "(207)200-0000",
-    text: "From a friend",
-    volunteerId: 22139,
-  },
-  {
-    timestamp: "2020-20-11",
-    firstName: "Jane",
-    lastName: "Doe",
-    isMarried: "Yes",
-    haveChildren: "Yes",
-    role: "Game Enthusiast",
-    volunteeredBefore: "Yes",
-    contactMethod: "phone",
-    email: "test@email.com",
-    phone: "(207)200-0001",
-    text: "From a stranger",
-    volunteerId: 10998,
-  },
-];
-
 const VolunteerDashboard = () => {
-  const [file, setFile] = useState(dummy);
+  const [file, setFile] = useState([]);
   const [csvData, setCsvData] = useState([]);
+  const history = useHistory();
 
-  //   !! Once the backend is sending the right values, uncomment this
-  // useEffect(() => {
-  //     axios.get("opportunity-hack-vidyodaya.herokuapp.com/volunteers/volunteers")
-  //     .then(res => setFile(res.data))
-  //     .catch(err => console.log(err))
-  // })
+  // !! Once the backend is sending the right values, uncomment this
+  useEffect(() => {
+    axios
+      .get(
+        "https://opportunity-hack-vidyodaya.herokuapp.com/volunteers/volunteers"
+      )
+      .then((res) => {
+        setFile(res.data);
+      })
+      .catch((err) => console.log(err));
+  }, []);
 
-  const testData = [
-    [
-      "timestamp",
-      "firstName",
-      "lastName",
-      "isMarried",
-      "hasChildren",
-      "role",
-      "volunteeredBefore",
-      "contactMethod",
-      "email",
-      "phone",
-      "text",
-      "volunteerId",
-    ],
-  ];
+  const csvFile = [];
 
-  dummy.forEach((obj) => {
-    const temp = Object.keys(obj).map((field) => {
-      return obj[field];
-    });
+  file.forEach((obj, i) => {
+    if (i === 0) {
+      const temp = Object.keys(obj)
+        .map((field) => {
+          return field;
+        })
+        .sort();
 
-    testData.push(temp);
+      csvFile.push(temp);
+    }
   });
 
-  console.log(testData);
+  const sortedKeys = csvFile[0];
+
+  file.forEach((obj, i) => {
+    if (i > 0) {
+      const row = sortedKeys.map((key) => {
+        return obj[key];
+      });
+
+      csvFile.push(row);
+    }
+  });
+
+  const goBack = () => {
+    history.push("/get-involved");
+  };
 
   return (
     <Container>
       <HeadingContainer>
         <Heading>Registration Dashboard</Heading>
-        <BackBtn>Back</BackBtn>
+        <BackBtn onClick={goBack}>Back</BackBtn>
       </HeadingContainer>
 
       <TableContainer>
@@ -110,30 +89,31 @@ const VolunteerDashboard = () => {
             <TableColumns>Phone</TableColumns>
             <TableColumns>How did you hear about us?</TableColumns>
           </TableRows>
-          {file.map((volunteer) => {
-            return (
-              <TableRows key={volunteer.volunteerId} fieldName={false}>
-                {Object.keys(volunteer).map((key) => {
-                  if (key !== "volunteerId") {
-                    return (
-                      <TableData
-                        key={
-                          volunteer.volunteerId *
-                          (Math.random() * volunteer.volunteerId)
-                        }
-                      >
-                        {volunteer[key]}
-                      </TableData>
-                    );
-                  }
-                })}
-              </TableRows>
-            );
-          })}
+          <tbody>
+            {file.map((volunteer) => {
+              return (
+                <TableRows key={volunteer.volunteerId} fieldName={false}>
+                  <TableData>{volunteer.timestamp}</TableData>
+                  <TableData>{volunteer.firstName}</TableData>
+                  <TableData>{volunteer.lastName}</TableData>
+                  <TableData>{volunteer.married ? "Yes" : "No"}</TableData>
+                  <TableData>{volunteer.haveChildren ? "Yes" : "No"}</TableData>
+                  <TableData>{volunteer.role}</TableData>
+                  <TableData>
+                    {volunteer.volunteeredBefore ? "Yes" : "No"}
+                  </TableData>
+                  <TableData>{volunteer.contactMethod}</TableData>
+                  <TableData>{volunteer.email}</TableData>
+                  <TableData>{volunteer.phone}</TableData>
+                  <TableData>{volunteer.text}</TableData>
+                </TableRows>
+              );
+            })}
+          </tbody>
         </Table>
       </TableContainer>
       <LinkContainer>
-        <CSVLink data={testData}>Click here to download as CSV File</CSVLink>
+        <CSVLink data={csvFile}>Click here to download as CSV File</CSVLink>
       </LinkContainer>
     </Container>
   );
