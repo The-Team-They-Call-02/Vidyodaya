@@ -7,7 +7,6 @@ import ReportsHome from "./ReportsHome/ReportsHome.component";
 import Annual from "./Annual/Annual.component";
 import Financial from "./Financial/Financial.component";
 import Other from "./Other/Other.component";
-import Dashboard from "./Dashboard/Dashboard.component";
 import AddReport from "./AddReport/AddReport.component";
 import ReportPage from "./ReportPage/ReportPage.component";
 
@@ -61,7 +60,6 @@ const Reports = () => {
           <Other reports={other} />
         </Route>
 
-        <Route path="/reports/dashboard" component={Dashboard} />
         <Route path="/reports/add-report" component={AddReport} />
         <Route path="/reports/:title/:id" component={ReportPage} />
         <Route path="/reports/" component={ReportsHome} />

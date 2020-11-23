@@ -1,6 +1,7 @@
 import React from "react";
-import { useHistory, Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import axios from "axios";
 
 // styled-components
 import {
@@ -48,20 +49,41 @@ const RegisterForm = () => {
   const submit = (values, e) => {
     e.preventDefault();
 
-    // !! Remember to send to backend
-    console.log(values);
-    reset();
-  };
+    const d = new Date();
 
-  // !! Remember the isAdmin property in localstorage. Use it to assign ViewDashboard isAdmin value
+    const year = d.getFullYear();
+    const month = d.getMonth();
+    const day = d.getDay();
+
+    const parsedValues = {
+      ...values,
+      haveChildren: values.haveChildren === "yes" ? true : false,
+      married: values.married === "yes" ? true : false,
+      volunteeredBefore: values.volunteeredBefore === "yes" ? true : false,
+      timestamp: `${year}-${month}-${day}`,
+    };
+
+    axios
+      .post(
+        "https://opportunity-hack-vidyodaya.herokuapp.com/volunteers/volunteer",
+        parsedValues
+      )
+      .then((res) => {
+        reset();
+        history.push("/get-involved");
+      })
+      .catch((err) => {
+        console.log(err);
+        // later maybe we can create a component that renders when there's a problem sending a request
+        reset();
+      });
+  };
 
   return (
     <Container>
       <HeadingContainer>
         <Heading>Register to Volunteer</Heading>
-        <ViewDashboard isAdmin={false} onClick={viewDashboard}>
-          View Dashboard
-        </ViewDashboard>
+        <ViewDashboard onClick={viewDashboard}>View Dashboard</ViewDashboard>
         <BackBtn onClick={goBack}>Back</BackBtn>
       </HeadingContainer>
       <FormContainer>
@@ -123,7 +145,7 @@ const RegisterForm = () => {
                   type="radio"
                   id="married"
                   value="yes"
-                  name="isMarried"
+                  name="married"
                   ref={register({ required: true })}
                 />
                 <RadioLabel>Yes</RadioLabel>
@@ -132,7 +154,7 @@ const RegisterForm = () => {
                 <input
                   type="radio"
                   value="no"
-                  name="isMarried"
+                  name="married"
                   ref={register({ required: true })}
                 />
                 <RadioLabel>No</RadioLabel>
@@ -155,7 +177,7 @@ const RegisterForm = () => {
                   type="radio"
                   id="children"
                   value="yes"
-                  name="hasChildren"
+                  name="haveChildren"
                   ref={register({ required: true })}
                 />
                 <RadioLabel>Yes</RadioLabel>
@@ -165,7 +187,7 @@ const RegisterForm = () => {
                 <input
                   type="radio"
                   value="no"
-                  name="hasChildren"
+                  name="haveChildren"
                   ref={register({ required: true })}
                 />
                 <RadioLabel>No</RadioLabel>

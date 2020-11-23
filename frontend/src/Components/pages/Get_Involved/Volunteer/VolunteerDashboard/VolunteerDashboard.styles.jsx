@@ -12,26 +12,26 @@ const TableContainer = styled.div`
 const Table = styled.table`
   margin: 0 auto;
   width: 100%;
+  border: none;
 `;
 
 const TableRows = styled.tr`
-  display: flex;
-  justify-content: space-between;
   background: ${(props) => (props.fieldName ? "#c4c4c4" : "none")};
   padding: 20px;
 `;
 
 const TableColumns = styled.th`
-  width: 10%;
-  padding: 5px;
+  padding: 15px;
   font-size: 1.2rem;
   font-weight: 900;
+  border: none;
 `;
 
 const TableData = styled.td`
-  width: 10%;
-  padding: 5px;
+  border: 2px solid black;
+  padding: 10px;
   font-size: 1.2rem;
+  border: none;
 `;
 
 const LinkContainer = styled.div`
