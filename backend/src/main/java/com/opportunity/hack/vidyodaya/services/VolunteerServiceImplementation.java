@@ -42,6 +42,7 @@ public class VolunteerServiceImplementation implements VolunteerService {
     Volunteer newVolunteer = new Volunteer(volunteer);
 
     if (volunteer.getVolunteerId() != 0) {
+      // if report has an id, make sure it actually exists
       volunteerRepository
         .findById(volunteer.getVolunteerId())
         .orElseThrow(
