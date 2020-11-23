@@ -1,5 +1,7 @@
 package com.opportunity.hack.vidyodaya.models;
 
+import static com.opportunity.hack.vidyodaya.Utility.optionallyReplace;
+
 import javax.persistence.*;
 
 @Entity
@@ -32,6 +34,17 @@ public class Report extends Auditable {
     year = source.year;
     category = source.category;
     documentUrl = source.documentUrl;
+  }
+
+  /**
+   * Update this instance with data from a partial Report instance
+   * @param source The partial Report instance
+   */
+  public void update(Report source) {
+    title = (String) optionallyReplace(title, source.title);
+    year = (String) optionallyReplace(year, source.year);
+    category = (String) optionallyReplace(category, source.category);
+    documentUrl = (String) optionallyReplace(documentUrl, source.documentUrl);
   }
 
   public long getReportId() {
