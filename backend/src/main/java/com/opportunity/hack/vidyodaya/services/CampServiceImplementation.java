@@ -1,8 +1,10 @@
 package com.opportunity.hack.vidyodaya.services;
 
 import com.opportunity.hack.vidyodaya.models.Camp;
+import com.opportunity.hack.vidyodaya.models.Feedback;
 import com.opportunity.hack.vidyodaya.models.Highlight;
 import com.opportunity.hack.vidyodaya.repository.CampRepository;
+import com.opportunity.hack.vidyodaya.repository.FeedbackRepository;
 import com.opportunity.hack.vidyodaya.repository.HighlightRepository;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,12 +20,16 @@ public class CampServiceImplementation implements CampService {
 
   private final HighlightRepository highlightRepository;
 
+  private final FeedbackRepository feedbackRepository;
+
   public CampServiceImplementation(
     CampRepository campRepository,
-    HighlightRepository highlightRepository
+    HighlightRepository highlightRepository,
+    FeedbackRepository feedbackRepository
   ) {
     this.campRepository = campRepository;
     this.highlightRepository = highlightRepository;
+    this.feedbackRepository = feedbackRepository;
   }
 
   /**
@@ -124,5 +130,23 @@ public class CampServiceImplementation implements CampService {
     camp.getHighlights().add(newHighlight);
 
     return newHighlight;
+  }
+
+  /**
+   * Add a highlight to a camp
+   *
+   * @param newFeedback Feedback instance to be added
+   * @param campId      Database id of Camp instance
+   * @return new Feedback instance added
+   */
+  @Override
+  public Feedback addFeedback(Feedback newFeedback, long campId) {
+    Camp camp = findCampById(campId);
+
+    newFeedback.setCamp(camp);
+    newFeedback = feedbackRepository.save(newFeedback);
+    camp.getFeedback().add(newFeedback);
+
+    return newFeedback;
   }
 }

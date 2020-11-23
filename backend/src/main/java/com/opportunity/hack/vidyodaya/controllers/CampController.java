@@ -1,6 +1,7 @@
 package com.opportunity.hack.vidyodaya.controllers;
 
 import com.opportunity.hack.vidyodaya.models.Camp;
+import com.opportunity.hack.vidyodaya.models.Feedback;
 import com.opportunity.hack.vidyodaya.models.Highlight;
 import com.opportunity.hack.vidyodaya.services.CampService;
 import java.net.URI;
@@ -114,6 +115,32 @@ public class CampController {
       .fromCurrentRequest()
       .path("/{id}")
       .buildAndExpand(newHighlight.getHighlightId())
+      .toUri();
+    responseHeaders.setLocation(newUserURI);
+
+    return new ResponseEntity<>(null, responseHeaders, HttpStatus.CREATED);
+  }
+
+  /**
+   * Add a feedback item to a camp
+   * @param newFeedback Feedback instance to be added
+   * @param id Database id of Camp instance
+   * @return new Feedback instance added
+   */
+  @PostMapping(value = "camp/{id}/feedback", consumes = "application/json")
+  public ResponseEntity<?> addNewFeedback(
+    @Valid @RequestBody Feedback newFeedback,
+    @PathVariable long id
+  ) {
+    newFeedback.setFeedbackId(0);
+    newFeedback = campService.addFeedback(newFeedback, id);
+
+    // set the location header for the newly created resource
+    HttpHeaders responseHeaders = new HttpHeaders();
+    URI newUserURI = ServletUriComponentsBuilder
+      .fromCurrentRequest()
+      .path("/{id}")
+      .buildAndExpand(newFeedback.getFeedbackId())
       .toUri();
     responseHeaders.setLocation(newUserURI);
 
