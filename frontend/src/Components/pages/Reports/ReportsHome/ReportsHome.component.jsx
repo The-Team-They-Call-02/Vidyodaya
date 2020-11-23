@@ -12,6 +12,8 @@ import {
 import { LinksContainer, Links } from "./ReportsHome.styles";
 import { BackgroundImageContainer } from "../../../../Styles/GlobalStyles";
 
+import { FaPlus } from "react-icons/fa";
+
 const ReportsHome = () => {
   const history = useHistory();
 
@@ -26,7 +28,9 @@ const ReportsHome = () => {
       ></BackgroundImageContainer>
       <HeadingContainer>
         <Heading>Reports</Heading>
-        <ViewDashboard onClick={goBack}>Add Report</ViewDashboard>
+        <ViewDashboard onClick={goBack}>
+          <FaPlus />{" "}
+        </ViewDashboard>
       </HeadingContainer>
 
       <LinksContainer>

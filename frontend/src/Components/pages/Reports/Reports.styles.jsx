@@ -46,20 +46,19 @@ const Heading = styled.h2`
 `;
 
 const ViewDashboard = styled.button`
-  display: ${localStorage.getItem("token") ? "inline" : "none"};
-  border: 2px solid #00703a;
-  background: #e5e5e5;
-  position: absolute;
-  top: 50%;
-  right: 0;
-  transform: translateY(-50%);
-  padding: 10px;
-  border-radius: 10px;
-  text-transform: uppercase;
-  font-weight: 900;
-  color: #00703a;
-  width: 20rem;
-  height: 5rem;
+  position: fixed;
+  right: 40px;
+  bottom: 40px;
+  // display: ${localStorage.getItem("token") ? "flex" : "none"};
+  justify-content: center;
+  align-items: center;
+  background-color: ${colorObj.green};
+  color: #fff;
+  font-size: 4.3rem;
+  width: 6.9rem;
+  height: 6.9rem;
+  border-radius: 2rem;
+  z-index: 100;
 `;
 
 const BackBtn = styled.div`
