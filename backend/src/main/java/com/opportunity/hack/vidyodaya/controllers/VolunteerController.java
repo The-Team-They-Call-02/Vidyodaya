@@ -26,10 +26,7 @@ public class VolunteerController {
     return new ResponseEntity<>(volunteers, HttpStatus.OK);
   }
 
-  @GetMapping(
-    value = "/volunteer/{id}",
-    produces = "application" + "/json"
-  )
+  @GetMapping(value = "/volunteer/{id}", produces = "application" + "/json")
   public ResponseEntity<?> findVolunteerById(@PathVariable Long id) {
     Volunteer v = volunteerService.findVolunteerById(id);
     return new ResponseEntity<>(v, HttpStatus.OK);

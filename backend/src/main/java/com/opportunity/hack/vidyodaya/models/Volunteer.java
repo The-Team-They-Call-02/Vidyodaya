@@ -1,8 +1,8 @@
 package com.opportunity.hack.vidyodaya.models;
 
-import javax.persistence.*;
-
 import static com.opportunity.hack.vidyodaya.Utility.optionallyReplace;
+
+import javax.persistence.*;
 
 @Entity
 @Table(name = "volunteers")
