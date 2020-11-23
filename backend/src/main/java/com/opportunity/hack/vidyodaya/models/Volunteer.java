@@ -8,13 +8,13 @@ public class Volunteer extends Auditable {
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
-  private long volunteerid;
+  private long volunteerId;
 
   @Column(nullable = false)
-  private String fname;
+  private String firstName;
 
   @Column(nullable = false)
-  private String lname;
+  private String lastName;
 
   @Column(nullable = false)
   private String email;
@@ -34,16 +34,16 @@ public class Volunteer extends Auditable {
   public Volunteer() {}
 
   public Volunteer(
-    String fname,
-    String lname,
+    String firstName,
+    String lastName,
     String email,
     String phone,
     String location,
     String message,
     String position
   ) {
-    this.fname = fname;
-    this.lname = lname;
+    this.firstName = firstName;
+    this.lastName = lastName;
     this.email = email;
     this.phone = phone;
     this.location = location;
@@ -51,28 +51,28 @@ public class Volunteer extends Auditable {
     this.position = position;
   }
 
-  public long getVolunteerid() {
-    return volunteerid;
+  public long getVolunteerId() {
+    return volunteerId;
   }
 
-  public void setVolunteerid(long volunteerid) {
-    this.volunteerid = volunteerid;
+  public void setVolunteerId(long volunteerid) {
+    this.volunteerId = volunteerid;
   }
 
-  public String getFname() {
-    return fname;
+  public String getFirstName() {
+    return firstName;
   }
 
-  public void setFname(String fname) {
-    this.fname = fname;
+  public void setFirstName(String fname) {
+    this.firstName = fname;
   }
 
-  public String getLname() {
-    return lname;
+  public String getLastName() {
+    return lastName;
   }
 
-  public void setLname(String lname) {
-    this.lname = lname;
+  public void setLastName(String lname) {
+    this.lastName = lname;
   }
 
   public String getEmail() {
