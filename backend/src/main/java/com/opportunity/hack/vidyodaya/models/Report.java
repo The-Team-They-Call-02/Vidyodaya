@@ -22,6 +22,18 @@ public class Report extends Auditable {
 
   public Report() {}
 
+  /**
+   * Copy constructor
+   * @param source Report being copied
+   */
+  public Report(Report source) {
+    reportId = source.reportId;
+    title = source.title;
+    year = source.year;
+    category = source.category;
+    documentUrl = source.documentUrl;
+  }
+
   public long getReportId() {
     return reportId;
   }
