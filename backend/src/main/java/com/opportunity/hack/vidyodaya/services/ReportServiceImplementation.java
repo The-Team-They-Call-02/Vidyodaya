@@ -5,7 +5,6 @@ import com.opportunity.hack.vidyodaya.repository.ReportRepository;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityNotFoundException;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -13,8 +12,11 @@ import org.springframework.transaction.annotation.Transactional;
 @Service(value = "reportService")
 public class ReportServiceImplementation implements ReportService {
 
-  @Autowired
-  private ReportRepository reportRepository;
+  private final ReportRepository reportRepository;
+
+  public ReportServiceImplementation(ReportRepository reportRepository) {
+    this.reportRepository = reportRepository;
+  }
 
   @Override
   public List<Report> findAll() {
