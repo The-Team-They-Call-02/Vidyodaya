@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
+import AxiosWithAuth from "../../../../Utils/AxiosWithAuth";
+
 
 import EditButton from "../../../../Assets/Articles/EditButton.svg";
 import DeleteButton from "../../../../Assets/Articles/DeleteButton.svg";
@@ -20,6 +22,7 @@ import {
     Info
   } from "../Articles.styles";
 import { BackgroundImageContainer } from "../../../../Styles/GlobalStyles";
+import { AppContext } from "../../../../context/context";
 // Endpoint for GET request to fetch articles 
 // https://opportunity-hack-vidyodaya.herokuapp.com/articles/articles
 
@@ -39,12 +42,28 @@ const fakeData =
 
 
 const ArticlesHome = () => {
+ const [articles, addArticles] = useState([]);
 
+
+
+  const getArticles = () => {
+    AxiosWithAuth()
+      .get("articles/articles")
+      .then((res) => {
+        console.log(res.data);
+        // addArticles(res.data);
+      })
+      .catch((err) => console.log(err));
+  };
+
+  useEffect(() => {
+    getArticles();
+  }, []);
 
 
     return (
         <Container>
-        <BackgroundImageContainer style={{marginTop: "0", height: "300%"}}>
+        <BackgroundImageContainer style={{marginTop: "0", height: "150%"}}>
 		</BackgroundImageContainer>
         <HeadingContainer>
             <Heading>Articles</Heading>
