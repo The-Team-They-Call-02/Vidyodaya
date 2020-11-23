@@ -1,8 +1,9 @@
 package com.opportunity.hack.vidyodaya.services;
 
-import com.opportunity.hack.vidyodaya.models.Article;
 import com.opportunity.hack.vidyodaya.models.Camp;
+import com.opportunity.hack.vidyodaya.models.Highlight;
 import com.opportunity.hack.vidyodaya.repository.CampRepository;
+import com.opportunity.hack.vidyodaya.repository.HighlightRepository;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityNotFoundException;
@@ -15,8 +16,14 @@ public class CampServiceImplementation implements CampService {
 
   private final CampRepository campRepository;
 
-  public CampServiceImplementation(CampRepository campRepository) {
+  private final HighlightRepository highlightRepository;
+
+  public CampServiceImplementation(
+    CampRepository campRepository,
+    HighlightRepository highlightRepository
+  ) {
     this.campRepository = campRepository;
+    this.highlightRepository = highlightRepository;
   }
 
   /**
@@ -37,7 +44,7 @@ public class CampServiceImplementation implements CampService {
    *
    * @param id The database id requested
    * @return The Camp instance with the corresponding database id
-   * @throws EntityNotFoundException
+   * @throws EntityNotFoundException Thrown when no camp with that id exists
    */
   @Override
   public Camp findCampById(long id) throws EntityNotFoundException {
@@ -81,7 +88,7 @@ public class CampServiceImplementation implements CampService {
   public Camp update(Camp updateCamp, long id) {
     Camp currentCamp = findCampById(id);
 
-    currentCamp.update(currentCamp);
+    currentCamp.update(updateCamp);
 
     return campRepository.save(currentCamp);
   }
@@ -99,5 +106,23 @@ public class CampServiceImplementation implements CampService {
         () -> new EntityNotFoundException("Camp id " + id + " Not Found!")
       );
     campRepository.deleteById(id);
+  }
+
+  /**
+   * Add a highlight to a camp
+   *
+   * @param newHighlight Highlight instance to be added
+   * @param campId Database id of Camp instance
+   * @return new Highlight instance added
+   */
+  @Override
+  public Highlight addHighlight(Highlight newHighlight, long campId) {
+    Camp camp = findCampById(campId);
+
+    newHighlight.setCamp(camp);
+    newHighlight = highlightRepository.save(newHighlight);
+    camp.getHighlights().add(newHighlight);
+
+    return newHighlight;
   }
 }

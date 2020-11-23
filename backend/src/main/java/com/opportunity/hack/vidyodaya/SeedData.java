@@ -23,14 +23,19 @@ public class SeedData implements CommandLineRunner {
   /**
    * Connects the Role Service to this process
    */
-  @Autowired
+  final
   RoleService roleService;
 
   /**
    * Connects the user service to this process
    */
-  @Autowired
+  final
   UserService userService;
+
+  public SeedData(RoleService roleService, UserService userService) {
+    this.roleService = roleService;
+    this.userService = userService;
+  }
 
   /**
    * Generates test, seed data for our application
@@ -44,23 +49,23 @@ public class SeedData implements CommandLineRunner {
   @Transactional
   @Override
   public void run(String[] args) throws Exception {
+    // don't run if we already have data
+    if (roleService.findAll().size() > 0)
+      return;
+
     roleService.deleteAll();
     Role r1 = new Role("admin");
-    Role r2 = new Role("user");
-    Role r3 = new Role("data");
 
     r1 = roleService.save(r1);
-    r2 = roleService.save(r2);
-    r3 = roleService.save(r3);
 
     // The following is an example user!
 
     // admin, data, user
     User u1 = new User("admin", "password", "admin@lambdaschool.local");
-    u1.getRoles().add(new UserRoles(u1, r1));
-    u1.getRoles().add(new UserRoles(u1, r2));
-    u1.getRoles().add(new UserRoles(u1, r3));
+    u1 = userService.save(u1);
+    UserRoles ur1 = new UserRoles(u1, r1);
+    u1.getRoles().add(ur1);
+    // r1.getUsers().add(u1);
 
-    userService.save(u1);
   }
 }

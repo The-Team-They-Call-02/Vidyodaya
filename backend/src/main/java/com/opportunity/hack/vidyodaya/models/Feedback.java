@@ -1,5 +1,7 @@
 package com.opportunity.hack.vidyodaya.models;
 
+import static com.opportunity.hack.vidyodaya.Utility.optionallyReplace;
+
 import javax.persistence.*;
 
 /**
@@ -33,6 +35,17 @@ public class Feedback {
   @ManyToOne
   @JoinColumn(name = "CAMP_ID", nullable = false)
   private Camp camp;
+
+  /**
+   * Update this Highlight instance with fields from a partial Highlight
+   * instance.
+   * @param newFeedback The partial Camp instance
+   */
+  public void update(Feedback newFeedback) {
+    testimonial =
+      (String) optionallyReplace(testimonial, newFeedback.testimonial);
+    source = (String) optionallyReplace(source, newFeedback.source);
+  }
 
   public long getFeedbackId() {
     return feedbackId;

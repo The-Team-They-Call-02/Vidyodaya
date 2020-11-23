@@ -47,8 +47,7 @@ const InputField = styled.input`
   border: 1px solid black;
 
   &:focus {
-    outline: none;
-    border: 2px solid ${colorObj.green};
+    outline-color: ${colorObj.green};
   }
 `;
 
@@ -59,8 +58,7 @@ const Select = styled.select`
   border-radius: 10px;
 
   &:focus {
-    outline: none;
-    border: 1px solid ${colorObj.green};
+    outline-color: ${colorObj.green};
   }
 `;
 

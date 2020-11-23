@@ -7,7 +7,7 @@ const AxiosWithAuth = () => {
     headers: {
       Authorization: `Bearer ${localStorage.getItem("token")}`,
     },
-    baseURL: "",
+    baseURL: "https://opportunity-hack-vidyodaya.herokuapp.com",
   });
 };
 export default AxiosWithAuth;

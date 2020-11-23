@@ -1,6 +1,7 @@
 package com.opportunity.hack.vidyodaya.controllers;
 
 import com.opportunity.hack.vidyodaya.models.Camp;
+import com.opportunity.hack.vidyodaya.models.Highlight;
 import com.opportunity.hack.vidyodaya.services.CampService;
 import java.net.URI;
 import java.util.List;
@@ -88,8 +89,34 @@ public class CampController {
    * @return HttpStatus.NO_CONTENT
    */
   @DeleteMapping(value = "/camp/{id}")
-  public ResponseEntity<?> deleteUserById(@PathVariable long id) {
+  public ResponseEntity<?> deleteCampById(@PathVariable long id) {
     campService.delete(id);
     return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+  }
+
+  /**
+   * Add a highlight to a camp
+   * @param newHighlight Highlight instance to be added
+   * @param id Database id of Camp instance
+   * @return new Highlight instance added
+   */
+  @PostMapping(value = "camp/{id}/highlight", consumes = "application/json")
+  public ResponseEntity<?> addNewCamp(
+    @Valid @RequestBody Highlight newHighlight,
+    @PathVariable long id
+  ) {
+    newHighlight.setHighlightId(0);
+    newHighlight = campService.addHighlight(newHighlight, id);
+
+    // set the location header for the newly created resource
+    HttpHeaders responseHeaders = new HttpHeaders();
+    URI newUserURI = ServletUriComponentsBuilder
+      .fromCurrentRequest()
+      .path("/{id}")
+      .buildAndExpand(newHighlight.getHighlightId())
+      .toUri();
+    responseHeaders.setLocation(newUserURI);
+
+    return new ResponseEntity<>(null, responseHeaders, HttpStatus.CREATED);
   }
 }

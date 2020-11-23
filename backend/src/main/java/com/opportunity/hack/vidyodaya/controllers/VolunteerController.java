@@ -3,10 +3,8 @@ package com.opportunity.hack.vidyodaya.controllers;
 import com.opportunity.hack.vidyodaya.models.Volunteer;
 import com.opportunity.hack.vidyodaya.services.VolunteerService;
 import java.net.URI;
-import java.net.URISyntaxException;
 import java.util.List;
 import javax.validation.Valid;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,8 +15,11 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 @RequestMapping("/volunteers")
 public class VolunteerController {
 
-  @Autowired
-  private VolunteerService volunteerService;
+  private final VolunteerService volunteerService;
+
+  public VolunteerController(VolunteerService volunteerService) {
+    this.volunteerService = volunteerService;
+  }
 
   @GetMapping(value = "/volunteers", produces = "application/json")
   public ResponseEntity<?> listAllVolunteers() {
@@ -26,44 +27,29 @@ public class VolunteerController {
     return new ResponseEntity<>(volunteers, HttpStatus.OK);
   }
 
-  @GetMapping(
-    value = "/volunteer/{volunteerid}",
-    produces = "application" + "/json"
-  )
-  public ResponseEntity<?> findVolunteerById(@PathVariable Long volunteerid) {
-    Volunteer v = volunteerService.findVolunteerById(volunteerid);
+  @GetMapping(value = "/volunteer/{id}", produces = "application" + "/json")
+  public ResponseEntity<?> findVolunteerById(@PathVariable Long id) {
+    Volunteer v = volunteerService.findVolunteerById(id);
     return new ResponseEntity<>(v, HttpStatus.OK);
   }
 
   @PostMapping(value = "/volunteer", consumes = "application/json")
   public ResponseEntity<?> addNewVolunteer(
-    @Valid @RequestBody Volunteer newvolunteer
-  )
-    throws URISyntaxException {
-    newvolunteer.setVolunteerid(0);
-    newvolunteer = volunteerService.save(newvolunteer);
+    @Valid @RequestBody Volunteer newVolunteer
+  ) {
+    newVolunteer.setVolunteerId(0);
+    newVolunteer = volunteerService.save(newVolunteer);
 
     // set the location header for the newly created resource
     HttpHeaders responseHeaders = new HttpHeaders();
     URI newUserURI = ServletUriComponentsBuilder
       .fromCurrentRequest()
-      .path("/{volunteerid}")
-      .buildAndExpand(newvolunteer.getVolunteerid())
+      .path("/{id}")
+      .buildAndExpand(newVolunteer.getVolunteerId())
       .toUri();
     responseHeaders.setLocation(newUserURI);
 
     return new ResponseEntity<>(null, responseHeaders, HttpStatus.CREATED);
-  }
-
-  @PutMapping(value = "/volunteer/{volunteerid}", consumes = "application/json")
-  public ResponseEntity<?> updateFullVolunteer(
-    @Valid @RequestBody Volunteer updateVolunteer,
-    @PathVariable long volunteerid
-  ) {
-    updateVolunteer.setVolunteerid(volunteerid);
-    volunteerService.save(updateVolunteer);
-
-    return new ResponseEntity<>(HttpStatus.OK);
   }
 
   @PatchMapping(value = "/volunteer/{id}", consumes = "application/json")
@@ -76,7 +62,7 @@ public class VolunteerController {
   }
 
   @DeleteMapping(value = "/volunteer/{id}")
-  public ResponseEntity<?> deleteVolunteerByid(@PathVariable long id) {
+  public ResponseEntity<?> deleteVolunteerById(@PathVariable long id) {
     volunteerService.delete(id);
     return new ResponseEntity<>(HttpStatus.OK);
   }

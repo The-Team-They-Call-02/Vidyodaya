@@ -46,8 +46,7 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
         "/swagger-resource/**",
         "/swagger-ui.html",
         "/v2/api-docs",
-        "/webjars/**",
-        "/createnewuser"
+        "/webjars/**"
       )
       .permitAll()
       .antMatchers(HttpMethod.POST, "/users/**")
@@ -56,12 +55,7 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
       .hasAnyRole("ADMIN")
       .antMatchers(HttpMethod.PUT, "/users/**")
       .hasAnyRole("ADMIN")
-      .antMatchers(
-        "/users/**",
-        "/useremails/**",
-        "/oauth/revoke-token",
-        "/logout"
-      )
+      .antMatchers("/users/**", "/oauth/revoke-token", "/logout")
       .authenticated()
       .antMatchers("/roles/**")
       .hasAnyRole("ADMIN")

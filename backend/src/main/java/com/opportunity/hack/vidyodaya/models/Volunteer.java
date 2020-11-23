@@ -1,5 +1,7 @@
 package com.opportunity.hack.vidyodaya.models;
 
+import static com.opportunity.hack.vidyodaya.Utility.optionallyReplace;
+
 import javax.persistence.*;
 
 @Entity
@@ -8,13 +10,13 @@ public class Volunteer extends Auditable {
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
-  private long volunteerid;
+  private long volunteerId;
 
   @Column(nullable = false)
-  private String fname;
+  private String firstName;
 
   @Column(nullable = false)
-  private String lname;
+  private String lastName;
 
   @Column(nullable = false)
   private String email;
@@ -33,46 +35,57 @@ public class Volunteer extends Auditable {
 
   public Volunteer() {}
 
-  public Volunteer(
-    String fname,
-    String lname,
-    String email,
-    String phone,
-    String location,
-    String message,
-    String position
-  ) {
-    this.fname = fname;
-    this.lname = lname;
-    this.email = email;
-    this.phone = phone;
-    this.location = location;
-    this.message = message;
-    this.position = position;
+  /**
+   * Copy constructor
+   * @param other Volunteer instance to be copied
+   */
+  public Volunteer(Volunteer other) {
+    this.volunteerId = other.volunteerId;
+    this.firstName = other.firstName;
+    this.lastName = other.lastName;
+    this.email = other.email;
+    this.phone = other.phone;
+    this.location = other.location;
+    this.message = other.message;
+    this.position = other.position;
   }
 
-  public long getVolunteerid() {
-    return volunteerid;
+  /**
+   * Update this instance from a partial Volunteer instance
+   * @param source The partial Volunteer instance
+   */
+  public void update(Volunteer source) {
+    firstName = (String) optionallyReplace(firstName, source.firstName);
+    lastName = (String) optionallyReplace(lastName, source.lastName);
+    email = (String) optionallyReplace(email, source.email);
+    phone = (String) optionallyReplace(phone, source.phone);
+    location = (String) optionallyReplace(location, source.location);
+    message = (String) optionallyReplace(message, source.message);
+    position = (String) optionallyReplace(position, source.position);
   }
 
-  public void setVolunteerid(long volunteerid) {
-    this.volunteerid = volunteerid;
+  public long getVolunteerId() {
+    return volunteerId;
   }
 
-  public String getFname() {
-    return fname;
+  public void setVolunteerId(long volunteerId) {
+    this.volunteerId = volunteerId;
   }
 
-  public void setFname(String fname) {
-    this.fname = fname;
+  public String getFirstName() {
+    return firstName;
   }
 
-  public String getLname() {
-    return lname;
+  public void setFirstName(String firstName) {
+    this.firstName = firstName;
   }
 
-  public void setLname(String lname) {
-    this.lname = lname;
+  public String getLastName() {
+    return lastName;
+  }
+
+  public void setLastName(String lastName) {
+    this.lastName = lastName;
   }
 
   public String getEmail() {

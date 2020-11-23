@@ -10,14 +10,9 @@ import {
 
 import { ReportsContainer, Document, Name } from "./Other.styles";
 
-const dummy = [
-  {
-    name: "Education Evaluation by Francis V. Sathya",
-  },
-];
-
-const Other = () => {
+const Other = (props) => {
   const history = useHistory();
+  const { reports } = props;
 
   const goBack = () => {
     history.push("/reports/");
@@ -30,13 +25,11 @@ const Other = () => {
         <BackBtn onClick={goBack}>Back</BackBtn>
       </HeadingContainer>
       <ReportsContainer>
-        {dummy.map((doc) => {
+        {reports.map((doc) => {
           return (
-            <>
-              <Document>
-                <Name>{doc.name}</Name>
-              </Document>
-            </>
+            <Document key={doc.id}>
+              <Name to={`/reports/${doc.name}${doc.reportid}`}>{doc.name}</Name>
+            </Document>
           );
         })}
       </ReportsContainer>
