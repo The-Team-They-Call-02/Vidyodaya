@@ -68,24 +68,24 @@ public class Volunteer extends Auditable {
     return volunteerId;
   }
 
-  public void setVolunteerId(long volunteerid) {
-    this.volunteerId = volunteerid;
+  public void setVolunteerId(long volunteerId) {
+    this.volunteerId = volunteerId;
   }
 
   public String getFirstName() {
     return firstName;
   }
 
-  public void setFirstName(String fname) {
-    this.firstName = fname;
+  public void setFirstName(String firstName) {
+    this.firstName = firstName;
   }
 
   public String getLastName() {
     return lastName;
   }
 
-  public void setLastName(String lname) {
-    this.lastName = lname;
+  public void setLastName(String lastName) {
+    this.lastName = lastName;
   }
 
   public String getEmail() {

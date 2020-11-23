@@ -25,6 +25,7 @@ function App() {
   return (
     <Router>
       <AppContext.Provider>
+
         <GlobalStyles />
         <Navbar />
 
