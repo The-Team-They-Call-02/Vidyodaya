@@ -33,22 +33,20 @@ public class Volunteer extends Auditable {
 
   public Volunteer() {}
 
-  public Volunteer(
-    String firstName,
-    String lastName,
-    String email,
-    String phone,
-    String location,
-    String message,
-    String position
-  ) {
-    this.firstName = firstName;
-    this.lastName = lastName;
-    this.email = email;
-    this.phone = phone;
-    this.location = location;
-    this.message = message;
-    this.position = position;
+  /**
+   * Copy constructor
+   * @param other Volunteer instance to be copied
+   */
+  public Volunteer(Volunteer other) {
+    this.volunteerId = other.volunteerId;
+    this.firstName = other.firstName;
+    this.lastName = other.lastName;
+    this.email = other.email;
+    this.phone = other.phone;
+    this.location = other.location;
+    this.message = other.message;
+    this.position = other.position;
+  }
   }
 
   public long getVolunteerId() {
