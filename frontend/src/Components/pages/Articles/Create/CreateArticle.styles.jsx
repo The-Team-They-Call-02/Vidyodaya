@@ -33,7 +33,7 @@ const TwoRows = styled.div`
   width: 40%;
   display: flex;
   flex-direction: column;
-  ${'' /* justify-content: space-between; */}
+  justify-content: space-around;
   align-items: flex-start;
   margin: 50px 0;
     `;
@@ -56,6 +56,20 @@ const Label = styled.label`
 `;
 
 const InputField = styled.input`
+  padding: 10px;
+  width: 100%;
+  font-size: 1.6rem;
+  border-radius: 10px;
+  border: 1px solid black;
+  cursor: pointer;
+
+  &:focus {
+    outline: none;
+    border: 2px solid ${colorObj.green};
+  }
+`;
+
+const TextareaField = styled.textarea`
   padding: 10px;
   width: 100%;
   font-size: 1.6rem;
@@ -137,6 +151,7 @@ export {
   Rows,
   InputWrapper,
   InputField,
+  TextareaField,
   Label,
   Select,
   ErrorMsg,

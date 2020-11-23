@@ -3,6 +3,7 @@ package com.opportunity.hack.vidyodaya.models;
 import static com.opportunity.hack.vidyodaya.Utility.optionallyReplace;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "volunteers")
@@ -12,26 +13,27 @@ public class Volunteer extends Auditable {
   @GeneratedValue(strategy = GenerationType.AUTO)
   private long volunteerId;
 
-  @Column(nullable = false)
+  @NotNull
   private String firstName;
 
-  @Column(nullable = false)
+  @NotNull
   private String lastName;
 
-  @Column(nullable = false)
   private String email;
 
-  @Column(nullable = false)
   private String phone;
 
-  @Column(nullable = false)
-  private String location;
+  private String contactMethod;
 
-  @Column(nullable = false)
-  private String message;
+  private String text;
 
-  @Column(nullable = false)
-  private String position;
+  private String role;
+
+  private Boolean isMarried;
+
+  private Boolean haveChildren;
+
+  private Boolean volunteeredBefore;
 
   public Volunteer() {}
 
@@ -45,9 +47,12 @@ public class Volunteer extends Auditable {
     this.lastName = other.lastName;
     this.email = other.email;
     this.phone = other.phone;
-    this.location = other.location;
-    this.message = other.message;
-    this.position = other.position;
+    this.contactMethod = other.contactMethod;
+    this.text = other.text;
+    this.role = other.role;
+    this.isMarried = other.isMarried;
+    this.haveChildren = other.haveChildren;
+    this.volunteeredBefore = other.volunteeredBefore;
   }
 
   /**
@@ -59,72 +64,122 @@ public class Volunteer extends Auditable {
     lastName = (String) optionallyReplace(lastName, source.lastName);
     email = (String) optionallyReplace(email, source.email);
     phone = (String) optionallyReplace(phone, source.phone);
-    location = (String) optionallyReplace(location, source.location);
-    message = (String) optionallyReplace(message, source.message);
-    position = (String) optionallyReplace(position, source.position);
+    contactMethod =
+      (String) optionallyReplace(contactMethod, source.contactMethod);
+    text = (String) optionallyReplace(text, source.text);
+    role = (String) optionallyReplace(role, source.role);
+    isMarried = (Boolean) optionallyReplace(isMarried, source.isMarried);
+    haveChildren =
+      (Boolean) optionallyReplace(haveChildren, source.haveChildren);
+    volunteeredBefore =
+      (Boolean) optionallyReplace(volunteeredBefore, source.volunteeredBefore);
   }
 
   public long getVolunteerId() {
     return volunteerId;
   }
 
-  public void setVolunteerId(long volunteerid) {
-    this.volunteerId = volunteerid;
+  public void setVolunteerId(long volunteerId) {
+    this.volunteerId = volunteerId;
   }
 
+  @SuppressWarnings("unused")
   public String getFirstName() {
     return firstName;
   }
 
-  public void setFirstName(String fname) {
-    this.firstName = fname;
+  @SuppressWarnings("unused")
+  public void setFirstName(String firstName) {
+    this.firstName = firstName;
   }
 
+  @SuppressWarnings("unused")
   public String getLastName() {
     return lastName;
   }
 
-  public void setLastName(String lname) {
-    this.lastName = lname;
+  @SuppressWarnings("unused")
+  public void setLastName(String lastName) {
+    this.lastName = lastName;
   }
 
+  @SuppressWarnings("unused")
   public String getEmail() {
     return email;
   }
 
+  @SuppressWarnings("unused")
   public void setEmail(String email) {
     this.email = email;
   }
 
+  @SuppressWarnings("unused")
   public String getPhone() {
     return phone;
   }
 
+  @SuppressWarnings("unused")
   public void setPhone(String phone) {
     this.phone = phone;
   }
 
-  public String getLocation() {
-    return location;
+  @SuppressWarnings("unused")
+  public String getContactMethod() {
+    return contactMethod;
   }
 
-  public void setLocation(String location) {
-    this.location = location;
+  @SuppressWarnings("unused")
+  public void setContactMethod(String location) {
+    this.contactMethod = location;
   }
 
-  public String getMessage() {
-    return message;
+  @SuppressWarnings("unused")
+  public String getText() {
+    return text;
   }
 
-  public void setMessage(String message) {
-    this.message = message;
+  @SuppressWarnings("unused")
+  public void setText(String message) {
+    this.text = message;
   }
 
-  public String getPosition() {
-    return position;
+  @SuppressWarnings("unused")
+  public String getRole() {
+    return role;
   }
 
-  public void setPosition(String position) {
-    this.position = position;
+  @SuppressWarnings("unused")
+  public void setRole(String position) {
+    this.role = position;
+  }
+
+  @SuppressWarnings("unused")
+  public Boolean getMarried() {
+    return isMarried;
+  }
+
+  @SuppressWarnings("unused")
+  public void setMarried(Boolean married) {
+    isMarried = married;
+  }
+
+  @SuppressWarnings("unused")
+  public Boolean getHaveChildren() {
+    return haveChildren;
+  }
+
+  @SuppressWarnings("unused")
+  public void setHaveChildren(Boolean haveChildren) {
+    this.haveChildren = haveChildren;
+  }
+
+  @SuppressWarnings("unused")
+  public Boolean getVolunteeredBefore() {
+    return volunteeredBefore;
+  }
+
+  @SuppressWarnings("unused")
+  public void setVolunteeredBefore(Boolean volunteeredBefore) {
+    this.volunteeredBefore = volunteeredBefore;
   }
 }

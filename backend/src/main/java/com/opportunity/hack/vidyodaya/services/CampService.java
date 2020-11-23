@@ -1,6 +1,7 @@
 package com.opportunity.hack.vidyodaya.services;
 
 import com.opportunity.hack.vidyodaya.models.Camp;
+import com.opportunity.hack.vidyodaya.models.Feedback;
 import com.opportunity.hack.vidyodaya.models.Highlight;
 import java.util.List;
 import javax.persistence.EntityNotFoundException;
@@ -48,4 +49,12 @@ public interface CampService {
    * @return new Highlight instance added
    */
   Highlight addHighlight(Highlight newHighlight, long campId);
+
+  /**
+   * Add a highlight to a camp
+   * @param newFeedback Feedback instance to be added
+   * @param campId Database id of Camp instance
+   * @return new Feedback instance added
+   */
+  Feedback addFeedback(Feedback newFeedback, long campId);
 }

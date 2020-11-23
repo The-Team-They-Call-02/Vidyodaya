@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { colorObj } from "../../../Styles/GlobalStyles";
 
 export const MainContainer = styled.div`
-  background: #f8f7f7;
+  ${'' /* background: #f8f7f7; */}
   padding: 150px 0 0 0;
 `;
 
@@ -42,6 +42,8 @@ export const ViewDashboard = styled.button`
   text-transform: uppercase;
   font-weight: 900;
   color: #00703a;
+  height: auto;
+  width: auto;
 `;
 
 export const BackBtn = styled.div`

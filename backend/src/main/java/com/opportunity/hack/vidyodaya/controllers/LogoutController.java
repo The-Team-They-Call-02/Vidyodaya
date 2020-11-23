@@ -1,7 +1,6 @@
 package com.opportunity.hack.vidyodaya.controllers;
 
 import javax.servlet.http.HttpServletRequest;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.oauth2.common.OAuth2AccessToken;
 import org.springframework.security.oauth2.provider.token.TokenStore;
@@ -19,8 +18,11 @@ public class LogoutController {
   /**
    * Connect to the Token store so the application can remove the token
    */
-  @Autowired
-  private TokenStore tokenStore;
+  private final TokenStore tokenStore;
+
+  public LogoutController(TokenStore tokenStore) {
+    this.tokenStore = tokenStore;
+  }
 
   /**
    * Removes the token for the signed on user. The signed user will lose access to the application. They would have to sign on again.

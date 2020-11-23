@@ -1,6 +1,6 @@
 import React from 'react';
 import { BannerGray, BannerGreen, BannerImg, HeroText, GreenHeader, Spacer, GreenBkg, WhiteBkg, VerticalLine } from "../../Styles/HomeStyle";
-import { CenteredDiv } from "../../Styles/GlobalStyles";
+import { CenteredDiv, BackgroundImageContainer } from "../../Styles/GlobalStyles";
 import arrow from "../../Assets/Home/arrow.svg";
 import child from "../../Assets/Home/child.svg";
 import impact1 from "../../Assets/Home/impact1.svg";
@@ -11,15 +11,10 @@ import impact5 from "../../Assets/Home/impact5.svg";
 import impact6 from "../../Assets/Home/impact6.svg";
 import impact7 from "../../Assets/Home/impact7.svg";
 
-
-import Navbar from "../common/Navbar";
-import Footer from "../common/Footer";
-
 const Home = () => {
 
     return(
         <div className="home-page">
-            <Navbar />
             <BannerGray>
                 <div style={{height: "100%", display: "flex", alignItems: "flex-end"}}>
                     <img src={child} alt=""/>
@@ -32,7 +27,8 @@ const Home = () => {
                     </a>
                 </CenteredDiv>
             </BannerGray>
-
+            <BackgroundImageContainer style={{marginTop: "40%", height: "100%"}}>
+			</BackgroundImageContainer>
             <CenteredDiv style={{padding: "0 25%", textAlign: "center"}}>
                 <Spacer/>
                 <GreenHeader>Viswa Bharati Vidyodaya Trust</GreenHeader>
@@ -52,7 +48,7 @@ const Home = () => {
                 <Spacer/>
             </CenteredDiv>
 
-            <BannerGreen>
+            {/* <BannerGreen>
                 <Spacer/>
                 <WhiteBkg>
                     <a href="" target="_blank" >
@@ -66,7 +62,7 @@ const Home = () => {
                     <button style={{backgroundColor: "#FFFFFF"}}>Sign Up</button>
                 </a>
                 <Spacer/>
-            </BannerGreen>
+            </BannerGreen> */}
 
             <BannerImg>
                 <GreenBkg>
@@ -121,7 +117,6 @@ const Home = () => {
                 </GreenBkg>
                 <p style={{backgroundColor: "gray", height: "500px", width: "100%"}}>Map new posts here</p>
             </CenteredDiv>
-            <Footer />
         </div>
 
     )

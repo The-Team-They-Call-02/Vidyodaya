@@ -1,12 +1,13 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 import { colorObj } from "../../../Styles/GlobalStyles";
 import tribalImage from "../../../Assets/Programs/tribalProgramsPage.svg";
 
 export const MainContainer = styled.div`
-	background: #f8f7f7;
 	padding: 150px 0 100px 0;
 	background-image: url(${tribalImage});
 `;
+
 
 export const Heading = styled.h2`
 	font-size: 6.4rem;
@@ -20,6 +21,17 @@ export const Container = styled.div`
 	margin: 0 auto;
 	text-align: center;
 	height: 100%;
+`;
+
+export const TextContainer = styled.div`
+text-align: left;
+padding: 0 5%;
+`;
+
+export const ButtonContainer = styled.div`
+display: flex;
+justify-content: space-evenly;
+align-items: center;
 `;
 
 export const HeadingContainer = styled.div`
@@ -94,4 +106,18 @@ export const ProgramDonateContainer = styled.div`
 		border-radius: 20px;
 		margin: 3rem 0 0 0;
 	}
+`;
+
+export const Links = styled(Link)`
+  background: #fff;
+  border: 5px solid ${colorObj.green};
+  border-radius: 20px;
+  width: 20%;
+  height: 75px;
+  font-family: "Montserrat", sans-serif;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: ${colorObj.dark};
 `;
