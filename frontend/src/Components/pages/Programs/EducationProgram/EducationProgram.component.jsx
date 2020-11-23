@@ -1,11 +1,8 @@
 import React, {useState} from 'react';
 
-
-
-const Programs = () => {
-
 import Sarva from "../../../../Assets/Programs/Sarva.svg";
 import nioosc from "../../../../Assets/Programs/nioosc.svg";
+
 // styled components
 import {
 	Container,
@@ -20,9 +17,7 @@ import {
 import { EducationContainer } from "./EducationProgram.styles";
 
 
-
-
-export default Programs;
+const EducationProgram = () => {
 
 	const goBack = () => {
 		history.push("/programs/");
