@@ -3,6 +3,7 @@ package com.opportunity.hack.vidyodaya.models;
 import static com.opportunity.hack.vidyodaya.Utility.optionallyReplace;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "volunteers")
@@ -12,25 +13,20 @@ public class Volunteer extends Auditable {
   @GeneratedValue(strategy = GenerationType.AUTO)
   private long volunteerId;
 
-  @Column(nullable = false)
+  @NotNull
   private String firstName;
 
-  @Column(nullable = false)
+  @NotNull
   private String lastName;
 
-  @Column(nullable = false)
   private String email;
 
-  @Column(nullable = false)
   private String phone;
 
-  @Column(nullable = false)
   private String location;
 
-  @Column(nullable = false)
   private String message;
 
-  @Column(nullable = false)
   private String position;
 
   public Volunteer() {}
