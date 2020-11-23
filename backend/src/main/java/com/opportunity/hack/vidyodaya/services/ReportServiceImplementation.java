@@ -37,8 +37,9 @@ public class ReportServiceImplementation implements ReportService {
 
   @Override
   public Report save(Report report) {
-    Report newReport = new Report();
+    Report newReport = new Report(report);
 
+    // if report has an id, make sure it actually exists
     if (report.getReportId() != 0) {
       reportRepository
         .findById(report.getReportId())
@@ -46,13 +47,7 @@ public class ReportServiceImplementation implements ReportService {
           () ->
             new EntityNotFoundException("\"Report id \" + id + \" not found\"")
         );
-      newReport.setReportId(report.getReportId());
     }
-
-    newReport.setTitle(report.getTitle());
-    newReport.setYear(report.getYear());
-    newReport.setCategory(report.getCategory());
-    newReport.setDocumentUrl(report.getDocumentUrl());
 
     return reportRepository.save(newReport);
   }
