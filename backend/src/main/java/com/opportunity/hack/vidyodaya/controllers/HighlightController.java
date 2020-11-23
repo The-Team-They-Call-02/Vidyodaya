@@ -22,7 +22,7 @@ public class HighlightController {
    * @return HttpStatus.OK
    */
   @GetMapping(value = "/highlight/{id}", produces = "application/json")
-  public ResponseEntity<?> getCampById(@PathVariable long id) {
+  public ResponseEntity<?> getHighlightById(@PathVariable long id) {
     Highlight highlight = highlightService.findHighlightById(id);
 
     return new ResponseEntity<>(highlight, HttpStatus.OK);
@@ -30,13 +30,13 @@ public class HighlightController {
 
   /**
    * Update the Highlight instance with the specified database id using a partial
-   * Camp instance provided.
+   * Highlight instance provided.
    * @param updateHighlight The partial Highlight instance with the new data
    * @param id The database id of the Highlight instance to be updated
    * @return HttpStatus.NO_CONTENT
    */
   @PatchMapping(value = "/highlight/{id}", consumes = "application/json")
-  public ResponseEntity<?> updateCamp(
+  public ResponseEntity<?> updateHighlight(
     @RequestBody Highlight updateHighlight,
     @PathVariable long id
   ) {
