@@ -14,18 +14,18 @@ import org.springframework.transaction.annotation.Transactional;
 public class VolunteerServiceImpl implements VolunteerService {
 
   @Autowired
-  private VolunteerRepository volunteerrepos;
+  private final VolunteerRepository volunteerRepository;
 
   @Override
   public List<Volunteer> findAll() {
     List<Volunteer> list = new ArrayList<>();
-    volunteerrepos.findAll().iterator().forEachRemaining(list::add);
+    volunteerRepository.findAll().iterator().forEachRemaining(list::add);
     return list;
   }
 
   @Override
   public Volunteer findVolunteerById(long id) {
-    return volunteerrepos
+    return volunteerRepository
       .findById(id)
       .orElseThrow(() -> new EntityNotFoundException("Volunteer Id not Found"));
   }
@@ -49,7 +49,7 @@ public class VolunteerServiceImpl implements VolunteerService {
     newVolunteer.setPhone(volunteer.getPhone());
     newVolunteer.setPosition(volunteer.getPosition());
 
-    return volunteerrepos.save(newVolunteer);
+    return volunteerRepository.save(newVolunteer);
   }
 
   @Override
@@ -85,16 +85,16 @@ public class VolunteerServiceImpl implements VolunteerService {
       currentVolunteer.setPosition(volunteer.getPosition());
     }
 
-    return volunteerrepos.save(currentVolunteer);
+    return volunteerRepository.save(currentVolunteer);
   }
 
   @Override
   public void delete(long id) {
-    volunteerrepos
+    volunteerRepository
       .findById(id)
       .orElseThrow(
         () -> new EntityNotFoundException("Volunteer id " + id + " Not Found!")
       );
-    volunteerrepos.deleteById(id);
+    volunteerRepository.deleteById(id);
   }
 }
