@@ -3,10 +3,8 @@ package com.opportunity.hack.vidyodaya.controllers;
 import com.opportunity.hack.vidyodaya.models.Volunteer;
 import com.opportunity.hack.vidyodaya.services.VolunteerService;
 import java.net.URI;
-import java.net.URISyntaxException;
 import java.util.List;
 import javax.validation.Valid;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,8 +15,11 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 @RequestMapping("/volunteers")
 public class VolunteerController {
 
-  @Autowired
-  private VolunteerService volunteerService;
+  private final VolunteerService volunteerService;
+
+  public VolunteerController(VolunteerService volunteerService) {
+    this.volunteerService = volunteerService;
+  }
 
   @GetMapping(value = "/volunteers", produces = "application/json")
   public ResponseEntity<?> listAllVolunteers() {
@@ -35,8 +36,7 @@ public class VolunteerController {
   @PostMapping(value = "/volunteer", consumes = "application/json")
   public ResponseEntity<?> addNewVolunteer(
     @Valid @RequestBody Volunteer newVolunteer
-  )
-    throws URISyntaxException {
+  ) {
     newVolunteer.setVolunteerId(0);
     newVolunteer = volunteerService.save(newVolunteer);
 
