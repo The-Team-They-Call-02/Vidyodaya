@@ -1,18 +1,32 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 
 // styled-components
-import { Container, HeadingContainer, Heading } from "../Reports.styles";
+import {
+  Container,
+  HeadingContainer,
+  Heading,
+  ViewDashboard,
+} from "../Reports.styles";
 
 import { LinksContainer, Links } from "./ReportsHome.styles";
 import { BackgroundImageContainer } from "../../../../Styles/GlobalStyles";
 
 const ReportsHome = () => {
+  const history = useHistory();
+
+  const goBack = () => {
+    history.push("/reports/add-report");
+  };
+
   return (
     <Container>
-    <BackgroundImageContainer style={{marginTop: "0", height: "100%"}}>
-		</BackgroundImageContainer>
+      <BackgroundImageContainer
+        style={{ marginTop: "0", height: "100%" }}
+      ></BackgroundImageContainer>
       <HeadingContainer>
         <Heading>Reports</Heading>
+        <ViewDashboard onClick={goBack}>Add Report</ViewDashboard>
       </HeadingContainer>
 
       <LinksContainer>

@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { colorObj } from "../../../Styles/GlobalStyles";
 
 const MainContainer = styled.div`
-  ${'' /* background: #f8f7f7; */}
+  ${"" /* background: #f8f7f7; */}
   padding: 150px 0 0 0;
   position: relative;
 `;
@@ -45,6 +45,23 @@ const Heading = styled.h2`
   color: ${colorObj.dark};
 `;
 
+const ViewDashboard = styled.button`
+  display: ${localStorage.getItem("token") ? "inline" : "none"};
+  border: 2px solid #00703a;
+  background: #e5e5e5;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  padding: 10px;
+  border-radius: 10px;
+  text-transform: uppercase;
+  font-weight: 900;
+  color: #00703a;
+  width: 20rem;
+  height: 5rem;
+`;
+
 const BackBtn = styled.div`
   position: absolute;
   bottom: 10px;
@@ -71,4 +88,5 @@ export {
   HeadingContainer,
   Heading,
   BackBtn,
+  ViewDashboard,
 };
