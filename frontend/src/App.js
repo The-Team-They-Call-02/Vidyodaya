@@ -29,7 +29,7 @@ function App() {
 
   return (
     <Router>
-      <AppContext>
+      <AppContext.Provider>
 
         <GlobalStyles />
         <Navbar />
@@ -66,7 +66,7 @@ function App() {
         </Route>
 
         <Footer />
-      </AppContext>
+      </AppContext.Provider>
     </Router>
   );
 }
