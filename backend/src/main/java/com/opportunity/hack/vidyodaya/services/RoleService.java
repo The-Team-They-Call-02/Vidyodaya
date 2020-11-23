@@ -47,7 +47,7 @@ public interface RoleService {
   /**
    * Deletes all record and their associated records from the database
    */
-  public void deleteAll();
+  void deleteAll();
 
   /**
    * Updates the name of the given role
