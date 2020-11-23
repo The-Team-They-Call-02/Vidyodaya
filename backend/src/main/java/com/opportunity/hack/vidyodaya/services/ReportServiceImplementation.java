@@ -54,33 +54,9 @@ public class ReportServiceImplementation implements ReportService {
 
   @Override
   public Report update(Report report, long id) {
-    Report currentReport = new Report();
+    Report currentReport = findReportById(id);
 
-    if (report.getReportId() != 0) {
-      reportRepository
-        .findById(report.getReportId())
-        .orElseThrow(
-          () ->
-            new EntityNotFoundException("\"Report id \" + id + \" not found\"")
-        );
-      currentReport.setReportId(report.getReportId());
-    }
-
-    if (report.getTitle() != null) {
-      currentReport.setTitle(report.getTitle());
-    }
-
-    if (report.getYear() != null) {
-      currentReport.setYear(report.getYear());
-    }
-
-    if (report.getCategory() != null) {
-      currentReport.setCategory(report.getCategory());
-    }
-
-    if (report.getDocumentUrl() != null) {
-      currentReport.setDocumentUrl(report.getDocumentUrl());
-    }
+    currentReport.update(report);
 
     return reportRepository.save(currentReport);
   }
