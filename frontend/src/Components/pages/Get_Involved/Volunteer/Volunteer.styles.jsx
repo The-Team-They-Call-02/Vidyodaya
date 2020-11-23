@@ -3,11 +3,14 @@ import { Link } from "react-router-dom";
 import { colorObj } from "../../../../Styles/GlobalStyles";
 
 const BodyContainer = styled.div`
-  min-height: 80%;
   padding: 50px 0;
   background: #fff;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
   border-radius: 20px;
+`;
+
+const ContentContainer = styled.div`
+  margin-bottom: ${(props) => (props.questions ? "100px" : "0")};
 `;
 
 const Content = styled.div`
@@ -19,15 +22,17 @@ const Content = styled.div`
   color: ${colorObj.dark};
 `;
 
-const Question = styled.h3`
+const Headline = styled.h3`
   font-size: 2.5rem;
-  text-align: left;
+  text-align: ${(props) => (props.internships ? "center" : "left")};
   margin-bottom: 20px;
 `;
 
-const Answer = styled.p`
+const Info = styled.p`
   font-size: 2rem;
-  text-align: left;
+  text-align: ${(props) => (props.internships ? "center" : "left")};
+  font-weight: ${(props) => (props.internships ? "700" : "500")};
+  margin-bottom: ${(props) => (props.policy ? "20px" : "0")};
 `;
 
 const CtaContainer = styled.div`
@@ -56,4 +61,12 @@ const CtaBtn = styled(Link)`
   }
 `;
 
-export { BodyContainer, Content, Question, Answer, CtaContainer, CtaBtn };
+export {
+  BodyContainer,
+  ContentContainer,
+  Content,
+  Headline,
+  Info,
+  CtaContainer,
+  CtaBtn,
+};

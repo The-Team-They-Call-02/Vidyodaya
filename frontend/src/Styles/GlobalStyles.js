@@ -43,7 +43,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: ${colorObj.light};
   color: ${colorObj.dark};
-  font-size: 1.2rem;
+  font-size: 2.4rem;
 }
 
 button {
@@ -70,6 +70,13 @@ a{
 h2 {
   font-size: 4rem;
 }
+
+ul {
+  list-style-type: circle;
+}
+
+
+
 
 `;
 export { GlobalStyle as default, CenteredDiv, colorObj };
