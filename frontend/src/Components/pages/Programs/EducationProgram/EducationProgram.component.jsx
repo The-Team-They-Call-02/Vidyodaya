@@ -71,7 +71,7 @@ const EducationProgram = () => {
 							Children's Bank
 						</Links>
 						<Links to="/programs/education-program/study-centers">
-							Student Centers
+							Study Centers
 						</Links>
 						<Links to="/programs/education-program/scholarships">
 							Scholarships
