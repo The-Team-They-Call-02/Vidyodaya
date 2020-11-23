@@ -26,6 +26,19 @@ export const Links = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  padding: 2%;
+  width: 40%;
+  height: 100%;
 `;
 
-export const Social = styled.div``;
+export const Social = styled.div`
+display: flex;
+flex-direction: column;
+height: 100%;
+`;
+
+export const Icons = styled.div`
+display: flex;
+flex-direction: row;
+justify-content: center;
+`;
