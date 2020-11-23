@@ -89,7 +89,7 @@ public class CampController {
    * @return HttpStatus.NO_CONTENT
    */
   @DeleteMapping(value = "/camp/{id}")
-  public ResponseEntity<?> deleteUserById(@PathVariable long id) {
+  public ResponseEntity<?> deleteCampById(@PathVariable long id) {
     campService.delete(id);
     return new ResponseEntity<>(HttpStatus.NO_CONTENT);
   }

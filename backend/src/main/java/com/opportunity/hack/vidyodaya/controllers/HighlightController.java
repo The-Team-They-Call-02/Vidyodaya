@@ -50,7 +50,7 @@ public class HighlightController {
    * @return HttpStatus.NO_CONTENT
    */
   @DeleteMapping(value = "/highlight/{id}")
-  public ResponseEntity<?> deleteUserById(@PathVariable long id) {
+  public ResponseEntity<?> deleteHighlightById(@PathVariable long id) {
     highlightService.delete(id);
     return new ResponseEntity<>(HttpStatus.NO_CONTENT);
   }
