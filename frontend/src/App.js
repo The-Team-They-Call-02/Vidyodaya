@@ -23,11 +23,24 @@ import GlobalStyles from "./Styles/GlobalStyles";
 
 
 
+
 function App() {
+
+  const [articles, addArticles] = useState(
+    {
+      title: "",
+      description: "",
+      imgUrl: ""
+    }
+  );
+
   return (
     <Router>
-      <AppContext.Provider>
-        
+      <AppContext.Provider 
+      value={{
+        articles,
+        addArticles
+        }}>
         <GlobalStyles />
         <Navbar />
 

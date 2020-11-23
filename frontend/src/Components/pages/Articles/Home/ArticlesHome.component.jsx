@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
-import { useHistory } from "react-router-dom";
+import React, { useEffect, useContext } from "react";
 import AxiosWithAuth from "../../../../Utils/AxiosWithAuth";
+import { AppContext } from "../../../../context/context";
 
 
 import EditButton from "../../../../Assets/Articles/EditButton.svg";
@@ -17,12 +17,10 @@ import {
     Heading,
     BodyContainer,
     ContentContainer,
-    Content,
     TextContainer,
     Info
   } from "../Articles.styles";
 import { BackgroundImageContainer } from "../../../../Styles/GlobalStyles";
-import { AppContext } from "../../../../context/context";
 // Endpoint for GET request to fetch articles 
 // https://opportunity-hack-vidyodaya.herokuapp.com/articles/articles
 
@@ -42,16 +40,16 @@ const fakeData =
 
 
 const ArticlesHome = () => {
- const [articles, addArticles] = useState([]);
+const  { articles, addArticles } = useContext(AppContext);
 
 
 
   const getArticles = () => {
     AxiosWithAuth()
-      .get("articles/articles")
+      .get("/articles/articles")
       .then((res) => {
         console.log(res.data);
-        // addArticles(res.data);
+        addArticles(res.data);
       })
       .catch((err) => console.log(err));
   };
@@ -63,17 +61,17 @@ const ArticlesHome = () => {
 
     return (
         <Container>
-        <BackgroundImageContainer style={{marginTop: "0", height: "150%"}}>
+        <BackgroundImageContainer style={{marginTop: "0", height: "150%", position: "fixed"}}>
 		</BackgroundImageContainer>
         <HeadingContainer>
             <Heading>Articles</Heading>
         </HeadingContainer>
 
-        {fakeData.map((article) => {
+        {articles.map((article) => {
           return (
             <BodyContainer key={article.articleid}>
             <ContentContainer articles>
-                {localStorage.getItem('status') !=null &&
+                {localStorage.getItem('token') !=null &&
                     <div>
                         <a href="/articles/edit-article">
                         <EditBtn src={EditButton}/>
@@ -90,7 +88,7 @@ const ArticlesHome = () => {
             </BodyContainer>
           );
         })}
-        {localStorage.getItem('status') !=null &&
+        {localStorage.getItem('token') !=null &&
             <a href="/articles/create-article">
                 <CreateBtn src={CreateButton} />
             </a>}

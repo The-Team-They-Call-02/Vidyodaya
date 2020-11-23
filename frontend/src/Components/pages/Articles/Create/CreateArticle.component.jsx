@@ -1,7 +1,10 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useContext } from "react";
 import { useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import axios from "axios";
+import AxiosWithAuth from "../../../../Utils/AxiosWithAuth";
+import { AppContext } from "../../../../context/context";
+
 
 // styled-components
 import {
@@ -36,6 +39,15 @@ import InsertImage from "../../../../Assets/Articles/InsertImage.svg";
 const CreateArticle = () => {
   const history = useHistory();
   const { handleSubmit, register, errors, reset } = useForm();
+  const  { articles, addArticles } = useContext(AppContext);
+  // const [articles, addArticles] = useState(
+  //   {
+  //     title: "",
+  //     description: "",
+  //     imgUrl: ""
+  //   }
+  // );
+  console.log(articles);
   const [file, setFile] = useState();
 
   // hardcode for now
@@ -62,22 +74,50 @@ const CreateArticle = () => {
     const data = new FormData();
     data.append("file", file);
     data.append("upload_preset", `${process.env.REACT_APP_PRESET}`);
-    data.append("folder", "files"); // folder name
+    data.append("folder", "photos"); // folder name
 
     // send to cloudinary
-    axios
-      .post(process.env.REACT_APP_URL, data)
-      .then((res) => {
-        // mutate original values
-        const newValues = { ...values, file: res.data.url };
-        console.log("VALUES -> ", newValues);
-        reset();
-      })
-      .catch((err) => {
-        console.log(`This is the error: ${err}`);
-        reset();
-      });
-  };
+    // axios
+    //   .post(process.env.REACT_APP_URL, data)
+    //   .then((res) => {
+    //     // mutate original values
+    //     console.log(res.data)
+    //     const newValues = { ...values, file: res.data.url };
+    //     console.log("VALUES -> ", newValues);
+    //     reset();
+    //   })
+    //   .catch((err) => {
+    //     console.log(`This is the error: ${err}`);
+    //     reset();
+    //   });
+
+  console.log("data from create article", articles)
+  AxiosWithAuth
+  .post("/articles/article", articles)
+  .then((res) => {
+    // mutate original values
+    console.log("result", res)
+    // const newValues = { ...values, file: res.data.url };
+    // console.log("VALUES -> ", newValues);
+    // reset();
+  })
+  .catch((err) => {
+    console.log(`This is the error: ${err}`);
+    // reset();
+  });
+};
+
+const onChange = (e) => {
+  console.log(e.target.value)
+  addArticles({ ...articles, [e.target.name]: e.target.value })
+  // addArticles(
+  //   {
+  //     title: articles.title,
+  //     description: e.target.description,
+  //     imgUrl: e.target.imgUrl
+  //   })
+    console.log("this", articles)
+}
 
   const handleChange = (e) => {
     const { files } = e.target;
@@ -106,7 +146,17 @@ const CreateArticle = () => {
             <UploadedImage id="output" src={InsertImage} />
             <FileBtn>
                 <p style={{position: "absolute", paddingTop: "5px", paddingLeft: "12px"}}>Choose File</p>
-                <input type="file" accept="image/" name="image" style={{paddingTop: "5px", paddingLeft: "15px", opacity: "0"}} onChange={loadFile}></input>
+                <input 
+                type="file" 
+                accept="image/" 
+                name="imgUrl" 
+                value={articles.imgUrl}
+                style={{paddingTop: "5px", paddingLeft: "15px", opacity: "0"}} 
+                onChange={onChange}
+                ref={(ref) => {
+                  uploader.current = ref;
+                  register({ required: true });
+                }}></input>
             </FileBtn>
           </div>
           <TwoRows>
@@ -116,17 +166,20 @@ const CreateArticle = () => {
               <InputField
                 type="text"
                 id="title"
+                value={articles.title}
                 name="title"
                 ref={register({ required: true })}
+                onChange={onChange}
               />
               {errors.title && <ErrorMsg>Please enter a title</ErrorMsg>}
             </InputWrapper>
             {/* category */}
-            <InputWrapper category>
+            {/* <InputWrapper category>
               <Label htmlFor="category">Category</Label>
               <Select
                 name="category"
                 id="category"
+                value={articles.category}
                 ref={register({ required: true })}
               >
                 <option value="" disabled selected>
@@ -138,7 +191,7 @@ const CreateArticle = () => {
               </Select>
 
               {errors.category && <ErrorMsg>Please select one</ErrorMsg>}
-            </InputWrapper>
+            </InputWrapper> */}
           </TwoRows>
           </AlignImage>
           
@@ -151,9 +204,11 @@ const CreateArticle = () => {
                 type="textarea"
                 id="description"
                 name="description"
+                value={articles.description}
                 rows="4"
                 cols="4"
                 ref={register({ required: true })}
+                onChange={onChange}
               ></TextareaField>
               {errors.title && <ErrorMsg>Please enter a description</ErrorMsg>}
             </InputWrapper>
@@ -161,7 +216,7 @@ const CreateArticle = () => {
 
           {/* file upload */}
           <Rows>
-            <InputWrapper full>
+            {/* <InputWrapper full>
               <Label htmlFor="file">Upload Document</Label>
               <InputField
                 style={{ display: "none" }}
@@ -169,6 +224,7 @@ const CreateArticle = () => {
                 id="file"
                 name="file"
                 accept=".pdf"
+                value={articles.articleUrl}
                 onChange={handleChange}
                 ref={(ref) => {
                   uploader.current = ref;
@@ -203,7 +259,7 @@ const CreateArticle = () => {
               </UploadContainer>
 
               {errors.title && <ErrorMsg>Please upload your document</ErrorMsg>}
-            </InputWrapper>
+            </InputWrapper> */}
           </Rows>
 
           <AddBtn type="submit">Add</AddBtn>

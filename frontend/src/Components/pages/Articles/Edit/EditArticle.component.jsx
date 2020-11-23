@@ -1,7 +1,9 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useContext } from "react";
 import { useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import axios from "axios";
+import { AppContext } from "../../../../context/context";
+
 
 // styled-components
 import {
@@ -36,6 +38,7 @@ import InsertImage from "../../../../Assets/Articles/InsertImage.svg";
 const EditArticle = () => {
   const history = useHistory();
   const { handleSubmit, register, errors, reset } = useForm();
+  const  { articles, addArticles } = useContext(AppContext);
   const [file, setFile] = useState();
 
   // hardcode for now
@@ -106,7 +109,14 @@ const EditArticle = () => {
             <UploadedImage id="output" src={InsertImage} />
             <FileBtn>
                 <p style={{position: "absolute", paddingTop: "5px", paddingLeft: "12px"}}>Choose File</p>
-                <input type="file" accept="image/" name="image" style={{paddingTop: "5px", paddingLeft: "15px", opacity: "0"}} onChange={loadFile}></input>
+                <input 
+                type="file" 
+                accept="image/" 
+                name="image" 
+                value={articles.imageUrl}
+                style={{paddingTop: "5px", paddingLeft: "15px", opacity: "0"}} 
+                onChange={loadFile}>
+                </input>
             </FileBtn>
           </div>
           <TwoRows>
@@ -117,12 +127,13 @@ const EditArticle = () => {
                 type="text"
                 id="title"
                 name="title"
+                value={articles.title}
                 ref={register({ required: true })}
               />
               {errors.title && <ErrorMsg>Please enter a title</ErrorMsg>}
             </InputWrapper>
             {/* category */}
-            <InputWrapper category>
+            {/* <InputWrapper category>
               <Label htmlFor="category">Category</Label>
               <Select
                 name="category"
@@ -138,7 +149,7 @@ const EditArticle = () => {
               </Select>
 
               {errors.category && <ErrorMsg>Please select one</ErrorMsg>}
-            </InputWrapper>
+            </InputWrapper> */}
           </TwoRows>
           </AlignImage>
           
@@ -151,6 +162,7 @@ const EditArticle = () => {
                 type="textarea"
                 id="description"
                 name="description"
+                value={articles.description}
                 rows="4"
                 cols="4"
                 ref={register({ required: true })}
@@ -169,6 +181,7 @@ const EditArticle = () => {
                 id="file"
                 name="file"
                 accept=".pdf"
+                value={articles.articleUrl}
                 onChange={handleChange}
                 ref={(ref) => {
                   uploader.current = ref;
