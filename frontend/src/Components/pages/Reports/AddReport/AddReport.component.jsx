@@ -61,9 +61,21 @@ const AddReport = () => {
       .post(process.env.REACT_APP_URL, data)
       .then((res) => {
         // mutate original values
-        const newValues = { ...values, file: res.data.url };
-        console.log("VALUES -> ", newValues);
-        reset();
+        const newValues = { ...values, documentUrl: res.data.url };
+
+        axios
+          .post(
+            "https://opportunity-hack-vidyodaya.herokuapp.com/reports/reports",
+            newValues
+          )
+          .then((res) => {
+            reset();
+            history.push("/reports");
+          })
+          .catch((err) => {
+            console.log(err);
+            reset();
+          });
       })
       .catch((err) => {
         console.log(`This is the error: ${err}`);
@@ -152,7 +164,7 @@ const AddReport = () => {
                 style={{ display: "none" }}
                 type="file"
                 id="file"
-                name="file"
+                name="documentUrl"
                 accept=".pdf"
                 onChange={handleChange}
                 ref={(ref) => {

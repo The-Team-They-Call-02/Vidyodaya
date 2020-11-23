@@ -29,7 +29,7 @@ const Reports = () => {
         res.data.forEach((report) => {
           if (report.category === "annual") {
             tempAnnual.push(report);
-          } else if (report.categroy === "financial") {
+          } else if (report.category === "financial") {
             tempFinancial.push(report);
           } else {
             tempOther.push(report);
