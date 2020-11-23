@@ -13,8 +13,11 @@ import org.springframework.transaction.annotation.Transactional;
 @Service(value = "volunteerService")
 public class VolunteerServiceImpl implements VolunteerService {
 
-  @Autowired
   private final VolunteerRepository volunteerRepository;
+
+  public VolunteerServiceImpl(VolunteerRepository volunteerRepository) {
+    this.volunteerRepository = volunteerRepository;
+  }
 
   @Override
   public List<Volunteer> findAll() {
