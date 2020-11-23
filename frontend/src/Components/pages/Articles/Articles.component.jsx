@@ -14,7 +14,7 @@ const Articles = () => {
         <MainContainer>
             <Switch>
                 <Route path="/articles/create-article" component={CreateArticle} />
-                <Route path="/articles/edit-article" component={EditArticle} />
+                <Route path="/articles/edit-article/:id" component={EditArticle} />
                 <Route path="/articles/" component={ArticlesHome} />
             </Switch>
         </MainContainer>

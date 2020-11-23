@@ -14,11 +14,13 @@ export const ChildrenCampsContainer = styled.div`
 		flex-direction: column;
 		margin-bottom: 30px;
 		color: ${colorObj.dark};
+
 		.camp-buttons-container {
 			display: flex;
 			flex-direction: column;
 			justify-content: space-around;
 			align-items: center;
+
 			.children-camps-btn-link {
 				width: 70%;
 				height: 89px;
