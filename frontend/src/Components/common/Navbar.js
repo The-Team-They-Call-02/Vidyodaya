@@ -11,7 +11,7 @@ import {
 } from "../../Styles/NavbarStyle";
 
 // react-icons
-import { FaTwitterSquare } from "react-icons/fa";
+import { FaYoutubeSquare } from "react-icons/fa";
 import { FaFacebookSquare } from "react-icons/fa";
 
 // remember to put href="" attr in SocialIcons
@@ -52,11 +52,11 @@ const Navbar = () => {
       </a>
 
       <SocialIconsContainer>
-        <SocialIcons color="#6CADDE">
-          <FaTwitterSquare />
+        <SocialIcons color="#B31217">
+          <FaYoutubeSquare />
         </SocialIcons>
-        <SocialIcons>
-          <FaFacebookSquare color="#3B5998" />
+        <SocialIcons color="#3B5998">
+          <FaFacebookSquare />
         </SocialIcons>
       </SocialIconsContainer>
     </NavbarStyle>
