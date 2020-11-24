@@ -61,7 +61,7 @@ const AddReport = () => {
       .post(process.env.REACT_APP_URL, data)
       .then((res) => {
         // mutate original values
-        const newValues = { ...values, documentUrl: res.data.url };
+        const newValues = { ...values, documentUrl: res.data.secure_url };
 
         axios
           .post(

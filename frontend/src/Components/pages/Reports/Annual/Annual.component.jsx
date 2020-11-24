@@ -28,8 +28,10 @@ const Annual = (props) => {
       <ReportsContainer>
         {reports.map((doc) => {
           return (
-            <Document key={doc.reportid}>
-              <Name to={`/reports/${doc.name}${doc.reportid}`}>{doc.name}</Name>
+            <Document key={doc.reportId}>
+              <Name to={`/reports/${doc.title}/${doc.reportId}`}>
+                {doc.title}
+              </Name>
               ;
             </Document>
           );
