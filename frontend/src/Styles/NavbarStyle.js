@@ -5,6 +5,7 @@ export const NavbarStyle = styled.div`
   height: 150px;
   width: 100%;
   position: fixed;
+  top: 0;
   background-color: ${colorObj.light};
   box-shadow: 0px 1px 10px 0px ${colorObj.dark};
   display: flex;
