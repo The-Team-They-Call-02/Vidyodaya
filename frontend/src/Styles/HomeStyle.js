@@ -15,11 +15,13 @@ color: ${colorObj.light};
 `;
 
 export const BannerGreen = styled.div`
+position: relative;
 background-color: ${colorObj.green};
 display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
+z-index: -3;
 `;
 
 export const BannerImg = styled.div`
@@ -55,7 +57,7 @@ color: ${colorObj.dark};
 padding: 20px 60px;
 `;
 
-export const WhiteBkg = styled.div`
+export const WhiteBkg = styled.div`;
 padding: 20px 100px;
 background-color: ${colorObj.light};
 display: flex;
