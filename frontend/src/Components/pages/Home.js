@@ -3,13 +3,13 @@ import { BannerGray, BannerGreen, BannerImg, HeroText, GreenHeader, Spacer, Gree
 import { colorObj , CenteredDiv, BackgroundImageContainer } from "../../Styles/GlobalStyles";
 import arrow from "../../Assets/Home/arrow.svg";
 import child from "../../Assets/Home/child.svg";
-import impact1 from "../../Assets/Home/impact1.svg";
-import impact2 from "../../Assets/Home/impact2.svg";
-import impact3 from "../../Assets/Home/impact3.svg";
-import impact4 from "../../Assets/Home/impact4.svg";
-import impact5 from "../../Assets/Home/impact5.svg";
-import impact6 from "../../Assets/Home/impact6.svg";
-import impact7 from "../../Assets/Home/impact7.svg";
+import impact1 from "../../Assets/Home/educationSupport.png";
+import impact2 from "../../Assets/Home/supportteacher.png";
+import impact3 from "../../Assets/Home/warmclothes.png";
+import impact4 from "../../Assets/Home/3dayex.png";
+import impact5 from "../../Assets/Home/feast.png";
+import impact6 from "../../Assets/Home/notebooks.png";
+import impact7 from "../../Assets/Home/scholarship.png";
 
 import styled from 'styled-components';
 
@@ -99,7 +99,7 @@ const Home = () => {
                     </CenteredDiv>
                     <VerticalLine></VerticalLine>
                     <CenteredDiv style={{margin: "0 7%"}}>
-                   
+
                         <a href="" target="_blank" >
                             <h2>Donate</h2>
                         </a>
