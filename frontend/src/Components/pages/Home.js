@@ -30,6 +30,7 @@ import styled from "styled-components";
 
 const HomePage = styled.div`
 	height: 100%;
+	width: 100vw;
 	overflow-x: hidden;
 	div.background-image {
 		position: absolute;
