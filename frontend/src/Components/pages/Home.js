@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import {
-	BannerGreen,
 	BannerImg,
 	HeroText,
 	GreenHeader,
@@ -29,8 +28,9 @@ import photo4 from "../../Assets/Home/photo4.jpg";
 import styled from "styled-components";
 
 const HomePage = styled.div`
+	box-sizing: border-box;
 	height: 100%;
-	width: 100vw;
+	width: 100%;
 	overflow-x: hidden;
 	div.background-image {
 		position: absolute;
@@ -54,6 +54,19 @@ const HomePage = styled.div`
 		padding-right: 4%;
 		background-color: #c4c4c4;
 		color: ${colorObj.light};
+		@media (max-width: 900px) {
+			/* height: calc(30%- 150px); */
+			height: 30vh;
+			width: 100vw;
+			img.child-image {
+				display: flex;
+				justify-self: flex-start;
+				height: 100%;
+			}
+			img.arrow {
+				display: hidden;
+			}
+		}
 		img.child-image {
 			display: flex;
 			justify-self: flex-start;
@@ -106,6 +119,20 @@ const HomePage = styled.div`
 			z-index: -3;
 			width: 500px;
 			height: 400px;
+		}
+	}
+	div.section-5 {
+		div.impact-images-container {
+			box-sizing: border-box;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			width: 60%;
+			margin: 0 auto;
+			img {
+				width: 100%;
+			}
 		}
 	}
 	button.hero-btn-donate {
@@ -220,25 +247,29 @@ const Home = () => {
 
 			<CenteredDiv>
 				<GreenBkg>
-					<a href="" target="_blank">
+					<Link to="/get-involved/donations">
 						<h1>Your Impact</h1>
-					</a>
+					</Link>
 				</GreenBkg>
 				<Spacer />
-				<img src={impact1} alt="" />
-				<img src={impact2} alt="" />
-				<img src={impact3} alt="" />
-				<img src={impact4} alt="" />
-				<img src={impact5} alt="" />
-				<img src={impact6} alt="" />
-				<img src={impact7} alt="" />
+				<div className="section-5">
+					<div className="impact-images-container">
+						<img src={impact1} alt="Suport a child's education" />
+						<img src={impact2} alt="Support a Teacher" />
+						<img src={impact3} alt="Warm Clothes" />
+						<img src={impact4} alt="3 day excursion" />
+						<img src={impact5} alt="Childrens Feast" />
+						<img src={impact6} alt="Notebooks" />
+						<img src={impact7} alt="Scholarships" />
+					</div>
+				</div>
 				<Spacer />
 			</CenteredDiv>
 			<CenteredDiv>
 				<GreenBkg>
-					<a href="" target="_blank">
+					<Link to="/articles">
 						<h1>Updates</h1>
-					</a>
+					</Link>
 				</GreenBkg>
 				{/* <p style={{backgroundColor: "gray", height: "500px", width: "100%"}}>Map new posts here</p> */}
 			</CenteredDiv>
