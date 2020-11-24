@@ -109,7 +109,7 @@ const CampCard = (props) => {
 			</HeadingContainer>
 
 			<CampCardContainer>
-				{localStorage.getItem("token") != null && (
+				{localStorage.getItem("token") ? (
 					<div>
 						<Link to="/programs/children-camps/edit">
 							<BsPencilSquare size="24px" /> Edit
@@ -119,7 +119,7 @@ const CampCard = (props) => {
 							<FaTrashAlt size="24px" /> Delete
 						</div>
 					</div>
-				)}
+				) : null}
 				<div className="camp-card-inner-container">
 					{camp.title ? (
 						<h3 className="main-title"> {camp.title} </h3>
