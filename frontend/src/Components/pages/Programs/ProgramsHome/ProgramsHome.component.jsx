@@ -4,12 +4,15 @@ import { Link } from "react-router-dom";
 //STYLING
 import { ProgramsPageContainer } from "./ProgramsHome.styles";
 import { BackgroundImageContainer } from "../../../../Styles/GlobalStyles";
+import education from "../../../../Assets/Programs/education.png";
+import gond01 from "../../../../Assets/Programs/gond01.jpg";
+import gond02 from "../../../../Assets/Programs/gond02.jpg";
+import camps from "../../../../Assets/Programs/camps.png";
 
 const ProgramsHome = () => {
 	return (
 		<ProgramsPageContainer>
-			<BackgroundImageContainer>
-			</BackgroundImageContainer>
+			<BackgroundImageContainer></BackgroundImageContainer>
 			<div className="programs-page-inner-div">
 				<h1 className="programs-page-h1"> OUR PROGRAMS </h1>
 				<div className="programs-page-cards-container">
@@ -30,6 +33,11 @@ const ProgramsHome = () => {
 					>
 						{" "}
 						<h2> Children Camps </h2>{" "}
+						<img
+							src={camps}
+							alt=" Children Camps"
+							className="camps-image"
+						/>
 					</Link>
 					<Link
 						to="/programs/education-program"
@@ -37,6 +45,11 @@ const ProgramsHome = () => {
 					>
 						{" "}
 						<h2> Education Programs </h2>{" "}
+						<img
+							src={education}
+							alt="Education Program"
+							className="education-image"
+						/>
 					</Link>
 					<Link
 						to="/programs/balwadis"
@@ -44,7 +57,7 @@ const ProgramsHome = () => {
 					>
 						{" "}
 						<h2> Balwadis </h2>{" "}
-						<span>
+						<span className="balwadis-subtitle">
 							{" "}
 							(Integrated Child Development Services Centres){" "}
 						</span>
@@ -54,7 +67,9 @@ const ProgramsHome = () => {
 						className="programs-page-Culture card"
 					>
 						{" "}
-						<h2> Culture </h2>{" "}
+						<img src={gond01} alt="tribal painting" />
+						<h2> Culture </h2>
+						<img src={gond02} alt="tribal painting" />
 					</Link>
 				</div>
 			</div>

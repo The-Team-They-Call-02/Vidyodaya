@@ -5,7 +5,6 @@ export const ProgramsPageContainer = styled.div`
 	display: flex;
 	flex-direction: column;
 	height: 100%;
-	border: 2px solid red;
 
 	.programs-page-inner-div {
 		display: flex;
@@ -41,8 +40,24 @@ export const ProgramsPageContainer = styled.div`
 				&:last-child {
 					width: 77vw;
 				}
+				img.education-image,
+				img.camps-image {
+					width: 30rem;
+					height: 20rem;
+				}
+				span.balwadis-subtitle {
+					font-size: 2.6rem;
+					font-weight: 600;
+				}
 			}
-			.programs-page-frisbee {
+			.programs-page-Culture {
+				display: flex;
+				flex-direction: row;
+				justify-content: space-evenly;
+				align-items: center;
+				img {
+					height: 38.9rem;
+				}
 			}
 		}
 	}

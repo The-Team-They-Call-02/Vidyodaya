@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 import logo from "../../Assets/Home/logo.png";
 
 // styled-components
@@ -16,6 +16,14 @@ import { FaFacebookSquare } from "react-icons/fa";
 
 // remember to put href="" attr in SocialIcons
 const Navbar = () => {
+  const history = useHistory();
+  const logout = () => {
+		localStorage.clear("token");
+    history.push("/");
+    window.location.reload();
+  };
+
+
   return (
     <NavbarStyle>
       <img src={logo} style={{ height: "150px" }} alt="" />
@@ -40,15 +48,21 @@ const Navbar = () => {
       <NavLink to="/contact">
         <NavText>Contact</NavText>
       </NavLink>
-      <NavLink to="/login">
+      { localStorage.getItem("token") ? 
+        (<div onClick={logout} style={{cursor: "pointer"}}>
+          <NavText>Logout</NavText>
+        </div>) : 
+        (<NavLink to="/login">
         <NavText>Login</NavText>
-      </NavLink>
+      </NavLink>)
+    }
       <a
         href="https://www.payumoney.com/paybypayumoney/#/9F4C7B2FCB7AA9833CAD8D3FDEC46DD7"
         target="_blank"
         rel="noreferrer"
+        style={{cursor: "pointer"}}
       >
-        <button>Donate</button>
+        <button style={{cursor: "pointer"}}>Donate</button>
       </a>
 
       <SocialIconsContainer>

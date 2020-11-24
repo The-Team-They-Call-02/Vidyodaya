@@ -3,22 +3,25 @@ import { colorObj } from './GlobalStyles.js';
 import bkgimg from "../Assets/Home/slide5-2za8tima4ci25wo4wwkpvu.jpg";
 
 export const BannerGray = styled.div`
-width: 100%;
+box-sizing: border-box;
+width: 100vw;
 height: 100vh;
 background-color: #C4C4C4;
 display: flex;
 justify-content: center;
 padding-right: 4%;
 align-items: center;
-font-color: ${colorObj.light};
+color: ${colorObj.light};
 `;
 
 export const BannerGreen = styled.div`
+position: relative;
 background-color: ${colorObj.green};
 display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
+z-index: -3;
 `;
 
 export const BannerImg = styled.div`
@@ -54,7 +57,7 @@ color: ${colorObj.dark};
 padding: 20px 60px;
 `;
 
-export const WhiteBkg = styled.div`
+export const WhiteBkg = styled.div`;
 padding: 20px 100px;
 background-color: ${colorObj.light};
 display: flex;
@@ -70,3 +73,5 @@ border: 2px solid ${colorObj.dark};
 height: 200px;
 margin: 0 5%;
 `;
+
+

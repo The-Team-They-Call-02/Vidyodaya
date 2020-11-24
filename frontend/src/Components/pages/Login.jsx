@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useHistory, Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import logo from "../../Assets/Home/logo.png";
 import axios from "axios";
@@ -82,11 +82,10 @@ const Login = () => {
 		username: "",
 		password: "",
 	});
-	const { push } = useHistory();
+	const { goBack } = useHistory();
 
 	const onSubmit = (e) => {
 		e.preventDefault();
-		console.log("onSubmit");
 		axios
 			.post(
 				"https://opportunity-hack-vidyodaya.herokuapp.com/login",
@@ -102,9 +101,9 @@ const Login = () => {
 				},
 			)
 			.then((res) => {
-				console.log(res.data);
 				localStorage.setItem("token", res.data.access_token);
-				push("/");
+				window.location.reload();
+				goBack();
 			})
 			.catch((error) => {
 				// console.log("Error:", error.response.data);
@@ -120,12 +119,17 @@ const Login = () => {
 			[e.target.name]: e.target.value,
 		});
 
+	const goBackBtn = (e) => {
+		e.preventDefault();
+		goBack();
+	};
+
 	return (
 		<LoginContainer>
 			<div className="login-outter-div">
-				<Link to="/">
+				<div onClick={goBackBtn}>
 					<FaTimes size="22px" className="close" />
-				</Link>
+				</div>
 				<div className="login-inner-div">
 					<img src={logo} alt="logo" />
 					<h1 className="login-h1">Welcome to Vidyodaya</h1>
