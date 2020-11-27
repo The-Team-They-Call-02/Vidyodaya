@@ -1,0 +1,15 @@
+{
+  "name": "vidyodaya",
+  "version": "0.1.0",
+  "description": "Viswa Bharati Vidyodaya Trust website",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/2020-opportunity-hack/Team-02.git"
+  },
+  "author": "Team Name",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/2020-opportunity-hack/Team-02/issues"
+  },
+  "homepage": "https://github.com/2020-opportunity-hack/Team-02#readme"
+}
