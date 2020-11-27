@@ -11,5 +11,9 @@
   "bugs": {
     "url": "https://github.com/2020-opportunity-hack/Team-02/issues"
   },
-  "homepage": "https://github.com/2020-opportunity-hack/Team-02#readme"
+  "homepage": "https://github.com/2020-opportunity-hack/Team-02#readme",
+  "devDependencies": {
+    "prettier": "^2.2.0",
+    "prettier-plugin-java": "^1.0.0"
+  }
 }
