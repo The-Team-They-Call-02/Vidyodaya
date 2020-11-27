@@ -1,6 +1,7 @@
 # IDE configuration directories
 .idea/
 .vscode/
+node_modules/
 
 # Emacs temp files
 *~
