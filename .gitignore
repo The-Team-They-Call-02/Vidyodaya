@@ -1,2 +1,7 @@
+# IDE configuration directories
 .idea/
 .vscode/
+
+# Emacs temp files
+*~
+\#*\#
