@@ -155,3 +155,23 @@ Some features we would still want to add are:
 7. A form to add Committee members to the committee page
 8. Password recovery for admins
 9. A fully mobile responsive website
+
+# Front end Deployment Instructions (Heroku)
+
+These instructions will create a Heroku deployment for the front end, linked
+to a GitHub repository and set to automatically deploy commits to main. They
+require the Heroku CLI to be installed. In examples, replace examples names
+and keys with actual names and keys as necessary.
+
+First, create the app, set it to use the most current stack, and set the
+OAuth2 environment variables.
+
+```sh
+heroku create vidyodaya
+heroku stack:set heroku-20 -a vidyodaya
+heroku config:set REACT_APP_CLIENT=sample-client -a vidyodaya
+heroku config:set REACT_APP_SECRET=sample-secret -a vidyodaya
+```
+
+<!--  LocalWords:  subdir heroku vidyodaya
+ -->
