@@ -187,5 +187,5 @@ heroku buildpacks:add heroku/nodejs -a vidyodaya
 
 ```
 
-<!--  LocalWords:  subdir heroku vidyodaya nodejs
+<!--  LocalWords:  subdir heroku vidyodaya nodejs Zuri's
  -->
