@@ -93,7 +93,9 @@ const Login = () => {
         {
           headers: {
             // btoa is converting our client id/client secret into base64
-            Authorization: `Basic ${btoa("emilya-client:emilya-secret")}`,
+            Authorization: `Basic ${btoa(
+              "{process.env.REACT_APP_CLIENT}:{process.env.REACT_APP_SECRET}"
+            )}`,
             "Content-Type": "application/x-www-form-urlencoded",
           },
         }
