@@ -173,5 +173,19 @@ heroku config:set REACT_APP_CLIENT=sample-client -a vidyodaya
 heroku config:set REACT_APP_SECRET=sample-secret -a vidyodaya
 ```
 
-<!--  LocalWords:  subdir heroku vidyodaya
+The standard Heroku pipeline doesn't work with our repository for
+automatic deployments from GitHub because it contains multiple
+projects in subdirectories, so we use Alexey Timanovsky's excellent
+`subdir-heroku-buildpack` which makes deploying from a subdirectory
+almost painless. Because Heroku cannot detect the type of a project in
+a subdirectory, we also explicitly set the build type to nodejs, and
+we set the exact directory that contains the front end project.
+
+```sh
+heroku buildpacks:set https://github.com/timanovsky/subdir-heroku-buildpack -a vidyodaya
+heroku buildpacks:add heroku/nodejs -a vidyodaya
+
+```
+
+<!--  LocalWords:  subdir heroku vidyodaya nodejs
  -->
