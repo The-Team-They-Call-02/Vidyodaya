@@ -130,12 +130,17 @@ Netlify. The main features of the site are fully functional.
 
 Some features we would still want to add are:
 
-1.) News Letter sign up
-2.) Chat Feature (to have more active engagement with visitors of the site)
-3.) Visitor Login
-4.) Donor Dashboard (so admins can track their interactions and donations, and send updates to those whom they have helped.)
-5.) Volunteer Dashboard (so volunteers can see progress, future activities, current tasks, and comprehensive detail for their role as a volunteer.)
-6.) For this website to be a progressive web app that will help the NGO manage and interact with people within and outside the organization.
-7.) A form to add Committee members to the committee page
-8.) Password recovery for admins
-9.) A fully mobile responsive website
+1. News Letter sign up
+2. Chat Feature (to have more active engagement with visitors of the site)
+3. Visitor Login
+4. Donor Dashboard (so admins can track their interactions and
+   donations, and send updates to those whom they have helped.)
+5. Volunteer Dashboard (so volunteers can see progress, future
+   activities, current tasks, and comprehensive detail for their role
+   as a volunteer.)
+6. For this website to be a progressive web app that will help the NGO
+   manage and interact with people within and outside the
+   organization.
+7. A form to add Committee members to the committee page
+8. Password recovery for admins
+9. A fully mobile responsive website
