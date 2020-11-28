@@ -163,6 +163,8 @@ to a GitHub repository and set to automatically deploy commits to main. They
 require the Heroku CLI to be installed. In examples, replace examples names
 and keys with actual names and keys as necessary.
 
+## Creating the app
+
 First, create the app, set it to use the most current stack, and set the
 OAuth2 environment variables.
 
@@ -172,6 +174,8 @@ heroku stack:set heroku-20 -a vidyodaya
 heroku config:set REACT_APP_CLIENT=sample-client -a vidyodaya
 heroku config:set REACT_APP_SECRET=sample-secret -a vidyodaya
 ```
+
+## Setting up the build
 
 The standard Heroku pipeline doesn't work with our repository for
 automatic deployments from GitHub because it contains multiple
@@ -186,6 +190,38 @@ heroku buildpacks:set https://github.com/timanovsky/subdir-heroku-buildpack -a v
 heroku buildpacks:add heroku/nodejs -a vidyodaya
 
 ```
+
+## Setting up continuous integration
+
+Next, we set up continuous integration with Heroku. This can only be
+done from the Heroku web interface. Some of these steps may have
+already been completed if you have previously connected Heroku to a
+GitHub repository.
+
+Log into Heroku and select your project, the go to the `Deploy` tab and click on `Connect to GitHub` in the `Connect to GitHub section.
+
+![Click on Connect to GitHub](assets/connect-to-github.png)
+
+On the GitHub authorization screen that comes up, authorize Heroku's
+access, being sure to grant access to your organization if necessary.
+
+Under `Connect to GitHub`, type in the repository name and, if
+necessary, select your organization. Press the search button and then
+click on the `Connect` button that comes up. If the connect button
+does not come up or if it shows up for the wrong repository, make sure
+you have selected the correct organization and typed the name
+correctly in the `Search` area.
+
+![Click on Connect](assets/connect-repository.png)
+
+Make sure you have `main` (or whichever branch you want to
+automatically deploy from) selected on the deployment menu that
+appears (blue circle). Click on `Enable Automatic Deploys` (green
+circle). Heroku will now automatically redeploy whenever changes are
+pushed to the selected branch. Finally, click on `Deploy Branch` (red
+circle) to make the initial deployment.
+
+![Deploy](assets/deploy.png)
 
 <!--  LocalWords:  subdir heroku vidyodaya nodejs Zuri's
  -->
