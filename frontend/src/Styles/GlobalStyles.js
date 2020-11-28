@@ -1,7 +1,6 @@
 import styled, { createGlobalStyle } from "styled-components";
 import image from "../Assets/Tribal-Art/tribalProgramsPage.svg";
 
-
 ////////////////////////////
 //     PRIMARY COLORS    //
 ////////////////////////////
@@ -21,20 +20,18 @@ const CenteredDiv = styled.div`
   flex-direction: column;
 `;
 
-
 export const BackgroundImageContainer = styled.div`
-	position: absolute;
-	height: 250%;
-	width: 100%;
-	z-index: -1;
-	top: 0;
-	left: 0;
-	background-image: url(${image});	
-	${'' /* background-size: cover	; */}
-	background-repeat: no-repeat;
+  position: absolute;
+  height: 250%;
+  width: 100%;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  background-image: url(${image});
+  ${"" /* background-size: cover	; */}
+  background-repeat: no-repeat;
   overflow: hidden;
 `;
-
 
 const GlobalStyle = createGlobalStyle`
 

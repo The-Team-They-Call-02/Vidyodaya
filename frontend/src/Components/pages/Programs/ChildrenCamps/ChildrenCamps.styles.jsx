@@ -2,43 +2,43 @@ import styled from "styled-components";
 import { colorObj } from "../../../../Styles/GlobalStyles";
 
 export const ChildrenCampsContainer = styled.div`
-	padding: 50px 0;
-	background: #fff;
-	filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-	border-radius: 20px;
+  padding: 50px 0;
+  background: #fff;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  border-radius: 20px;
 
-	.children-camps-inner-container {
-		width: 90%;
-		margin: 30px auto;
-		display: flex;
-		flex-direction: column;
-		margin-bottom: 30px;
-		color: ${colorObj.dark};
+  .children-camps-inner-container {
+    width: 90%;
+    margin: 30px auto;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+    color: ${colorObj.dark};
 
-		.camp-buttons-container {
-			display: flex;
-			flex-direction: column;
-			justify-content: space-around;
-			align-items: center;
+    .camp-buttons-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
 
-			.children-camps-btn-link {
-				width: 70%;
-				height: 89px;
-				border-radius: 20px;
-				margin-bottom: 31px;
-				border: 5px solid ${colorObj.green};
-				display: flex;
-				justify-content: center;
-				align-items: center;
-				padding: 0;
-				.children-camps-btn-h3 {
-					display: flex;
-					justify-content: center;
-					align-items: center;
-					color: ${colorObj.green};
-					font-size: 4rem;
-				}
-			}
-		}
-	}
+      .children-camps-btn-link {
+        width: 70%;
+        height: 89px;
+        border-radius: 20px;
+        margin-bottom: 31px;
+        border: 5px solid ${colorObj.green};
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+        .children-camps-btn-h3 {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: ${colorObj.green};
+          font-size: 4rem;
+        }
+      }
+    }
+  }
 `;

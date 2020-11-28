@@ -21,29 +21,26 @@ import { AppContext } from "./context/context";
 // styled-components
 import GlobalStyles from "./Styles/GlobalStyles";
 
-
-
-
 function App() {
-
-  const [articles, addArticles] = useState(
-    [{
+  const [articles, addArticles] = useState([
+    {
       title: "",
       description: "",
-      imgUrl: ""
-    }]
-  );
-  const [articleArray, setArticleArray] = useState([ ])
+      imgUrl: "",
+    },
+  ]);
+  const [articleArray, setArticleArray] = useState([]);
 
   return (
     <Router>
-      <AppContext.Provider 
-      value={{
-        articles,
-        addArticles,
-        articleArray
-        ,setArticleArray
-        }}>
+      <AppContext.Provider
+        value={{
+          articles,
+          addArticles,
+          articleArray,
+          setArticleArray,
+        }}
+      >
         <GlobalStyles />
         <Navbar />
 

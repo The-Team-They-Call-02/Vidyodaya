@@ -9,7 +9,6 @@ import com.opportunity.hack.vidyodaya.models.UserRoles;
 import com.opportunity.hack.vidyodaya.services.RoleService;
 import com.opportunity.hack.vidyodaya.services.UserService;
 import java.util.Locale;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;

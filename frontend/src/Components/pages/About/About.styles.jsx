@@ -25,11 +25,11 @@ export const Container = styled.div`
 `;
 
 export const TextContainer = styled.div`
-text-align: left;
+  text-align: left;
 `;
 
 export const Image = styled.img`
-border-radius: 10px;
-width: 500px;
-margin: 2%;
+  border-radius: 10px;
+  width: 500px;
+  margin: 2%;
 `;

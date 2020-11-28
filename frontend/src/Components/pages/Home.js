@@ -1,13 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import {
-	BannerImg,
-	HeroText,
-	GreenHeader,
-	Spacer,
-	GreenBkg,
-	WhiteBkg,
-	VerticalLine,
+  BannerImg,
+  HeroText,
+  GreenHeader,
+  Spacer,
+  GreenBkg,
+  WhiteBkg,
+  VerticalLine,
 } from "../../Styles/HomeStyle";
 import { colorObj, CenteredDiv } from "../../Styles/GlobalStyles";
 import arrow from "../../Assets/Home/arrow.svg";
@@ -28,253 +28,248 @@ import photo4 from "../../Assets/Home/photo4.jpg";
 import styled from "styled-components";
 
 const HomePage = styled.div`
-	box-sizing: border-box;
-	height: 100%;
-	width: 100%;
-	overflow-x: hidden;
-	div.background-image {
-		position: absolute;
-		height: 100%;
-		width: 100%;
-		z-index: -1;
-		top: 0;
-		left: 0;
-		background-image: url(${homeBG});
-		background-repeat: no-repeat;
-		overflow: hidden;
-		margin-top: 450px;
-	}
-	div.hero-section {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		width: 100%;
-		height: calc(100vh - 150px);
-		margin-top: 150px;
-		padding-right: 4%;
-		background-color: #c4c4c4;
-		color: ${colorObj.light};
-		@media (max-width: 900px) {
-			/* height: calc(30%- 150px); */
-			height: 30vh;
-			width: 100vw;
-			img.child-image {
-				display: flex;
-				justify-self: flex-start;
-				height: 100%;
-			}
-			img.arrow {
-				display: hidden;
-			}
-		}
-		img.child-image {
-			display: flex;
-			justify-self: flex-start;
-			height: 100%;
-		}
-		img.arrow {
-			position: relative;
-			width: 426px;
-			height: 267px;
-			left: -15vh;
-			top: 14.4478vh;
-			width: 400px;
-		}
-		div.hero-donate-section {
-			position: relative;
-			left: -20vh;
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
-			align-items: center;
-		}
-	}
-	div.section1 {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		text-align: center;
-		width: 63.229vw;
-		margin: 0 auto;
-		z-index: -3;
-		p.green-highlight-text {
-			display: flex;
-			background-color: ${colorObj.green};
-		}
-		p.mission-highlight {
-			font-size: 2.4rem;
-			font-weight: 700;
-			text-transform: uppercase;
-		}
-	}
-	div.section2 {
-		display: flex;
-		justify-content: center;
-		align-content: center;
-		position: relative;
-		background-color: ${colorObj.green};
-		z-index: -6;
-		img {
-			z-index: -3;
-			width: 500px;
-			height: 400px;
-		}
-	}
-	div.section-5 {
-		div.impact-images-container {
-			box-sizing: border-box;
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
-			align-items: center;
-			width: 60%;
-			margin: 0 auto;
-			img {
-				width: 100%;
-			}
-		}
-	}
-	button.hero-btn-donate {
-		font-size: 4.8rem;
-		color: #fff;
-		width: 32.9rem;
-		height: 8.3rem;
-		border-radius: 20px;
-		margin: 3rem 0 0 0;
-		cursor: pointer;
-		&:focus {
-			border: unset;
-			outline: unset;
-		}
-	}
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+  div.background-image {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    background-image: url(${homeBG});
+    background-repeat: no-repeat;
+    overflow: hidden;
+    margin-top: 450px;
+  }
+  div.hero-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: calc(100vh - 150px);
+    margin-top: 150px;
+    padding-right: 4%;
+    background-color: #c4c4c4;
+    color: ${colorObj.light};
+    @media (max-width: 900px) {
+      /* height: calc(30%- 150px); */
+      height: 30vh;
+      width: 100vw;
+      img.child-image {
+        display: flex;
+        justify-self: flex-start;
+        height: 100%;
+      }
+      img.arrow {
+        display: hidden;
+      }
+    }
+    img.child-image {
+      display: flex;
+      justify-self: flex-start;
+      height: 100%;
+    }
+    img.arrow {
+      position: relative;
+      width: 426px;
+      height: 267px;
+      left: -15vh;
+      top: 14.4478vh;
+      width: 400px;
+    }
+    div.hero-donate-section {
+      position: relative;
+      left: -20vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+  div.section1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 63.229vw;
+    margin: 0 auto;
+    z-index: -3;
+    p.green-highlight-text {
+      display: flex;
+      background-color: ${colorObj.green};
+    }
+    p.mission-highlight {
+      font-size: 2.4rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+  }
+  div.section2 {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    position: relative;
+    background-color: ${colorObj.green};
+    z-index: -6;
+    img {
+      z-index: -3;
+      width: 500px;
+      height: 400px;
+    }
+  }
+  div.section-5 {
+    div.impact-images-container {
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 60%;
+      margin: 0 auto;
+      img {
+        width: 100%;
+      }
+    }
+  }
+  button.hero-btn-donate {
+    font-size: 4.8rem;
+    color: #fff;
+    width: 32.9rem;
+    height: 8.3rem;
+    border-radius: 20px;
+    margin: 3rem 0 0 0;
+    cursor: pointer;
+    &:focus {
+      border: unset;
+      outline: unset;
+    }
+  }
 `;
 
 const Home = () => {
-	return (
-		<HomePage>
-			<div className="background-image"></div>
-			<div className="hero-section">
-				<img src={child} alt="adivasi child" className="child-image" />
-				<img src={arrow} alt="" className="arrow" />
-				<div className="hero-donate-section">
-					<HeroText>
-						Bring <br />a <br />
-						change!
-					</HeroText>
-					<a
-						href="https://www.payumoney.com/paybypayumoney/#/9F4C7B2FCB7AA9833CAD8D3FDEC46DD7"
-						target="_blank"
-						rel="noreferrer"
-					>
-						<button
-							style={{ color: "#FFFFFF" }}
-							className="hero-btn-donate"
-						>
-							Donate
-						</button>
-					</a>
-				</div>
-			</div>
-			<div className="section1">
-				<Spacer />
-				<GreenHeader>Viswa Bharati Vidyodaya Trust</GreenHeader>
-				<Spacer />
-				<h2>EDUCATING ADIVASI CHILDREN SINCE 1993</h2>
-				<Spacer />
-				<p className="green-highlight-text">
-					Vidyodaya’s mission is to improve the quality of education
-					received by underprivileged children in adivasi
-				</p>
-				<p className="green-highlight-text">
-					communities and to establish a culturally appropriate
-					learning system with active participation of the community.
-				</p>
-				<p className="green-highlight-text">We want to ensure that:</p>
-				<Spacer />
-				<p className="mission-highlight">
-					Every adivasi child completes schooling <br />
-					Every child gets a good education <br />
-					Every child can pursue learning (not only schooling) up to
-					whatever level they desire the supportive and cultural
-					environment for this is facilitated
-				</p>
-				<Spacer />
-			</div>
+  return (
+    <HomePage>
+      <div className="background-image"></div>
+      <div className="hero-section">
+        <img src={child} alt="adivasi child" className="child-image" />
+        <img src={arrow} alt="" className="arrow" />
+        <div className="hero-donate-section">
+          <HeroText>
+            Bring <br />a <br />
+            change!
+          </HeroText>
+          <a
+            href="https://www.payumoney.com/paybypayumoney/#/9F4C7B2FCB7AA9833CAD8D3FDEC46DD7"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <button style={{ color: "#FFFFFF" }} className="hero-btn-donate">
+              Donate
+            </button>
+          </a>
+        </div>
+      </div>
+      <div className="section1">
+        <Spacer />
+        <GreenHeader>Viswa Bharati Vidyodaya Trust</GreenHeader>
+        <Spacer />
+        <h2>EDUCATING ADIVASI CHILDREN SINCE 1993</h2>
+        <Spacer />
+        <p className="green-highlight-text">
+          Vidyodaya’s mission is to improve the quality of education received by
+          underprivileged children in adivasi
+        </p>
+        <p className="green-highlight-text">
+          communities and to establish a culturally appropriate learning system
+          with active participation of the community.
+        </p>
+        <p className="green-highlight-text">We want to ensure that:</p>
+        <Spacer />
+        <p className="mission-highlight">
+          Every adivasi child completes schooling <br />
+          Every child gets a good education <br />
+          Every child can pursue learning (not only schooling) up to whatever
+          level they desire the supportive and cultural environment for this is
+          facilitated
+        </p>
+        <Spacer />
+      </div>
 
-			<div className="section2">
-				<img src={photo1} alt="child smile" className="photo1" />
-				<img src={photo2} alt="teach" className="photo2" />
-				<img src={photo3} alt="colab" className="photo3" />
-				<img src={photo4} alt="amaze" className="photo4" />
-			</div>
+      <div className="section2">
+        <img src={photo1} alt="child smile" className="photo1" />
+        <img src={photo2} alt="teach" className="photo2" />
+        <img src={photo3} alt="colab" className="photo3" />
+        <img src={photo4} alt="amaze" className="photo4" />
+      </div>
 
-			<BannerImg>
-				<GreenBkg>
-					<Link to="/get-involved">
-						<h1>Get Involved</h1>
-					</Link>
-				</GreenBkg>
-				<WhiteBkg style={{ padding: "4% 2%", margin: "0 10%" }}>
-					<CenteredDiv style={{ marginLeft: "2%" }}>
-						<Link to="/get-involved/volunteer">
-							<h2>Volunteer</h2>
-						</Link>
-						<Spacer />
-						<p>
-							Anyone can volunteer! As long as you love working
-							with children. Vidyodaya provides a unique
-							opportunity for volunteers to be involved with our
-							work here. Join us for internship, research, or
-							volunteer your talents!
-						</p>
-					</CenteredDiv>
-					<VerticalLine></VerticalLine>
-					<CenteredDiv style={{ margin: "0 7%" }}>
-						<Link to="/get-involved/donations">
-							<h2>Donate</h2>
-						</Link>
-						<Spacer />
-						<p>
-							Your support keeps us going! Whether you like to
-							support a child education, support a teacher, or
-							just to donate clothes, it helps us help those in
-							need.
-						</p>
-					</CenteredDiv>
-				</WhiteBkg>
-			</BannerImg>
+      <BannerImg>
+        <GreenBkg>
+          <Link to="/get-involved">
+            <h1>Get Involved</h1>
+          </Link>
+        </GreenBkg>
+        <WhiteBkg style={{ padding: "4% 2%", margin: "0 10%" }}>
+          <CenteredDiv style={{ marginLeft: "2%" }}>
+            <Link to="/get-involved/volunteer">
+              <h2>Volunteer</h2>
+            </Link>
+            <Spacer />
+            <p>
+              Anyone can volunteer! As long as you love working with children.
+              Vidyodaya provides a unique opportunity for volunteers to be
+              involved with our work here. Join us for internship, research, or
+              volunteer your talents!
+            </p>
+          </CenteredDiv>
+          <VerticalLine></VerticalLine>
+          <CenteredDiv style={{ margin: "0 7%" }}>
+            <Link to="/get-involved/donations">
+              <h2>Donate</h2>
+            </Link>
+            <Spacer />
+            <p>
+              Your support keeps us going! Whether you like to support a child
+              education, support a teacher, or just to donate clothes, it helps
+              us help those in need.
+            </p>
+          </CenteredDiv>
+        </WhiteBkg>
+      </BannerImg>
 
-			<CenteredDiv>
-				<GreenBkg>
-					<Link to="/get-involved/donations">
-						<h1>Your Impact</h1>
-					</Link>
-				</GreenBkg>
-				<Spacer />
-				<div className="section-5">
-					<div className="impact-images-container">
-						<img src={impact1} alt="Suport a child's education" />
-						<img src={impact2} alt="Support a Teacher" />
-						<img src={impact3} alt="Warm Clothes" />
-						<img src={impact4} alt="3 day excursion" />
-						<img src={impact5} alt="Childrens Feast" />
-						<img src={impact6} alt="Notebooks" />
-						<img src={impact7} alt="Scholarships" />
-					</div>
-				</div>
-				<Spacer />
-			</CenteredDiv>
-			<CenteredDiv>
-				<GreenBkg>
-					<Link to="/articles">
-						<h1>Updates</h1>
-					</Link>
-				</GreenBkg>
-				{/* <p style={{backgroundColor: "gray", height: "500px", width: "100%"}}>Map new posts here</p> */}
-			</CenteredDiv>
-		</HomePage>
-	);
+      <CenteredDiv>
+        <GreenBkg>
+          <Link to="/get-involved/donations">
+            <h1>Your Impact</h1>
+          </Link>
+        </GreenBkg>
+        <Spacer />
+        <div className="section-5">
+          <div className="impact-images-container">
+            <img src={impact1} alt="Suport a child's education" />
+            <img src={impact2} alt="Support a Teacher" />
+            <img src={impact3} alt="Warm Clothes" />
+            <img src={impact4} alt="3 day excursion" />
+            <img src={impact5} alt="Childrens Feast" />
+            <img src={impact6} alt="Notebooks" />
+            <img src={impact7} alt="Scholarships" />
+          </div>
+        </div>
+        <Spacer />
+      </CenteredDiv>
+      <CenteredDiv>
+        <GreenBkg>
+          <Link to="/articles">
+            <h1>Updates</h1>
+          </Link>
+        </GreenBkg>
+        {/* <p style={{backgroundColor: "gray", height: "500px", width: "100%"}}>Map new posts here</p> */}
+      </CenteredDiv>
+    </HomePage>
+  );
 };
 
 export default Home;
