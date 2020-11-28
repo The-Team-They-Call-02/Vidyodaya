@@ -1,5 +1,33 @@
 # Team-02: Vidyodaya
 
+<!-- markdown-toc start - Don't edit this section. Run M-x markdown-toc-refresh-toc -->
+
+**Table of Contents**
+
+- [Team-02: Vidyodaya](#team-02-vidyodaya)
+  - [Deployment Status](#deployment-status)
+    - [Front end:](#front-end)
+  - [Check out the live site!](#check-out-the-live-site)
+  - [About Vidyodaya](#about-vidyodaya)
+  - [What We Are Building: Front End](#what-we-are-building-front-end)
+  - [What We Are Building: Back End](#what-we-are-building-back-end)
+  - [How We Built It](#how-we-built-it)
+  - [Challenges We Ran Into](#challenges-we-ran-into)
+  - [Accomplishments We Are Proud Of](#accomplishments-we-are-proud-of)
+  - [Our Members](#our-members)
+  - [How We Addressed Each Of The Judging Criteria:](#how-we-addressed-each-of-the-judging-criteria)
+    - [CSV / FILE UPLOAD-DOWNLOAD](#csv--file-upload-download)
+    - [PROBLEM STATEMENT](#problem-statement)
+    - [DOCUMENTATION](#documentation)
+    - [SECURITY](#security)
+    - [POLISH](#polish)
+- [Front end Deployment Instructions (Heroku)](#front-end-deployment-instructions-heroku)
+  - [Creating the app](#creating-the-app)
+  - [Setting up the build](#setting-up-the-build)
+  - [Setting up continuous integration](#setting-up-continuous-integration)
+
+<!-- markdown-toc end -->
+
 ## Deployment Status
 
 ### Front end:
@@ -40,7 +68,7 @@ clicking on the image below.
 
 Below you can see our database table layout for the back end.
 
-[![Database Tables](https://raw.githubusercontent.com/2020-opportunity-hack/Team-02/main/backend/DatabaseSchema.png)]
+![Database Tables](https://raw.githubusercontent.com/2020-opportunity-hack/Team-02/main/backend/DatabaseSchema.png)
 
 ## How We Built It
 
@@ -155,3 +183,73 @@ Some features we would still want to add are:
 7. A form to add Committee members to the committee page
 8. Password recovery for admins
 9. A fully mobile responsive website
+
+# Front end Deployment Instructions (Heroku)
+
+These instructions will create a Heroku deployment for the front end, linked
+to a GitHub repository and set to automatically deploy commits to main. They
+require the Heroku CLI to be installed. In examples, replace examples names
+and keys with actual names and keys as necessary.
+
+## Creating the app
+
+First, create the app, set it to use the most current stack, and set the
+OAuth2 environment variables.
+
+```sh
+heroku create vidyodaya
+heroku stack:set heroku-20 -a vidyodaya
+heroku config:set REACT_APP_CLIENT=sample-client -a vidyodaya
+heroku config:set REACT_APP_SECRET=sample-secret -a vidyodaya
+```
+
+## Setting up the build
+
+The standard Heroku pipeline doesn't work with our repository for
+automatic deployments from GitHub because it contains multiple
+projects in subdirectories, so we use Alexey Timanovsky's excellent
+`subdir-heroku-buildpack` which makes deploying from a subdirectory
+almost painless. Because Heroku cannot detect the type of a project in
+a subdirectory, we also explicitly set the build type to nodejs, and
+we set the exact directory that contains the front end project.
+
+```sh
+heroku buildpacks:set https://github.com/timanovsky/subdir-heroku-buildpack -a vidyodaya
+heroku buildpacks:add heroku/nodejs -a vidyodaya
+
+```
+
+## Setting up continuous integration
+
+Next, we set up continuous integration with Heroku. This can only be
+done from the Heroku web interface. Some of these steps may have
+already been completed if you have previously connected Heroku to a
+GitHub repository.
+
+Log into Heroku and select your project, the go to the `Deploy` tab and click on `Connect to GitHub` in the `Connect to GitHub section.
+
+![Click on Connect to GitHub](assets/connect-to-github.png)
+
+On the GitHub authorization screen that comes up, authorize Heroku's
+access, being sure to grant access to your organization if necessary.
+
+Under `Connect to GitHub`, type in the repository name and, if
+necessary, select your organization. Press the search button and then
+click on the `Connect` button that comes up. If the connect button
+does not come up or if it shows up for the wrong repository, make sure
+you have selected the correct organization and typed the name
+correctly in the `Search` area.
+
+![Click on Connect](assets/connect-repository.png)
+
+Make sure you have `main` (or whichever branch you want to
+automatically deploy from) selected on the deployment menu that
+appears (blue circle). Click on `Enable Automatic Deploys` (green
+circle). Heroku will now automatically redeploy whenever changes are
+pushed to the selected branch. Finally, click on `Deploy Branch` (red
+circle) to make the initial deployment.
+
+![Deploy](assets/deploy.png)
+
+<!--  LocalWords:  subdir heroku vidyodaya nodejs Zuri's
+ -->
