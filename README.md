@@ -1,5 +1,11 @@
 # Team-02: Vidyodaya
 
+## Deployment Status
+
+### Front end:
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/2bb75909-e750-401e-be28-943b29b5cd0f/deploy-status)](https://app.netlify.com/sites/vidyodaya/deploys)
+
 ## Check out the live site!
 
 https://vidyodaya.netlify.app/
