@@ -76,6 +76,12 @@ const LoginContainer = styled.div`
   }
 `;
 
+// load client and secret from the environment
+const client = process.env.REACT_APP_CLIENT,
+  secret = process.env.REACT_APP_SECRET;
+
+const clientSecret = `${client}:${secret}`;
+
 const Login = () => {
   const { register, errors } = useForm();
   const [credentials, setCredentials] = useState({
@@ -93,9 +99,7 @@ const Login = () => {
         {
           headers: {
             // btoa is converting our client id/client secret into base64
-            Authorization: `Basic ${btoa(
-              "{process.env.REACT_APP_CLIENT}:{process.env.REACT_APP_SECRET}"
-            )}`,
+            Authorization: `Basic ${btoa(clientSecret)}`,
             "Content-Type": "application/x-www-form-urlencoded",
           },
         }
