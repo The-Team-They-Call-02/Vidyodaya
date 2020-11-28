@@ -6,9 +6,13 @@ https://vidyodaya.netlify.app/
 
 ## About Vidyodaya
 
-Vidyodaya's mission is to improve the quality of education received by underprivileged children in Adivasi communities and to establish a culturally appropriate learning system with active participation of the community.
+Vidyodaya's mission is to improve the quality of education received by
+underprivileged children in Adivasi communities and to establish a
+culturally appropriate learning system with active participation of
+the community.
 
-Our task is to create a website for Vidyodaya that is more appealing and user-friendly for new visitors.
+Our task is to create a website for Vidyodaya that is more appealing
+and user-friendly for new visitors.
 
 Requested Features:
 
@@ -21,7 +25,8 @@ Requested Features:
 
 ## What We Are Building: Front End
 
-We created an initial design in Figma which you can experience by clicking on the image below.
+We created an initial design in Figma which you can experience by
+clicking on the image below.
 
 [![Home Page](https://challengepost-s3-challengepost.netdna-ssl.com/photos/production/software_photos/001/294/588/datas/gallery.jpg)](https://www.figma.com/file/8FMdNta6L6CoZy0Z44XeZz/Vidyodaya-Website-Redesign?node-id=1%3A64)
 
