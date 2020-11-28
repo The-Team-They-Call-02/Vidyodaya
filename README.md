@@ -40,7 +40,7 @@ clicking on the image below.
 
 Below you can see our database table layout for the back end.
 
-[![Database Tables](https://raw.githubusercontent.com/2020-opportunity-hack/Team-02/main/backend/DatabaseSchema.png)]
+![Database Tables](https://raw.githubusercontent.com/2020-opportunity-hack/Team-02/main/backend/DatabaseSchema.png)
 
 ## How We Built It
 
