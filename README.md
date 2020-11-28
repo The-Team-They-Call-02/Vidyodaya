@@ -1,5 +1,33 @@
 # Team-02: Vidyodaya
 
+<!-- markdown-toc start - Don't edit this section. Run M-x markdown-toc-refresh-toc -->
+
+**Table of Contents**
+
+- [Team-02: Vidyodaya](#team-02-vidyodaya)
+  - [Deployment Status](#deployment-status)
+    - [Front end:](#front-end)
+  - [Check out the live site!](#check-out-the-live-site)
+  - [About Vidyodaya](#about-vidyodaya)
+  - [What We Are Building: Front End](#what-we-are-building-front-end)
+  - [What We Are Building: Back End](#what-we-are-building-back-end)
+  - [How We Built It](#how-we-built-it)
+  - [Challenges We Ran Into](#challenges-we-ran-into)
+  - [Accomplishments We Are Proud Of](#accomplishments-we-are-proud-of)
+  - [Our Members](#our-members)
+  - [How We Addressed Each Of The Judging Criteria:](#how-we-addressed-each-of-the-judging-criteria)
+    - [CSV / FILE UPLOAD-DOWNLOAD](#csv--file-upload-download)
+    - [PROBLEM STATEMENT](#problem-statement)
+    - [DOCUMENTATION](#documentation)
+    - [SECURITY](#security)
+    - [POLISH](#polish)
+- [Front end Deployment Instructions (Heroku)](#front-end-deployment-instructions-heroku)
+  - [Creating the app](#creating-the-app)
+  - [Setting up the build](#setting-up-the-build)
+  - [Setting up continuous integration](#setting-up-continuous-integration)
+
+<!-- markdown-toc end -->
+
 ## Deployment Status
 
 ### Front end:
