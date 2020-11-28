@@ -15,18 +15,18 @@ const Form = styled.form`
 `;
 
 const AlignImage = styled.div`
-display: flex;
-flex-direction: row;
-justify-content: space-between;
-margin: 50px 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 50px 0;
 `;
 
 const UploadedImage = styled.img`
-width: 500px;
-height: 400px;
-padding: 0;
-border: solid black 4px;
-border-radius: 10px;
+  width: 500px;
+  height: 400px;
+  padding: 0;
+  border: solid black 4px;
+  border-radius: 10px;
 `;
 
 const TwoRows = styled.div`
@@ -36,7 +36,7 @@ const TwoRows = styled.div`
   justify-content: space-around;
   align-items: flex-start;
   margin: 50px 0;
-    `;
+`;
 
 const Rows = styled.div`
   margin-bottom: 50px;
@@ -129,17 +129,17 @@ const AddBtn = styled.button`
 `;
 
 const FileBtn = styled.div`
-    background-color: ${colorObj.green};
-    color: ${colorObj.light};
-    border-radius: 10px;
-    border: none;
-    width: 12rem;
-    height: 3rem;
-    text-transform: uppercase;
-    font-weight: 700;
-    font-size: 1.5rem;
-    position: relative;
-    margin-left: 38%;
+  background-color: ${colorObj.green};
+  color: ${colorObj.light};
+  border-radius: 10px;
+  border: none;
+  width: 12rem;
+  height: 3rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 1.5rem;
+  position: relative;
+  margin-left: 38%;
 `;
 
 export {

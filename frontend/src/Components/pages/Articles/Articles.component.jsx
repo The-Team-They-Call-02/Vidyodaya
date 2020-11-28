@@ -10,15 +10,15 @@ import EditArticle from "./Edit/EditArticle.component";
 import { MainContainer } from "./Articles.styles";
 
 const Articles = () => {
-    return (
-        <MainContainer>
-            <Switch>
-                <Route path="/articles/create-article" component={CreateArticle} />
-                <Route path="/articles/edit-article/:id" component={EditArticle} />
-                <Route path="/articles/" component={ArticlesHome} />
-            </Switch>
-        </MainContainer>
-    );
+  return (
+    <MainContainer>
+      <Switch>
+        <Route path="/articles/create-article" component={CreateArticle} />
+        <Route path="/articles/edit-article/:id" component={EditArticle} />
+        <Route path="/articles/" component={ArticlesHome} />
+      </Switch>
+    </MainContainer>
+  );
 };
 
 export default Articles;

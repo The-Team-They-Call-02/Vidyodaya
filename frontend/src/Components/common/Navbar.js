@@ -18,11 +18,10 @@ import { FaFacebookSquare } from "react-icons/fa";
 const Navbar = () => {
   const history = useHistory();
   const logout = () => {
-		localStorage.clear("token");
+    localStorage.clear("token");
     history.push("/");
     window.location.reload();
   };
-
 
   return (
     <NavbarStyle>
@@ -48,21 +47,22 @@ const Navbar = () => {
       <NavLink to="/contact">
         <NavText>Contact</NavText>
       </NavLink>
-      { localStorage.getItem("token") ? 
-        (<div onClick={logout} style={{cursor: "pointer"}}>
+      {localStorage.getItem("token") ? (
+        <div onClick={logout} style={{ cursor: "pointer" }}>
           <NavText>Logout</NavText>
-        </div>) : 
-        (<NavLink to="/login">
-        <NavText>Login</NavText>
-      </NavLink>)
-    }
+        </div>
+      ) : (
+        <NavLink to="/login">
+          <NavText>Login</NavText>
+        </NavLink>
+      )}
       <a
         href="https://www.payumoney.com/paybypayumoney/#/9F4C7B2FCB7AA9833CAD8D3FDEC46DD7"
         target="_blank"
         rel="noreferrer"
-        style={{cursor: "pointer"}}
+        style={{ cursor: "pointer" }}
       >
-        <button style={{cursor: "pointer"}}>Donate</button>
+        <button style={{ cursor: "pointer" }}>Donate</button>
       </a>
 
       <SocialIconsContainer>

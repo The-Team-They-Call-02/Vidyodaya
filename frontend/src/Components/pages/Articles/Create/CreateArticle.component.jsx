@@ -5,7 +5,6 @@ import axios from "axios";
 import AxiosWithAuth from "../../../../Utils/AxiosWithAuth";
 import { AppContext } from "../../../../context/context";
 
-
 // styled-components
 import {
   Container,
@@ -30,16 +29,17 @@ import {
   UploadContainer,
   FileContainer,
   AddBtn,
-  UploadedImage
+  UploadedImage,
 } from "./CreateArticle.styles";
 
 import InsertImage from "../../../../Assets/Articles/InsertImage.svg";
 
-
 const CreateArticle = () => {
   const history = useHistory();
   const { handleSubmit, register, errors, reset } = useForm();
-  const  { articles, addArticles, articleArray, setArticleArray } = useContext(AppContext);
+  const { articles, addArticles, articleArray, setArticleArray } = useContext(
+    AppContext
+  );
 
   console.log(articles);
   const [file, setFile] = useState();
@@ -58,10 +58,10 @@ const CreateArticle = () => {
   };
 
   const loadFile = (e) => {
-      e.preventDefault();
-      let image = document.getElementById('output');
-      image.src = URL.createObjectURL(e.target.files[0]);
-  }
+    e.preventDefault();
+    let image = document.getElementById("output");
+    image.src = URL.createObjectURL(e.target.files[0]);
+  };
 
   const onSubmit = (values, e) => {
     e.preventDefault();
@@ -85,27 +85,25 @@ const CreateArticle = () => {
     //     reset();
     //   });
 
+    AxiosWithAuth()
+      .post("/articles/article", articles)
+      .then((res) => {
+        // mutate original values
+        // console.log("result", articles)
+        // const newValues = { ...values, file: res.data.url };
+        // console.log("VALUES -> ", newValues);
+        // reset();
+      })
+      .catch((err) => {
+        console.log(`This is the error: ${err}`);
+        // reset();
+      });
+  };
 
-  AxiosWithAuth()
-  .post("/articles/article", articles)
-  .then((res) => {
-    // mutate original values
-    // console.log("result", articles)
-    // const newValues = { ...values, file: res.data.url };
-    // console.log("VALUES -> ", newValues);
-    // reset();
-  })
-  .catch((err) => {
-    console.log(`This is the error: ${err}`);
-    // reset();
-  });
-};
-
-const onChange = (e) => {
-  console.log(e.target.value)
-  addArticles({ ...articles, [e.target.name]: e.target.value })
-
-}
+  const onChange = (e) => {
+    console.log(e.target.value);
+    addArticles({ ...articles, [e.target.name]: e.target.value });
+  };
 
   const handleChange = (e) => {
     const { files } = e.target;
@@ -128,43 +126,55 @@ const onChange = (e) => {
 
       <FormContainer>
         <Form onSubmit={handleSubmit(onSubmit)}>
-        <AlignImage>
-          {/* image */}
-          <div>
-            <UploadedImage id="output" src={InsertImage} />
-            <FileBtn>
-                <p style={{position: "absolute", paddingTop: "5px", paddingLeft: "12px"}}>Choose File</p>
-                <input 
-                type="file" 
-                accept="image/" 
-                name="imgUrl" 
-                value={articles.imgUrl}
-                style={{paddingTop: "5px", paddingLeft: "15px", opacity: "0"}} 
-                onChange={onChange}
-                ref={(ref) => {
-                  uploader.current = ref;
-                  register({ required: true });
-                }}></input>
-            </FileBtn>
-          </div>
-          <TwoRows>
-            {/* title  */}
-            <InputWrapper full>
-              <Label htmlFor="title">Enter Title</Label>
-              <InputField
-                type="text"
-                id="title"
-                value={articles.title}
-                name="title"
-                ref={register({ required: true })}
-                onChange={onChange}
-              />
-              {errors.title && <ErrorMsg>Please enter a title</ErrorMsg>}
-            </InputWrapper>
-
-          </TwoRows>
+          <AlignImage>
+            {/* image */}
+            <div>
+              <UploadedImage id="output" src={InsertImage} />
+              <FileBtn>
+                <p
+                  style={{
+                    position: "absolute",
+                    paddingTop: "5px",
+                    paddingLeft: "12px",
+                  }}
+                >
+                  Choose File
+                </p>
+                <input
+                  type="file"
+                  accept="image/"
+                  name="imgUrl"
+                  value={articles.imgUrl}
+                  style={{
+                    paddingTop: "5px",
+                    paddingLeft: "15px",
+                    opacity: "0",
+                  }}
+                  onChange={onChange}
+                  ref={(ref) => {
+                    uploader.current = ref;
+                    register({ required: true });
+                  }}
+                ></input>
+              </FileBtn>
+            </div>
+            <TwoRows>
+              {/* title  */}
+              <InputWrapper full>
+                <Label htmlFor="title">Enter Title</Label>
+                <InputField
+                  type="text"
+                  id="title"
+                  value={articles.title}
+                  name="title"
+                  ref={register({ required: true })}
+                  onChange={onChange}
+                />
+                {errors.title && <ErrorMsg>Please enter a title</ErrorMsg>}
+              </InputWrapper>
+            </TwoRows>
           </AlignImage>
- 
+
           {/* description */}
           <Rows>
             <InputWrapper full>
@@ -189,6 +199,5 @@ const onChange = (e) => {
     </Container>
   );
 };
-
 
 export default CreateArticle;

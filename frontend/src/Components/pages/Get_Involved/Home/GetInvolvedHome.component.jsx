@@ -16,8 +16,9 @@ import { BackgroundImageContainer } from "../../../../Styles/GlobalStyles";
 const GetInvolvedHome = () => {
   return (
     <Container>
-    <BackgroundImageContainer style={{marginTop: "0", height: "100%"}}>
-			</BackgroundImageContainer>
+      <BackgroundImageContainer
+        style={{ marginTop: "0", height: "100%" }}
+      ></BackgroundImageContainer>
       <HeadingContainer>
         <Heading>Get Involved</Heading>
       </HeadingContainer>

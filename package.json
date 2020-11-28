@@ -1,0 +1,29 @@
+{
+  "name": "vidyodaya",
+  "version": "0.1.0",
+  "description": "Viswa Bharati Vidyodaya Trust website",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/2020-opportunity-hack/Team-02.git"
+  },
+  "author": "Team Name",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/2020-opportunity-hack/Team-02/issues"
+  },
+  "homepage": "https://github.com/2020-opportunity-hack/Team-02#readme",
+  "devDependencies": {
+    "husky": "^4.3.0",
+    "lint-staged": "^10.5.2",
+    "prettier": "^2.2.0",
+    "prettier-plugin-java": "^1.0.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx,html,css,md,java,ts,less,scss,vue,json}": "prettier --write"
+  }
+}
