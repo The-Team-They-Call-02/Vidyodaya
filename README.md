@@ -210,12 +210,13 @@ automatic deployments from GitHub because it contains multiple
 projects in subdirectories, so we use Alexey Timanovsky's excellent
 `subdir-heroku-buildpack` which makes deploying from a subdirectory
 almost painless. Because Heroku cannot detect the type of a project in
-a subdirectory, we also explicitly set the build type to nodejs, and
+a subdirectory, we also explicitly set the build type to a buildpack
+specifically designed to handle apps create with create-react-app, and
 we set the exact directory that contains the front end project.
 
 ```sh
 heroku buildpacks:set https://github.com/timanovsky/subdir-heroku-buildpack -a vidyodaya
-heroku buildpacks:add heroku/nodejs -a vidyodaya
+heroku buildpacks:add mars/create-react-app -a vidyodaya
 
 ```
 
