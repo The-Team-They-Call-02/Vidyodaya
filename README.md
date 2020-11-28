@@ -57,48 +57,79 @@ The project for **Vidyodaya** is hosted on:
 
 ## Challenges We Ran Into
 
-Initially we started out working on the Zuri's Circle project which we thought was a Website project. When we understood that it was supposed to be an Mobile App we looked for solutions to build it with our current skillsets. Ultimately we determined we were not currently up to the challenge of picking up new languages so quickly, and we ended up changing to the Vidyodaya project. This left us with only 4 days to complete the project instead of the original 7 days.
+Initially we started out working on the Zuri's Circle project which we
+thought was a Website project. When we understood that it was supposed
+to be an Mobile App we looked for solutions to build it with our
+current skillsets. Ultimately we determined we were not currently up
+to the challenge of picking up new languages so quickly, and we ended
+up changing to the Vidyodaya project. This left us with only 4 days to
+complete the project instead of the original 7 days.
 
 ## Accomplishments We Are Proud Of
 
-We are extremely proud of our communication skills and quick work, considering how little time we had to pull this together. Our entire team was excellent to work with.
+We are extremely proud of our communication skills and quick work,
+considering how little time we had to pull this together. Our entire
+team was excellent to work with.
 
 ## Our Members
 
-Some of our team members had to leave mid-week, and other members replaced them so that is why you will see more than the maximum of 5 team members.
+Some of our team members had to leave mid-week, and other members
+replaced them so that is why you will see more than the maximum of 5
+team members.
 
-- [Christian Bautista](https://www.linkedin.com/in/christianbautista/) - Leader and Design Extraordinaire / Front-End, Design, Client Relations
-- [Emily Adams](https://www.linkedin.com/in/emilyadamsprofile/) - Lady of Documentation / Front-End, Back-End, Database Design
-- [Marlon Del Rosario](https://www.linkedin.com/in/mpaolodr/) - Styling & Form Powerhouse / Front-End
-- [Harry Henry Gebel](https://www.linkedin.com/in/harryhenrygebel/) - Back End Sorcerer / Back-End
-- [Julliann Dulay](https://www.linkedin.com/in/jullianndulay/) - Data Table Maniac / Back-End
-- [Emily Gauthier](https://www.linkedin.com/in/emily-gauthier-7013/) - Front End Queen / Front-End
+- [Christian Bautista](https://www.linkedin.com/in/christianbautista/) - Leader
+  and Design Extraordinaire / Front-End, Design, Client Relations
+- [Emily Adams](https://www.linkedin.com/in/emilyadamsprofile/) - Lady
+  of Documentation / Front-End, Back-End, Database Design
+- [Marlon Del Rosario](https://www.linkedin.com/in/mpaolodr/) -
+  Styling & Form Powerhouse / Front-End
+- [Harry Henry Gebel](https://www.linkedin.com/in/harryhenrygebel/) -
+  Back End Sorcerer / Back-End
+- [Julliann Dulay](https://www.linkedin.com/in/jullianndulay/) - Data
+  Table Maniac / Back-End
+- [Emily Gauthier](https://www.linkedin.com/in/emily-gauthier-7013/) -
+  Front End Queen / Front-End
 
 ## How We Addressed Each Of The Judging Critera:
 
 ### CSV / FILE UPLOAD-DOWNLOAD
 
-NPOs can easily download information about their volunteers in a CSV format which will be updated by the volunteer form on the website. There currently is no need for any other information to be downloaded, but it would be simple to add.
+NPOs can easily download information about their volunteers in a CSV
+format which will be updated by the volunteer form on the
+website. There currently is no need for any other information to be
+downloaded, but it would be simple to add.
 
 ### PROBLEM STATEMENT
 
-Our task was to create a website for Vidyodaya that is more appealing and user-friendly for new visitors. Their current website has many buried tabs and it is difficult for users to find what they are looking for.
-We modernized the current website and made it more kid-friendly, yet containing tribal elements that the NPO requested.
+Our task was to create a website for Vidyodaya that is more appealing
+and user-friendly for new visitors. Their current website has many
+buried tabs and it is difficult for users to find what they are
+looking for. We modernized the current website and made it more
+kid-friendly, yet containing tribal elements that the NPO requested.
 
 ### DOCUMENTATION
 
-Since we paired down how many pages existed on the site, and improved the navigation to various web pages, this made it easy for both the admins and the visitors to find what they are looking for.
-In addition we prepared backend documentation for any future programmers working on this website.
+Since we paired down how many pages existed on the site, and improved
+the navigation to various web pages, this made it easy for both the
+admins and the visitors to find what they are looking for. In
+addition we prepared backend documentation for any future programmers
+working on this website.
 
 ### SECURITY
 
-We created a secure login for admins using OAuth2, and the ability for new admins to be created.
+We created a secure login for admins using OAuth2, and the ability for
+new admins to be created.
+
 Only Admins have the ability to add and remove files from the site.
 
 ### POLISH
 
-The NPO could use this site as their own starting today. The backend is currently deployed with Heroku and the front end is deployed on Netlify. The main features of the site are fully functional.
+The NPO could use this site as their own starting today. The backend
+is currently deployed with Heroku and the front end is deployed on
+Netlify. The main features of the site are fully functional.
+
 Some features we would still want to add are:
+
 1.) News Letter sign up
 2.) Chat Feature (to have more active engagement with visitors of the site)
 3.) Visitor Login
