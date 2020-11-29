@@ -1,0 +1,5 @@
+[build]
+  base = "frontend/"
+  publish = "build/"
+  command = "CI= run build"
+  ignore = "/bin/false" # fix CI badge error where canceled = failed
