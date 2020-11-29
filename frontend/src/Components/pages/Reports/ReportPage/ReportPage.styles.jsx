@@ -1,4 +1,4 @@
-import styled, { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from "styled-components";
 import { colorObj } from "../../../../Styles/GlobalStyles";
 
 const ReportPageStyles = createGlobalStyle`

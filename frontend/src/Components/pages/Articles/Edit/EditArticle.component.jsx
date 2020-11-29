@@ -1,7 +1,6 @@
-import React, { useState, useRef, useContext, useEffect } from "react";
+import React, { useRef, useContext, useEffect } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import axios from "axios";
 import { AppContext } from "../../../../context/context";
 
 // styled-components
@@ -22,11 +21,8 @@ import {
   InputWrapper,
   InputField,
   TextareaField,
-  Select,
   Label,
   ErrorMsg,
-  UploadContainer,
-  FileContainer,
   AddBtn,
   UploadedImage,
 } from "../Create/CreateArticle.styles";
@@ -36,11 +32,11 @@ import AxiosWithAuth from "../../../../Utils/AxiosWithAuth";
 
 const EditArticle = () => {
   const history = useHistory();
-  const { handleSubmit, register, errors, reset } = useForm();
+  const { handleSubmit, register, errors } = useForm();
   const { articles, addArticles, articleArray, setArticleArray } = useContext(
     AppContext
   );
-  const [file, setFile] = useState();
+  // const [file, setFile] = useState();
   const { id } = useParams();
   console.log("articles", articles);
   // hardcode for now
@@ -69,12 +65,13 @@ const EditArticle = () => {
         console.log("res", res.data);
         addArticles(res.data);
       });
-  }, []);
+  }, [addArticles, id]);
 
   const onSubmit = (values, e) => {
     e.preventDefault();
     const data = new FormData();
-    data.append("file", file);
+    // TODO file unassigned, purpose?
+    // data.append("file", file);
     data.append("upload_preset", `${process.env.REACT_APP_PRESET}`);
     data.append("folder", "files"); // folder name
 
@@ -114,14 +111,16 @@ const EditArticle = () => {
     console.log(e.target.value);
     addArticles({ ...articles, [e.target.name]: e.target.value });
   };
-  const handleChange = (e) => {
-    const { files } = e.target;
-    const filesList = [];
-    Array.from(files).forEach((file) => {
-      filesList.push(file);
-    });
-    setFile(filesList[0]);
-  };
+
+  // TODO unused, delete?
+  // const handleChange = (e) => {
+  //   const { files } = e.target;
+  //   const filesList = [];
+  //   Array.from(files).forEach((file) => {
+  //     filesList.push(file);
+  //   });
+  //   setFile(filesList[0]);
+  // };
 
   // uploader
   const uploader = useRef();

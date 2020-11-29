@@ -153,12 +153,17 @@ const Footer = () => {
       <Social>
         <img src={logo} alt="" style={{ height: "300px" }} />
         <Icons>
-          <a href="https://www.facebook.com/VidyodayaGudalur" target="_blank">
+          <a
+            href="https://www.facebook.com/VidyodayaGudalur"
+            target="_blank"
+            rel="noreferrer"
+          >
             <FaFacebookSquare color="white" size="50px" />
           </a>
           <a
             href="https://www.youtube.com/user/VidyodayaGudalur"
             target="_blank"
+            rel="noreferrer"
           >
             <FaYoutubeSquare color="white" size="50px" />
           </a>

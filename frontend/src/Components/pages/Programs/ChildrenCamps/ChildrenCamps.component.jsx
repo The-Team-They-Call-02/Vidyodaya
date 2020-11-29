@@ -1,9 +1,6 @@
 import React from "react";
 import { useHistory, Link } from "react-router-dom";
 
-// components
-// import CampCard from "./CampCard/CampCard.component";
-
 // styled components
 import {
   Container,
@@ -16,8 +13,6 @@ import {
 } from "../Programs.styles";
 import { ChildrenCampsContainer } from "./ChildrenCamps.styles";
 import { FaPlus } from "react-icons/fa";
-
-import CampCard from "./CampCard/CampCard.component";
 
 //DUMMY DATA
 const campsData = [

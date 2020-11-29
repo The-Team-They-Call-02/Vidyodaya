@@ -29,7 +29,7 @@ const Financial = (props) => {
     });
 
     setYears(temp);
-  }, []);
+  }, [reports]);
 
   const goBack = () => {
     history.push("/reports");

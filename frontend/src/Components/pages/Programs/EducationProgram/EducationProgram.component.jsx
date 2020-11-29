@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useHistory } from "react-router-dom";
 
 import Sarva from "../../../../Assets/Programs/Sarva.svg";
@@ -190,6 +190,7 @@ const EducationProgram = () => {
           frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowfullscreen
+          title="Adivasi Foundation Course, Gudalur"
         ></iframe>
         <br />
 
@@ -214,7 +215,12 @@ const EducationProgram = () => {
           </p>
           <br />
         </TextContainer>
-        <img src={nioosc} style={{ width: "800px" }} className="NIOOSC-image" />
+        <img
+          alt="National Institute of Open Schooling"
+          src={nioosc}
+          style={{ width: "800px" }}
+          className="NIOOSC-image"
+        />
       </EducationContainer>
       <ProgramDonateContainer>
         <h5 className="program-donations-text">

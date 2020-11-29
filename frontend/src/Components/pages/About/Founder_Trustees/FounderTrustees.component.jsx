@@ -1,11 +1,5 @@
 import React from "react";
-import {
-  Header,
-  MainContainer,
-  Container,
-  TextContainer,
-  Image,
-} from "../About.styles";
+import { Header, MainContainer, Container } from "../About.styles";
 import boardmembers from "../../../../Assets/About/Trustees.svg";
 
 const FounderTrustees = () => {
@@ -17,7 +11,11 @@ const FounderTrustees = () => {
           FOUNDER TRUSTEES OF THE VISWA BHARATI VIDYODAYA TRUST, GUDALUR 1993
         </p>
         <br />
-        <img style={{ width: "1000px" }} src={boardmembers} />
+        <img
+          alt="Board Members"
+          style={{ width: "1000px" }}
+          src={boardmembers}
+        />
       </Container>
     </MainContainer>
   );

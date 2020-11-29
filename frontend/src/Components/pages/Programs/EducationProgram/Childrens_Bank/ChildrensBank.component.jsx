@@ -1,5 +1,5 @@
 import React from "react";
-import { useHistory, Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import savings from "../../../../../Assets/Programs/savings-e1454394256428.jpg";
 
 import {
@@ -7,10 +7,7 @@ import {
   HeadingContainer,
   Heading,
   BackBtn,
-  ProgramDonateContainer,
   TextContainer,
-  ButtonContainer,
-  Links,
 } from "../../Programs.styles";
 import { EducationContainer } from "../EducationProgram.styles";
 
@@ -109,6 +106,7 @@ const ChildrensBank = (props) => {
                 href="http://india.ashoka.org/benefits-children%E2%80%99s-savings-program"
                 alt=""
                 target="_blank"
+                rel="noreferrer"
               >
                 Ashoka India website
               </a>
