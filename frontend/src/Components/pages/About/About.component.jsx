@@ -173,6 +173,7 @@ const About = () => {
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen
+            title="Introducing the Changemaker Schools"
           ></iframe>
           <iframe
             width="560"
@@ -181,6 +182,7 @@ const About = () => {
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen
+            title="Vidyodaya Adivasi School Gudalur - Ashoka Changemaker School"
           ></iframe>
         </div>
         <br />

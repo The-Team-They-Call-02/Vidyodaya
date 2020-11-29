@@ -190,6 +190,7 @@ const EducationProgram = () => {
           frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowfullscreen
+          title="Adivasi Foundation Course, Gudalur"
         ></iframe>
         <br />
 
