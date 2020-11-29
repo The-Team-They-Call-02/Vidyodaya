@@ -106,6 +106,7 @@ const ChildrensBank = (props) => {
                 href="http://india.ashoka.org/benefits-children%E2%80%99s-savings-program"
                 alt=""
                 target="_blank"
+                rel="noreferrer"
               >
                 Ashoka India website
               </a>
