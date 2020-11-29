@@ -32,7 +32,7 @@ const ReportPage = (props) => {
         setFile(res.data);
       })
       .catch((err) => console.log(err));
-  }, []);
+  }, [id]);
 
   const dlFile = ({ numPages }) => {
     setNumPages(numPages);
