@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
-import Pageclip from "pageclip";
+// import Pageclip from "pageclip";
 
 // styled-components
 import {
@@ -25,7 +25,7 @@ import {
 const ContactForm = () => {
   const { handleSubmit, errors, register, reset } = useForm();
 
-  //   test once deployed
+  //   TODO test once deployed
   //   let pageclip = new Pageclip(process.env.REACT_APP_PAGECLIP_API);
 
   const onSubmit = (values, e) => {
@@ -33,7 +33,7 @@ const ContactForm = () => {
 
     console.log(values);
 
-    // test once deployed. currently having cors issues
+    // TODO test once deployed. currently having cors issues
     // pageclip.send(data).then((res) => {
     //   console.log(res.data);
     // });

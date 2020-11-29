@@ -1,12 +1,6 @@
 import React from "react";
 
-import {
-  Header,
-  MainContainer,
-  Container,
-  TextContainer,
-  Image,
-} from "../About.styles";
+import { Header, MainContainer, Container } from "../About.styles";
 import boardmembers from "../../../../Assets/About/Trustees.svg";
 
 const ManagingCommittee = () => {

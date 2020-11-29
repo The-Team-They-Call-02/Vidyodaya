@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 //COMPONENTS
@@ -15,7 +15,6 @@ import Login from "./Components/pages/Login";
 import FounderTrustees from "./Components/pages/About/Founder_Trustees/FounderTrustees.component";
 import ManagingCommittee from "./Components/pages/About/Managing_Committee/ManagingCommittee.component";
 
-import AxiosWithAuth from "./Utils/AxiosWithAuth";
 import { AppContext } from "./context/context";
 
 // styled-components

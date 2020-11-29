@@ -16,24 +16,11 @@ import {
   Title,
   Description,
   Divider,
-  InputWrapper,
-  Label,
-  Star,
-  InputContainer,
-  InputField,
-  Textarea,
-  RadioContainer,
-  RadioChoices,
-  RadioLabel,
-  NameLabel,
   SubmitBtn,
-  ErrorContainer,
-  Select,
-  Option,
 } from "./CampEdit.styles";
 
 const CampEdit = () => {
-  const { handleSubmit, register, errors, reset } = useForm();
+  const { handleSubmit, reset } = useForm();
   const history = useHistory();
 
   const goBack = () => {

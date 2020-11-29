@@ -7,7 +7,6 @@ import {
   TextContainer,
   Image,
 } from "./About.styles";
-import { Card } from "../../../Styles/PageStyle";
 
 import img1 from "../../../Assets/About/vidyodaya1.jpg";
 import img2 from "../../../Assets/About/VBVT-Charities-Aid-Foundation.jpg";
