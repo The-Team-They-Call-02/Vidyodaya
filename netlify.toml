@@ -4,6 +4,9 @@
   command = "npm run build"
   ignore = "/bin/false" # fix CI badge error where canceled = failed
 
+[build.environment]
+  CI = "true"
+
 # The following redirect is intended for use with most SPAs that handle
 # routing internally.
 [[redirects]]
