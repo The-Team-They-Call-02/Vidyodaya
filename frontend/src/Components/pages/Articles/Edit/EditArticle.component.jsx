@@ -65,7 +65,7 @@ const EditArticle = () => {
         console.log("res", res.data);
         addArticles(res.data);
       });
-  }, []);
+  }, [addArticles, id]);
 
   const onSubmit = (values, e) => {
     e.preventDefault();
