@@ -21,7 +21,7 @@ const ReportPage = (props) => {
   const [numPages, setNumPages] = useState(null);
   const [pageNumber, setPageNumber] = useState(1);
 
-  //  TODO since we're dealing with dummy data, this useEffect won't work yet
+  //   since we're dealing with dummy data, this useEffect won't work yet
 
   useEffect(() => {
     axios
@@ -32,7 +32,7 @@ const ReportPage = (props) => {
         setFile(res.data);
       })
       .catch((err) => console.log(err));
-  }, [id]);
+  }, []);
 
   const dlFile = ({ numPages }) => {
     setNumPages(numPages);
