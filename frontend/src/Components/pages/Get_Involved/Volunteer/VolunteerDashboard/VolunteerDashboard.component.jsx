@@ -22,10 +22,9 @@ import {
 
 const VolunteerDashboard = () => {
   const [file, setFile] = useState([]);
-  const [csvData, setCsvData] = useState([]);
   const history = useHistory();
 
-  // !! Once the backend is sending the right values, uncomment this
+  // TODO !! Once the backend is sending the right values, uncomment this
   useEffect(() => {
     axios
       .get(

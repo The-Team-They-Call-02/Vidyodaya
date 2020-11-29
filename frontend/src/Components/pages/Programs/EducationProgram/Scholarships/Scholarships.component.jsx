@@ -1,15 +1,12 @@
 import React from "react";
-import { useHistory, Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 import {
   Container,
   HeadingContainer,
   Heading,
   BackBtn,
-  ProgramDonateContainer,
   TextContainer,
-  ButtonContainer,
-  Links,
 } from "../../Programs.styles";
 import { EducationContainer } from "../EducationProgram.styles";
 
