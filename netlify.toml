@@ -3,3 +3,10 @@
   publish = "build/"
   command = "npm run build"
   ignore = "/bin/false" # fix CI badge error where canceled = failed
+
+# The following redirect is intended for use with most SPAs that handle
+# routing internally.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
