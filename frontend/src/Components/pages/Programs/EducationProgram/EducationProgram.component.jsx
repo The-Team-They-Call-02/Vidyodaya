@@ -215,7 +215,12 @@ const EducationProgram = () => {
           </p>
           <br />
         </TextContainer>
-        <img src={nioosc} style={{ width: "800px" }} className="NIOOSC-image" />
+        <img
+          alt="National Institute of Open Schooling"
+          src={nioosc}
+          style={{ width: "800px" }}
+          className="NIOOSC-image"
+        />
       </EducationContainer>
       <ProgramDonateContainer>
         <h5 className="program-donations-text">
