@@ -1,7 +1,6 @@
-import React, { useState, useRef, useContext } from "react";
+import React, { useRef, useContext } from "react";
 import { useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import axios from "axios";
 import AxiosWithAuth from "../../../../Utils/AxiosWithAuth";
 import { AppContext } from "../../../../context/context";
 
@@ -23,11 +22,8 @@ import {
   InputWrapper,
   InputField,
   TextareaField,
-  Select,
   Label,
   ErrorMsg,
-  UploadContainer,
-  FileContainer,
   AddBtn,
   UploadedImage,
 } from "./CreateArticle.styles";
@@ -36,13 +32,12 @@ import InsertImage from "../../../../Assets/Articles/InsertImage.svg";
 
 const CreateArticle = () => {
   const history = useHistory();
-  const { handleSubmit, register, errors, reset } = useForm();
-  const { articles, addArticles, articleArray, setArticleArray } = useContext(
-    AppContext
-  );
+  const { handleSubmit, register, errors } = useForm();
+  const { articles, addArticles } = useContext(AppContext);
 
   console.log(articles);
-  const [file, setFile] = useState();
+  // TODO never set, is this necessary (see onSubmit below)
+  // const [file, setFile] = useState();
 
   // hardcode for now
   const years = [];
@@ -57,16 +52,17 @@ const CreateArticle = () => {
     history.push("/reports");
   };
 
-  const loadFile = (e) => {
-    e.preventDefault();
-    let image = document.getElementById("output");
-    image.src = URL.createObjectURL(e.target.files[0]);
-  };
+  // TODO unused, delete?
+  // const loadFile = (e) => {
+  //   e.preventDefault();
+  //   let image = document.getElementById("output");
+  //   image.src = URL.createObjectURL(e.target.files[0]);
+  // };
 
   const onSubmit = (values, e) => {
     e.preventDefault();
     const data = new FormData();
-    data.append("file", file);
+    // data.append("file", file);
     data.append("upload_preset", `${process.env.REACT_APP_PRESET}`);
     data.append("folder", "photos"); // folder name
 
@@ -105,14 +101,15 @@ const CreateArticle = () => {
     addArticles({ ...articles, [e.target.name]: e.target.value });
   };
 
-  const handleChange = (e) => {
-    const { files } = e.target;
-    const filesList = [];
-    Array.from(files).forEach((file) => {
-      filesList.push(file);
-    });
-    setFile(filesList[0]);
-  };
+  // TODO unused, delete?
+  // const handleChange = (e) => {
+  //   const { files } = e.target;
+  //   const filesList = [];
+  //   Array.from(files).forEach((file) => {
+  //     filesList.push(file);
+  //   });
+  //   setFile(filesList[0]);
+  // };
 
   // uploader
   const uploader = useRef();
