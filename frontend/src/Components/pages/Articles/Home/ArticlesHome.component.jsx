@@ -21,23 +21,9 @@ import {
   Info,
 } from "../Articles.styles";
 import { BackgroundImageContainer } from "../../../../Styles/GlobalStyles";
-// Endpoint for GET request to fetch articles
-
-// https://opportunity-hack-vidyodaya.herokuapp.com/articles/articles
 
 const ArticlesHome = () => {
   const { addArticles, articleArray, setArticleArray } = useContext(AppContext);
-
-  const getArticles = () => {
-    AxiosWithAuth()
-      .get("/articles/articles")
-      .then((res) => {
-        addArticles(res.data);
-        setArticleArray(res.data);
-        console.log("get article", res.data);
-      })
-      .catch((err) => console.log(err));
-  };
 
   const deleteArticles = (id) => {
     AxiosWithAuth()
@@ -50,8 +36,15 @@ const ArticlesHome = () => {
   };
 
   useEffect(() => {
-    getArticles();
-  }, []);
+    AxiosWithAuth()
+      .get("/articles/articles")
+      .then((res) => {
+        addArticles(res.data);
+        setArticleArray(res.data);
+        console.log("get article", res.data);
+      })
+      .catch((err) => console.log(err));
+  }, [addArticles, setArticleArray]);
 
   return (
     <Container>
